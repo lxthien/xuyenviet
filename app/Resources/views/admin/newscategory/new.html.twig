@@ -1,0 +1,34 @@
+{% extends 'admin/layout.html.twig' %}
+
+{% block body_id 'admin_post_new' %}
+
+{% block main %}
+    <h1>{{ 'title.newscategory_new'|trans }}</h1>
+
+    {{ form_start(form) }}
+        {{ form_row(form.parentcat) }}
+        {{ form_row(form.name) }}
+        {{ form_row(form.isAutoGenerateUrl) }}
+        {{ form_row(form.url) }}
+        {{ form_row(form.description) }}
+        {{ form_row(form.enable) }}
+        
+        {{ form_row(form.page_title) }}
+        {{ form_row(form.page_description) }}
+        {{ form_row(form.page_keyword) }}
+
+        <button type="submit" class="btn btn-primary">
+            <i class="fa fa-save" aria-hidden="true"></i> {{ 'label.create_newscategory'|trans }}
+        </button>
+        {{ form_widget(form.saveAndCreateNew, {label: 'label.save_and_create_new', attr: {class: 'btn btn-primary'}}) }}
+        <a href="{{ path('admin_newscategory_index') }}" class="btn btn-link">
+            <i class="fa fa-list-alt" aria-hidden="true"></i> {{ 'action.back_to_list'|trans }}
+        </a>
+    {{ form_end(form) }}
+{% endblock %}
+
+{% block sidebar %}
+    {{ parent() }}
+
+    {{ show_source_code(_self) }}
+{% endblock %}
