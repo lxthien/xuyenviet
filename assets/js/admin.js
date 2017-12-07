@@ -4,42 +4,6 @@ import Bloodhound from "bloodhound-js";
 import 'bootstrap-tagsinput';
 
 $(function() {
-    // Datetime picker initialization.
-    // See http://eonasdan.github.io/bootstrap-datetimepicker/
-    $('[data-toggle="datetimepicker"]').datetimepicker({
-        icons: {
-            time: 'fa fa-clock-o',
-            date: 'fa fa-calendar',
-            up: 'fa fa-chevron-up',
-            down: 'fa fa-chevron-down',
-            previous: 'fa fa-chevron-left',
-            next: 'fa fa-chevron-right',
-            today: 'fa fa-check-circle-o',
-            clear: 'fa fa-trash',
-            close: 'fa fa-remove'
-        }
-    });
-
-    // Bootstrap-tagsinput initialization
-    // http://bootstrap-tagsinput.github.io/bootstrap-tagsinput/examples/
-    var $input = $('input[data-toggle="tagsinput"]');
-    if ($input.length) {
-        var source = new Bloodhound({
-            local: $input.data('tags'),
-            queryTokenizer: Bloodhound.tokenizers.whitespace,
-            datumTokenizer: Bloodhound.tokenizers.whitespace
-        });
-        source.initialize();
-
-        $input.tagsinput({
-            trimValue: true,
-            focusClass: 'focus',
-            typeaheadjs: {
-                name: 'tags',
-                source: source.ttAdapter()
-            }
-        });
-    }
 
     // Build the slug for object entiry from the name
     initBuildSluggable();
@@ -52,7 +16,7 @@ $(function() {
      * Create sluggable from name
      **/
     function initBuildSluggable() {
-        $(":input.sluggable").keyup(function() {
+        $(".admin_new :input.sluggable").keyup(function() {
             if ( $(":input.is-auto-generator-url").prop('checked') )
                 $(":input.url").val(remove_vietnamese_accents($(this).val()));
         });
@@ -140,8 +104,10 @@ $(function() {
      * Init Ckeditor and Ckfinder.
      **/
     function initCkeditor() {
-        $('.txt-ckeditor').each(function(e){
+        $('.txt-ckeditor').each(function(e, elements){
+            var height = $(this).data("height") ? $(this).data("height") : "500";
             CKEDITOR.replace( this.id, {
+                height: height + 'px',
                 filebrowserBrowseUrl: '/assets/cksourceckfinder/ckfinder/ckfinder.html',
                 filebrowserUploadUrl: '/assets/cksourceckfinder/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files',
                 filebrowserWindowWidth: '1000',
@@ -149,9 +115,49 @@ $(function() {
             });
         });
     }
+
+    // Datetime picker initialization.
+    // See http://eonasdan.github.io/bootstrap-datetimepicker/
+    $('[data-toggle="datetimepicker"]').datetimepicker({
+        icons: {
+            time: 'fa fa-clock-o',
+            date: 'fa fa-calendar',
+            up: 'fa fa-chevron-up',
+            down: 'fa fa-chevron-down',
+            previous: 'fa fa-chevron-left',
+            next: 'fa fa-chevron-right',
+            today: 'fa fa-check-circle-o',
+            clear: 'fa fa-trash',
+            close: 'fa fa-remove'
+        }
+    });
+
+    // Bootstrap-tagsinput initialization
+    // http://bootstrap-tagsinput.github.io/bootstrap-tagsinput/examples/
+    var $input = $('input[data-toggle="tagsinput"]');
+    if ($input.length) {
+        var source = new Bloodhound({
+            local: $input.data('tags'),
+            queryTokenizer: Bloodhound.tokenizers.whitespace,
+            datumTokenizer: Bloodhound.tokenizers.whitespace
+        });
+        source.initialize();
+
+        $input.tagsinput({
+            trimValue: true,
+            focusClass: 'focus',
+            typeaheadjs: {
+                name: 'tags',
+                source: source.ttAdapter()
+            }
+        });
+    }
 });
 
-// Handling the modal confirmation message.
+
+/******************************************
+ * Handling the modal confirmation message.
+ *****************************************/
 $(document).on('submit', 'form[data-confirmation]', function (event) {
     var $form = $(this),
         $confirm = $('#confirmationModal');

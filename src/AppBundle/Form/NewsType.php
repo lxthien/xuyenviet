@@ -12,6 +12,7 @@
 namespace AppBundle\Form;
 
 use AppBundle\Entity\NewsCategory;
+use AppBundle\Entity\News;
 use AppBundle\Form\Type\DateTimePickerType;
 use AppBundle\Form\Type\TagsInputType;
 use Symfony\Component\Form\AbstractType;
@@ -21,6 +22,8 @@ use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
+use Vich\UploaderBundle\Form\Type\VichFileType;
+
 /**
  * Defines the form used to create and manipulate blog posts.
  *
@@ -28,7 +31,7 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
  * @author Javier Eguiluz <javier.eguiluz@gmail.com>
  * @author Yonel Ceruto <yonelceruto@gmail.com>
  */
-class NewsCategoryType extends AbstractType
+class NewsType extends AbstractType
 {
     /**
      * {@inheritdoc}
@@ -45,13 +48,13 @@ class NewsCategoryType extends AbstractType
         // $builder->add('title', null, ['required' => false, ...]);
 
         $builder
-            ->add('parentcat', null, [
-                'attr' => ['autofocus' => true],
-                'label' => 'label.parentcat',
+            ->add('category', null, [
+                'required' => false,
+                'label' => 'label.category',
             ])
-            ->add('name', null, [
+            ->add('title', null, [
                 'attr' => ['class' => 'sluggable'],
-                'label' => 'label.name',
+                'label' => 'label.title',
             ])
             ->add('isAutoGenerateUrl', CheckboxType::class, [
                 'attr' => ['class' => 'is-auto-generator-url'],
@@ -62,13 +65,24 @@ class NewsCategoryType extends AbstractType
                 'attr' => ['class' => 'url', 'readonly' => 'readonly'],
                 'label' => 'label.url',
             ])
-            ->add('description', TextareaType::class, [
-                'attr' => ['class' => 'txt-ckeditor', 'data-height' => '300'],
-                'label' => 'label.description',
-            ])
             ->add('enable', CheckboxType::class, [
                 'required' => false,
                 'label' => 'label.enable',
+            ])
+            ->add('imageFile', VichFileType::class, [
+                'required' => false,
+                'allow_delete' => true,
+            ])
+            ->add('description', TextareaType::class, [
+                'label' => 'label.description',
+            ])
+            ->add('contents', TextareaType::class, [
+                'attr' => ['class' => 'txt-ckeditor', 'data-height' => '500'],
+                'label' => 'label.contents',
+            ])
+            ->add('tags', TagsInputType::class, [
+                'label' => 'label.tags',
+                'required' => false,
             ])
             ->add('page_title', TextType::class, [
                 'required' => false,
@@ -91,7 +105,7 @@ class NewsCategoryType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-            'data_class' => NewsCategory::class,
+            'data_class' => News::class,
         ]);
     }
 }

@@ -2,25 +2,40 @@
 @import "~eonasdan-bootstrap-datetimepicker/src/sass/bootstrap-datetimepicker-build.scss";
 @import "bootstrap-tagsinput.scss";
 
+
 /* Page: 'Backend post index'
    ------------------------------------------------------------------------- */
+
 body#admin_post_index .item-actions {
-  white-space: nowrap
+    white-space: nowrap
 }
 
-body#admin_post_index .item-actions a.btn + a.btn {
-  margin-left: 4px
+body#admin_post_index .item-actions a.btn+a.btn {
+    margin-left: 4px
 }
+
 
 /* Page: 'Backend post show'
    ------------------------------------------------------------------------- */
+
 body#admin_post_show .post-tags .label-default {
-  background-color: #e9ecec;
-  color: #6D8283;
-  font-size: 16px;
-  margin-right: 10px;
-  padding: .4em 1em .5em;
+    background-color: #e9ecec;
+    color: #6D8283;
+    font-size: 16px;
+    margin-right: 10px;
+    padding: .4em 1em .5em;
 }
+
 body#admin_post_show .post-tags .label-default i {
-  color: #95A6A7;
+    color: #95A6A7;
+}
+
+/*===========================================================================
+ * Listing page
+ ============================================================================*/
+.table-list .item-actions .mr-left {
+    float: left;
+}
+.table-list .item-actions .btn-icon-delete {
+    padding: 3px 7px; border-radius: 0; margin-left: 3px;
 }

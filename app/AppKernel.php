@@ -32,7 +32,8 @@ class AppKernel extends Kernel
             new AppBundle\AppBundle(),
             new Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle(), // used for initial population of non-SQLite databases in production envs
             new Symfony\Bundle\SwiftmailerBundle\SwiftmailerBundle(),
-            new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(), // used for Gedmo
+            new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(), // Gedmo bundle
+            new Vich\UploaderBundle\VichUploaderBundle(), // Vichupload bundle
         ];
 
         // Some bundles are only used while developing the application or during

@@ -1,4 +1,4 @@
-webpackJsonp([5],{
+webpackJsonp([4],{
 
 /***/ "./assets/js/jquery.instantSearch.js":
 /***/ (function(module, exports, __webpack_require__) {

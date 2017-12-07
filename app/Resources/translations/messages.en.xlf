@@ -418,6 +418,46 @@
                 <target>News Category updated successfully!</target>
             </trans-unit>
 
+            <trans-unit id="newscategory.deleted_successfully">
+                <source>newscategory.deleted_successfully</source>
+                <target>News Category deleted successfully!</target>
+            </trans-unit>
+
+            <trans-unit id="menu.category_list">
+                <source>menu.category_list</source>
+                <target>Category</target>
+            </trans-unit>
+
+            <trans-unit id="title.news_list">
+                <source>title.news_list</source>
+                <target>News list</target>
+            </trans-unit>
+            <trans-unit id="label.category">
+                <source>label.category</source>
+                <target>Category</target>
+            </trans-unit>
+            <trans-unit id="row.no_posts_found">
+                <source>row.no_posts_found</source>
+                <target>No posts found</target>
+            </trans-unit>
+
+            <trans-unit id="title.news_new">
+                <source>title.news_new</source>
+                <target>News new</target>
+            </trans-unit>
+            <trans-unit id="label.contents">
+                <source>label.contents</source>
+                <target>Contents</target>
+            </trans-unit>
+            <trans-unit id="label.contents">
+                <source>label.contents</source>
+                <target>Contents</target>
+            </trans-unit>
+            <trans-unit id="label.create_news">
+                <source>label.create_news</source>
+                <target>Create news</target>
+            </trans-unit>
+
         </body>
     </file>
 </xliff>

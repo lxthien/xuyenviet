@@ -66,13 +66,6 @@ class NewsCategory
     private $description = null;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="images", type="string", length=255, nullable=true)
-     */
-    private $images;
-
-    /**
      * @var boolean
      *
      * @ORM\Column(name="enable", type="boolean")
@@ -270,30 +263,6 @@ class NewsCategory
     public function getDescription()
     {
         return $this->description;
-    }
-
-    /**
-     * Set images
-     *
-     * @param string $images
-     *
-     * @return NewsCategory
-     */
-    public function setImages($images)
-    {
-        $this->images = $images;
-
-        return $this;
-    }
-
-    /**
-     * Get images
-     *
-     * @return string
-     */
-    public function getImages()
-    {
-        return $this->images;
     }
 
     /**
