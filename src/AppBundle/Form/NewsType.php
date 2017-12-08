@@ -48,10 +48,6 @@ class NewsType extends AbstractType
         // $builder->add('title', null, ['required' => false, ...]);
 
         $builder
-            ->add('category', null, [
-                'required' => false,
-                'label' => 'label.category',
-            ])
             ->add('title', null, [
                 'attr' => ['class' => 'sluggable'],
                 'label' => 'label.title',
@@ -79,6 +75,10 @@ class NewsType extends AbstractType
             ->add('contents', TextareaType::class, [
                 'attr' => ['class' => 'txt-ckeditor', 'data-height' => '500'],
                 'label' => 'label.contents',
+            ])
+            ->add('category', null, [
+                'required' => false,
+                'label' => 'label.category',
             ])
             ->add('tags', TagsInputType::class, [
                 'label' => 'label.tags',

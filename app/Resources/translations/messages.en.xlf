@@ -151,7 +151,7 @@
             </trans-unit>
             <trans-unit id="action.back_to_list">
                 <source>action.back_to_list</source>
-                <target>Back to the post list</target>
+                <target>Back to the list</target>
             </trans-unit>
             <trans-unit id="action.publish_comment">
                 <source>action.publish_comment</source>
@@ -428,6 +428,11 @@
                 <target>Category</target>
             </trans-unit>
 
+            
+            <trans-unit id="menu.news_list">
+                <source>menu.news_list</source>
+                <target>News</target>
+            </trans-unit>
             <trans-unit id="title.news_list">
                 <source>title.news_list</source>
                 <target>News list</target>
@@ -445,9 +450,9 @@
                 <source>title.news_new</source>
                 <target>News new</target>
             </trans-unit>
-            <trans-unit id="label.contents">
-                <source>label.contents</source>
-                <target>Contents</target>
+            <trans-unit id="label.images">
+                <source>label.images</source>
+                <target>Images</target>
             </trans-unit>
             <trans-unit id="label.contents">
                 <source>label.contents</source>
@@ -458,6 +463,23 @@
                 <target>Create news</target>
             </trans-unit>
 
+            <trans-unit id="title.edit_news">
+                <source>title.edit_news</source>
+                <target>Edit news #%id%</target>
+            </trans-unit>
+
+            <trans-unit id="title.comment_list">
+                <source>title.comment_list</source>
+                <target>Comment List</target>
+            </trans-unit>
+            <trans-unit id="label.response.on.post">
+                <source>label.response.on.post</source>
+                <target>Response to</target>
+            </trans-unit>
+            <trans-unit id="action.admin_new">
+                <source>action.admin_new</source>
+                <target>Create</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>

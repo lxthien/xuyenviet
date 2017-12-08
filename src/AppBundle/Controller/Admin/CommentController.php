@@ -11,8 +11,8 @@
 
 namespace AppBundle\Controller\Admin;
 
-use AppBundle\Entity\NewsCategory;
-use AppBundle\Form\NewsCategoryType;
+use AppBundle\Entity\Comment;
+use AppBundle\Form\CommentType;
 use AppBundle\Utils\Slugger;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
@@ -30,32 +30,32 @@ use Symfony\Component\HttpFoundation\Request;
  *
  * See http://knpbundles.com/keyword/admin
  *
- * @Route("/admin/newscategory")
+ * @Route("/admin/comment")
  * @Security("has_role('ROLE_ADMIN')")
  *
  * @author Ryan Weaver <weaverryan@gmail.com>
  * @author Javier Eguiluz <javier.eguiluz@gmail.com>
  */
-class NewsCategoryController extends Controller
+class CommentController extends Controller
 {
     /**
-     * Lists all NewsCategory entities.
+     * Lists all Comment entities.
      *
-     * @Route("/", name="admin_newscategory_index")
+     * @Route("/", name="admin_comment_index")
      * @Method("GET")
      */
     public function indexAction()
     {
         $em = $this->getDoctrine()->getManager();
-        $categories = $em->getRepository(NewsCategory::class)->findAll();
+        $comment = $em->getRepository(Comment::class)->findAll();
 
-        return $this->render('admin/newscategory/index.html.twig', ['categories' => $categories]);
+        return $this->render('admin/comment/index.html.twig', ['comment' => $comment]);
     }
 
     /**
-     * Creates a new NewsCategory entity.
+     * Creates a new Comment entity.
      *
-     * @Route("/new", name="admin_newscategory_new")
+     * @Route("/new", name="admin_comment_new")
      * @Method({"GET", "POST"})
      *
      * NOTE: the Method annotation is optional, but it's a recommended practice
@@ -64,11 +64,11 @@ class NewsCategoryController extends Controller
      */
     public function newAction(Request $request, Slugger $slugger)
     {
-        $category = new NewsCategory();
-        $category->setAuthor($this->getUser());
+        $comment = new Comment();
+        $comment->setAuthor($this->getUser());
 
         // See https://symfony.com/doc/current/book/forms.html#submitting-forms-with-multiple-buttons
-        $form = $this->createForm(NewsCategoryType::class, $category)
+        $form = $this->createForm(CommentType::class, $comment)
             ->add('saveAndCreateNew', SubmitType::class);
 
         $form->handleRequest($request);
@@ -80,84 +80,84 @@ class NewsCategoryController extends Controller
         if ($form->isSubmitted() && $form->isValid()) {
 
             $em = $this->getDoctrine()->getManager();
-            $em->persist($category);
+            $em->persist($comment);
             $em->flush();
 
             // Flash messages are used to notify the user about the result of the
             // actions. They are deleted automatically from the session as soon
             // as they are accessed.
             // See https://symfony.com/doc/current/book/controller.html#flash-messages
-            $this->addFlash('success', 'newscategory.created_successfully');
+            $this->addFlash('success', 'created_successfully');
 
             if ($form->get('saveAndCreateNew')->isClicked()) {
-                return $this->redirectToRoute('admin_newscategory_new');
+                return $this->redirectToRoute('admin_comment_new');
             }
 
-            return $this->redirectToRoute('admin_newscategory_index');
+            return $this->redirectToRoute('admin_comment_index');
         }
 
-        return $this->render('admin/newscategory/new.html.twig', [
-            'category' => $category,
+        return $this->render('admin/comment/new.html.twig', [
+            'comment' => $comment,
             'form' => $form->createView(),
         ]);
     }
 
     /**
-     * Finds and displays a NewsCategory entity.
+     * Finds and displays a News entity.
      *
-     * @Route("/{id}", requirements={"id": "\d+"}, name="admin_newscategory_show")
+     * @Route("/{id}", requirements={"id": "\d+"}, name="admin_comment_show")
      * @Method("GET")
      */
-    public function showAction(NewsCategory $category)
+    public function showAction(Comment $news)
     {
         // This security check can also be performed
         // using an annotation: @Security("is_granted('show', post)")
         //$this->denyAccessUnlessGranted('show', $post, 'Posts can only be shown to their authors.');
 
-        return $this->render('admin/blog/show.html.twig', [
-            'category' => $category,
+        return $this->render('admin/news/show.html.twig', [
+            'news' => $news,
         ]);
     }
 
     /**
-     * Displays a form to edit an existing NewsCategory entity.
+     * Displays a form to edit an existing News entity.
      *
-     * @Route("/{id}/edit", requirements={"id": "\d+"}, name="admin_newscategory_edit")
+     * @Route("/{id}/edit", requirements={"id": "\d+"}, name="admin_comment_edit")
      * @Method({"GET", "POST"})
      */
-    public function editAction(Request $request, NewsCategory $category, Slugger $slugger)
+    public function editAction(Request $request, Comment $news, Slugger $slugger)
     {
         //$this->denyAccessUnlessGranted('edit', $category, 'Posts can only be edited by their authors.');
 
-        $form = $this->createForm(NewsCategoryType::class, $category);
+        $form = $this->createForm(NewsType::class, $news);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
 
             $this->getDoctrine()->getManager()->flush();
 
-            $this->addFlash('success', 'newscategory.updated_successfully');
+            $this->addFlash('success', 'news.updated_successfully');
 
-            return $this->redirectToRoute('admin_newscategory_index');
+            return $this->redirectToRoute('admin_news_index');
         }
 
-        return $this->render('admin/newscategory/edit.html.twig', [
-            'category' => $category,
+        return $this->render('admin/news/edit.html.twig', [
+            'news' => $news,
             'form' => $form->createView(),
         ]);
     }
 
     /**
-     * Deletes a NewsCategory entity.
+     * Deletes a News entity.
      *
-     * @Route("/{id}/delete", name="admin_newscategory_delete")
+     * @Route("/{id}/delete", name="admin_comment_delete")
      * @Method("POST")
      * @Security("is_granted('delete', post)")
      *
      * The Security annotation value is an expression (if it evaluates to false,
      * the authorization mechanism will prevent the user accessing this resource).
      */
-    public function deleteAction(Request $request, NewsCategory $category)
+    public function deleteAction(Request $request, Comment $category)
     {
         if (!$this->isCsrfTokenValid('delete', $request->request->get('token'))) {
             return $this->redirectToRoute('admin_newscategory_index');

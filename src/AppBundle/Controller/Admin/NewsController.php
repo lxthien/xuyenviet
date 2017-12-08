@@ -11,10 +11,8 @@
 
 namespace AppBundle\Controller\Admin;
 
-use AppBundle\Entity\Post;
 use AppBundle\Entity\NewsCategory;
 use AppBundle\Entity\News;
-use AppBundle\Form\PostType;
 use AppBundle\Form\NewsCategoryType;
 use AppBundle\Form\NewsType;
 use AppBundle\Utils\Slugger;
@@ -112,14 +110,14 @@ class NewsController extends Controller
      * @Route("/{id}", requirements={"id": "\d+"}, name="admin_news_show")
      * @Method("GET")
      */
-    public function showAction(NewsCategory $category)
+    public function showAction(News $news)
     {
         // This security check can also be performed
         // using an annotation: @Security("is_granted('show', post)")
         //$this->denyAccessUnlessGranted('show', $post, 'Posts can only be shown to their authors.');
 
-        return $this->render('admin/blog/show.html.twig', [
-            'category' => $category,
+        return $this->render('admin/news/show.html.twig', [
+            'news' => $news,
         ]);
     }
 
@@ -152,9 +150,9 @@ class NewsController extends Controller
     }
 
     /**
-     * Deletes a NewsCategory entity.
+     * Deletes a News entity.
      *
-     * @Route("/{id}/delete", name="admin_newscategory_delete")
+     * @Route("/{id}/delete", name="admin_news_delete")
      * @Method("POST")
      * @Security("is_granted('delete', post)")
      *

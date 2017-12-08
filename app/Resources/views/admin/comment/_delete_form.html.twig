@@ -1,5 +1,5 @@
 {{ include('blog/_delete_post_confirmation.html.twig') }}
-<form action="{{ url('admin_news_delete', {id: news.id}) }}" method="post" data-confirmation="true" id="delete-form" class="mr-left">
+<form action="{{ url('admin_comment_delete', {id: comment.id}) }}" method="post" data-confirmation="true" id="delete-form" class="mr-left">
     <input type="hidden" name="token" value="{{ csrf_token('delete') }}" />
     <button type="submit" class="btn btn-lg btn-block btn-danger btn-icon-delete">
         <i class="fa fa-trash" aria-hidden="true"></i>
