@@ -108,47 +108,75 @@ class CommentController extends Controller
      * @Route("/{id}", requirements={"id": "\d+"}, name="admin_comment_show")
      * @Method("GET")
      */
-    public function showAction(Comment $news)
+    public function showAction(Comment $comment)
     {
         // This security check can also be performed
         // using an annotation: @Security("is_granted('show', post)")
         //$this->denyAccessUnlessGranted('show', $post, 'Posts can only be shown to their authors.');
 
-        return $this->render('admin/news/show.html.twig', [
-            'news' => $news,
+        return $this->render('admin/comment/show.html.twig', [
+            'comment' => $comment,
         ]);
     }
 
     /**
-     * Displays a form to edit an existing News entity.
+     * Displays a form to edit an existing Comment entity.
      *
      * @Route("/{id}/edit", requirements={"id": "\d+"}, name="admin_comment_edit")
      * @Method({"GET", "POST"})
      */
-    public function editAction(Request $request, Comment $news, Slugger $slugger)
+    public function editAction(Request $request, Comment $comment, Slugger $slugger)
     {
         //$this->denyAccessUnlessGranted('edit', $category, 'Posts can only be edited by their authors.');
 
-        $form = $this->createForm(NewsType::class, $news);
+        $form = $this->createForm(CommentType::class, $comment);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
 
             $this->getDoctrine()->getManager()->flush();
 
-            $this->addFlash('success', 'news.updated_successfully');
+            $this->addFlash('success', 'updated_successfully');
 
-            return $this->redirectToRoute('admin_news_index');
+            return $this->redirectToRoute('admin_comment_index');
         }
 
-        return $this->render('admin/news/edit.html.twig', [
-            'news' => $news,
+        return $this->render('admin/comment/edit.html.twig', [
+            'comment' => $comment,
             'form' => $form->createView(),
         ]);
     }
 
     /**
-     * Deletes a News entity.
+     * Displays a form to reply an existing Comment entity.
+     *
+     * @Route("/{id}/reply", requirements={"id": "\d+"}, name="admin_comment_reply")
+     * @Method({"GET", "POST"})
+     */
+    public function replyAction(Request $request, Comment $comment, Slugger $slugger)
+    {
+        //$this->denyAccessUnlessGranted('edit', $category, 'Posts can only be edited by their authors.');
+
+        $form = $this->createForm(CommentType::class, $comment);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+
+            $this->getDoctrine()->getManager()->flush();
+
+            $this->addFlash('success', 'updated_successfully');
+
+            return $this->redirectToRoute('admin_comment_index');
+        }
+
+        return $this->render('admin/comment/edit.html.twig', [
+            'comment' => $comment,
+            'form' => $form->createView(),
+        ]);
+    }
+
+    /**
+     * Deletes a Comment entity.
      *
      * @Route("/{id}/delete", name="admin_comment_delete")
      * @Method("POST")
@@ -157,10 +185,10 @@ class CommentController extends Controller
      * The Security annotation value is an expression (if it evaluates to false,
      * the authorization mechanism will prevent the user accessing this resource).
      */
-    public function deleteAction(Request $request, Comment $category)
+    public function deleteAction(Request $request, Comment $comment)
     {
         if (!$this->isCsrfTokenValid('delete', $request->request->get('token'))) {
-            return $this->redirectToRoute('admin_newscategory_index');
+            return $this->redirectToRoute('admin_comment_index');
         }
 
         // Delete the tags associated with this blog post. This is done automatically
@@ -168,11 +196,11 @@ class CommentController extends Controller
         // because foreign key support is not enabled by default in SQLite
 
         $em = $this->getDoctrine()->getManager();
-        $em->remove($category);
+        $em->remove($comment);
         $em->flush();
 
-        $this->addFlash('success', 'newscategory.deleted_successfully');
+        $this->addFlash('success', 'deleted_successfully');
 
-        return $this->redirectToRoute('admin_newscategory_index');
+        return $this->redirectToRoute('admin_comment_index');
     }
 }

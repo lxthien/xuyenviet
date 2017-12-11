@@ -1,0 +1,25 @@
+/** ====================
+ * Homepage
+ =======================*/
+.marketing {
+	.col-lg-4 {
+		margin-bottom: 1.5rem;
+	    text-align: center;
+	}
+}
+
+/** ====================
+ * Listing
+ =======================*/
+.list-unstyled {
+	.media {
+ 		margin-bottom: 15px;
+ 		.media-thumb {
+ 			width: 25%;
+ 		}
+ 		.img-thumbnail {
+ 			border: none;
+ 			padding: .20rem;
+ 		}
+	}
+}

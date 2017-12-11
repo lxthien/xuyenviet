@@ -20,3 +20,5 @@
 /web/build/fonts/glyphicons-*
 /web/build/images/glyphicons-*
 /web/uploads/
+/web/css/
+/web/js/

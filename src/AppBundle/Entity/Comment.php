@@ -14,9 +14,11 @@ namespace AppBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 
+use Gedmo\Mapping\Annotation as Gedmo;
+
 /**
  * @ORM\Entity
- * @ORM\Table(name="symfony_demo_comment")
+ * @ORM\Table(name="comment")
  *
  * Defines the properties of the Comment entity to represent the blog comments.
  * See https://symfony.com/doc/current/book/doctrine.html#creating-an-entity-class
@@ -39,12 +41,12 @@ class Comment
     private $id;
 
     /**
-     * @var Post
+     * @var News
      *
-     * @ORM\ManyToOne(targetEntity="Post", inversedBy="comments")
+     * @ORM\ManyToOne(targetEntity="News", inversedBy="comments")
      * @ORM\JoinColumn(nullable=false)
      */
-    private $post;
+    private $news;
 
     /**
      * @var string
@@ -63,10 +65,18 @@ class Comment
     /**
      * @var \DateTime
      *
-     * @ORM\Column(type="datetime")
-     * @Assert\DateTime
+     * @Gedmo\Timestampable(on="create")
+     * @ORM\Column(name="created_at", type="datetime") 
      */
-    private $publishedAt;
+    private $created_at;
+
+    /**
+     * @var \DateTime
+     *
+     * @Gedmo\Timestampable(on="update")
+     * @ORM\Column(name="updated_at", type="datetime")
+     */
+    private $updated_at;
 
     /**
      * @var User
@@ -78,7 +88,7 @@ class Comment
 
     public function __construct()
     {
-        $this->publishedAt = new \DateTime();
+        $this->created_at = new \DateTime();
     }
 
     /**
@@ -91,35 +101,89 @@ class Comment
         return !$containsInvalidCharacters;
     }
 
+    /**
+     * Get id
+     *
+     * @return int
+     */
     public function getId()
     {
         return $this->id;
     }
 
+    /**
+     * Get content
+     *
+     * @return string
+     */
     public function getContent()
     {
         return $this->content;
     }
 
     /**
+     * Set content
+     *
      * @param string $content
+     *
+     * @return Comment
      */
     public function setContent($content)
     {
         $this->content = $content;
     }
 
-    public function getPublishedAt()
+    /**
+     * Get createdAt
+     *
+     * @return \DateTime
+     */
+    public function getCreatedAt()
     {
-        return $this->publishedAt;
-    }
-
-    public function setPublishedAt(\DateTime $publishedAt)
-    {
-        $this->publishedAt = $publishedAt;
+        return $this->created_at;
     }
 
     /**
+     * Set createAt
+     *
+     * @param \DateTime $createdAt
+     *
+     * @return News
+     */
+    public function setCreatedAt($createdAt)
+    {
+        $this->created_at = $createdAt;
+
+        return $this;
+    }
+
+    /**
+     * Get updated
+     *
+     * @return \DateTime
+     */
+    public function getUpdatedAt()
+    {
+        return $this->updated_at;
+    }
+
+    /**
+     * Set updated
+     *
+     * @param \DateTime $updated
+     *
+     * @return News
+     */
+    public function setUpdatedAt($updated)
+    {
+        $this->updated_at = $updated;
+
+        return $this;
+    }
+
+    /**
+     * Get author
+     *
      * @return User
      */
     public function getAuthor()
@@ -128,20 +192,36 @@ class Comment
     }
 
     /**
+     * Set author
+     *
      * @param User $author
+     *
+     * @return Comment 
      */
     public function setAuthor(User $author)
     {
         $this->author = $author;
     }
 
-    public function getPost()
+    /**
+     * Get news
+     *
+     * @return News
+     */
+    public function getNews()
     {
-        return $this->post;
+        return $this->news;
     }
 
-    public function setPost(Post $post)
+    /**
+     * Set news
+     *
+     * @param News $news
+     *
+     * @return Comment
+     */
+    public function setNews(News $news)
     {
-        $this->post = $post;
+        $this->news = $news;
     }
 }

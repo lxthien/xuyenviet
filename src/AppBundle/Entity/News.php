@@ -37,19 +37,6 @@ class News
     private $category;
 
     /**
-     * @var News[]
-     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Comments", mappedBy="news", cascade={"remove"})
-     */
-    //private $news;
-
-    /**
-     * Many News have Many Tags.
-     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Tags", inversedBy="news")
-     * @ORM\JoinTable(name="news_tags")
-     */
-    //private $tags;
-
-    /**
      * @var string
      *
      * @Assert\NotBlank()
@@ -175,6 +162,18 @@ class News
      * @Assert\Count(max="4", maxMessage="news.too_many_tags")
      */
     private $tags;
+
+    /**
+     * @var Comment[]|ArrayCollection
+     *
+     * @ORM\OneToMany(
+     *      targetEntity="Comment",
+     *      mappedBy="news",
+     *      orphanRemoval=true
+     * )
+     * @ORM\OrderBy({"publishedAt": "DESC"})
+     */
+    private $comments;
 
     public function __toString()
     {
@@ -569,6 +568,16 @@ class News
     }
 
     /**
+     * Get updated
+     *
+     * @return \DateTime
+     */
+    public function getUpdatedAt()
+    {
+        return $this->updated_at;
+    }
+    
+    /**
      * Set updated
      *
      * @param \DateTime $updated
@@ -580,16 +589,6 @@ class News
         $this->updated_at = $updated;
 
         return $this;
-    }
-
-    /**
-     * Get updated
-     *
-     * @return \DateTime
-     */
-    public function getUpdatedAt()
-    {
-        return $this->updated_at;
     }
 
     /**
@@ -606,9 +605,45 @@ class News
      * Set author
      *
      * @param User $author
+     *
+     * @return News
      */
     public function setAuthor(User $author)
     {
         $this->author = $author;
+    }
+
+    /**
+     * Get comment
+     *
+     * @return Comment
+     */
+    public function getComments()
+    {
+        return $this->comments;
+    }
+
+    /**
+     * Add comment for news
+     *
+     * @return News
+     */
+    public function addComment(Comment $comment)
+    {
+        $comment->setNews($this);
+        if (!$this->comments->contains($comment)) {
+            $this->comments->add($comment);
+        }
+    }
+
+    /**
+     * Remove comment from news
+     *
+     * @return News
+     */
+    public function removeComment(Comment $comment)
+    {
+        $comment->setNews(null);
+        $this->comments->removeElement($comment);
     }
 }

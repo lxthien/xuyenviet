@@ -34,6 +34,7 @@ class AppKernel extends Kernel
             new Symfony\Bundle\SwiftmailerBundle\SwiftmailerBundle(),
             new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(), // Gedmo bundle
             new Vich\UploaderBundle\VichUploaderBundle(), // Vichupload bundle
+            new Liip\ImagineBundle\LiipImagineBundle(), // Liip Imagine Bundle
         ];
 
         // Some bundles are only used while developing the application or during

@@ -11,6 +11,9 @@ $(function() {
     // Init CkEditor and CKfinder
     initCkeditor();
 
+    // Update object when change the enable button toggle
+    initEnableToggleButton();
+
     /**
      * @var string
      * Create sluggable from name
@@ -114,6 +117,13 @@ $(function() {
                 filebrowserWindowHeight: '700'
             });
         });
+    }
+
+    /**
+     * Update object when change the enable button toggle
+     **/
+    function initEnableToggleButton() {
+
     }
 
     // Datetime picker initialization.

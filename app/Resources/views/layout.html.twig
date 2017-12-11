@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="icon" type="image/x-icon" href="{{ asset('assets/cms/images/favicon.ico') }}" />
+
+        <title>{% block title %}Mua Bán Nhà Đất | Cho Thuê Nhà Đất | Bất Động Sản | HomeLand247.Com{% endblock %}</title>
+        <meta name="description" content="{% block description %}Kênh mua bán và cho thuê nhà đất hàng đầu tại Việt Nam. Chuyên mua bán cho thuê nhà đất TP.HCM, Hà Nội, Đồng Nai, Bình Dương, Long An và các Tỉnh/TP khác...{% endblock %}">
+        <meta name="keywords" content="{% block keyword %}Nhà đất, mua bán nhà đất, cho thuê nhà đất, bất động sản, mua ban nha dat, cho thue nha dat, nhà đất bán, nhà đất cho thuê.{% endblock %}">
+        
+        <link rel="canonical" href="{{ url(app.request.attributes.get('_route'), app.request.attributes.get('_route_params')) }}"/>
+
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+
+        <!-- Custom css -->
+        {% block stylesheets %}
+            <link rel="stylesheet" href="{{ asset('build/css/app.css') }}">
+        {% endblock %}
+
+        <!-- Important to add the recaptcha api in your document -->
+        <script src='https://www.google.com/recaptcha/api.js'></script>
+    </head>
+    <body>
+        <div class="container">
+            {{ include('layout/header.html.twig') }}
+            {{ include('layout/menu.html.twig') }}
+            <div class="row">
+                {% block body %}{% endblock %}
+            </div>
+            {{ include('layout/footer.html.twig') }}
+        </div>
+        {{ include('layout/footer_UI.html.twig') }}
+    </body>
+</html>

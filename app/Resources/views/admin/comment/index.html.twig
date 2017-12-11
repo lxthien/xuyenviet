@@ -19,13 +19,15 @@
             <tr>
                 <td>{{ row.getAuthor().fullName }}</td>
                 <td>{{ row.getPost() }}</td>
-                <td>{{ row.publishedAt | localizeddate('medium', 'short', null, 'UTC') }}</td>
+                <td>{{ row.getCreatedAt() | localizeddate('medium', 'short', null, 'UTC') }}</td>
                 <td class="text-right">
                     <div class="item-actions">
                         <a href="{{ path('admin_comment_edit', {id: row.id}) }}" class="btn btn-sm btn-primary mr-left">
                             <i class="fa fa-edit" aria-hidden="true"></i>
                         </a>
-                        {{ include('admin/comment/_delete_form.html.twig', {comment: row}, with_context = false) }}
+                        <a href="{{ path('admin_comment_reply', {id: row.id}) }}" class="btn btn-sm btn-primary mr-left">
+                            <i class="fa fa-reply" aria-hidden="true"></i>
+                        </a>
                     </div>
                 </td>
             </tr>

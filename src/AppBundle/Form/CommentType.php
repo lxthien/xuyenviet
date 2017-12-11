@@ -16,6 +16,8 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
+
 /**
  * Defines the form used to create and manipulate blog comments. Although in this
  * case the form is trivial and we could build it inside the controller, a good
@@ -40,7 +42,9 @@ class CommentType extends AbstractType
         // $builder->add('content', null, ['required' => false]);
 
         $builder
-            ->add('content')
+            ->add('content', TextareaType::class, [
+                'attr' => ['class' => 'txt-ckeditor', 'data-height' => '300'],
+            ])
         ;
     }
 

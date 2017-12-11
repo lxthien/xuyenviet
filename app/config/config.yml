@@ -61,6 +61,7 @@ framework:
 
 # Twig Configuration (used for rendering application templates)
 twig:
+    cache: false
     debug:            '%kernel.debug%'
     strict_variables: '%kernel.debug%'
     form_themes:
@@ -105,3 +106,39 @@ vich_uploader:
             uri_prefix:         '%app.path.news_images%'
             upload_destination: '%kernel.root_dir%/../web/uploads/images/news'
             namer: vich_uploader.namer_uniqid
+
+
+# Liip Imagine bundle
+# https://github.com/liip/LiipImagineBundle
+liip_imagine:
+    resolvers:
+        default:
+            web_path:
+                web_root: '%kernel.root_dir%/../web'
+                cache_prefix: 'media/cache'
+
+    loaders:
+        default:
+            filesystem:
+                data_root: ~  # %kernel.root_dir%/../web/
+
+    driver:               gd
+    cache:                default
+    data_loader:          default
+    default_image:        '%kernel.root_dir%/../web/assets/cms/images/no-image.jpg'
+    controller:
+        filter_action:         liip_imagine.controller:filterAction
+        filter_runtime_action: liip_imagine.controller:filterRuntimeAction
+
+    filter_sets:
+        cache: ~
+
+        # the name of the "filter set"
+        news_thumb:
+            # adjust the image quality to 75%
+            quality: 75
+            # list of transformations to apply (the "filters")
+            filters:
+                # create a thumbnail: set size to 218x150 and use the "outbound" mode
+                # to crop the image when the size ratio of the input differs
+                thumbnail: { size: [218, 150], mode: outbound }

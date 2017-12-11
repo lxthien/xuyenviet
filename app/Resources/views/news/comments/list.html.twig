@@ -1,0 +1,25 @@
+{% if comments|length > 0 %}
+<div class="list-unstyled" id="list-comments">
+    <h4><span>{{ 'count_comments' | trans({ '%count%':  comments|length}) }} </span></h4>
+    {% for comment in comments %}
+    <div class="media" id="comment-{{ comment.getId() }}">
+        <img class="mr-3 img-thumbnail" src="{{ asset('assets/cms/images/user.png') }}" alt="{{ comment.getAuthor() }} comment on this post {{ post.getName() }}">
+        <div class="media-body">
+            <h5 class="mt-0">{{ comment.getAuthor() }}</h5>
+            {{ comment.getContents()|raw }}
+            <br>
+            <a class="comment-reply-link" href="#">{{ 'Reply'|trans }}</a>
+            {# <div class="media mt-3">
+                <a class="pr-3" href="#">
+                    <img src="{{ asset('assets/cms/images/user.png') }}" alt="{{ comment.getAuthor() }} comment on this post {{ post.getName() }}">
+                </a>
+                <div class="media-body">
+                    <h5 class="mt-0">{{ comment.getAuthor() }}</h5>
+                    {{ comment.getContents() }}
+                </div>
+            </div> #}
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endif %}

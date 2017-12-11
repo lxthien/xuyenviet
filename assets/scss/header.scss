@@ -1,0 +1,15 @@
+/** ====================
+ * Menu navigation
+ =======================*/
+ nav {
+ 	margin-bottom: 10px;
+ }
+.navbar-nav li {
+	position: relative;
+}
+.navbar-nav li .dropdown-menu {
+	display: none; position: absolute; z-index: 100;
+}
+.navbar-nav li:hover .dropdown-menu {
+	display: block;
+}

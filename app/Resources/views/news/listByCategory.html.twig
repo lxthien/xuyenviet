@@ -1,0 +1,10 @@
+<div class="list-group">
+    <a href="#" class="list-group-item list-group-item-action active">
+        {{ category.getName() }}
+    </a>
+    {% for row in posts %}
+    	<a href="{{ path('news_show', {'slug': row.getUrl() }) }}" class="list-group-item list-group-item-action">
+    		{{ row.getTitle() }}
+    	</a>
+    {% endfor %}
+</div>
