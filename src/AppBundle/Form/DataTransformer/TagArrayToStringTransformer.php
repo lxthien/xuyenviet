@@ -12,6 +12,7 @@
 namespace AppBundle\Form\DataTransformer;
 
 use AppBundle\Entity\Tag;
+use AppBundle\Utils\Slugger;
 use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Component\Form\DataTransformerInterface;
 
@@ -51,6 +52,7 @@ class TagArrayToStringTransformer implements DataTransformerInterface
      */
     public function reverseTransform($string)
     {
+        $slugger = new Slugger();
         if ('' === $string || null === $string) {
             return [];
         }
@@ -65,6 +67,7 @@ class TagArrayToStringTransformer implements DataTransformerInterface
         foreach ($newNames as $name) {
             $tag = new Tag();
             $tag->setName($name);
+            $tag->setUrl($slugger->slugifyVn($name));
             $tags[] = $tag;
 
             // There's no need to persist these new tags because Doctrine does that automatically

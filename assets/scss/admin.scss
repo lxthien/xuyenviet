@@ -33,6 +33,11 @@ body#admin_post_show .post-tags .label-default i {
 /*===========================================================================
  * Listing page
  ============================================================================*/
+.table-list .images-container {
+    padding: 5px;
+    border: 1px solid #cccccc;
+    background: #ffffff;
+}
 .table-list .item-actions .btn {
     padding: 6px 0;
 }

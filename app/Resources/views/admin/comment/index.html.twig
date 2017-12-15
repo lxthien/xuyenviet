@@ -22,10 +22,10 @@
                 <td>{{ row.getCreatedAt() | localizeddate('medium', 'short', null, 'UTC') }}</td>
                 <td class="text-right">
                     <div class="item-actions">
-                        <a href="{{ path('admin_comment_edit', {id: row.id}) }}" class="btn btn-sm btn-primary mr-left">
+                        <a href="{{ path('admin_comment_edit', {id: row.id}) }}" class="btn btn-sm mr-left">
                             <i class="fa fa-edit" aria-hidden="true"></i>
                         </a>
-                        <a href="{{ path('admin_comment_reply', {id: row.id}) }}" class="btn btn-sm btn-primary mr-left">
+                        <a href="{{ path('admin_comment_reply', {id: row.id}) }}" class="btn btn-sm mr-left">
                             <i class="fa fa-reply" aria-hidden="true"></i>
                         </a>
                     </div>
