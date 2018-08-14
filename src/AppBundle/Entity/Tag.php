@@ -79,6 +79,16 @@ class Tag implements \JsonSerializable
     private $page_keyword;
 
     /**
+     * @var News
+     *
+     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\News", inversedBy="news")
+     * @ORM\JoinTable(name="news_tags")
+     * @ORM\OrderBy({"name": "ASC"})
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $news;
+
+    /**
      * Get id
      *
      * @return int

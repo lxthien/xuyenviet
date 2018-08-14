@@ -79,6 +79,13 @@ class Comment
     private $updated_at;
 
     /**
+     * @var boolean
+     *
+     * @ORM\Column(name="approved", type="boolean")
+     */
+    private $approved = true;
+
+    /**
      * @var User
      *
      * @ORM\ManyToOne(targetEntity="AppBundle\Entity\User")
@@ -201,6 +208,30 @@ class Comment
     public function setAuthor(User $author)
     {
         $this->author = $author;
+    }
+
+    /**
+     * Set approved
+     *
+     * @param bool $approved
+     *
+     * @return Comment
+     */
+    public function setApproved($approved)
+    {
+        $this->approved = $approved;
+
+        return $this;
+    }
+
+    /**
+     * Get approved
+     *
+     * @return bool
+     */
+    public function getApproved()
+    {
+        return $this->approved;
     }
 
     /**

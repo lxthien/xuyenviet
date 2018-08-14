@@ -17,8 +17,8 @@ use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use AppBundle\Entity\NewsCategory;
 use AppBundle\Entity\News;
 use AppBundle\Entity\Page;
-use AppBundle\Entity\Comments;
-use AppBundle\Entity\Tags;
+use AppBundle\Entity\Comment;
+use AppBundle\Entity\Tag;
 
 class NewsController extends Controller
 {
@@ -26,13 +26,13 @@ class NewsController extends Controller
      * @Route("{level1}/{page}",
      *      name="news_category",
      *      requirements={
-     *          "level1" = "tin-tuc|du-an",
+     *          "level1" = "[-\w]+",
      *          "page": "\d+"
      *      })
      * @Route("{level1}/{level2}/{page}",
      *      name="list_category",
      *      requirements={
-     *          "level1" = "tin-tuc|du-an",
+     *          "level1" = "[-\w]+",
      *          "page": "\d+"
      *      })
      */
@@ -57,7 +57,7 @@ class NewsController extends Controller
         }
 
         // Init breadcrum for category page
-        $breadcrumbs = $this->buildBreadcrums((!empty($subCategory) && $subCategory != null) ? $subCategory : $category, null, null);
+        //$breadcrumbs = $this->buildBreadcrums((!empty($subCategory) && $subCategory != null) ? $subCategory : $category, null, null);
 
         // Init pagination for category page.
         if (empty($subCategory)) {
@@ -149,7 +149,7 @@ class NewsController extends Controller
 
         // Get the list tag for post
         $tags = $this->getDoctrine()
-            ->getRepository(Tags::class)
+            ->getRepository(Tag::class)
             ->createQueryBuilder('t')
             ->innerJoin('t.news', 'n')
             ->where('n.id = :news_id')
@@ -158,32 +158,36 @@ class NewsController extends Controller
 
         // Get the list comment for post
         $comments = $this->getDoctrine()
-            ->getRepository(Comments::class)
+            ->getRepository(Comment::class)
             ->createQueryBuilder('c')
-            ->where('c.news_id = :news_id')
+            ->where('c.news = :news_id')
             ->andWhere('c.approved = :approved')
             ->setParameter('news_id', $post->getId())
             ->setParameter('approved', 1)
             ->getQuery()->getResult();
 
         // Render form comment for post.
-        $form = $this->renderFormComment($post);
+        //$form = $this->renderFormComment($post);
 
         // Init breadcrum for the post
-        $breadcrumbs = $this->buildBreadcrums(null, $post, null);
+        //$breadcrumbs = $this->buildBreadcrums(null, $post, null);
 
         return $this->render('news/show.html.twig', [
             'post'          => $post,
             'relatedNews'   => $relatedNews,
-            'form'          => $form->createView(),
+            //'form'          => $form->createView(),
             'tags'          => $tags,
             'comments'      => $comments,
         ]);
     }
 
     /**
-     * Render list news by tag
-     * @Route("/tag/{slug}.html", name="tag")
+     * @Route("/tag/{slug}.html",
+     *      defaults={"_format"="html"},
+     *      name="tag",
+     *      requirements={
+     *          "slug": "[^\n]+"
+     *      }))
      */
     public function tagAction($slug, Request $request)
     {
@@ -330,9 +334,9 @@ class NewsController extends Controller
      **/
     private function renderFormComment($post)
     {
-        $comment = new Comments();
-        $comment->setIp( $this->container->get('request_stack')->getCurrentRequest()->getClientIp() );
-        $comment->setNewsId( $post->getId() );
+        $comment = new Comment();
+        //$comment->setIp( $this->container->get('request_stack')->getCurrentRequest()->getClientIp() );
+        $comment->setNews( $post->getId() );
 
         $form = $this->createFormBuilder($comment)
             ->setAction($this->generateUrl('handle_comment_form'))

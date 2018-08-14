@@ -1,4 +1,4 @@
-webpackJsonp([6],{
+webpackJsonp([0],{
 
 /***/ "./assets/js/admin.js":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -25,6 +25,9 @@ $(function () {
 
     // Init CkEditor and CKfinder
     initCkeditor();
+
+    // Update object when change the enable button toggle
+    initEnableToggleButton();
 
     /**
      * @var string
@@ -88,6 +91,11 @@ $(function () {
             });
         });
     }
+
+    /**
+     * Update object when change the enable button toggle
+     **/
+    function initEnableToggleButton() {}
 
     // Datetime picker initialization.
     // See http://eonasdan.github.io/bootstrap-datetimepicker/
@@ -5160,7 +5168,7 @@ function flush() {
 function attemptVertx() {
   try {
     var r = require;
-    var vertx = __webpack_require__(3);
+    var vertx = __webpack_require__(0);
     vertxNext = vertx.runOnLoop || vertx.runOnContext;
     return useVertxTimer();
   } catch (e) {
@@ -26681,7 +26689,7 @@ module.exports = function(module) {
 
 /***/ }),
 
-/***/ 3:
+/***/ 0:
 /***/ (function(module, exports) {
 
 /* (ignored) */

@@ -32,9 +32,13 @@ class AppKernel extends Kernel
             new AppBundle\AppBundle(),
             new Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle(), // used for initial population of non-SQLite databases in production envs
             new Symfony\Bundle\SwiftmailerBundle\SwiftmailerBundle(),
+            
             new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(), // Gedmo bundle
-            new Vich\UploaderBundle\VichUploaderBundle(), // Vichupload bundle
-            new Liip\ImagineBundle\LiipImagineBundle(), // Liip Imagine Bundle
+            
+            new Vich\UploaderBundle\VichUploaderBundle(), // Vich Upload bundle
+            new Liip\ImagineBundle\LiipImagineBundle(), // Liip Imagine bundle
+
+            new Knp\Bundle\PaginatorBundle\KnpPaginatorBundle(), // Knp Pagination bundle
         ];
 
         // Some bundles are only used while developing the application or during

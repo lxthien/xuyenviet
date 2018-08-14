@@ -1,39 +1,36 @@
 {% extends 'layout.html.twig' %}
 
-{% block title %}{{ post.getPageTitle() != null ? post.getPageTitle() : post.getName() }}{% endblock %}
+{% block title %}{{ post.getPageTitle() != null ? post.getPageTitle() : post.getTitle() }}{% endblock %}
 {% block description %}{{ post.getPageDescription() }}{% endblock %}
 {% block keyword %}{{ post.getPageKeyword() }}{% endblock %}
 
 {% block body %}
-	<div class="container">
-		<div class="row">
-        	<div class="col-md-9">
-				{# Breadcrum #}
-				{{ wo_render_breadcrumbs() }}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-9">
+                {# Name of the post #}
+                <h1>{{ post.getTitle() }}</h1>
+                
+                {# Contents of the post #}
+                <div class="show-post">
+                    {{ post.getContents()|raw }}
+                </div>
+                
+                {# List tags #}
+                {{ include('news/components/tag.html.twig') }}
 
-				{# Name of the post #}
-				<h1>{{ post.getName() }}</h1>
-				
-				{# Contents of the post #}
-				<div class="show-post">
-					{{ post.getContents()|raw }}
-				</div>
-				
-				{# List tags #}
-				{{ include('news/components/tag.html.twig') }}
+                {# Related news #}
+                {# {{ include('news/components/related.html.twig') }} #}
+                
+                {# List comments #}
+                {# {{ include('news/comments/list.html.twig') }} #}
+                
+                {# Render form comment #}
+                {# {{ include('news/comments/form.html.twig') }} #}
+            </div>
 
-				{# Related news #}
-				{{ include('news/components/related.html.twig') }}
-				
-				{# List comments #}
-				{{ include('news/comments/list.html.twig') }}
-				
-				{# Render form comment #}
-				{{ include('news/comments/form.html.twig') }}
-			</div>
-
-			{# Side bar #}
-			{{ include('layout/sidebar.html.twig') }}
+            {# Side bar #}
+            {{ include('layout/sidebar.html.twig') }}
         </div>
-	</div>
+    </div>
 {% endblock %}
