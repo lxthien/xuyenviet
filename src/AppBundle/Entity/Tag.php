@@ -11,12 +11,15 @@
 
 namespace AppBundle\Entity;
 
+use AppBundle\Utils\Slugger;
+
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity()
- * @ORM\Table(name="tags")
+ * @ORM\HasLifecycleCallbacks()
+ * @ORM\Table(name="tag")
  *
  * Defines the properties of the Tag entity to represent the post tags.
  *
@@ -29,9 +32,9 @@ class Tag implements \JsonSerializable
     /**
      * @var int
      *
+     * @ORM\Column(name="id", type="integer")
      * @ORM\Id
-     * @ORM\GeneratedValue
-     * @ORM\Column(type="integer")
+     * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
 
@@ -81,12 +84,14 @@ class Tag implements \JsonSerializable
     /**
      * @var News
      *
-     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\News", inversedBy="news")
-     * @ORM\JoinTable(name="news_tags")
-     * @ORM\OrderBy({"name": "ASC"})
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\News", mappedBy="tags")
      */
     private $news;
+
+    public function __toString()
+    {
+        return $this->name;
+    }
 
     /**
      * Get id
@@ -99,6 +104,17 @@ class Tag implements \JsonSerializable
     }
 
     /**
+     * Set name
+     *
+     * @param string $name
+     * @return Tag
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+    }
+
+    /**
      * Get name
      *
      * @return string
@@ -106,18 +122,6 @@ class Tag implements \JsonSerializable
     public function getName()
     {
         return $this->name;
-    }
-
-    /**
-     * Set name
-     *
-     * @param string $name
-     *
-     * @return Tag
-     */
-    public function setName($name)
-    {
-        $this->name = $name;
     }
 
     /**
@@ -144,14 +148,13 @@ class Tag implements \JsonSerializable
 
     /**
      * Set url
-     *
-     * @param string $url
-     *
+     * @ORM\PrePersist
+     * @ORM\PreUpdate
      * @return Tag
      */
-    public function setUrl($url)
+    public function setUrl()
     {
-        $this->url = $url;
+        $this->url = (new Slugger())->slugifyUtf8($this->getName());
 
         return $this;
     }
@@ -250,10 +253,5 @@ class Tag implements \JsonSerializable
         $this->page_keyword = $pageKeyword;
 
         return $this;
-    }
-
-    public function __toString()
-    {
-        return $this->name;
     }
 }

@@ -358,7 +358,7 @@
 
             <trans-unit id="title.newscategory_list">
                 <source>title.newscategory_list</source>
-                <target>Category</target>
+                <target>Danh mục</target>
             </trans-unit>
             <trans-unit id="label.enable">
                 <source>label.enable</source>
@@ -415,7 +415,7 @@
 
             <trans-unit id="title.edit_newscategory">
                 <source>title.edit_newscategory</source>
-                <target>Edit Category "%id%"</target>
+                <target>Edit News Category #%id%</target>
             </trans-unit>
             <trans-unit id="newscategory.updated_successfully">
                 <source>newscategory.updated_successfully</source>
@@ -429,9 +429,8 @@
 
             <trans-unit id="menu.category_list">
                 <source>menu.category_list</source>
-                <target>Category</target>
+                <target>Danh mục</target>
             </trans-unit>
-
             
             <trans-unit id="menu.news_list">
                 <source>menu.news_list</source>
@@ -439,11 +438,7 @@
             </trans-unit>
             <trans-unit id="title.news_list">
                 <source>title.news_list</source>
-                <target>News</target>
-            </trans-unit>
-            <trans-unit id="lable.news.title">
-                <source>lable.news.title</source>
-                <target>Title</target>
+                <target>News list</target>
             </trans-unit>
             <trans-unit id="label.category">
                 <source>label.category</source>

@@ -3,7 +3,7 @@
 {% block body_id 'admin_category_edit' %}
 
 {% block main %}
-    <h1>{{ 'title.edit_newscategory'|trans({'%id%': category.id}) }}</h1>
+    <h1>{{ 'title.edit_newscategory'|trans({'%id%': category.name}) }}</h1>
 
     {{ include('admin/newscategory/_form.html.twig', {
         form: form,

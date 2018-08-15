@@ -23,16 +23,16 @@ use AppBundle\Entity\Tag;
 class NewsController extends Controller
 {
     /**
-     * @Route("{level1}/{page}",
+     * /*@Route("{level1}/{page}",
      *      name="news_category",
      *      requirements={
-     *          "level1" = "[-\w]+",
+     *          "level1": "[-\w]+",
      *          "page": "\d+"
      *      })
-     * @Route("{level1}/{level2}/{page}",
+     * /*@Route("{level1}/{level2}/{page}",
      *      name="list_category",
      *      requirements={
-     *          "level1" = "[-\w]+",
+     *          "level1": "[-\w]+",
      *          "page": "\d+"
      *      })
      */
@@ -46,7 +46,7 @@ class NewsController extends Controller
             throw $this->createNotFoundException("The item does not exist");
         }
 
-        if ( !empty($level2) ) {
+        if (!empty($level2)) {
             $subCategory = $this->getDoctrine()
                 ->getRepository(NewsCategory::class)
                 ->findOneBy(array('url' => $level2, 'enable' => 1));
@@ -60,7 +60,7 @@ class NewsController extends Controller
         //$breadcrumbs = $this->buildBreadcrums((!empty($subCategory) && $subCategory != null) ? $subCategory : $category, null, null);
 
         // Init pagination for category page.
-        if (empty($subCategory)) {
+        if (empty($level2)) {
             // Get all post for this category and sub category
             $catIds = array($category->getId());
 
@@ -75,15 +75,14 @@ class NewsController extends Controller
                 $catIds[] = $value->getId();
             }
 
-            $posts = $this->getDoctrine()
+            $news = $this->getDoctrine()
                 ->getRepository(News::class)
                 ->createQueryBuilder('p')
                 ->where('p.category IN (:catIds)')
                 ->setParameter('catIds', $catIds)
                 ->getQuery()->getResult();
         } else {
-            // Get all post for this category
-            $posts = $this->getDoctrine()
+            $news = $this->getDoctrine()
                 ->getRepository(News::class)
                 ->createQueryBuilder('p')
                 ->where('p.category = :catId')
@@ -93,7 +92,7 @@ class NewsController extends Controller
 
         $paginator  = $this->get('knp_paginator');
         $pagination = $paginator->paginate(
-            $posts,
+            $news,
             $page,
             10
         );
@@ -160,14 +159,14 @@ class NewsController extends Controller
         $comments = $this->getDoctrine()
             ->getRepository(Comment::class)
             ->createQueryBuilder('c')
-            ->where('c.news = :news_id')
+            ->where('c.news_id = :news_id')
             ->andWhere('c.approved = :approved')
             ->setParameter('news_id', $post->getId())
             ->setParameter('approved', 1)
             ->getQuery()->getResult();
 
         // Render form comment for post.
-        //$form = $this->renderFormComment($post);
+        $form = $this->renderFormComment($post);
 
         // Init breadcrum for the post
         //$breadcrumbs = $this->buildBreadcrums(null, $post, null);
@@ -175,7 +174,7 @@ class NewsController extends Controller
         return $this->render('news/show.html.twig', [
             'post'          => $post,
             'relatedNews'   => $relatedNews,
-            //'form'          => $form->createView(),
+            'form'          => $form->createView(),
             'tags'          => $tags,
             'comments'      => $comments,
         ]);
@@ -335,12 +334,12 @@ class NewsController extends Controller
     private function renderFormComment($post)
     {
         $comment = new Comment();
-        //$comment->setIp( $this->container->get('request_stack')->getCurrentRequest()->getClientIp() );
-        $comment->setNews( $post->getId() );
+        $comment->setIp( $this->container->get('request_stack')->getCurrentRequest()->getClientIp() );
+        $comment->setNewsId( $post->getId() );
 
         $form = $this->createFormBuilder($comment)
             ->setAction($this->generateUrl('handle_comment_form'))
-            ->add('contents', TextareaType::class)
+            ->add('content', TextareaType::class)
             ->add('author', TextType::class)
             ->add('email', EmailType::class)
             ->add('ip', HiddenType::class)
@@ -352,8 +351,8 @@ class NewsController extends Controller
     }
 
     /**
-     * Handle form comment
-     * @Route("/comment", name="handle_comment_form")
+     * Handle form comment for post
+     * @return JSON
      **/
     public function handleCommentFormAction(Request $request)
     {
@@ -369,8 +368,8 @@ class NewsController extends Controller
         } else {
             $em = $this->getDoctrine()->getManager();
             
-            $comment = new Comments();
-            $comment->setContents( $request->request->get('form')['contents'] );
+            $comment = new Comment();
+            $comment->setContent( $request->request->get('form')['content'] );
             $comment->setAuthor( $request->request->get('form')['author'] );
             $comment->setEmail( $request->request->get('form')['email'] );
             $comment->setNewsId( $request->request->get('form')['news_id'] );
@@ -379,7 +378,7 @@ class NewsController extends Controller
             $em->persist($comment);
             $em->flush();
             
-            if( null != $comment->getId() ) {
+            if (null != $comment->getId()) {
                 return new Response(
                     json_encode(
                         array(

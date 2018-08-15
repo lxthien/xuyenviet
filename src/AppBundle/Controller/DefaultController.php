@@ -10,9 +10,6 @@ use AppBundle\Entity\News;
 
 class DefaultController extends Controller
 {
-    /**
-     * @Route("/", name="homepage")
-     */
     public function indexAction(Request $request)
     {
     	$posts = $this->getDoctrine()

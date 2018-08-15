@@ -52,11 +52,6 @@ class NewsType extends AbstractType
                 'attr' => ['class' => 'sluggable'],
                 'label' => 'label.title',
             ])
-            ->add('isAutoGenerateUrl', CheckboxType::class, [
-                'attr' => ['class' => 'is-auto-generator-url'],
-                'required' => false,
-                'label' => 'label.isAutoGenerateUrl',
-            ])
             ->add('url', TextType::class, [
                 'attr' => ['class' => 'url', 'readonly' => 'readonly'],
                 'label' => 'label.url',

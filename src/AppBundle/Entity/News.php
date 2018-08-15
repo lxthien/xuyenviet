@@ -51,13 +51,6 @@ class News
     private $title;
 
     /**
-     * @var boolean
-     *
-     * @ORM\Column(name="isAutoGenerateUrl", type="boolean")
-     */
-    private $isAutoGenerateUrl = true;
-
-    /**
      * @var string
      *
      * @Assert\NotBlank()
@@ -156,8 +149,7 @@ class News
     /**
      * @var Tag[]|ArrayCollection
      *
-     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Tag", cascade={"persist"})
-     * @ORM\JoinTable(name="news_tags")
+     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Tag", inversedBy="news", cascade={"persist"})
      * @ORM\OrderBy({"name": "ASC"})
      * @Assert\Count(max="4", maxMessage="news.too_many_tags")
      */
@@ -272,30 +264,6 @@ class News
     public function getCategory()
     {
         return $this->category;
-    }
-
-    /**
-     * Set isAutoGenerateUrl
-     *
-     * @param bool $isAutoGenerateUrl
-     *
-     * @return News
-     */
-    public function setIsAutoGenerateUrl($isAutoGenerateUrl)
-    {
-        $this->isAutoGenerateUrl = $isAutoGenerateUrl;
-
-        return $this;
-    }
-
-    /**
-     * Get isAutoGenerateUrl
-     *
-     * @return bool
-     */
-    public function getIsAutoGenerateUrl()
-    {
-        return $this->isAutoGenerateUrl;
     }
 
     /**

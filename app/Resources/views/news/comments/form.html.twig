@@ -1,13 +1,13 @@
 <div class="comment-form mt-3">
 	<div id="respond" class="comment-respond">
 		<h3 id="reply-title" class="comment-reply-title">{{'Leave your comment below'|trans}}</h3>
-		<p class="comment-response"></p>
+		<p class="comment-response" id="comment-response"></p>
 		{{ form_start(form, {'attr': {'id': 'form-comment'}}) }}
 			{{ form_errors(form) }}
 			<div class="form-group">
-				{{ form_label(form.contents) }}
-		        {{ form_errors(form.contents) }}
-		        {{ form_widget(form.contents, {'attr': {'class': 'form-control'}}) }}
+				{{ form_label(form.content) }}
+		        {{ form_errors(form.content) }}
+		        {{ form_widget(form.content, {'attr': {'class': 'form-control'}}) }}
 			</div>
 			<div class="form-group">
 				{{ form_label(form.author) }}

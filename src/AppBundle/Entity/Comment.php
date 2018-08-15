@@ -41,12 +41,12 @@ class Comment
     private $id;
 
     /**
-     * @var News
+     * @var int
      *
-     * @ORM\ManyToOne(targetEntity="News", inversedBy="comments")
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\Column(type="integer")
+     * @Assert\NotBlank(message="comment.blank")
      */
-    private $news;
+    private $news_id;
 
     /**
      * @var string
@@ -86,10 +86,26 @@ class Comment
     private $approved = true;
 
     /**
-     * @var User
+     * @var string
      *
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\User")
-     * @ORM\JoinColumn(nullable=false)
+     * @Assert\NotBlank()
+     * @ORM\Column(name="email", type="text")
+     */
+    private $email;
+
+    /**
+     * @var string
+     *
+     * @Assert\NotBlank()
+     * @ORM\Column(name="ip", type="text")
+     */
+    private $ip;
+
+    /**
+     * @var string
+     *
+     * @Assert\NotBlank()
+     * @ORM\Column(name="author", type="text")
      */
     private $author;
 
@@ -119,6 +135,27 @@ class Comment
     }
 
     /**
+     * Set news_id
+     *
+     * @param int $news_id
+     * @return Comment
+     */
+    public function setNewsId($news_id)
+    {
+        $this->news_id = $news_id;
+    }
+
+    /**
+     * Get news_id
+     *
+     * @return int
+     */
+    public function getNewsId()
+    {
+        return $this->news_id;
+    }
+
+    /**
      * Get content
      *
      * @return string
@@ -132,7 +169,6 @@ class Comment
      * Set content
      *
      * @param string $content
-     *
      * @return Comment
      */
     public function setContent($content)
@@ -154,7 +190,6 @@ class Comment
      * Set createAt
      *
      * @param \DateTime $createdAt
-     *
      * @return News
      */
     public function setCreatedAt($createdAt)
@@ -178,7 +213,6 @@ class Comment
      * Set updated
      *
      * @param \DateTime $updated
-     *
      * @return News
      */
     public function setUpdatedAt($updated)
@@ -201,11 +235,10 @@ class Comment
     /**
      * Set author
      *
-     * @param User $author
-     *
+     * @param string $author
      * @return Comment 
      */
-    public function setAuthor(User $author)
+    public function setAuthor($author)
     {
         $this->author = $author;
     }
@@ -214,7 +247,6 @@ class Comment
      * Set approved
      *
      * @param bool $approved
-     *
      * @return Comment
      */
     public function setApproved($approved)
@@ -235,24 +267,50 @@ class Comment
     }
 
     /**
-     * Get news
+     * Set email
      *
-     * @return News
-     */
-    public function getNews()
-    {
-        return $this->news;
-    }
-
-    /**
-     * Set news
-     *
-     * @param News $news
+     * @param string $email
      *
      * @return Comment
      */
-    public function setNews(News $news)
+    public function setEmail($email)
     {
-        $this->news = $news;
+        $this->email = $email;
+
+        return $this;
+    }
+
+    /**
+     * Get email
+     *
+     * @return string
+     */
+    public function getEmail()
+    {
+        return $this->email;
+    }
+
+    /**
+     * Set ip
+     *
+     * @param string $ip
+     *
+     * @return Comment
+     */
+    public function setIp($ip)
+    {
+        $this->ip = $ip;
+
+        return $this;
+    }
+
+    /**
+     * Get ip
+     *
+     * @return string
+     */
+    public function getIp()
+    {
+        return $this->ip;
     }
 }

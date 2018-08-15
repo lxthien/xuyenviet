@@ -45,13 +45,6 @@ class NewsCategory
     private $name;
 
     /**
-     * @var boolean
-     *
-     * @ORM\Column(name="isAutoGenerateUrl", type="boolean")
-     */
-    private $isAutoGenerateUrl = true;
-
-    /**
      * @var string
      *
      * @ORM\Column(name="url", type="string", length=255)
@@ -191,30 +184,6 @@ class NewsCategory
      */
     public function getChildren() {
         return $this->children;
-    }
-
-    /**
-     * Set isAutoGenerateUrl
-     *
-     * @param bool $isAutoGenerateUrl
-     *
-     * @return NewsCategory
-     */
-    public function setIsAutoGenerateUrl($isAutoGenerateUrl)
-    {
-        $this->isAutoGenerateUrl = $isAutoGenerateUrl;
-
-        return $this;
-    }
-
-    /**
-     * Get isAutoGenerateUrl
-     *
-     * @return bool
-     */
-    public function getIsAutoGenerateUrl()
-    {
-        return $this->isAutoGenerateUrl;
     }
 
     /**

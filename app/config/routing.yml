@@ -23,5 +23,30 @@ homepage:
         _locale: '%app_locales%'
     defaults: { _controller: AppBundle:Default:index }
 
+handle_comment_form:
+    path: /comment
+    requirements:
+        _locale: '%app_locales%'
+    defaults: { _controller: AppBundle:News:handleCommentForm }
+
+news_category:
+    path: /{level1}/{page}
+    defaults:
+        page: 1
+        _controller: AppBundle:News:list
+    requirements:
+        level1: '[-\w]+'
+        page: '\d+'
+
+list_category:
+    path: /{level1}/{level2}/{page}
+    defaults:
+        page: 1
+        _controller: AppBundle:News:list
+    requirements:
+        level1: '[-\w]+'
+        level2: '[-\w]+'
+        page: '\d+'
+
 _liip_imagine:
     resource: "@LiipImagineBundle/Resources/config/routing.xml"
