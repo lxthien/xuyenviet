@@ -29,6 +29,7 @@ use Gedmo\Mapping\Annotation as Gedmo;
  * @author Ryan Weaver <weaverryan@gmail.com>
  * @author Javier Eguiluz <javier.eguiluz@gmail.com>
  */
+
 class Comment
 {
     /**
@@ -63,22 +64,6 @@ class Comment
     private $content;
 
     /**
-     * @var \DateTime
-     *
-     * @Gedmo\Timestampable(on="create")
-     * @ORM\Column(name="created_at", type="datetime") 
-     */
-    private $created_at;
-
-    /**
-     * @var \DateTime
-     *
-     * @Gedmo\Timestampable(on="update")
-     * @ORM\Column(name="updated_at", type="datetime")
-     */
-    private $updated_at;
-
-    /**
      * @var boolean
      *
      * @ORM\Column(name="approved", type="boolean")
@@ -97,17 +82,33 @@ class Comment
      * @var string
      *
      * @Assert\NotBlank()
-     * @ORM\Column(name="ip", type="text")
+     * @ORM\Column(name="author", type="text")
      */
-    private $ip;
+    private $author;
 
     /**
      * @var string
      *
      * @Assert\NotBlank()
-     * @ORM\Column(name="author", type="text")
+     * @ORM\Column(name="ip", type="text")
      */
-    private $author;
+    private $ip;
+
+    /**
+     * @var \DateTime
+     *
+     * @Gedmo\Timestampable(on="create")
+     * @ORM\Column(name="created_at", type="datetime") 
+     */
+    private $created_at;
+
+    /**
+     * @var \DateTime
+     *
+     * @Gedmo\Timestampable(on="update")
+     * @ORM\Column(name="updated_at", type="datetime")
+     */
+    private $updated_at;
 
     public function __construct()
     {
@@ -156,16 +157,6 @@ class Comment
     }
 
     /**
-     * Get content
-     *
-     * @return string
-     */
-    public function getContent()
-    {
-        return $this->content;
-    }
-
-    /**
      * Set content
      *
      * @param string $content
@@ -177,70 +168,13 @@ class Comment
     }
 
     /**
-     * Get createdAt
+     * Get content
      *
-     * @return \DateTime
+     * @return string
      */
-    public function getCreatedAt()
+    public function getContent()
     {
-        return $this->created_at;
-    }
-
-    /**
-     * Set createAt
-     *
-     * @param \DateTime $createdAt
-     * @return News
-     */
-    public function setCreatedAt($createdAt)
-    {
-        $this->created_at = $createdAt;
-
-        return $this;
-    }
-
-    /**
-     * Get updated
-     *
-     * @return \DateTime
-     */
-    public function getUpdatedAt()
-    {
-        return $this->updated_at;
-    }
-
-    /**
-     * Set updated
-     *
-     * @param \DateTime $updated
-     * @return News
-     */
-    public function setUpdatedAt($updated)
-    {
-        $this->updated_at = $updated;
-
-        return $this;
-    }
-
-    /**
-     * Get author
-     *
-     * @return User
-     */
-    public function getAuthor()
-    {
-        return $this->author;
-    }
-
-    /**
-     * Set author
-     *
-     * @param string $author
-     * @return Comment 
-     */
-    public function setAuthor($author)
-    {
-        $this->author = $author;
+        return $this->content;
     }
 
     /**
@@ -270,7 +204,6 @@ class Comment
      * Set email
      *
      * @param string $email
-     *
      * @return Comment
      */
     public function setEmail($email)
@@ -291,10 +224,30 @@ class Comment
     }
 
     /**
+     * Set author
+     *
+     * @param string $author
+     * @return Comment 
+     */
+    public function setAuthor($author)
+    {
+        $this->author = $author;
+    }
+
+    /**
+     * Get author
+     *
+     * @return User
+     */
+    public function getAuthor()
+    {
+        return $this->author;
+    }
+
+    /**
      * Set ip
      *
      * @param string $ip
-     *
      * @return Comment
      */
     public function setIp($ip)
@@ -312,5 +265,51 @@ class Comment
     public function getIp()
     {
         return $this->ip;
+    }
+
+    /**
+     * Set createAt
+     *
+     * @param \DateTime $createdAt
+     * @return Comment
+     */
+    public function setCreatedAt($createdAt)
+    {
+        $this->created_at = $createdAt;
+
+        return $this;
+    }
+
+    /**
+     * Get createdAt
+     *
+     * @return \DateTime
+     */
+    public function getCreatedAt()
+    {
+        return $this->created_at;
+    }
+
+    /**
+     * Set updated
+     *
+     * @param \DateTime $updated
+     * @return Comment
+     */
+    public function setUpdatedAt($updated)
+    {
+        $this->updated_at = $updated;
+
+        return $this;
+    }
+
+    /**
+     * Get updated
+     *
+     * @return \DateTime
+     */
+    public function getUpdatedAt()
+    {
+        return $this->updated_at;
     }
 }

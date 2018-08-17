@@ -39,6 +39,13 @@ class Tag implements \JsonSerializable
     private $id;
 
     /**
+     * @var News
+     *
+     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\News", mappedBy="tags")
+     */
+    private $news;
+
+    /**
      * @var string
      *
      * @ORM\Column(type="string", unique=true)
@@ -80,13 +87,6 @@ class Tag implements \JsonSerializable
      * @ORM\Column(name="page_keyword", type="string", length=255, nullable=true)
      */
     private $page_keyword;
-
-    /**
-     * @var News
-     *
-     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\News", mappedBy="tags")
-     */
-    private $news;
 
     public function __toString()
     {
@@ -173,7 +173,6 @@ class Tag implements \JsonSerializable
      * Set contents
      *
      * @param string $contents
-     *
      * @return Tag
      */
     public function setContents($contents)
@@ -197,7 +196,6 @@ class Tag implements \JsonSerializable
      * Set pageTitle
      *
      * @param string $pageTitle
-     *
      * @return Tag
      */
     public function setPageTitle($pageTitle)
@@ -221,7 +219,6 @@ class Tag implements \JsonSerializable
      * Set pageDescription
      *
      * @param string $pageDescription
-     *
      * @return Tag
      */
     public function setPageDescription($pageDescription)
@@ -245,7 +242,6 @@ class Tag implements \JsonSerializable
      * Set pageKeyword
      *
      * @param string $pageKeyword
-     *
      * @return Tag
      */
     public function setPageKeyword($pageKeyword)
