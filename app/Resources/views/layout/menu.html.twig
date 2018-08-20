@@ -1,48 +1,10 @@
-<!-- Begin menu navigation -->
 <div class="row" id="nav">
     <nav class="navbar navbar-expand-lg container justify-content-between">
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-                <li class="nav-item">
-                    <a class="nav-link active" href="{{path('homepage')}}">Trang chủ</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{path('news_show', {'slug': 'gioi-thieu'})}}">Giới thiệu</a>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="{{ path('news_category', {'level1': 'tin-tuc'}) }}">Tin tức</a>
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li class="dropdown-item">
-                            <a class="nav-link" href="{{ path('list_category', {'level1': 'tin-tuc', 'level2': 'tin-thi-truong'}) }}">Tin thị trường</a>
-                        </li>
-                        <li class="dropdown-item">
-                            <a class="nav-link" href="{{ path('list_category', {'level1': 'tin-tuc', 'level2': 'tin-du-an'}) }}">Tin dự án</a>
-                        </li>
-                        <li class="dropdown-item">
-                            <a class="nav-link" href="{{ path('list_category', {'level1': 'tin-tuc', 'level2': 'chinh-sach-quy-hoach'}) }}">Chính sách - quy hoạch</a>
-                        </li>
-                    </ul>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="{{path('news_category', {'level1': 'du-an'})}}">Dự án</a>
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li class="dropdown-item">
-                            <a class="nav-link" href="{{ path('list_category', {'level1': 'du-an', 'level2': 'can-ho-chung-cu'}) }}">Căn hộ chung cư</a>
-                        </li>
-                    </ul>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{path('contact')}}">Liên hệ</a>
-                </li>
-            </ul>
-            {# {{ render(controller(
-                'AppBundle:News:handleSearchForm',
-                { 'max': 3 }
-            )) }} #}
+            {{ knp_menu_render('AppBundle:Builder:mainMenu') }}
         </div>
     </nav>
 </div>
-<!-- End menu navigation -->

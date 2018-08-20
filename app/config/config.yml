@@ -94,7 +94,7 @@ stof_doctrine_extensions:
             sluggable: true
             timestampable: true
 
-# Vich Upload bundle
+# VichUploadBundle
 vich_uploader:
     db_driver: orm
     mappings:
@@ -108,7 +108,7 @@ vich_uploader:
             namer: vich_uploader.namer_uniqid
 
 
-# Liip Imagine bundle
+# LiipImagineBundle
 # https://github.com/liip/LiipImagineBundle
 liip_imagine:
     resolvers:
@@ -143,6 +143,7 @@ liip_imagine:
                 # to crop the image when the size ratio of the input differs
                 thumbnail: { size: [218, 150], mode: outbound }
 
+# KnpPaginationBundle
 knp_paginator:
     page_range: 5                       # number of links showed in the pagination menu (e.g: you have 10 pages, a page_range of 3, on the 5th page you'll see links to page 4, 5, 6)
     default_options:                                 
@@ -156,3 +157,13 @@ knp_paginator:
         pagination: '@KnpPaginator/Pagination/sliding.html.twig'     # sliding pagination controls template                                    
         sortable: '@KnpPaginator/Pagination/sortable_link.html.twig' # sort link template                                
         filtration: '@KnpPaginator/Pagination/filtration.html.twig'  # filters template
+
+# KnpMenuBundle
+knp_menu:
+    # use "twig: false" to disable the Twig extension and the TwigRenderer
+    twig:
+        template: KnpMenuBundle::menu.html.twig
+    #  if true, enables the helper for PHP templates
+    templating: false
+    # the renderer to use, list is also available by default
+    default_renderer: twig
