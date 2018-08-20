@@ -6,19 +6,18 @@ Encore
     .cleanupOutputBeforeBuild()
     .autoProvidejQuery()
     .autoProvideVariables({
-        "window.jQuery": "jquery",
         "window.Bloodhound": require.resolve('bloodhound-js'),
         "jQuery.tagsinput": "bootstrap-tagsinput"
     })
     .enableSassLoader()
     .enableVersioning(false)
     .createSharedEntry('js/common', ['jquery'])
-    .addEntry('js/app', './assets/js/app.js')
-    .addEntry('js/login', './assets/js/login.js')
-    .addEntry('js/admin', './assets/js/admin.js')
-    .addEntry('js/search', './assets/js/search.js')
-    .addStyleEntry('css/app', ['./assets/scss/app.scss'])
-    .addStyleEntry('css/admin', ['./assets/scss/admin.scss'])
+    .addEntry('js/app', './web/assets/js/front/app.js')
+    .addEntry('js/admin', './web/assets/js/admin/admin.js')
+    .addEntry('js/search', './web/assets/js/admin/search.js')
+    .addEntry('js/login', './web/assets/js/admin/login.js')
+    .addStyleEntry('css/app', ['./web/assets/scss/front/app.scss'])
+    .addStyleEntry('css/admin', ['./web/assets/scss/admin/admin.scss'])
 ;
 
 module.exports = Encore.getWebpackConfig();

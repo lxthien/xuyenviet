@@ -1,0 +1,36 @@
+/* Basic styles
+------------------------------------------------------------------------- */
+
+p,
+ul,
+ol {
+    font-size: 19px;
+    margin-bottom: 1.5em
+}
+
+li {
+    margin-bottom: 0.5em
+}
+
+code {
+    background: #ecf0f1;
+    color: #2c3e50
+}
+
+.text-danger,
+.text-danger:hover {
+    color: #e74c3c
+}
+
+i {
+    margin-right: 0.25em
+}
+
+.table.table-middle-aligned th,
+.table.table-middle-aligned td {
+    vertical-align: middle;
+}
+
+.doclink {
+    color: inherit
+}
