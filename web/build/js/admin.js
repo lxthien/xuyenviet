@@ -27409,7 +27409,7 @@ $(function () {
      **/
     function initBuildSluggable() {
         $(".admin_new :input.sluggable").keyup(function () {
-            if ($(":input.is-auto-generator-url").prop('checked')) $(":input.url").val(remove_vietnamese_accents($(this).val()));
+            $(":input.url").val(remove_vietnamese_accents($(this).val()));
         });
 
         $(":input.is-auto-generator-url").change(function () {

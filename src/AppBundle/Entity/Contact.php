@@ -62,18 +62,17 @@ class Contact
      * @var \DateTime
      *
      * @Gedmo\Timestampable(on="create")
-     * @ORM\Column(name="created_at", type="datetime")
+     * @ORM\Column(name="createdAt", type="datetime")
      */
-    private $created_at;
+    private $createdAt;
 
     /**
      * @var \DateTime
      *
      * @Gedmo\Timestampable(on="update")
-     * @ORM\Column(name="updated_at", type="datetime")
+     * @ORM\Column(name="updatedAt", type="datetime")
      */
-    private $updated_at;
-
+    private $updatedAt;
 
     /**
      * Get id
@@ -214,7 +213,7 @@ class Contact
      */
     public function setCreatedAt($createdAt)
     {
-        $this->created_at = $createdAt;
+        $this->createdAt = $createdAt;
 
         return $this;
     }
@@ -226,7 +225,7 @@ class Contact
      */
     public function getCreatedAt()
     {
-        return $this->created_at;
+        return $this->createdAt;
     }
 
     /**
@@ -238,7 +237,7 @@ class Contact
      */
     public function setUpdatedAt($updatedAt)
     {
-        $this->updated_at = $updatedAt;
+        $this->updatedAt = $updatedAt;
 
         return $this;
     }
@@ -250,7 +249,7 @@ class Contact
      */
     public function getUpdatedAt()
     {
-        return $this->updated_at;
+        return $this->updatedAt;
     }
 }
 

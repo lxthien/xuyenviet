@@ -70,23 +70,23 @@ class Tag implements \JsonSerializable
     /**
      * @var string
      *
-     * @ORM\Column(name="page_title", type="string", length=255, nullable=true)
+     * @ORM\Column(name="pageTitle", type="string", length=255, nullable=true)
      */
-    private $page_title;
+    private $pageTitle;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="page_description", type="text", nullable=true)
+     * @ORM\Column(name="pageDescription", type="text", nullable=true)
      */
-    private $page_description;
+    private $pageDescription;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="page_keyword", type="string", length=255, nullable=true)
+     * @ORM\Column(name="pageKeyword", type="string", length=255, nullable=true)
      */
-    private $page_keyword;
+    private $pageKeyword;
 
     public function __toString()
     {
@@ -137,16 +137,6 @@ class Tag implements \JsonSerializable
     }
 
     /**
-     * Get url
-     *
-     * @return string
-     */
-    public function getUrl()
-    {
-        return $this->url;
-    }
-
-    /**
      * Set url
      * @ORM\PrePersist
      * @ORM\PreUpdate
@@ -160,13 +150,13 @@ class Tag implements \JsonSerializable
     }
 
     /**
-     * Get contents
+     * Get url
      *
      * @return string
      */
-    public function getContents()
+    public function getUrl()
     {
-        return $this->contents;
+        return $this->url;
     }
 
     /**
@@ -183,13 +173,13 @@ class Tag implements \JsonSerializable
     }
 
     /**
-     * Get pageTitle
+     * Get contents
      *
      * @return string
      */
-    public function getPageTitle()
+    public function getContents()
     {
-        return $this->page_title;
+        return $this->contents;
     }
 
     /**
@@ -200,7 +190,30 @@ class Tag implements \JsonSerializable
      */
     public function setPageTitle($pageTitle)
     {
-        $this->page_title = $pageTitle;
+        $this->pageTitle = $pageTitle;
+
+        return $this;
+    }
+
+    /**
+     * Get pageTitle
+     *
+     * @return string
+     */
+    public function getPageTitle()
+    {
+        return $this->pageTitle;
+    }
+
+    /**
+     * Set pageDescription
+     *
+     * @param string $pageDescription
+     * @return Tag
+     */
+    public function setPageDescription($pageDescription)
+    {
+        $this->pageDescription = $pageDescription;
 
         return $this;
     }
@@ -212,18 +225,18 @@ class Tag implements \JsonSerializable
      */
     public function getPageDescription()
     {
-        return $this->page_description;
+        return $this->pageDescription;
     }
 
     /**
-     * Set pageDescription
+     * Set pageKeyword
      *
-     * @param string $pageDescription
+     * @param string $pageKeyword
      * @return Tag
      */
-    public function setPageDescription($pageDescription)
+    public function setPageKeyword($pageKeyword)
     {
-        $this->page_description = $pageDescription;
+        $this->pageKeyword = $pageKeyword;
 
         return $this;
     }
@@ -235,19 +248,6 @@ class Tag implements \JsonSerializable
      */
     public function getPageKeyword()
     {
-        return $this->page_keyword;
-    }
-
-    /**
-     * Set pageKeyword
-     *
-     * @param string $pageKeyword
-     * @return Tag
-     */
-    public function setPageKeyword($pageKeyword)
-    {
-        $this->page_keyword = $pageKeyword;
-
-        return $this;
+        return $this->pageKeyword;
     }
 }

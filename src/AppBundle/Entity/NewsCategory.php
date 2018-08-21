@@ -68,39 +68,39 @@ class NewsCategory
     /**
      * @var string
      *
-     * @ORM\Column(name="page_title", type="string", length=255, nullable=true)
+     * @ORM\Column(name="pageTitle", type="string", length=255, nullable=true)
      */
-    private $page_title = null;
+    private $pageTitle = null;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="page_description", type="text", nullable=true)
+     * @ORM\Column(name="pageDescription", type="text", nullable=true)
      */
-    private $page_description = null;
+    private $pageDescription = null;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="page_keyword", type="string", length=255, nullable=true)
+     * @ORM\Column(name="pageKeyword", type="string", length=255, nullable=true)
      */
-    private $page_keyword = null;
+    private $pageKeyword = null;
 
     /**
      * @var \DateTime
      *
      * @Gedmo\Timestampable(on="create")
-     * @ORM\Column(name="created_at", type="datetime") 
+     * @ORM\Column(name="createdAt", type="datetime") 
      */
-    private $created_at;
+    private $createdAt;
 
     /**
      * @var \DateTime
      *
      * @Gedmo\Timestampable(on="update")
-     * @ORM\Column(name="updated_at", type="datetime")
+     * @ORM\Column(name="updatedAt", type="datetime")
      */
-    private $updated_at;
+    private $updatedAt;
 
     /**
      * @var User
@@ -135,7 +135,6 @@ class NewsCategory
      * Set name
      *
      * @param string $name
-     *
      * @return NewsCategory
      */
     public function setName($name)
@@ -159,7 +158,6 @@ class NewsCategory
      * Set parentcat
      *
      * @param NewsCategory $parent
-     *
      * @return NewsCategory
      */
     public function setParentcat(\AppBundle\Entity\NewsCategory $parent = null) {
@@ -190,7 +188,6 @@ class NewsCategory
      * Set url
      *
      * @param string $url
-     *
      * @return NewsCategory
      */
     public function setUrl($url)
@@ -214,7 +211,6 @@ class NewsCategory
      * Set description
      *
      * @param string $description
-     *
      * @return NewsCategory
      */
     public function setDescription($description)
@@ -238,7 +234,6 @@ class NewsCategory
      * Set enable
      *
      * @param \boolean $enable
-     *
      * @return NewsCategory
      */
     public function setEnable($enable)
@@ -262,12 +257,11 @@ class NewsCategory
      * Set pageTitle
      *
      * @param string $pageTitle
-     *
      * @return NewsCategory
      */
     public function setPageTitle($pageTitle)
     {
-        $this->page_title = $pageTitle;
+        $this->pageTitle = $pageTitle;
 
         return $this;
     }
@@ -279,19 +273,18 @@ class NewsCategory
      */
     public function getPageTitle()
     {
-        return $this->page_title;
+        return $this->pageTitle;
     }
 
     /**
      * Set pageDescription
      *
      * @param string $pageDescription
-     *
      * @return NewsCategory
      */
     public function setPageDescription($pageDescription)
     {
-        $this->page_description = $pageDescription;
+        $this->pageDescription = $pageDescription;
 
         return $this;
     }
@@ -303,19 +296,18 @@ class NewsCategory
      */
     public function getPageDescription()
     {
-        return $this->page_description;
+        return $this->pageDescription;
     }
 
     /**
      * Set pageKeyword
      *
      * @param string $pageKeyword
-     *
      * @return NewsCategory
      */
     public function setPageKeyword($pageKeyword)
     {
-        $this->page_keyword = $pageKeyword;
+        $this->pageKeyword = $pageKeyword;
 
         return $this;
     }
@@ -327,19 +319,18 @@ class NewsCategory
      */
     public function getPageKeyword()
     {
-        return $this->page_keyword;
+        return $this->pageKeyword;
     }
 
     /**
-     * Set createAt
+     * Set createdAt
      *
      * @param \DateTime $createdAt
-     *
      * @return News
      */
     public function setCreatedAt($createdAt)
     {
-        $this->created_at = $createdAt;
+        $this->createdAt = $createdAt;
 
         return $this;
     }
@@ -351,31 +342,30 @@ class NewsCategory
      */
     public function getCreatedAt()
     {
-        return $this->created_at;
+        return $this->createdAt;
     }
 
     /**
-     * Set updated
+     * Set updatedAt
      *
-     * @param \DateTime $updated
-     *
+     * @param \DateTime $updatedAt
      * @return News
      */
-    public function setUpdatedAt($updated)
+    public function setUpdatedAt($updatedAt)
     {
-        $this->updated_at = $updated;
+        $this->updatedAt = $updatedAt;
 
         return $this;
     }
 
     /**
-     * Get updated
+     * Get updatedAt
      *
      * @return \DateTime
      */
     public function getUpdatedAt()
     {
-        return $this->updated_at;
+        return $this->updatedAt;
     }
 
     /**

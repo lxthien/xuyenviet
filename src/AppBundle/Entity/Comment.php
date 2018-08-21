@@ -98,21 +98,21 @@ class Comment
      * @var \DateTime
      *
      * @Gedmo\Timestampable(on="create")
-     * @ORM\Column(name="created_at", type="datetime") 
+     * @ORM\Column(name="createdAt", type="datetime") 
      */
-    private $created_at;
+    private $createdAt;
 
     /**
      * @var \DateTime
      *
      * @Gedmo\Timestampable(on="update")
-     * @ORM\Column(name="updated_at", type="datetime")
+     * @ORM\Column(name="updatedAt", type="datetime")
      */
-    private $updated_at;
+    private $updatedAt;
 
     public function __construct()
     {
-        $this->created_at = new \DateTime();
+        $this->createdAt = new \DateTime();
     }
 
     /**
@@ -268,14 +268,14 @@ class Comment
     }
 
     /**
-     * Set createAt
+     * Set createdAt
      *
      * @param \DateTime $createdAt
      * @return Comment
      */
     public function setCreatedAt($createdAt)
     {
-        $this->created_at = $createdAt;
+        $this->createdAt = $createdAt;
 
         return $this;
     }
@@ -287,29 +287,29 @@ class Comment
      */
     public function getCreatedAt()
     {
-        return $this->created_at;
+        return $this->createdAt;
     }
 
     /**
-     * Set updated
+     * Set updatedAt
      *
-     * @param \DateTime $updated
+     * @param \DateTime $updatedAt
      * @return Comment
      */
-    public function setUpdatedAt($updated)
+    public function setUpdatedAt($updatedAt)
     {
-        $this->updated_at = $updated;
+        $this->updatedAt = $updatedAt;
 
         return $this;
     }
 
     /**
-     * Get updated
+     * Get updatedAt
      *
      * @return \DateTime
      */
     public function getUpdatedAt()
     {
-        return $this->updated_at;
+        return $this->updatedAt;
     }
 }
