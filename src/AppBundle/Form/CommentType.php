@@ -28,6 +28,7 @@ use Symfony\Component\Form\Extension\Core\Type\TextareaType;
  * @author Ryan Weaver <weaverryan@gmail.com>
  * @author Javier Eguiluz <javier.eguiluz@gmail.com>
  */
+
 class CommentType extends AbstractType
 {
     /**

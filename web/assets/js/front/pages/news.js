@@ -20,6 +20,20 @@ function intHandleFormComment() {
     })
 }
 
+function intHandleFormReplyComment() {
+    var $commentReply = $('#comment-reply');
+
+    $commentReply.click(function(e) {
+        e.preventDefault();
+
+        var postID = $(this).data('postId');
+        if (postID.length) {
+            alert(postID);
+        }
+    });
+}
+
 exports.init = function () {
     intHandleFormComment();
+    intHandleFormReplyComment();
 };

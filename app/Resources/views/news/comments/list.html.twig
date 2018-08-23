@@ -3,21 +3,11 @@
     <h4><span>{{ 'count_comments' | trans({ '%count%':  comments|length}) }} </span></h4>
     {% for comment in comments %}
         <div class="media" id="comment-{{ comment.getId() }}">
-            <img class="mr-3 img-thumbnail" src="{{ asset('cms/images/user.png') }}" alt="{{ comment.getAuthor() }} comment on this post {{ post.getTitle() }}" style="width: 50px;">
+            <img class="mr-3 img-thumbnail" src="{{ asset('assets/images/user.png') }}" alt="{{ comment.getAuthor() }} comment on this post {{ post.getTitle() }}">
             <div class="media-body">
                 <h5 class="mt-0">{{ comment.getAuthor() }}</h5>
-                {{ comment.getContent()|raw }}
-                <br>
-                <a class="comment-reply-link" href="#">{{ 'Reply'|trans }}</a>
-                {# <div class="media mt-3">
-                    <a class="pr-3" href="#">
-                        <img src="{{ asset('assets/cms/images/user.png') }}" alt="{{ comment.getAuthor() }} comment on this post {{ post.getName() }}">
-                    </a>
-                    <div class="media-body">
-                        <h5 class="mt-0">{{ comment.getAuthor() }}</h5>
-                        {{ comment.getContents() }}
-                    </div>
-                </div> #}
+                <div class="comment-container">{{ comment.getContent()|raw }}</div>
+                <a class="comment-reply-link" id="comment-reply" href="#" data-post-id="{{ comment.getId() }}">{{ 'Reply'|trans }}</a>
             </div>
         </div>
     {% endfor %}

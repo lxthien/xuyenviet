@@ -334,6 +334,7 @@ class NewsController extends Controller
             ->add('email', EmailType::class)
             ->add('ip', HiddenType::class)
             ->add('news_id', HiddenType::class)
+            ->add('comment_id', HiddenType::class)
             ->add('send', SubmitType::class, array('label' => 'Send'))
             ->getForm();
 

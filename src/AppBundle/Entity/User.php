@@ -75,14 +75,9 @@ class User implements UserInterface, \Serializable
     private $password;
 
     /**
-     * @ORM\Column(type="array")
+     * @ORM\Column(type="json_array")
      */
     private $roles = [];
-
-    public function __construct()
-    {
-        $this->roles = array('ROLE_USER');
-    }
 
     public function getId()
     {

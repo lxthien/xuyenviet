@@ -44,7 +44,27 @@ class Comment
     /**
      * @var int
      *
-     * @ORM\Column(type="integer")
+     * @ORM\Column(name="comment_id", type="integer", nullable=true)
+     */
+    private $comment_id;
+
+    /**
+     * One Comment has Many Comment.
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Comment", mappedBy="parentcat")
+     */
+    protected $children;
+
+    /**
+     * Many Comments have One Comment.
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Comment", inversedBy="children")
+     * @ORM\JoinColumn(name="comment_id", referencedColumnName="id", nullable=true)
+     */
+    private $parentcat;
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="news_id", type="integer", nullable=true)
      * @Assert\NotBlank(message="comment.blank")
      */
     private $news_id;
@@ -143,6 +163,36 @@ class Comment
     }
 
     /**
+     * Set parentcat
+     *
+     * @param Comment $parent
+     * @return Comment
+     */
+    public function setParentcat(\AppBundle\Entity\Comment $parent = null) {
+        $this->parentcat = $parent;
+
+        return $this;
+    }
+
+    /**
+     * Get parentcat
+     *
+     * @return Comment
+     */
+    public function getParentcat() {
+        return $this->parentcat;
+    }
+
+    /**
+     * Get children
+     *
+     * @return Comment
+     */
+    public function getChildren() {
+        return $this->children;
+    }
+
+    /**
      * Set news_id
      *
      * @param int $news_id
@@ -161,6 +211,37 @@ class Comment
     public function getNewsId()
     {
         return $this->news_id;
+    }
+
+    /**
+     * Set comment_id
+     *
+     * @param int $comment_id
+     * @return Comment
+     */
+    public function setCommentId($comment_id)
+    {
+        $this->comment_id = $comment_id;
+    }
+
+    /**
+     * Get comment_id
+     *
+     * @return int
+     */
+    public function getCommentId()
+    {
+        return $this->comment_id;
+    }
+
+    /**
+     * Get news
+     *
+     * @return News
+     */
+    public function getNews()
+    {
+        return $this->news;
     }
 
     /**

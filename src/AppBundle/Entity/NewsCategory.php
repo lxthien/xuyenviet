@@ -326,7 +326,7 @@ class NewsCategory
      * Set createdAt
      *
      * @param \DateTime $createdAt
-     * @return News
+     * @return NewsCategory
      */
     public function setCreatedAt($createdAt)
     {
@@ -349,7 +349,7 @@ class NewsCategory
      * Set updatedAt
      *
      * @param \DateTime $updatedAt
-     * @return News
+     * @return NewsCategory
      */
     public function setUpdatedAt($updatedAt)
     {

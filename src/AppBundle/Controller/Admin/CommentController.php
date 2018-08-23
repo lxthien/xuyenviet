@@ -36,6 +36,7 @@ use Symfony\Component\HttpFoundation\Request;
  * @author Ryan Weaver <weaverryan@gmail.com>
  * @author Javier Eguiluz <javier.eguiluz@gmail.com>
  */
+
 class CommentController extends Controller
 {
     /**
@@ -53,57 +54,7 @@ class CommentController extends Controller
     }
 
     /**
-     * Creates a new Comment entity.
-     *
-     * @Route("/new", name="admin_comment_new")
-     * @Method({"GET", "POST"})
-     *
-     * NOTE: the Method annotation is optional, but it's a recommended practice
-     * to constraint the HTTP methods each controller responds to (by default
-     * it responds to all methods).
-     */
-    public function newAction(Request $request, Slugger $slugger)
-    {
-        $comment = new Comment();
-        $comment->setAuthor($this->getUser());
-
-        // See https://symfony.com/doc/current/book/forms.html#submitting-forms-with-multiple-buttons
-        $form = $this->createForm(CommentType::class, $comment)
-            ->add('saveAndCreateNew', SubmitType::class);
-
-        $form->handleRequest($request);
-
-        // the isSubmitted() method is completely optional because the other
-        // isValid() method already checks whether the form is submitted.
-        // However, we explicitly add it to improve code readability.
-        // See https://symfony.com/doc/current/best_practices/forms.html#handling-form-submits
-        if ($form->isSubmitted() && $form->isValid()) {
-
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($comment);
-            $em->flush();
-
-            // Flash messages are used to notify the user about the result of the
-            // actions. They are deleted automatically from the session as soon
-            // as they are accessed.
-            // See https://symfony.com/doc/current/book/controller.html#flash-messages
-            $this->addFlash('success', 'created_successfully');
-
-            if ($form->get('saveAndCreateNew')->isClicked()) {
-                return $this->redirectToRoute('admin_comment_new');
-            }
-
-            return $this->redirectToRoute('admin_comment_index');
-        }
-
-        return $this->render('admin/comment/new.html.twig', [
-            'comment' => $comment,
-            'form' => $form->createView(),
-        ]);
-    }
-
-    /**
-     * Finds and displays a News entity.
+     * Finds and displays a Comment entity.
      *
      * @Route("/{id}", requirements={"id": "\d+"}, name="admin_comment_show")
      * @Method("GET")

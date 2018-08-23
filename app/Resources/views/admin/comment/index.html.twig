@@ -17,8 +17,8 @@
         <tbody>
         {% for row in comment %}
             <tr>
-                <td>{{ row.getAuthor().fullName }}</td>
-                <td>{{ row.getPost() }}</td>
+                <td>{{ row.getAuthor() }}</td>
+                <td>{{ row.getNews() }}</td>
                 <td>{{ row.getCreatedAt() | localizeddate('medium', 'short', null, 'UTC') }}</td>
                 <td class="text-right">
                     <div class="item-actions">
@@ -41,11 +41,6 @@
 {% endblock %}
 
 {% block sidebar %}
-    <div class="section actions">
-        <a href="{{ path('admin_comment_new') }}" class="btn btn-lg btn-block btn-success">
-            <i class="fa fa-plus" aria-hidden="true"></i> {{ 'action.admin_new'|trans }}
-        </a>
-    </div>
 
     {{ parent() }}
 
