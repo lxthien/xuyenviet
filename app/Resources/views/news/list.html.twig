@@ -5,7 +5,7 @@
 {% block keyword %} {{category.getPageKeyword()}} {% endblock %}
 
 {% block body %}
-	<div class="container">
+    <div class="container">
         <div class="row">
             <div class="col-md-9">
                 <h1>{{ category.getName() }}</h1>
@@ -16,18 +16,18 @@
 
                 {# Sort list item on this page #}
                 <div class="sort float-right">
-                	<div class="dropdown">
-						<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-						{{ 'Sort'|trans }}
-						</button>
-						<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-							{{ knp_pagination_sortable(pagination, 'Sort by ID'|trans, 'id') }}
-						    {{ knp_pagination_sortable(pagination, 'Sort by Name'|trans, 'name') }}
-						    {{ knp_pagination_sortable(pagination, 'Sort by Date'|trans, 'created_at') }}
-						</div>
-					</div>
-				</div>
-				<div class="clearfix"></div>
+                    <div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        {{ 'Sort'|trans }}
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            {{ knp_pagination_sortable(pagination, 'Sort by ID'|trans, 'id') }}
+                            {{ knp_pagination_sortable(pagination, 'Sort by Name'|trans, 'name') }}
+                            {{ knp_pagination_sortable(pagination, 'Sort by Date'|trans, 'createdAt') }}
+                        </div>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
                 
                 {# List item on this page #}
                 {% if pagination|length > 0  %}
@@ -70,9 +70,7 @@
                 {% endif %}
 
                 {# Pagination #}
-                <div class="navigation">
-				    {{ knp_pagination_render(pagination) }}
-				</div>
+                {{ include('components/pagination.html.twig') }}
             </div>
 
             {# Side bar #}

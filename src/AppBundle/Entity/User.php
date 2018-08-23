@@ -13,6 +13,7 @@ namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass="AppBundle\Repository\UserRepository")
@@ -27,6 +28,7 @@ use Symfony\Component\Security\Core\User\UserInterface;
  * @author Ryan Weaver <weaverryan@gmail.com>
  * @author Javier Eguiluz <javier.eguiluz@gmail.com>
  */
+
 class User implements UserInterface, \Serializable
 {
     /**
@@ -46,32 +48,41 @@ class User implements UserInterface, \Serializable
     private $fullName;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(type="string", unique=true)
+     * @ORM\Column(type="string", length=255, unique=true)
+     * @Assert\NotBlank()
      */
     private $username;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(type="string", unique=true)
+     * @ORM\Column(type="string", length=255, unique=true)
+     * @Assert\NotBlank()
+     * @Assert\Email()
      */
     private $email;
 
     /**
-     * @var string
+     * @Assert\NotBlank()
+     * @Assert\Length(max=4096)
+     */
+    private $plainPassword;
+
+    /**
+     * The below length depends on the "algorithm" you use for encoding
+     * the password, but this works well with bcrypt.
      *
-     * @ORM\Column(type="string")
+     * @ORM\Column(type="string", length=64)
      */
     private $password;
 
     /**
-     * @var array
-     *
-     * @ORM\Column(type="json_array")
+     * @ORM\Column(type="array")
      */
     private $roles = [];
+
+    public function __construct()
+    {
+        $this->roles = array('ROLE_USER');
+    }
 
     public function getId()
     {
@@ -91,11 +102,6 @@ class User implements UserInterface, \Serializable
         return $this->fullName;
     }
 
-    public function getUsername()
-    {
-        return $this->username;
-    }
-
     /**
      * @param string $username
      */
@@ -104,9 +110,9 @@ class User implements UserInterface, \Serializable
         $this->username = $username;
     }
 
-    public function getEmail()
+    public function getUsername()
     {
-        return $this->email;
+        return $this->username;
     }
 
     /**
@@ -117,9 +123,19 @@ class User implements UserInterface, \Serializable
         $this->email = $email;
     }
 
-    public function getPassword()
+    public function getEmail()
     {
-        return $this->password;
+        return $this->email;
+    }
+
+    public function setPlainPassword($password)
+    {
+        $this->plainPassword = $password;
+    }
+
+    public function getPlainPassword()
+    {
+        return $this->plainPassword;
     }
 
     /**
@@ -128,6 +144,16 @@ class User implements UserInterface, \Serializable
     public function setPassword($password)
     {
         $this->password = $password;
+    }
+
+    public function getPassword()
+    {
+        return $this->password;
+    }
+
+    public function setRoles(array $roles)
+    {
+        $this->roles = $roles;
     }
 
     /**
@@ -143,11 +169,6 @@ class User implements UserInterface, \Serializable
         }
 
         return array_unique($roles);
-    }
-
-    public function setRoles(array $roles)
-    {
-        $this->roles = $roles;
     }
 
     /**
@@ -173,7 +194,9 @@ class User implements UserInterface, \Serializable
         // $this->plainPassword = null;
     }
 
-    /** @see \Serializable::serialize() */
+    /**
+     * @see \Serializable::serialize()
+     */
     public function serialize()
     {
         return serialize([
@@ -185,7 +208,9 @@ class User implements UserInterface, \Serializable
         ]);
     }
 
-    /** @see \Serializable::unserialize() */
+    /**
+     * @see \Serializable::unserialize()
+     */
     public function unserialize($serialized)
     {
         list(

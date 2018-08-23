@@ -159,7 +159,7 @@ class News
      * @var Comment[]|ArrayCollection
      *
      * @ORM\OneToMany(
-     *      targetEntity="Comment",
+     *      targetEntity="AppBundle\Entity\Comment",
      *      mappedBy="news",
      *      orphanRemoval=true
      * )
@@ -175,6 +175,7 @@ class News
     public function __construct()
     {
         $this->tags = new ArrayCollection();
+        $this->comments = new ArrayCollection();
     }
 
     /**
@@ -573,7 +574,7 @@ class News
     /**
      * Get comment
      *
-     * @return Comment
+     * @return Collection|Comment[]
      */
     public function getComments()
     {

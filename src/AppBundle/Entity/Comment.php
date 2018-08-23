@@ -50,6 +50,13 @@ class Comment
     private $news_id;
 
     /**
+     * Many Comment have One News.
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\News", inversedBy="comments")
+     * @ORM\JoinColumn(name="news_id", referencedColumnName="id")
+     */
+    private $news;
+
+    /**
      * @var string
      *
      * @ORM\Column(type="text")

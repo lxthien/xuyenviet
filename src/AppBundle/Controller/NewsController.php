@@ -146,15 +146,6 @@ class NewsController extends Controller
             ->getRepository(News::class)
             ->findAll();
 
-        // Get the list tag for post
-        $tags = $this->getDoctrine()
-            ->getRepository(Tag::class)
-            ->createQueryBuilder('t')
-            ->innerJoin('t.news', 'n')
-            ->where('n.id = :news_id')
-            ->setParameter('news_id', $post->getId())
-            ->getQuery()->getResult();
-
         // Get the list comment for post
         $comments = $this->getDoctrine()
             ->getRepository(Comment::class)
@@ -175,7 +166,6 @@ class NewsController extends Controller
             'post'          => $post,
             'relatedNews'   => $relatedNews,
             'form'          => $form->createView(),
-            'tags'          => $tags,
             'comments'      => $comments,
         ]);
     }
@@ -229,7 +219,7 @@ class NewsController extends Controller
             ->getRepository(News::class)
             ->findBy(
                 array(),
-                array('created_at' => 'DESC'),
+                array('createdAt' => 'DESC'),
                 10
             );
 

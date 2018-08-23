@@ -1,8 +1,8 @@
-{% if tags|length > 0 %}
+{% if post.getTags()|length > 0 %}
     <div class="tags">
         <ul>
             <li class="d-inline label-tags"><span>{{ 'Tags'|trans }}</span></li>
-            {% for tag in tags %}
+            {% for tag in post.getTags() %}
                 <li class="d-inline"><a href="{{ path('tag', {'slug': tag.getUrl() }) }}" title="{{ tag.getName() }}">{{ tag.getName() }}</a></li>
             {% endfor %}
         </ul>

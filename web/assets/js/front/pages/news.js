@@ -20,6 +20,6 @@ function intHandleFormComment() {
     })
 }
 
-module.exports = function () {
+exports.init = function () {
     intHandleFormComment();
 };

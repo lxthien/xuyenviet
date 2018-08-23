@@ -16,7 +16,7 @@ class DefaultController extends Controller
             ->getRepository(News::class)
             ->findBy(
                 array(),
-                array('created_at' => 'DESC'),
+                array('createdAt' => 'DESC'),
                 10
             );
 
