@@ -31,7 +31,7 @@ class News
     /**
      * @var AppBundle\Entity\NewsCategory;
      *
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\NewsCategory", inversedBy="category")
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\NewsCategory", inversedBy="news")
      * @ORM\JoinColumn(name="category_id", referencedColumnName="id")
      */
     private $category;
@@ -163,7 +163,7 @@ class News
      *      mappedBy="news",
      *      orphanRemoval=true
      * )
-     * @ORM\OrderBy({"publishedAt": "DESC"})
+     * @ORM\OrderBy({"createdAt": "DESC"})
      */
     private $comments;
 

@@ -345,7 +345,7 @@ class NewsController extends Controller
      * Handle form comment for post
      * @return JSON
      **/
-    public function handleCommentFormAction(Request $request)
+    public function handleCommentFormAction(Request $request, \Swift_Mailer $mailer)
     {
         if (!$request->isXmlHttpRequest()) {
             return new Response(
@@ -370,6 +370,28 @@ class NewsController extends Controller
             $em->flush();
             
             if (null != $comment->getId()) {
+
+                $mailLogger = new \Swift_Plugins_Loggers_ArrayLogger();
+                $mailer->registerPlugin(new \Swift_Plugins_LoggerPlugin($mailLogger));
+
+                $message = (new \Swift_Message('Hello Email'))
+                    ->setFrom('send@example.com')
+                    ->setTo('lxthien@gmail.com')
+                    ->setBody(
+                        $this->renderView(
+                            'Emails/comment.html.twig',
+                            array('name' => $request->request->get('form')['author'])
+                        ),
+                        'text/html'
+                    )
+                ;
+                
+                if ($mailer->send($message)) {
+                    echo '[SWIFTMAILER] sent email to ' . $request->request->get('form')['email'];
+                } else {
+                    echo '[SWIFTMAILER] not sending email: ' . $mailLogger->dump();
+                }
+
                 return new Response(
                     json_encode(
                         array(

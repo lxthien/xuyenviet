@@ -110,10 +110,16 @@ class NewsCategory
      */
     private $author;
 
+    /**
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\News", mappedBy="category")
+     */
+    private $news;
+
 
     public function __construct()
     {
         $this->parentcat = new ArrayCollection();
+        $this->news = new ArrayCollection();
     }
 
     public function __toString()

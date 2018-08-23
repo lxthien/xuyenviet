@@ -19,13 +19,13 @@ use ReCaptcha\ReCaptcha;
 
 class ContactController extends Controller
 {
-	/**
+    /**
      * @Route("contact", name="contact")
      */
     public function indexAction(Request $request)
     {
-    	$contact = new Contact();
-    	
+        $contact = new Contact();
+        
         $form = $this->createFormBuilder($contact)
             ->add('name', TextType::class, array('label' => 'Author'))
             ->add('email', EmailType::class, array('label' => 'Email'))
@@ -38,7 +38,7 @@ class ContactController extends Controller
         $form->handleRequest($request);
 
         if ( $form->isSubmitted() && $form->isValid() ) {
-	        
+            
             $recaptcha = new ReCaptcha($this->container->getParameter('g_recaptcha_secret'));
             $response = $recaptcha->verify($request->request->get('g-recaptcha-response'), $request->getClientIp());
 
@@ -76,7 +76,7 @@ class ContactController extends Controller
                     return $this->redirectToRoute('contact');
                 }
             }
-	    }
+        }
 
         return $this->render('contact/index.html.twig', [
             'form' => $form->createView(),

@@ -500,7 +500,13 @@
                 <source>title.edit_comment</source>
                 <target>Edit Comment #%id%</target>
             </trans-unit>
-            
+
+            <!-- xxx -->
+            <trans-unit id="comments.count">
+                <source>comments.count</source>
+                <target>Comments %count%</target>
+            </trans-unit>
+
         </body>
     </file>
 </xliff>
