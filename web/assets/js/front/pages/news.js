@@ -1,3 +1,5 @@
+'use strict';
+
 function intHandleFormComment() {
     var $formComment = $('#form-comment');
 

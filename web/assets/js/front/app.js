@@ -3,6 +3,7 @@
 var $ = require('jquery');
 
 var news = require('./pages/news');
+var news = require('./global/global');
 
 var app = {
     init: function () {

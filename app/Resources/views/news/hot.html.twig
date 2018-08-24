@@ -1,6 +1,6 @@
 <div class="list-group">
     <a href="#" class="list-group-item list-group-item-action active">
-        {{ 'Hot news'|trans }}
+        {{ 'news.hot'|trans }}
     </a>
     {% for row in posts %}
     	<a href="{{ path('news_show', {'slug': row.getUrl() }) }}" class="list-group-item list-group-item-action">

@@ -501,12 +501,27 @@
                 <target>Edit Comment #%id%</target>
             </trans-unit>
 
-            <!-- xxx -->
+            <!-- Front page -->
+            <trans-unit id="home">
+                <source>home</source>
+                <target>Home</target>
+            </trans-unit>
             <trans-unit id="comments.count">
                 <source>comments.count</source>
                 <target>Comments %count%</target>
             </trans-unit>
-
+            <trans-unit id="view.details">
+                <source>view.details</source>
+                <target>View details »</target>
+            </trans-unit>
+            <trans-unit id="news.hot">
+                <source>news.hot</source>
+                <target>Hot news</target>
+            </trans-unit>
+            <trans-unit id="news.recent">
+                <source>news.recent</source>
+                <target>Recent news</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>

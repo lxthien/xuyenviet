@@ -14,6 +14,8 @@ $web-font-path: 'data:text/css;base64,';
 @include lato-include-font('normal');
 @include lato-include-font('bold');
 
+@import "global/color_variables";
 @import "global/base_elements";
+@import "global/header";
 @import "pages/homepage";
 @import "pages/news";
