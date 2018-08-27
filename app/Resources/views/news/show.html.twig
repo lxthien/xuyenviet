@@ -15,9 +15,12 @@
                 <div class="show-post">
                     {{ post.getContents()|raw }}
                 </div>
-                
+
+                {# Social share #}
+                {{ include('news/components/share.html.twig') }}
+
                 {# List tags #}
-                {{ include('news/components/tag.html.twig') }}
+                {{ include('news/components/tags.html.twig') }}
 
                 {# Related news #}
                 {# {{ include('news/components/related.html.twig') }} #}

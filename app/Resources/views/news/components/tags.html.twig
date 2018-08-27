@@ -3,7 +3,7 @@
         <ul>
             <li class="d-inline label-tags"><span>{{ 'Tags'|trans }}</span></li>
             {% for tag in post.getTags() %}
-                <li class="d-inline"><a href="{{ path('tag', {'slug': tag.getUrl() }) }}" title="{{ tag.getName() }}">{{ tag.getName() }}</a></li>
+                <li class="d-inline"><a href="{{ path('tags', {'slug': tag.getUrl() }) }}" title="{{ tag.getName() }}">{{ tag.getName() }}</a></li>
             {% endfor %}
         </ul>
     </div>

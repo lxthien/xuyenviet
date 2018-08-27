@@ -42,6 +42,8 @@ class AppKernel extends Kernel
             new Knp\Bundle\PaginatorBundle\KnpPaginatorBundle(), // KnpPaginationBundle
 
             new Knp\Bundle\MenuBundle\KnpMenuBundle(), // KnpMenuBundle
+
+            new Nomaya\SocialBundle\NomayaSocialBundle(), //NomayaSocialBundle
         ];
 
         // Some bundles are only used while developing the application or during

@@ -171,9 +171,9 @@ class NewsController extends Controller
     }
 
     /**
-     * @Route("/tag/{slug}.html",
+     * @Route("/tags/{slug}.html",
      *      defaults={"_format"="html"},
-     *      name="tag",
+     *      name="tags",
      *      requirements={
      *          "slug": "[^\n]+"
      *      }))
@@ -181,7 +181,7 @@ class NewsController extends Controller
     public function tagAction($slug, Request $request)
     {
         $tag = $this->getDoctrine()
-            ->getRepository(Tags::class)
+            ->getRepository(Tag::class)
             ->findOneBy(
                 array('url' => $slug)
             );
