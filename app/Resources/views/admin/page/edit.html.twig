@@ -1,0 +1,30 @@
+{% extends 'admin/layout.html.twig' %}
+
+{% block body_id 'admin_news_edit' %}
+
+{% block main %}
+    <h1>{{ 'title.edit_news'|trans({'%id%': object.id}) }}</h1>
+
+    {{ include('admin/page/_form.html.twig', {
+        form: form,
+        button_label: 'action.save'|trans,
+        include_back_to_home_link: true,
+    }, with_context = false) }}
+    
+{% endblock %}
+
+{% block sidebar %}
+    <div class="section">
+        <a href="{{ path('admin_news_show', {id: object.id}) }}" class="btn btn-lg btn-block btn-success">
+            <i class="fa fa-eye" aria-hidden="true"></i> {{ 'action.show_news'|trans }}
+        </a>
+    </div>
+
+    <div class="section actions">
+        {{ include('admin/news/_delete_form.html.twig', {news: object}, with_context = false) }}
+    </div>
+
+    {{ parent() }}
+
+    {{ show_source_code(_self) }}
+{% endblock %}

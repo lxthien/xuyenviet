@@ -120,21 +120,7 @@ class NewsController extends Controller
             );
 
         if (!$post) {
-            // Get page
-            $page = $this->getDoctrine()
-                ->getRepository(Page::class)
-                ->findOneBy(array('url' => $slug));
-
-            if (!$page) {
-                throw $this->createNotFoundException("The item does not exist");
-            }
-
-            // Init breadcrum for this page
-            $breadcrumbs = $this->buildBreadcrums(null, null, $page);
-
-            return $this->render('news/page.html.twig', [
-                'page' => $page,
-            ]);
+            throw $this->createNotFoundException("The item does not exist");
         }
 
         // Update viewCount for post

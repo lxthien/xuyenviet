@@ -125,7 +125,7 @@ liip_imagine:
     driver:               gd
     cache:                default
     data_loader:          default
-    default_image:        '%kernel.root_dir%/../web/assets/cms/images/no-image.jpg'
+    default_image:        '%kernel.root_dir%/../web/assets/images/no-image.png'
     controller:
         filter_action:         liip_imagine.controller:filterAction
         filter_runtime_action: liip_imagine.controller:filterRuntimeAction

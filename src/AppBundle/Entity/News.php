@@ -77,12 +77,12 @@ class News
     /**
      * @var string
      *
-     * @ORM\Column(name="images", type="string", length=255)
+     * @ORM\Column(name="images", type="string", length=255, nullable=true)
      */
     private $images;
 
     /**
-     * @Vich\UploadableField(mapping="news_images", fileNameProperty="images")
+     * @Vich\UploadableField(mapping="news_images", fileNameProperty="images", nullable=true)
      * @var File
      */
     private $imageFile;
@@ -93,6 +93,13 @@ class News
      * @ORM\Column(name="enable", type="boolean")
      */
     private $enable = true;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="postType", type="string", length=255)
+     */
+    private $postType = 'post';
 
     /**
      * @var string
@@ -409,6 +416,30 @@ class News
     public function getEnable()
     {
         return $this->enable;
+    }
+
+    /**
+     * Set postType
+     *
+     * @param string $postType
+     *
+     * @return News
+     */
+    public function setPostType($postType)
+    {
+        $this->postType = $postType;
+
+        return $this;
+    }
+
+    /**
+     * Get postType
+     *
+     * @return string
+     */
+    public function getPostType()
+    {
+        return $this->postType;
     }
 
     /**

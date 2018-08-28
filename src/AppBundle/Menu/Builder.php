@@ -17,6 +17,12 @@ class Builder implements ContainerAwareInterface
         // Homepage
         $menu->addChild('home', ['route' => 'homepage']);
 
+        // Homepage
+        $menu->addChild('aboutUs', [
+            'route' => 'news_show',
+            'routeParameters' => ['slug' => 'gioi-thieu']
+        ]);
+
         // News
         $menu->addChild('News', [
             'route' => 'news_category',
@@ -29,7 +35,7 @@ class Builder implements ContainerAwareInterface
         ]);
 
         // Contact us
-        $menu->addChild('Contact us', ['route' => 'contact']);
+        $menu->addChild('ContactUs', ['route' => 'contact']);
 
         return $menu;
     }
