@@ -15,10 +15,10 @@ class Builder implements ContainerAwareInterface
         $menu = $factory->createItem('root');
 
         // Homepage
-        $menu->addChild('home', ['route' => 'homepage']);
+        $menu->addChild('Home', ['route' => 'homepage']);
 
         // Homepage
-        $menu->addChild('aboutUs', [
+        $menu->addChild('AboutUs', [
             'route' => 'news_show',
             'routeParameters' => ['slug' => 'gioi-thieu']
         ]);
