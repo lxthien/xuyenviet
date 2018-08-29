@@ -1,9 +1,4 @@
-{{ form_start(form, {'attr': {'class': 'form-inline', 'id': 'form-search'}}) }}
-	{{ form_widget(form.q, {'attr': {'class': 'form-control mr-sm-2', 'placeholder': 'Search'}}) }}
-	{{ form_widget(form.search, {'attr': {'class': 'btn btn-outline-success my-2 my-sm-0'}}) }}
-{{ form_end(form) }}
-
-<form action="{{ path('blog_search') }}" method="get">
+<form action="{{ path('news_search') }}" method="get">
     <div class="form-group">
         <input name="q" type="text" class="form-control search-field" placeholder="{{ 'post.search_for'|trans }}" autocomplete="off" autofocus>
     </div>

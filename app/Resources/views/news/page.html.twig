@@ -1,27 +1,29 @@
 {% extends 'layout.html.twig' %}
 
-{% block title %}{{ page.getPageTitle() }}{% endblock %}
-{% block description %}{{ page.getPageDescription() }}{% endblock %}
-{% block keyword %}{{ page.getPageKeyword() }}{% endblock %}
+{% block title %}{{ post.getPageTitle() }}{% endblock %}
+{% block description %}{{ post.getPageDescription() }}{% endblock %}
+{% block keyword %}{{ post.getPageKeyword() }}{% endblock %}
 
 {% block body %}
-	<div class="container">
-		<div class="row">
-        	<div class="col-md-9">
-        		{# Breadcrum #}
-				{{ wo_render_breadcrumbs() }}
-				{# Title #}
-				<h1>{{ page.getName() }}</h1>
-				<div class="clearfix"></div>
-				{# Content #}
-				<div class="show-post">
-					{{ page.getContents()|raw }}
-				</div>
-				<div class="clearfix"></div>
-			</div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-9">
+                {# Breadcrum #}
+                {# {{ wo_render_breadcrumbs() }} #}
 
-			{# Side bar #}
-			{{ include('layout/sidebar.html.twig') }}
+                {# Title #}
+                <h1>{{ post.getTitle() }}</h1>
+                <div class="clearfix"></div>
+                
+                {# Content #}
+                <div class="show-post">
+                    {{ post.getContents()|raw }}
+                </div>
+                <div class="clearfix"></div>
+            </div>
+
+            {# Side bar #}
+            {{ include('layout/sidebar.html.twig') }}
         </div>
-	</div>
+    </div>
 {% endblock %}

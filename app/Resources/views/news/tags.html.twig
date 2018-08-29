@@ -27,34 +27,7 @@
                 {% if pagination|length > 0  %}
                     <ul class="list-unstyled">
                         {% for row in pagination %}
-                        <li class="media" itemscope itemtype="http://schema.org/NewsArticle">
-                            <meta itemscope itemprop="mainEntityOfPage"  itemType="https://schema.org/WebPage" itemid="https://google.com/article"/>
-                            <a class="media-thumb" title="{{ row.getTitle() }}" href="{{ path('news_show', {'slug': row.getUrl() }) }}" itemprop="image" itemscope itemtype="https://schema.org/ImageObject">
-                                <img class="mr-3 img-thumbnail" src="{{ vich_uploader_asset(row, 'imageFile') | imagine_filter('news_thumb') }}" alt="{{row.getTitle()}}">
-                                <meta itemprop="url" content="{{ vich_uploader_asset(row, 'imageFile') | imagine_filter('news_thumb') }}">
-                                <meta itemprop="width" content="218">
-                                <meta itemprop="height" content="150">
-                            </a>
-                            <div class="media-body">
-                                <h5 class="mt-0 mb-1">
-                                    <a itemprop="headline" title="{{ row.getTitle() }}" href="{{ path('news_show', {'slug': row.getUrl() }) }}" title="{{ row.getTitle() }}">{{ row.getTitle() }}</a>
-                                </h5>
-                                <span itemprop="description">{{ row.getDescription()|slice(0, 200) }}</span>
-                            </div>
-                            <div itemprop="publisher" itemscope itemtype="https://schema.org/Organization">
-                                <div itemprop="logo" itemscope itemtype="https://schema.org/ImageObject">
-                                    <meta itemprop="url" content="https://google.com/logo.jpg">
-                                    <meta itemprop="width" content="600">
-                                    <meta itemprop="height" content="60">
-                                </div>
-                                <meta itemprop="name" content="Google">
-                            </div>
-                            <div itemprop="author" itemscope itemtype="https://schema.org/Person">
-                                <meta itemprop="name" content="Raotinnhadat.xyz"/>
-                            </div>
-                            <meta itemprop="datePublished" content="{{ row.getCreatedAt()|date("Y-m-d h:m:s") }}"/>
-                            <meta itemprop="dateModified" content="{{ row.getUpdatedAt()|date("Y-m-d h:m:s") }}"/>
-                        </li>
+                            {{ include('news/components/items.html.twig') }}
                         {% endfor %}
                     </ul>
                 {% else %}

@@ -23,18 +23,9 @@ use AppBundle\Entity\Tag;
 class NewsController extends Controller
 {
     /**
-     * /*@Route("{level1}/{page}",
-     *      name="news_category",
-     *      requirements={
-     *          "level1": "[-\w]+",
-     *          "page": "\d+"
-     *      })
-     * /*@Route("{level1}/{level2}/{page}",
-     *      name="list_category",
-     *      requirements={
-     *          "level1": "[-\w]+",
-     *          "page": "\d+"
-     *      })
+     * Render the list posts by the category
+     * 
+     * @return News
      */
     public function listAction($level1, $level2 = null, $page = 1)
     {
@@ -130,7 +121,7 @@ class NewsController extends Controller
         // Get news related
         $relatedNews = $this->getDoctrine()
             ->getRepository(News::class)
-            ->findAll();
+            ->findBy(array('postType' => 'post'));
 
         // Get the list comment for post
         $comments = $this->getDoctrine()
@@ -148,12 +139,18 @@ class NewsController extends Controller
         // Init breadcrum for the post
         //$breadcrumbs = $this->buildBreadcrums(null, $post, null);
 
-        return $this->render('news/show.html.twig', [
-            'post'          => $post,
-            'relatedNews'   => $relatedNews,
-            'form'          => $form->createView(),
-            'comments'      => $comments,
-        ]);
+        if ($post->isPage()) {
+            return $this->render('news/page.html.twig', [
+                'post'          => $post
+            ]);
+        } else {
+            return $this->render('news/show.html.twig', [
+                'post'          => $post,
+                'relatedNews'   => $relatedNews,
+                'form'          => $form->createView(),
+                'comments'      => $comments,
+            ]);
+        }
     }
 
     /**
@@ -255,6 +252,8 @@ class NewsController extends Controller
 
     /**
      * @Route("/search", name="news_search")
+     * 
+     * @return News
      */
     public function handleSearchFormAction(Request $request)
     {
@@ -283,12 +282,9 @@ class NewsController extends Controller
         $query = $this->getDoctrine()
             ->getRepository(News::class)
             ->createQueryBuilder('a')
-            ->where('a.name LIKE :q')
+            ->where('a.title LIKE :q')
             ->setParameter('q', '%'.$request->query->get('q').'%')
             ->getQuery();
-
-        // Init breadcrum for the post
-        $breadcrumbs = $this->buildBreadcrums(null, null, null);
         
         $paginator  = $this->get('knp_paginator');
         $pagination = $paginator->paginate(
@@ -304,7 +300,8 @@ class NewsController extends Controller
     }
 
     /**
-     * Render form comment
+     * Render the form comment of news
+     * 
      * @return Form
      **/
     private function renderFormComment($post)
@@ -329,6 +326,7 @@ class NewsController extends Controller
 
     /**
      * Handle form comment for post
+     * 
      * @return JSON
      **/
     public function handleCommentFormAction(Request $request, \Swift_Mailer $mailer)
@@ -401,6 +399,7 @@ class NewsController extends Controller
 
     /**
      * Handle the breadcrumb
+     * 
      * @return Breadcrums
      **/
     public function buildBreadcrums($category = null, $post = null, $page = null)

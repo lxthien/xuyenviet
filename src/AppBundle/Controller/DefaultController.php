@@ -12,10 +12,10 @@ class DefaultController extends Controller
 {
     public function indexAction(Request $request)
     {
-    	$posts = $this->getDoctrine()
+        $posts = $this->getDoctrine()
             ->getRepository(News::class)
             ->findBy(
-                array(),
+                array('postType' => 'post'),
                 array('createdAt' => 'DESC'),
                 10
             );

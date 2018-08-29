@@ -443,6 +443,16 @@ class News
     }
 
     /**
+     * Is Page
+     *
+     * @return boolean
+     */
+    public function isPage()
+    {
+        return ($this->postType == 'page') ? true : false;
+    }
+
+    /**
      * Set pageTitle
      *
      * @param string $pageTitle
