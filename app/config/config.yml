@@ -172,6 +172,10 @@ dmishh_settings:
         manage_global_settings_role: ROLE_ADMIN
         users_can_manage_own_settings: true
     settings:
+        siteName:
+            type: Symfony\Component\Form\Extension\Core\Type\TextType
+            options:
+                required: false
         pageTitle:
             type: Symfony\Component\Form\Extension\Core\Type\TextType
             options:
@@ -184,18 +188,19 @@ dmishh_settings:
             type: Symfony\Component\Form\Extension\Core\Type\TextType
             options:
                 required: false
-        googleCapchaEnabled:
-            type: Symfony\Component\Form\Extension\Core\Type\ChoiceType
-            options:
-                required: false
-                choices:
-                    true: Yes
-                    false: No
-        googleCapchaSiteKey:
+        numberRecordOnPage:
             type: Symfony\Component\Form\Extension\Core\Type\TextType
             options:
-                required: false
-        googleCapchaSecretKey:
+                required: true
+        emailContact:
             type: Symfony\Component\Form\Extension\Core\Type\TextType
             options:
-                required: false
+                required: true
+        hotLine1:
+            type: Symfony\Component\Form\Extension\Core\Type\TextType
+            options:
+                required: true
+        hotLine2:
+            type: Symfony\Component\Form\Extension\Core\Type\TextType
+            options:
+                required: true

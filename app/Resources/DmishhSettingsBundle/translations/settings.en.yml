@@ -5,7 +5,11 @@ not_allowed_to_edit_global_settings: You are not allowed to edit global settings
 must_be_logged_in_to_edit_own_settings: You must be logged in to edit your settings
 not_allowed_to_edit_own_settings: You are not allowed to edit your settings
 labels:
+  siteName: Site name
   pageTitle: Page title
   pageDescription: Page description
   pageKeyword: Page keyword
-  googleCapchaEnabled: Google capcha enabled
+  numberRecordOnPage: The number records on a page
+  emailContact: Email contact
+  hotLine1: Hotline 1
+  hotLine2: Hotline 2
