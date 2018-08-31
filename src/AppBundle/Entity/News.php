@@ -82,7 +82,7 @@ class News
     private $images;
 
     /**
-     * @Vich\UploadableField(mapping="news_images", fileNameProperty="images", nullable=true)
+     * @Vich\UploadableField(mapping="news_images", fileNameProperty="images")
      * @var File
      */
     private $imageFile;

@@ -168,36 +168,36 @@ knp_menu:
     # the renderer to use, list is also available by default
     default_renderer: twig
 
-# NomayaSocialBundle
-nomaya_social:
-    buttons:
-        facebook:
-            url:            null
-            locale:         "en"
-            send:           false
-            width:          300
-            showFaces:      false
-            layout:         "button_count"
-        twitter:
-            url:            null
-            locale:         "en"
-            message:        "Je veux partager ça avec vous"
-            text:           "Tweet"
-            via:            "L'Equipe cartedevisitevirtuelle.fr"
-            tag:            "ttot"
-        googleplus:
-            url:            null
-            locale :        "en"
-            size :          "medium"
-            annotation :    "bubble"
-            width :         300
-        linkedin:            
-            url:            null
-            locale:         "en"
-            counter:        "right"
-        pinterest:
-            url:            null
-    links: 
-        facebook:           "http://www.facebook.com/yann.chauvel"
-        googleplus:         "https://plus.google.com/105931415830389032796"
-    theme:                  'default'
+# DmishhSettingsBundle
+dmishh_settings:
+    security:
+        manage_global_settings_role: ROLE_ADMIN
+        users_can_manage_own_settings: true
+    settings:
+        pageTitle:
+            type: Symfony\Component\Form\Extension\Core\Type\TextType
+            options:
+                required: false
+        pageDescription:
+            type: Symfony\Component\Form\Extension\Core\Type\TextareaType
+            options:
+                required: false
+        pageKeyword:
+            type: Symfony\Component\Form\Extension\Core\Type\TextType
+            options:
+                required: false
+        googleCapchaEnabled:
+            type: Symfony\Component\Form\Extension\Core\Type\ChoiceType
+            options:
+                required: false
+                choices:
+                    true: Yes
+                    false: No
+        googleCapchaSiteKey:
+            type: Symfony\Component\Form\Extension\Core\Type\TextType
+            options:
+                required: false
+        googleCapchaSecretKey:
+            type: Symfony\Component\Form\Extension\Core\Type\TextType
+            options:
+                required: false

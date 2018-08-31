@@ -39,7 +39,7 @@ class ContactController extends Controller
 
         if ( $form->isSubmitted() && $form->isValid() ) {
             
-            $recaptcha = new ReCaptcha($this->container->getParameter('g_recaptcha_secret'));
+            $recaptcha = new ReCaptcha($this->get('settings_manager')->get('googleCapchaSecretKey'));
             $response = $recaptcha->verify($request->request->get('g-recaptcha-response'), $request->getClientIp());
 
             if ( !$response->isSuccess() ) {
