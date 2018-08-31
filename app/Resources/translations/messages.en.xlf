@@ -392,16 +392,16 @@
                 <source>label.description</source>
                 <target>Description</target>
             </trans-unit>
-            <trans-unit id="label.page_title">
-                <source>label.page_title</source>
+            <trans-unit id="label.pageTitle">
+                <source>label.pageTitle</source>
                 <target>Page title</target>
             </trans-unit>
-            <trans-unit id="label.page_description">
-                <source>label.page_description</source>
+            <trans-unit id="label.pageDescription">
+                <source>label.pageDescription</source>
                 <target>Page description</target>
             </trans-unit>
-            <trans-unit id="label.page_keyword">
-                <source>label.page_keyword</source>
+            <trans-unit id="label.pageKeyword">
+                <source>label.pageKeyword</source>
                 <target>Page keyword</target>
             </trans-unit>
             <trans-unit id="action.create_newscategory">
@@ -499,6 +499,27 @@
             <trans-unit id="title.edit_comment">
                 <source>title.edit_comment</source>
                 <target>Edit Comment #%id%</target>
+            </trans-unit>
+
+            <trans-unit id="menu.tags">
+                <source>menu.tags</source>
+                <target>Tag</target>
+            </trans-unit>
+
+            <!-- Menu -->
+            <trans-unit id="menu.page_list">
+                <source>menu.page_list</source>
+                <target>Page</target>
+            </trans-unit>
+            <trans-unit id="menu.setting">
+                <source>menu.setting</source>
+                <target>Settings</target>
+            </trans-unit>
+
+            <!-- Tag -->
+            <trans-unit id="title.edit_tag">
+                <source>title.edit_tag</source>
+                <target>Edit tag #%id%</target>
             </trans-unit>
 
             <!-- Front page -->

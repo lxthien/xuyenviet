@@ -50,7 +50,7 @@ class TagController extends Controller
         $em = $this->getDoctrine()->getManager();
         $tags = $em->getRepository(Tag::class)->findAll();
 
-        return $this->render('admin/tag/index.html.twig', ['tags' => $tags]);
+        return $this->render('admin/tag/index.html.twig', ['objects' => $tags]);
     }
 
     /**
@@ -67,16 +67,13 @@ class TagController extends Controller
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-
             $this->getDoctrine()->getManager()->flush();
-
             $this->addFlash('success', 'updated_successfully');
-
             return $this->redirectToRoute('admin_tag_index');
         }
 
         return $this->render('admin/tag/edit.html.twig', [
-            'tag' => $tag,
+            'object' => $tag,
             'form' => $form->createView(),
         ]);
     }

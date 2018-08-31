@@ -18,8 +18,8 @@
         {% for row in categories %}
             <tr>
                 <td><a href="{{ path('admin_newscategory_edit', {id: row.id}) }}"><strong>{{ row.getName() }}</strong><a></td>
-                <td>{{ row.getParentcat() ? row.getParentcat() : "root" }}</td>
-                <td></td>
+                <td>{{ row.getParentcat() }}</td>
+                <td>{{ row.getCreatedAt() | localizeddate('medium', 'none', null, 'Asia/Ho_Chi_Minh', 'dd/mm/YY') }}</td>
                 <td class="text-center">
                     <div class="item-actions">
                         <a href="{{ path('admin_newscategory_edit', {id: row.id}) }}" class="btn btn-sm mr-left">

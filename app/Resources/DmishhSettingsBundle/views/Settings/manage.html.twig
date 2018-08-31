@@ -1,5 +1,7 @@
 {% extends 'admin/layout.html.twig' %}
 
+{% block body_id 'admin_setting_index' %}
+
 {% block main %}
     <h1>{% trans from 'settings' %}settings{% endtrans %}</h1>
 
@@ -7,10 +9,5 @@
         {{ form_widget(settings_form) }}
         <input type="submit" value="{% trans from 'settings' %}save{% endtrans %}" />
     {{ form_end(settings_form) }}
-{% endblock %}
 
-{% block sidebar %}
-    {{ parent() }}
-
-    {{ show_source_code(_self) }}
 {% endblock %}

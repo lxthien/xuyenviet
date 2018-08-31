@@ -20,12 +20,12 @@
             <tr>
                 <td>
                     <div class="images-container">
-                        <img src="{{ vich_uploader_asset(row, 'imageFile') }}" alt="{{ row.getTitle() }}" style="width: 50px;" />
+                        <img src="{{ (vich_uploader_asset(row, 'imageFile') ? vich_uploader_asset(row, 'imageFile') : asset('assets/images/no-image.png')) | imagine_filter('admin_news_thumb') }}" alt="{{ row.getTitle() }}" />
                     </div>
                 </td>
                 <td><a href="{{ path('admin_news_edit', {id: row.id}) }}"><strong>{{ row.getTitle() }}</strong></a></td>
                 <td>{{ row.getCategory() }}</td>
-                <td></td>
+                <td>{{ row.getCreatedAt() | localizeddate('medium', 'none', null, 'Asia/Ho_Chi_Minh', 'dd/mm/YY') }}</td>
                 <td class="text-right">
                     <div class="item-actions">
                         <a href="{{ path('admin_news_edit', {id: row.id}) }}" class="btn btn-sm mr-left">
