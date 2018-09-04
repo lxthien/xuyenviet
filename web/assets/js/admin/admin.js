@@ -18,7 +18,7 @@ $(function() {
      * Create sluggable from name
      **/
     function initBuildSluggable() {
-        $(".admin_new :input.sluggable").keyup(function () {
+        $(":input.sluggable").keyup(function () {
             $(":input.url").val(remove_vietnamese_accents($(this).val()));
         });
 

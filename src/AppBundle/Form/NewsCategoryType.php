@@ -65,17 +65,17 @@ class NewsCategoryType extends AbstractType
                 'required' => false,
                 'label' => 'label.enable',
             ])
-            ->add('page_title', TextType::class, [
+            ->add('pageTitle', TextType::class, [
                 'required' => false,
-                'label' => 'label.page_title',
+                'label' => 'label.pageTitle',
             ])
-            ->add('page_description', TextareaType::class, [
+            ->add('pageDescription', TextareaType::class, [
                 'required' => false,
-                'label' => 'label.page_description',
+                'label' => 'label.pageDescription',
             ])
-            ->add('page_keyword', TextType::class, [
+            ->add('pageKeyword', TextType::class, [
                 'required' => false,
-                'label' => 'label.page_keyword',
+                'label' => 'label.pageKeyword',
             ])
         ;
     }

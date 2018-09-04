@@ -6,6 +6,9 @@
 
 {% block body %}
     <div class="container">
+        {# breadcrumbs #}
+        {{ include('news/components/breadcrumbs.html.twig') }}
+
         <div class="row">
             <div class="col-md-9">
                 <h1>{{ category.getName() }}</h1>
@@ -14,11 +17,11 @@
                     <p>{{ category.getDescription()|raw }}</p>
                 </div>
 
-                {# Sort items #}
-                {{ include('news/components/sort.html.twig') }}
-                
                 {# List item on this page #}
                 {% if pagination|length > 0  %}
+                    {# Sort items #}
+                    {{ include('news/components/sort.html.twig') }}
+
                     <ul class="list-unstyled">
                         {% for row in pagination %}
                             {{ include('news/components/items.html.twig') }}
@@ -35,7 +38,9 @@
             </div>
 
             {# Side bar #}
-            {{ include('layout/sidebar.html.twig') }}
+            <div class="col-lg-3">
+                {{ include('layout/sidebar.html.twig') }}
+            </div>
         </div>
     </div>
 {% endblock %}

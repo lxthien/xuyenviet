@@ -12,30 +12,43 @@ class Builder implements ContainerAwareInterface
 
     public function mainMenu(FactoryInterface $factory, array $options)
     {
-        $menu = $factory->createItem('root');
+        $menu = $factory->createItem('root', array(
+            'childrenAttributes' => array (
+                'class' => 'navbar-nav mr-auto mt-2 mt-lg-0',
+            ),
+        ));
 
         // Homepage
-        $menu->addChild('Home', ['route' => 'homepage']);
+        $menu->addChild('Home', [
+            'attributes' => ['class' => 'nav-item'],
+            'route' => 'homepage'
+        ])->setLinkAttribute('class', 'nav-link');
 
-        // Homepage
-        $menu->addChild('AboutUs', [
+        // About Us
+        $menu->addChild('About Us', [
+            'attributes' => ['class' => 'nav-item'],
             'route' => 'news_show',
             'routeParameters' => ['slug' => 'gioi-thieu']
-        ]);
+        ])->setLinkAttribute('class', 'nav-link');
 
         // News
-        $menu->addChild('News', [
+        $menu->addChild('Dịch vụ', [
+            'attributes' => ['class' => 'nav-item'],
             'route' => 'news_category',
-            'routeParameters' => ['level1' => 'tin-tuc']
-        ]);
+            'routeParameters' => ['level1' => 'dich-vu']
+        ])->setLinkAttribute('class', 'nav-link');
 
-        $menu['News']->addChild('Business', [
-            'route' => 'list_category',
-            'routeParameters' => ['level1' => 'tin-tuc', 'level2' => 'tin-thi-truong']
-        ]);
+        $menu->addChild('Dự án', [
+            'attributes' => ['class' => 'nav-item'],
+            'route' => 'news_category',
+            'routeParameters' => ['level1' => 'du-an']
+        ])->setLinkAttribute('class', 'nav-link');
 
         // Contact us
-        $menu->addChild('ContactUs', ['route' => 'contact']);
+        $menu->addChild('Contact Us', [
+            'attributes' => ['class' => 'nav-item'],
+            'route' => 'contact'
+        ])->setLinkAttribute('class', 'nav-link');
 
         return $menu;
     }

@@ -6,6 +6,9 @@
 
 {% block body %}
     <div class="container">
+        {# breadcrumbs #}
+        {{ include('news/components/breadcrumbs.html.twig') }}
+        
         <div class="row">
             <div class="col-md-9">
                 {# Breadcrum #}
@@ -23,7 +26,9 @@
             </div>
 
             {# Side bar #}
-            {{ include('layout/sidebar.html.twig') }}
+            <div class="col-lg-3">
+                {{ include('layout/sidebar.html.twig') }}
+            </div>
         </div>
     </div>
 {% endblock %}

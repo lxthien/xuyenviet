@@ -17,6 +17,7 @@
     "require": {
         "php": ">=7.0",
         "ext-pdo_sqlite": "*",
+        "dmishh/settings-bundle": "2.0.*@dev",
         "doctrine/doctrine-bundle": "^1.6",
         "doctrine/doctrine-cache-bundle": "^1.2",
         "doctrine/doctrine-fixtures-bundle": "^2.2",
@@ -38,7 +39,7 @@
         "twig/twig": "^1.28 || ^2.0",
         "vich/uploader-bundle": "^1.4",
         "white-october/pagerfanta-bundle": "^1.0",
-        "dmishh/settings-bundle": "2.0.*@dev"
+        "whiteoctober/breadcrumbs-bundle": "^1.4"
     },
     "require-dev": {
         "dama/doctrine-test-bundle"            : "^3.0",

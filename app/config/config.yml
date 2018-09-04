@@ -140,6 +140,10 @@ liip_imagine:
             quality: 75
             filters:
                 thumbnail: { size: [218, 150], mode: outbound }
+        news_thumb_50_50:
+            quality: 75
+            filters:
+                thumbnail: { size: [50, 50], mode: outbound }
 
 # KnpPaginationBundle
 knp_paginator:
@@ -188,6 +192,15 @@ dmishh_settings:
             type: Symfony\Component\Form\Extension\Core\Type\TextType
             options:
                 required: false
+        isShowCommentOnPage:
+            type: Symfony\Component\Form\Extension\Core\Type\ChoiceType
+            options:
+                required: false
+                choices:
+                    "yes": "yes"
+                    "no": "no"
+                choices_as_values: true
+                placeholder: "Select a value"
         numberRecordOnPage:
             type: Symfony\Component\Form\Extension\Core\Type\TextType
             options:
@@ -195,12 +208,12 @@ dmishh_settings:
         emailContact:
             type: Symfony\Component\Form\Extension\Core\Type\TextType
             options:
-                required: true
+                required: false
         hotLine1:
             type: Symfony\Component\Form\Extension\Core\Type\TextType
             options:
-                required: true
+                required: false
         hotLine2:
             type: Symfony\Component\Form\Extension\Core\Type\TextType
             options:
-                required: true
+                required: false

@@ -39,6 +39,7 @@ class AppKernel extends Kernel
             new Knp\Bundle\PaginatorBundle\KnpPaginatorBundle(), //KnpPaginationBundle
             new Knp\Bundle\MenuBundle\KnpMenuBundle(), //KnpMenuBundle
             new Dmishh\SettingsBundle\DmishhSettingsBundle(), //DmishhSettingsBundle
+            new WhiteOctober\BreadcrumbsBundle\WhiteOctoberBreadcrumbsBundle(), //WhiteOctoberBreadcrumbsBundle
         ];
 
         // Some bundles are only used while developing the application or during

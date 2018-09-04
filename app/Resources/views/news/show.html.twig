@@ -6,34 +6,39 @@
 
 {% block body %}
     <div class="container">
+        {# breadcrumbs #}
+        {{ include('news/components/breadcrumbs.html.twig') }}
+        
         <div class="row">
             <div class="col-md-9">
-                {# Name of the post #}
-                <h1>{{ post.getTitle() }}</h1>
-                
-                {# Contents of the post #}
-                <div class="show-post">
-                    {{ post.getContents()|raw }}
+                <div class="news">
+                    <h1>{{ post.getTitle() }}</h1>
+                    
+                    <div class="news-container">
+                        {{ post.getContents()|raw }}
+                    </div>
+
+                    {# Social share #}
+                    {{ include('news/components/share.html.twig') }}
+
+                    {# List tags #}
+                    {{ include('news/components/tags.html.twig') }}
+
+                    {# Related news #}
+                    {{ include('news/components/related.html.twig') }}
+                    
+                    {# List comments #}
+                    {{ include('news/comments/list.html.twig') }}
+                    
+                    {# Render form comment #}
+                    {{ include('news/comments/form.html.twig') }}
                 </div>
-
-                {# Social share #}
-                {{ include('news/components/share.html.twig') }}
-
-                {# List tags #}
-                {{ include('news/components/tags.html.twig') }}
-
-                {# Related news #}
-                {{ include('news/components/related.html.twig') }}
-                
-                {# List comments #}
-                {{ include('news/comments/list.html.twig') }}
-                
-                {# Render form comment #}
-                {{ include('news/comments/form.html.twig') }}
             </div>
 
             {# Side bar #}
-            {{ include('layout/sidebar.html.twig') }}
+            <div class="col-lg-3">
+                {{ include('layout/sidebar.html.twig') }}
+            </div>
         </div>
     </div>
 {% endblock %}

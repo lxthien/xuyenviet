@@ -48,7 +48,7 @@ class NewsController extends Controller
         }
 
         // Init breadcrum for category page
-        //$breadcrumbs = $this->buildBreadcrums((!empty($subCategory) && $subCategory != null) ? $subCategory : $category, null, null);
+        $breadcrumbs = $this->buildBreadcrums((!empty($subCategory) && $subCategory != null) ? $subCategory : $category, null, null);
 
         // Init pagination for category page.
         if (empty($level2)) {
@@ -137,7 +137,7 @@ class NewsController extends Controller
         $form = $this->renderFormComment($post);
 
         // Init breadcrum for the post
-        //$breadcrumbs = $this->buildBreadcrums(null, $post, null);
+        $breadcrumbs = $this->buildBreadcrums(null, $post, null);
 
         if ($post->isPage()) {
             return $this->render('news/page.html.twig', [
@@ -201,7 +201,7 @@ class NewsController extends Controller
         $posts = $this->getDoctrine()
             ->getRepository(News::class)
             ->findBy(
-                array(),
+                array('postType' => 'post'),
                 array('createdAt' => 'DESC'),
                 10
             );
@@ -220,7 +220,7 @@ class NewsController extends Controller
         $posts = $this->getDoctrine()
             ->getRepository(News::class)
             ->findBy(
-                array(),
+                array('postType' => 'post'),
                 array('viewCounts' => 'DESC'),
                 10
             );
@@ -412,11 +412,10 @@ class NewsController extends Controller
         
         // Breadcrum for category page
         if( !empty($category) ) {
-            if( $category->getParentcat() == NULL) {
+            if( $category->getParentcat() === 'root') {
                 $breadcrumbs->addItem($category->getName(), $this->generateUrl("news_category", array('level1' => $category->getUrl() )));
             } else {
                 $breadcrumbs->addItem($category->getParentcat()->getName(), $this->generateUrl("news_category", array('level1' => $category->getParentcat()->getUrl() )));
-
                 $breadcrumbs->addItem($category->getName(), $this->generateUrl("list_category", array('level1' => $category->getParentcat()->getUrl(), 'level2' => $category->getUrl() )));
             }
         }
@@ -426,28 +425,18 @@ class NewsController extends Controller
             $category = $post->getCategory();
 
             if ( !empty($category) ) {
-                if ($category->getParentcat() == NULL) {
+                if ($category->getParentcat() === 'root') {
                     $breadcrumbs->addItem($category->getName(), $this->generateUrl("news_category", array('level1' => $category->getUrl() )));
-
-                    $breadcrumbs->addItem($post->getName());
+                    $breadcrumbs->addItem($post->getTitle());
                 } else {
                     $parentCategory = $category->getParentcat();
-                    
                     $breadcrumbs->addItem($parentCategory->getName(), $this->generateUrl("news_category", array('level1' => $parentCategory->getUrl() )));
-                    
                     $breadcrumbs->addItem($category->getName(), $this->generateUrl("list_category", array('level1' => $parentCategory->getUrl(), 'level2' => $category->getUrl() )));
-                    
-                    $breadcrumbs->addItem($post->getName());
+                    $breadcrumbs->addItem($post->getTitle());
                 }
             } else {
-                $breadcrumbs->addItem($post->getName());
+                $breadcrumbs->addItem($post->getTitle());
             }
-        }
-
-        // Breadcrum for page page
-        if ( !empty($page) ) {
-            // Add page item into first breadcrum.
-            $breadcrumbs->addItem($page->getName());
         }
 
         return $breadcrumbs;

@@ -3,17 +3,22 @@
 {% block body %}
     <script src='https://www.google.com/recaptcha/api.js'></script>
 
-    <div class="contacts">
+    <div class="container contacts">
+        <div class="row">
+            <div class="col-lg-9">
+                {% for message in app.flashes('error') %}
+                    <div class="flash-error">
+                        {{ message }}
+                    </div>
+                {% endfor %}
 
-        {% for message in app.flashes('error') %}
-            <div class="flash-error">
-                {{ message }}
+                {{ form_start(form) }}
+                {{ form_widget(form) }}
+                {{ form_end(form) }}
             </div>
-        {% endfor %}
-
-        {{ form_start(form) }}
-        {{ form_widget(form) }}
-        {{ form_end(form) }}
-        <div class="g-recaptcha" data-sitekey="{{ get_setting('googleCapchaSiteKey') }}"></div>
+            <div class="col-lg-3">
+                {{ include('layout/sidebar.html.twig') }}
+            </div>
+        </div>
     </div>
 {% endblock %}
