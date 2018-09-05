@@ -18,12 +18,14 @@ html {
 }
 
 body {
+    font-family: $robotoSlab;
     font-size: 16px;
+    color: $black;
     background: $mercury;
     padding: 0;
     margin: 0;
     letter-spacing: 0.025em;
-    line-height: 1.333333;
+    line-height: 1.7;
 }
 
 .wrapper {
