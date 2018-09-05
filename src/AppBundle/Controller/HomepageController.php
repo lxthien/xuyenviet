@@ -8,7 +8,7 @@ use Symfony\Component\HttpFoundation\Request;
 
 use AppBundle\Entity\News;
 
-class DefaultController extends Controller
+class HomepageController extends Controller
 {
     public function indexAction(Request $request)
     {
@@ -20,7 +20,7 @@ class DefaultController extends Controller
                 10
             );
 
-        return $this->render('default/index.html.twig', [
+        return $this->render('homepage/index.html.twig', [
             'posts' => $posts,
         ]);
     }

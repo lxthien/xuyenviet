@@ -1,7 +1,12 @@
 /* Homepage
 ------------------------------------------------------------------------- */
 
-.marketing .col-lg-4 {
-    margin-bottom: 1.5rem;
-    text-align: center;
+.marketing {
+    padding-top: 20px;
+    padding-bottom: 20px;
+
+    .col-lg-4 {
+        margin-bottom: 1.5rem;
+        text-align: center;
+    }
 }

@@ -1,20 +1,73 @@
 /* Basic styles
 ------------------------------------------------------------------------- */
+* {
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    &:before, &:after {
+        box-sizing: inherit;
+        -webkit-box-sizing: inherit;
+        -moz-box-sizing: inherit;
+    }
+}
 
-p,
-ul,
-ol {
-    font-size: 19px;
-    margin-bottom: 1.5em
+html {
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%
+}
+
+body {
+    font-size: 16px;
+    background: $mercury;
+    padding: 0;
+    margin: 0;
+    letter-spacing: 0.025em;
+    line-height: 1.333333;
+}
+
+.wrapper {
+    background: $white;
+}
+
+header, nav, section, article, figure, aside, footer {
+    display: block;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin: 0 0 15px;
+    line-height: 1.4;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+a {
+    text-decoration: none;
+    color: $black;
+    @include transition(0.1s);
+    outline: none;
+    
+    &:hover,
+    &:focus {
+        outline: 0;
+        color: $chathamsBlue;
+        text-decoration: underline;
+    }
+}
+
+p {
+    margin: 0 0 14px 0;
+}
+
+ul {
+    padding-left: 15px;
 }
 
 li {
     margin-bottom: 0.5em
-}
-
-code {
-    background: #ecf0f1;
-    color: #2c3e50
 }
 
 .text-danger,

@@ -6,8 +6,8 @@
         <link rel="icon" type="image/x-icon" href="{{ asset('assets/cms/images/favicon.ico') }}" />
 
         <title>{% block title %}{{ get_setting('pageTitle') }}{% endblock %}</title>
-        <meta name="description" content="{% block description %}Kênh mua bán và cho thuê nhà đất hàng đầu tại Việt Nam. Chuyên mua bán cho thuê nhà đất TP.HCM, Hà Nội, Đồng Nai, Bình Dương, Long An và các Tỉnh/TP khác...{% endblock %}">
-        <meta name="keywords" content="{% block keyword %}Nhà đất, mua bán nhà đất, cho thuê nhà đất, bất động sản, mua ban nha dat, cho thue nha dat, nhà đất bán, nhà đất cho thuê.{% endblock %}">
+        <meta name="description" content="{% block description %}{{ get_setting('pageDescription') }}{% endblock %}">
+        <meta name="keywords" content="{% block keyword %}{{ get_setting('pageKeyword') }}{% endblock %}">
         
         <link rel="canonical" href="{{ url(app.request.attributes.get('_route'), app.request.attributes.get('_route_params')) }}"/>
 
@@ -23,7 +23,7 @@
         <script src='https://www.google.com/recaptcha/api.js'></script>
     </head>
     <body>
-        <div class="container">
+        <div class="container wrapper">
             {{ include('layout/header.html.twig') }}
             {{ include('layout/menu.html.twig') }}
             <div class="row">
