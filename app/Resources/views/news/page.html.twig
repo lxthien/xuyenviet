@@ -10,25 +10,18 @@
         {{ include('news/components/breadcrumbs.html.twig') }}
         
         <div class="row">
-            <div class="col-md-9">
-                {# Breadcrum #}
-                {# {{ wo_render_breadcrumbs() }} #}
-
+            <div class="col-md-8">
                 {# Title #}
                 <h1>{{ post.getTitle() }}</h1>
-                <div class="clearfix"></div>
                 
                 {# Content #}
                 <div class="show-post">
                     {{ post.getContents()|raw }}
                 </div>
-                <div class="clearfix"></div>
             </div>
 
             {# Side bar #}
-            <div class="col-lg-3">
-                {{ include('layout/sidebar.html.twig') }}
-            </div>
+            {{ include('layout/sidebar.html.twig') }}
         </div>
     </div>
 {% endblock %}

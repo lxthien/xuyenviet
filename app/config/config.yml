@@ -174,6 +174,9 @@ knp_menu:
     # the renderer to use, list is also available by default
     default_renderer: twig
 
+white_october_breadcrumbs:
+    separator:          ''
+
 # DmishhSettingsBundle
 dmishh_settings:
     security:

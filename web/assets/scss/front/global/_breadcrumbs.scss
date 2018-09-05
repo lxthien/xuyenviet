@@ -1,0 +1,14 @@
+.breadcrumb {
+    padding: 8px 0px;
+    margin-bottom: 20px;
+    border-bottom: 2px solid $mercury;
+    background: none;
+
+    li {
+        margin-bottom: 0em;
+
+        &:before {
+            color: $mercury;
+        }
+    }
+}

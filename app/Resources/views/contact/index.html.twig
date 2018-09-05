@@ -5,7 +5,7 @@
 
     <div class="container contacts">
         <div class="row">
-            <div class="col-lg-9">
+            <div class="col-md-8">
                 {% for message in app.flashes('error') %}
                     <div class="flash-error">
                         {{ message }}
@@ -16,9 +16,8 @@
                 {{ form_widget(form) }}
                 {{ form_end(form) }}
             </div>
-            <div class="col-lg-3">
-                {{ include('layout/sidebar.html.twig') }}
-            </div>
+            
+            {{ include('layout/sidebar.html.twig') }}
         </div>
     </div>
 {% endblock %}
