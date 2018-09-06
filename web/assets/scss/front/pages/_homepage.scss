@@ -1,5 +1,15 @@
 /* Homepage
 ------------------------------------------------------------------------- */
+.marquee {
+    marquee {
+        padding-top: 15px;
+        padding-bottom: 15px;
+
+        a {
+            color: $chathamsBlue;
+        }
+    }
+}
 
 .marketing {
     padding-top: 20px;
@@ -8,5 +18,35 @@
     .col-lg-4 {
         margin-bottom: 1.5rem;
         text-align: center;
+
+        .rounded-circle {
+            border: 2px solid $chathamsBlue;
+            width: 180px;
+            height: 180px;
+        }
+
+        h2 {
+            font-size: 22px;
+            padding: 15px 0 10px;
+            margin-bottom: 0;
+        }
+
+        .btn-secondary {
+            background: $chathamsBlue;
+            color: $white;
+
+            &:hover {
+                border: none;
+                text-decoration: underline;
+            }
+        }
     }
+}
+
+.block-underline {
+    width: 150px;
+    height: 3px;
+    background: $chathamsBlue;
+    display: block;
+    margin: 0 auto 20px;
 }
