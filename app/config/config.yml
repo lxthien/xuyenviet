@@ -200,29 +200,19 @@ dmishh_settings:
             options:
                 required: false
         isShowSortOnCategory:
-            type: Symfony\Component\Form\Extension\Core\Type\ChoiceType
+            type: Symfony\Component\Form\Extension\Core\Type\CheckboxType
             options:
                 required: false
-                choices:
-                    - Yes
-                    - No
-                placeholder: false
-                expanded: true
         isShowCommentOnPost:
-            type: Symfony\Component\Form\Extension\Core\Type\ChoiceType
+            type: Symfony\Component\Form\Extension\Core\Type\CheckboxType
             options:
                 required: false
-                choices:
-                    - Yes
-                    - No
-                placeholder: false
-                expanded: true
         numberRecordOnPage:
-            type: Symfony\Component\Form\Extension\Core\Type\TextType
+            type: Symfony\Component\Form\Extension\Core\Type\NumberType
             options:
                 required: true
         emailContact:
-            type: Symfony\Component\Form\Extension\Core\Type\TextType
+            type: Symfony\Component\Form\Extension\Core\Type\EmailType
             options:
                 required: false
         hotLine1:
@@ -233,3 +223,9 @@ dmishh_settings:
             type: Symfony\Component\Form\Extension\Core\Type\TextType
             options:
                 required: false
+        marqueeHomepage:
+            type: Symfony\Component\Form\Extension\Core\Type\TextareaType
+            options:
+                required: false
+                attr:
+                    rows: 7

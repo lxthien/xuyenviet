@@ -1,6 +1,6 @@
 {% if post.getComments()|length > 0 %}
 <div class="list-unstyled" id="list-comments">
-    <h4><span>{{ 'comments.count' | trans({ '%count%': post.getComments()|length }) }} </span></h4>
+    <h4 class="text-uppercase"><span>{{ 'comments.count' | trans({ '%count%': post.getComments()|length }) }} </span></h4>
     {% for comment in post.getComments() %}
         <div class="media" id="comment-{{ comment.getId() }}">
             <img class="mr-3 img-thumbnail" src="{{ asset('assets/images/user.png') }}" alt="{{ comment.getAuthor() }} comment on this post {{ post.getTitle() }}">

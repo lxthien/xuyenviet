@@ -17,26 +17,26 @@
                     <p>{{ category.getDescription()|raw }}</p>
                 </div>
 
-                {{ get_setting('isShowCommentOnPage') }}
-
                 {# List item on this page #}
                 {% if pagination|length > 0  %}
                     {# Sort items #}
-                    {{ include('news/components/sort.html.twig') }}
+                    {% if get_setting('isShowSortOnCategory') %}
+                        {{ include('news/components/sort.html.twig') }}
+                    {% endif %}
 
                     <ul class="list-unstyled list-news-items">
                         {% for row in pagination %}
                             {{ include('news/components/items.html.twig') }}
                         {% endfor %}
                     </ul>
+
+                    {# Pagination #}
+                    {{ include('news/components/pagination.html.twig') }}
                 {% else %}
                     <div class="no-record">
                         <p>{{ 'Do not have item on this page'|trans }}</p>
                     </div>
                 {% endif %}
-
-                {# Pagination #}
-                {{ include('news/components/pagination.html.twig') }}
             </div>
 
             {# Side bar #}

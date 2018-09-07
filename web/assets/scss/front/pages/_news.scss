@@ -33,12 +33,94 @@
     }
 }
 
+/* Tag
+------------------------------------------------------------------------- */
+.tags {
+    display: flex;
+    margin: 20px 0;
+    font-size: 12px;
+
+    ul {
+        padding: 0;
+
+        li {
+            span {
+                background-color: $mineShaft;
+                padding: 5px 9px;
+                color: $white;
+                display: block;
+                line-height: 10px;
+                float: left;
+                height: 20px;
+            }
+
+            a {
+                display: block;
+                float: left;
+                border: 1px solid $gallery;
+                margin-left: 4px;
+                line-height: 8px;
+                padding: 5px 8px;
+                height: 20px;
+
+                &:hover {
+                    text-decoration: none;
+                    background: $chathamsBlue;
+                    color: $white;
+                }
+            }
+        }
+    }
+}
+
+/* News Related
+------------------------------------------------------------------------- */
+.related-news {
+    .row {
+        img {
+            .img-thumbnail {
+                border-radius: 0px;
+                padding: 0px;
+                border: 1px solid $mercury;
+            }
+        }
+
+        a {
+            padding: 5px 0;
+            display: flex;
+            line-height: 20px;
+        }
+    }
+}
+
 /* Comment
 ------------------------------------------------------------------------- */
 #list-comments {
+    margin-top: 20px;
+    margin-bottom: 20px;
+
     .media {
         img {
-            width: 50px;
+            width: 85px;
+        }
+
+        .media-body {
+            h5 {
+                font-weight: 700;
+                font-size: 16px;
+                margin-bottom: 5px;
+            }
+
+            .comment-container p {
+                font-size: 14px;
+                margin-bottom: 0px;
+            }
+
+            a.comment-reply-link {
+                font-size: 14px;
+                color: $mineShaft;
+                text-decoration: underline;
+            }
         }
     }
 }

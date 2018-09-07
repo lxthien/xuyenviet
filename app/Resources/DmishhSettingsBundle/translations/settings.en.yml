@@ -10,11 +10,9 @@ labels:
   pageDescription: Page description
   pageKeyword: Page keyword
   isShowSortOnCategory: Show the sort options on category page
-  isShowCommentOnPost: Is shows the comment form on the page?
-  isShowCommentOnPost_choices:
-    Yes: true
-    No: false
+  isShowCommentOnPost: Show the form comment on the page?
   numberRecordOnPage: The number records on a page
   emailContact: Email contact
   hotLine1: Hotline 1
   hotLine2: Hotline 2
+  marqueeHomepage: Slogan On Homepage
