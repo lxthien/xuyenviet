@@ -5,7 +5,7 @@
 {% block body_class 'admin_new new' %}
 
 {% block main %}
-    <h1>{{ 'title.news_new'|trans }}</h1>
+    {# <h1>{{ 'title.news_new'|trans }}</h1>
 
     {{ form_start(form) }}
         
@@ -30,11 +30,53 @@
         <a href="{{ path('admin_news_index') }}" class="btn btn-link">
             <i class="fa fa-list-alt" aria-hidden="true"></i> {{ 'action.back_to_list'|trans }}
         </a>
-    {{ form_end(form) }}
-{% endblock %}
+    {{ form_end(form) }} #}
 
-{% block sidebar %}
-    {{ parent() }}
+    <div class="content mt-3">
+        <div class="animated fadeIn">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <strong class="card-title">Credit Card</strong>
+                        </div>
+                        <div class="card-body">
+                            <!-- Credit Card -->
+                            <div id="pay-invoice">
+                                <div class="card-body">
+                                    <div class="card-title">
+                                        <h3 class="text-center">Pay Invoice</h3>
+                                    </div>
+                                    <hr>
+                                    {{ form_start(form) }}
+                                        {{ form_row(form.title) }}
+                                        {{ form_row(form.title) }}
+                                        {{ form_row(form.url) }}
+                                        {{ form_row(form.enable) }}
+                                        {{ form_row(form.imageFile) }}
+                                        {{ form_row(form.description) }}
+                                        {{ form_row(form.contents) }}
 
-    {{ show_source_code(_self) }}
+                                        {{ form_row(form.category) }}
+                                        {{ form_row(form.tags) }}
+                                        
+                                        {{ form_row(form.pageTitle) }}
+                                        {{ form_row(form.pageDescription) }}
+                                        {{ form_row(form.pageKeyword) }}
+                                    {{ form_end(form) }}
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <!-- .card -->
+
+                </div>
+                <!--/.col-->
+            </div>
+
+        </div>
+        <!-- .animated -->
+    </div>
+    <!-- .content -->
 {% endblock %}

@@ -421,21 +421,30 @@
                 <source>newscategory.updated_successfully</source>
                 <target>News Category updated successfully!</target>
             </trans-unit>
-
             <trans-unit id="newscategory.deleted_successfully">
                 <source>newscategory.deleted_successfully</source>
                 <target>News Category deleted successfully!</target>
             </trans-unit>
-
             <trans-unit id="menu.category_list">
                 <source>menu.category_list</source>
-                <target>Category</target>
+                <target>Categories</target>
             </trans-unit>
 
-            
+            <trans-unit id="menu.news">
+                <source>menu.news</source>
+                <target>Posts</target>
+            </trans-unit>
+            <trans-unit id="menu.pages">
+                <source>menu.pages</source>
+                <target>Pages</target>
+            </trans-unit>
+            <trans-unit id="menu.add_new">
+                <source>menu.add_new</source>
+                <target>Add New</target>
+            </trans-unit>
             <trans-unit id="menu.news_list">
                 <source>menu.news_list</source>
-                <target>News</target>
+                <target>All Posts</target>
             </trans-unit>
             <trans-unit id="title.news_list">
                 <source>title.news_list</source>
@@ -503,7 +512,7 @@
 
             <trans-unit id="menu.tags">
                 <source>menu.tags</source>
-                <target>Tag</target>
+                <target>Tags</target>
             </trans-unit>
 
             <!-- Menu -->

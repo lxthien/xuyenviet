@@ -1,128 +1,72 @@
-<!DOCTYPE html>
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang=""> <!--<![endif]-->
+
 <html lang="{{ app.request.locale }}">
     <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1"/>
-        <title>{% block title %}{{ get_setting('siteName') }}{% endblock %}</title>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Sufee Admin - HTML5 Admin Template</title>
+        <meta name="description" content="Sufee Admin - HTML5 Admin Template">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        {% block stylesheets %}
-            <link rel="stylesheet" href="{{ asset('build/css/app.css') }}">
-            <link rel="stylesheet" href="{{ asset('build/css/admin.css') }}">
-        {% endblock %}
+        <link rel="apple-touch-icon" href="apple-icon.png">
+        <link rel="shortcut icon" href="favicon.ico">
 
-        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+        <link rel="stylesheet" href="{{ asset('assets/admin/assets/css/normalize.css') }}">
+        <link rel="stylesheet" href="{{ asset('assets/admin/assets/css/bootstrap.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('assets/admin/assets/css/font-awesome.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('assets/admin/assets/css/themify-icons.css') }}">
+        <link rel="stylesheet" href="{{ asset('assets/admin/assets/css/flag-icon.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('assets/admin/assets/css/cs-skin-elastic.css') }}">
+        <link rel="stylesheet" href="{{ asset('assets/admin/assets/css/lib/datatable/dataTables.bootstrap.min.css') }}">
+        <!-- <link rel="stylesheet" href="{{ asset('assets/admin/assets/css/bootstrap-select.less') }}"> -->
+        <link rel="stylesheet" href="{{ asset('assets/admin/assets/scss/style.css') }}">
+
+        <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
+
+        <!-- <script type="text/javascript" src="https://cdn.jsdelivr.net/html5shiv/3.7.3/html5shiv.min.js"></script> -->
+
     </head>
 
     <body id="{% block body_id %}{% endblock %}" class="{% block body_class %}{% endblock %}">
 
-        {% block header %}
-            <header>
-                <div class="navbar navbar-default navbar-static-top" role="navigation">
-                    <div class="container">
-                        <div class="navbar-header col-md-3 col-lg-2">
-                            <a class="navbar-brand" href="{{ path('homepage') }}">
-                                {{ get_setting('siteName') }}
-                            </a>
-                            <button type="button" class="navbar-toggle"
-                                    data-toggle="collapse"
-                                    data-target=".navbar-collapse">
-                                <span class="sr-only">{{ 'menu.toggle_nav'|trans }}</span>
-                                <span class="icon-bar"></span>
-                                <span class="icon-bar"></span>
-                                <span class="icon-bar"></span>
-                            </button>
-                        </div>
-                        <div class="navbar-collapse collapse">
-                            <ul class="nav navbar-nav navbar-right">
+        {{ include('admin/layout/sidebar.html.twig') }}
 
-                                {% block header_navigation_links %}
-
-                                {% endblock %}
-
-                                {% if app.user %}
-                                    <li>
-                                        <a href="{{ path('security_logout') }}">
-                                            <i class="fa fa-sign-out" aria-hidden="true"></i> {{ 'menu.logout'|trans }}
-                                        </a>
-                                    </li>
-                                {% endif %}
-
-                                <li class="dropdown">
-                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" id="locales">
-                                        <i class="fa fa-globe" aria-hidden="true"></i>
-                                        <span class="caret"></span>
-                                        <span class="sr-only">{{ 'menu.choose_language'|trans }}</span>
-                                    </a>
-                                    <ul class="dropdown-menu locales" role="menu" aria-labelledby="locales">
-                                        {% for locale in locales() %}
-                                            <li {% if app.request.locale == locale.code %}aria-checked="true" class="active"{% else %}aria-checked="false"{% endif %} role="menuitem"><a href="{{ path(app.request.get('_route', 'blog_index'), app.request.get('_route_params', [])|merge({_locale: locale.code})) }}">{{ locale.name|capitalize }}</a></li>
-                                        {% endfor %}
-                                    </ul>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </header>
-        {% endblock %}
-
-        <div class="container body-container">
-            {% block body %}
-                <div class="row">
-                    <div id="main" class="col-sm-9">
-                        {{ include('admin/common/_flash_messages.html.twig') }}
-
-                        {% block main %}{% endblock %}
-                    </div>
-
-                    <div id="sidebar" class="col-sm-3">
-                        {% block sidebar %}
-                            {{ render_esi(controller('FrameworkBundle:Template:template', {
-                                'template': 'admin/common/about.html.twig',
-                                'sharedAge': 600,
-                                '_locale': app.request.locale
-                            })) }}
-                        {% endblock %}
-                    </div>
-                </div>
-            {% endblock %}
+        <!-- Right Panel -->
+        <div id="right-panel" class="right-panel">
+            {{ include('admin/layout/header.html.twig') }}
+            {{ include('admin/layout/breadcrumbs.html.twig') }}
+            {% block main %}{% endblock %}
         </div>
+        <!-- Right Panel -->
 
-        {% block footer %}
-            <footer>
-                <div class="container">
-                    <div class="row">
-                        <div id="footer-copyright" class="col-md-6">
-                            <p>&copy; {{ 'now'|date('Y') }} - The Symfony Project</p>
-                            <p>{{ 'mit_license'|trans }}</p>
-                        </div>
-                        <div id="footer-resources" class="col-md-6">
-                            <p>
-                                <a href="https://twitter.com/symfony" title="Symfony Twitter">
-                                    <i class="fa fa-twitter" aria-hidden="true"></i>
-                                </a>
-                                <a href="https://www.facebook.com/SensioLabs" title="SensioLabs Facebook">
-                                    <i class="fa fa-facebook" aria-hidden="true"></i>
-                                </a>
-                                <a href="https://symfony.com/blog/" title="Symfony Blog">
-                                    <i class="fa fa-rss" aria-hidden="true"></i>
-                                </a>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </footer>
-        {% endblock %}
+        <script src="{{ asset('assets/admin/assets/js/vendor/jquery-2.1.4.min.js') }}"></script>
+        <script src="{{ asset('assets/admin/assets/js/popper.min.js') }}"></script>
+        <script src="{{ asset('assets/admin/assets/js/plugins.js') }}"></script>
+        <script src="{{ asset('assets/admin/assets/js/main.js') }}"></script>
 
-        {% block javascripts %}
-            <script src="{{ asset('build/manifest.js') }}"></script>
-            <script src="{{ asset('build/js/common.js') }}"></script>
-            <script src="{{ asset('build/js/app.js') }}"></script>
-        {% endblock %}
 
-        {# it's not mandatory to set the timezone in localizeddate(). This is done to
-           avoid errors when the 'intl' PHP extension is not available and the application
-           is forced to use the limited "intl polyfill", which only supports UTC and GMT #}
-        <!-- Page rendered on {{ 'now'|localizeddate('long', 'long', null, 'UTC') }} -->
+        <script src="{{ asset('assets/admin/assets/js/lib/data-table/datatables.min.js') }}"></script>
+        <script src="{{ asset('assets/admin/assets/js/lib/data-table/dataTables.bootstrap.min.js') }}"></script>
+        <script src="{{ asset('assets/admin/assets/js/lib/data-table/dataTables.buttons.min.js') }}"></script>
+        <script src="{{ asset('assets/admin/assets/js/lib/data-table/buttons.bootstrap.min.js') }}"></script>
+        <script src="{{ asset('assets/admin/assets/js/lib/data-table/jszip.min.js') }}"></script>
+        <script src="{{ asset('assets/admin/assets/js/lib/data-table/pdfmake.min.js') }}"></script>
+        <script src="{{ asset('assets/admin/assets/js/lib/data-table/vfs_fonts.js') }}"></script>
+        <script src="{{ asset('assets/admin/assets/js/lib/data-table/buttons.html5.min.js') }}"></script>
+        <script src="{{ asset('assets/admin/assets/js/lib/data-table/buttons.print.min.js') }}"></script>
+        <script src="{{ asset('assets/admin/assets/js/lib/data-table/buttons.colVis.min.js') }}"></script>
+        <script src="{{ asset('assets/admin/assets/js/lib/data-table/datatables-init.js') }}"></script>
+
+
+        <script type="text/javascript">
+            $(document).ready(function() {
+                $('#bootstrap-data-table-export').DataTable();
+            });
+        </script>
+
     </body>
 </html>
