@@ -9,6 +9,11 @@ labels:
   pageTitle: Page title
   pageDescription: Page description
   pageKeyword: Page keyword
+  isShowSortOnCategory: Show the sort options on category page
+  isShowCommentOnPost: Is shows the comment form on the page?
+  isShowCommentOnPost_choices:
+    Yes: true
+    No: false
   numberRecordOnPage: The number records on a page
   emailContact: Email contact
   hotLine1: Hotline 1

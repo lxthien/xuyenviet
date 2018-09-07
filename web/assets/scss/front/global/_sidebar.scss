@@ -1,0 +1,32 @@
+#sidebar {
+    #form-search {
+        input {
+            border-width: 1px;
+            border: 1px solid $mercury;
+        }
+    }
+
+    .list-group {
+        .list-group-item-action {
+            background: $chathamsBlue;
+        }
+
+        .td-list-group-item {
+            &:hover {
+                background: none;
+                color: $chathamsBlue;
+            }
+
+            img {
+                float: left;
+                margin-right: 10px;
+                border: 1px solid $mercury;
+            }
+
+            span {
+                line-height: 22px;
+                display: block;
+            }
+        }
+    }
+}

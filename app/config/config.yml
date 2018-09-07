@@ -140,10 +140,10 @@ liip_imagine:
             quality: 75
             filters:
                 thumbnail: { size: [218, 150], mode: outbound }
-        news_thumb_50_50:
+        news_thumb_70_70:
             quality: 75
             filters:
-                thumbnail: { size: [50, 50], mode: outbound }
+                thumbnail: { size: [70, 70], mode: outbound }
         news_thumb_258_258:
             quality: 75
             filters:
@@ -199,15 +199,24 @@ dmishh_settings:
             type: Symfony\Component\Form\Extension\Core\Type\TextType
             options:
                 required: false
-        isShowCommentOnPage:
+        isShowSortOnCategory:
             type: Symfony\Component\Form\Extension\Core\Type\ChoiceType
             options:
                 required: false
                 choices:
-                    "yes": "yes"
-                    "no": "no"
-                choices_as_values: true
-                placeholder: "Select a value"
+                    - Yes
+                    - No
+                placeholder: false
+                expanded: true
+        isShowCommentOnPost:
+            type: Symfony\Component\Form\Extension\Core\Type\ChoiceType
+            options:
+                required: false
+                choices:
+                    - Yes
+                    - No
+                placeholder: false
+                expanded: true
         numberRecordOnPage:
             type: Symfony\Component\Form\Extension\Core\Type\TextType
             options:

@@ -32,6 +32,10 @@ body {
     background: $white;
 }
 
+.td-wrapper {
+    padding-bottom: 40px;
+}
+
 header, nav, section, article, figure, aside, footer {
     display: block;
 }
@@ -39,6 +43,7 @@ header, nav, section, article, figure, aside, footer {
 h1, h2, h3, h4, h5, h6 {
     margin: 0 0 15px;
     line-height: 1.4;
+    font-family: $robotoSlab;
 }
 
 img {
@@ -64,17 +69,13 @@ p {
     margin: 0 0 14px 0;
 }
 
-ul {
+ul,
+ol {
     padding-left: 15px;
-}
 
-li {
-    margin-bottom: 0.5em
-}
-
-.text-danger,
-.text-danger:hover {
-    color: #e74c3c
+    li {
+        margin-bottom: 0.5em
+    }
 }
 
 i {
@@ -84,8 +85,4 @@ i {
 .table.table-middle-aligned th,
 .table.table-middle-aligned td {
     vertical-align: middle;
-}
-
-.doclink {
-    color: inherit
 }

@@ -85,7 +85,7 @@ class NewsController extends Controller
         $pagination = $paginator->paginate(
             $news,
             $page,
-            10
+            $this->get('settings_manager')->get('numberRecordOnPage') || 10
         );
 
         return $this->render('news/list.html.twig', [

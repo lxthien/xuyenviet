@@ -1,5 +1,37 @@
 /* News
 ------------------------------------------------------------------------- */
+.category-list-items {
+    .list-unstyled.list-news-items {
+        .news-item {
+            padding-bottom: 20px;
+            margin-bottom: 20px;
+            border-bottom: 1px solid $mercury;
+
+            &:last-child {
+                border-bottom: none;
+            }
+
+            .media-body {
+                h5 a {
+                    font-size: 18px;
+                    padding: 0 0 10px 0;
+                    color: $chathamsBlue;
+                    font-weight: 700;
+                    min-height: auto;
+                    letter-spacing: -0.2px;
+                }
+
+                .news-item-category {
+                    display: none;
+                }
+
+                .news-item-description {
+
+                }
+            }
+        }
+    }
+}
 
 /* Comment
 ------------------------------------------------------------------------- */

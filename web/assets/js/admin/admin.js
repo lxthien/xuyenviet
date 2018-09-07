@@ -14,19 +14,23 @@ $(function() {
     initEnableToggleButton();
 
     /**
-     * @var string
      * Create sluggable from name
+     * 
      **/
     function initBuildSluggable() {
-        $(":input.sluggable").keyup(function () {
+        $("body.new :input.sluggable").keyup(function () {
             $(":input.url").val(remove_vietnamese_accents($(this).val()));
         });
 
-        $(":input.is-auto-generator-url").change(function () {
-            if ($(this).prop('checked')) {
-                $(":input.url").attr('readonly', 'readonly');
-            } else {
+        $(":input.url").click(function () {
+            if ($(this).attr('readonly')) {
                 $(":input.url").removeAttr('readonly');
+            }
+        });
+
+        $(":input.url").focusout(function () {
+            if (!$(this).attr('readonly')) {
+                $(":input.url").attr('readonly', 'readonly');
             }
         });
     }

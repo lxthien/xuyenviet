@@ -9,7 +9,7 @@
         {# breadcrumbs #}
         {{ include('news/components/breadcrumbs.html.twig') }}
 
-        <div class="row">
+        <div class="row category-list-items">
             <div class="col-md-8">
                 <h1>{{ category.getName() }}</h1>
                 
@@ -17,12 +17,14 @@
                     <p>{{ category.getDescription()|raw }}</p>
                 </div>
 
+                {{ get_setting('isShowCommentOnPage') }}
+
                 {# List item on this page #}
                 {% if pagination|length > 0  %}
                     {# Sort items #}
                     {{ include('news/components/sort.html.twig') }}
 
-                    <ul class="list-unstyled">
+                    <ul class="list-unstyled list-news-items">
                         {% for row in pagination %}
                             {{ include('news/components/items.html.twig') }}
                         {% endfor %}

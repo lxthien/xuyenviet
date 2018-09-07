@@ -527,6 +527,22 @@
                 <source>home</source>
                 <target>Home</target>
             </trans-unit>
+            <trans-unit id="aboutus">
+                <source>aboutus</source>
+                <target>About Us</target>
+            </trans-unit>
+            <trans-unit id="services">
+                <source>services</source>
+                <target>Services</target>
+            </trans-unit>
+            <trans-unit id="projects">
+                <source>projects</source>
+                <target>Projects</target>
+            </trans-unit>
+            <trans-unit id="contactus">
+                <source>contactus</source>
+                <target>Contact Us</target>
+            </trans-unit>
             <trans-unit id="comments.count">
                 <source>comments.count</source>
                 <target>Comments %count%</target>

@@ -43,6 +43,26 @@
     }
 }
 
+.list-news-items {
+    .news-item {
+        .media-thumb {
+            .img-thumbnail {
+                padding: 0px;
+                border: 2px solid $mercury;
+                border-radius: 0px;
+            }
+        }
+
+        .media-body {
+            h5 a {
+                padding: 10px 0;
+                min-height: 40px;
+                display: block;
+            }
+        }
+    }
+}
+
 .block-underline {
     width: 150px;
     height: 3px;

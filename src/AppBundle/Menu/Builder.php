@@ -25,27 +25,27 @@ class Builder implements ContainerAwareInterface
         ])->setLinkAttribute('class', 'nav-link fa fa-home');
 
         // About Us
-        $menu->addChild('About Us', [
+        $menu->addChild('aboutus', [
             'attributes' => ['class' => 'nav-item'],
             'route' => 'news_show',
             'routeParameters' => ['slug' => 'gioi-thieu']
         ])->setLinkAttribute('class', 'nav-link');
 
         // News
-        $menu->addChild('Dịch vụ', [
+        $menu->addChild('services', [
             'attributes' => ['class' => 'nav-item'],
             'route' => 'news_category',
             'routeParameters' => ['level1' => 'dich-vu']
         ])->setLinkAttribute('class', 'nav-link');
 
-        $menu->addChild('Dự án', [
+        $menu->addChild('projects', [
             'attributes' => ['class' => 'nav-item'],
             'route' => 'news_category',
             'routeParameters' => ['level1' => 'du-an']
         ])->setLinkAttribute('class', 'nav-link');
 
         // Contact us
-        $menu->addChild('Contact Us', [
+        $menu->addChild('contactus', [
             'attributes' => ['class' => 'nav-item'],
             'route' => 'contact'
         ])->setLinkAttribute('class', 'nav-link');
