@@ -103,11 +103,13 @@
                     <a class="nav-link" href="#">
                         <i class="fa fa -cog"></i>Settings</a>
 
-                    <a class="nav-link" href="#">
-                        <i class="fa fa-power -off"></i>Logout</a>
+                    <a class="nav-link" href="{{ path('security_logout') }}">
+                        <i class="fa fa-power -off"></i>{{ 'menu.logout'|trans }}
+                    </a>
                 </div>
             </div>
 
+            <!--
             <div class="language-select dropdown" id="language-select">
                 <a class="dropdown-toggle" href="#" data-toggle="dropdown" id="language" aria-haspopup="true" aria-expanded="true">
                     <i class="flag-icon flag-icon-us"></i>
@@ -127,7 +129,7 @@
                     </div>
                 </div>
             </div>
-
+            -->
         </div>
     </div>
 

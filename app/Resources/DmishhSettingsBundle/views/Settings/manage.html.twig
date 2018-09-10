@@ -3,11 +3,27 @@
 {% block body_id 'admin_setting_index' %}
 
 {% block main %}
-    <h1>{% trans from 'settings' %}settings{% endtrans %}</h1>
-
-    {{ form_start(settings_form) }}
-        {{ form_widget(settings_form) }}
-        <input type="submit" value="{% trans from 'settings' %}save{% endtrans %}" />
-    {{ form_end(settings_form) }}
-
+    <div class="content mt-3">
+        <div class="animated fadeIn">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <strong class="card-title">{% trans from 'settings' %}settings{% endtrans %}</strong>
+                        </div>
+                        <div class="card-body">
+                            <div id="pay-invoice">
+                                <div class="card-body">
+                                    {{ form_start(settings_form) }}
+                                        {{ form_widget(settings_form) }}
+                                        <input type="submit" value="{% trans from 'settings' %}save{% endtrans %}" />
+                                    {{ form_end(settings_form) }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 {% endblock %}

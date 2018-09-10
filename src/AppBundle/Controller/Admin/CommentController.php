@@ -48,25 +48,10 @@ class CommentController extends Controller
     public function indexAction()
     {
         $em = $this->getDoctrine()->getManager();
-        $comment = $em->getRepository(Comment::class)->findAll();
+        $comments = $em->getRepository(Comment::class)->findAll();
 
-        return $this->render('admin/comment/index.html.twig', ['comment' => $comment]);
-    }
-
-    /**
-     * Finds and displays a Comment entity.
-     *
-     * @Route("/{id}", requirements={"id": "\d+"}, name="admin_comment_show")
-     * @Method("GET")
-     */
-    public function showAction(Comment $comment)
-    {
-        // This security check can also be performed
-        // using an annotation: @Security("is_granted('show', post)")
-        //$this->denyAccessUnlessGranted('show', $post, 'Posts can only be shown to their authors.');
-
-        return $this->render('admin/comment/show.html.twig', [
-            'comment' => $comment,
+        return $this->render('admin/comment/index.html.twig', [
+            'objects' => $comments
         ]);
     }
 

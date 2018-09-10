@@ -319,16 +319,7 @@
                 <target>Most recent posts published on the Symfony Demo blog</target>
             </trans-unit>
 
-            <trans-unit id="title.newscategory_list">
-                <source>title.newscategory_list</source>
-                <target>Category</target>
-            </trans-unit>
-            <trans-unit id="title.tag_list">
-                <source>title.tag_list</source>
-                <target>Tags</target>
-            </trans-unit>
-
-
+            <!-- Label -->
             <trans-unit id="label.enable">
                 <source>label.enable</source>
                 <target>Enable</target>
@@ -341,25 +332,17 @@
                 <source>label.parentcat</source>
                 <target>Parent Category</target>
             </trans-unit>
-            <trans-unit id="newscategory.created_successfully">
-                <source>newscategory.created_successfully</source>
-                <target>News Category created successfully!</target>
-            </trans-unit>
-            <trans-unit id="title.newscategory_new">
-                <source>title.newscategory_new</source>
-                <target>News Category New</target>
-            </trans-unit>
             <trans-unit id="label.url">
                 <source>label.url</source>
                 <target>URL</target>
             </trans-unit>
-            <trans-unit id="label.isAutoGenerateUrl">
-                <source>label.isAutoGenerateUrl</source>
-                <target>Is Auto Generate Url</target>
-            </trans-unit>
             <trans-unit id="label.description">
                 <source>label.description</source>
                 <target>Description</target>
+            </trans-unit>
+            <trans-unit id="label.seo">
+                <source>label.seo</source>
+                <target>SEO</target>
             </trans-unit>
             <trans-unit id="label.pageTitle">
                 <source>label.pageTitle</source>
@@ -373,6 +356,20 @@
                 <source>label.pageKeyword</source>
                 <target>Page keyword</target>
             </trans-unit>
+
+            <!-- Categories -->
+            <trans-unit id="title.categories">
+                <source>title.categories</source>
+                <target>Categories</target>
+            </trans-unit>
+            <trans-unit id="newscategory.created_successfully">
+                <source>newscategory.created_successfully</source>
+                <target>News Category created successfully!</target>
+            </trans-unit>
+            <trans-unit id="title.newscategory_new">
+                <source>title.newscategory_new</source>
+                <target>News Category New</target>
+            </trans-unit>
             <trans-unit id="action.create_newscategory">
                 <source>action.create_newscategory</source>
                 <target>Create News Category</target>
@@ -381,7 +378,6 @@
                 <source>label.create_newscategory</source>
                 <target>Create News Category</target>
             </trans-unit>
-
             <trans-unit id="title.edit_newscategory">
                 <source>title.edit_newscategory</source>
                 <target>Edit Category "%id%"</target>
@@ -399,22 +395,7 @@
                 <target>Categories</target>
             </trans-unit>
 
-            <trans-unit id="menu.news">
-                <source>menu.news</source>
-                <target>Posts</target>
-            </trans-unit>
-            <trans-unit id="menu.pages">
-                <source>menu.pages</source>
-                <target>Pages</target>
-            </trans-unit>
-            <trans-unit id="menu.add_new">
-                <source>menu.add_new</source>
-                <target>Add New</target>
-            </trans-unit>
-            <trans-unit id="menu.news_list">
-                <source>menu.news_list</source>
-                <target>All Posts</target>
-            </trans-unit>
+            <!-- Posts -->
             <trans-unit id="title.news_list">
                 <source>title.news_list</source>
                 <target>News</target>
@@ -431,7 +412,6 @@
                 <source>row.no_posts_found</source>
                 <target>No posts found</target>
             </trans-unit>
-
             <trans-unit id="title.news_new">
                 <source>title.news_new</source>
                 <target>News new</target>
@@ -448,16 +428,12 @@
                 <source>label.create_news</source>
                 <target>Create news</target>
             </trans-unit>
-
             <trans-unit id="title.edit_news">
                 <source>title.edit_news</source>
                 <target>Edit news #%id%</target>
             </trans-unit>
 
-            <trans-unit id="menu.comment_list">
-                <source>menu.comment_list</source>
-                <target>Comment</target>
-            </trans-unit>
+            <!-- Comment -->
             <trans-unit id="title.comment_list">
                 <source>title.comment_list</source>
                 <target>Comment List</target>
@@ -480,13 +456,45 @@
             </trans-unit>
 
             <!-- Menu -->
+            <trans-unit id="menu.dashboard">
+                <source>menu.dashboard</source>
+                <target>Dashboard</target>
+            </trans-unit>
+            <trans-unit id="menu.news">
+                <source>menu.news</source>
+                <target>Posts</target>
+            </trans-unit>
+            <trans-unit id="menu.pages">
+                <source>menu.pages</source>
+                <target>Pages</target>
+            </trans-unit>
+            <trans-unit id="menu.page_list">
+                <source>menu.page_list</source>
+                <target>All Pages</target>
+            </trans-unit>
+            <trans-unit id="menu.add_new">
+                <source>menu.add_new</source>
+                <target>Add New</target>
+            </trans-unit>
+            <trans-unit id="menu.news_list">
+                <source>menu.news_list</source>
+                <target>All Posts</target>
+            </trans-unit>
             <trans-unit id="menu.tags">
                 <source>menu.tags</source>
                 <target>Tags</target>
             </trans-unit>
-            <trans-unit id="menu.page_list">
-                <source>menu.page_list</source>
-                <target>Page</target>
+            <trans-unit id="menu.comments">
+                <source>menu.comments</source>
+                <target>Comments</target>
+            </trans-unit>
+            <trans-unit id="menu.comment_list">
+                <source>menu.comment_list</source>
+                <target>Comment</target>
+            </trans-unit>
+            <trans-unit id="menu.contact">
+                <source>menu.contact</source>
+                <target>Contacts</target>
             </trans-unit>
             <trans-unit id="menu.setting">
                 <source>menu.setting</source>
@@ -497,6 +505,10 @@
             <trans-unit id="title.edit_tag">
                 <source>title.edit_tag</source>
                 <target>Edit tag #%id%</target>
+            </trans-unit>
+            <trans-unit id="title.tag_list">
+                <source>title.tag_list</source>
+                <target>Tags</target>
             </trans-unit>
 
             <!-- Front page -->

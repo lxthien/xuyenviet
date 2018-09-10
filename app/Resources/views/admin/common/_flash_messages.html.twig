@@ -1,14 +1,19 @@
-<div class="messages">
-    {% for type, messages in app.flashes %}
-        {% for message in messages %}
-            {# Bootstrap alert, see http://getbootstrap.com/components/#alerts #}
-            <div class="alert alert-dismissible alert-{{ type }}" role="alert">
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
+<div class="content mt-3">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="messages">
+                {% for type, messages in app.flashes %}
+                    {% for message in messages %}
+                        <div class="alert alert-dismissible alert-{{ type }}" role="alert">
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
 
-                {{ message|trans }}
+                            {{ message|trans }}
+                        </div>
+                    {% endfor %}
+                {% endfor %}
             </div>
-        {% endfor %}
-    {% endfor %}
+        </div>
+    </div>
 </div>
