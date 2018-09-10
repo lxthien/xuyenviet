@@ -5,8 +5,8 @@
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-menu" aria-controls="main-menu" aria-expanded="false" aria-label="Toggle navigation">
                 <i class="fa fa-bars"></i>
             </button>
-            <a class="navbar-brand" href="{{ path('admin_news_index') }}"><img src="{{ asset('assets/admin/images/logo.png') }}" alt="Logo"></a>
-            <a class="navbar-brand hidden" href="{{ path('admin_news_index') }}"><img src="{{ asset('assets/admin/images/logo2.png') }}" alt="Logo"></a>
+            <a class="navbar-brand" href="{{ path('admin_news_index') }}"><img src="{{ asset('assets/sufeeadmin/images/logo.png') }}" alt="Logo"></a>
+            <a class="navbar-brand hidden" href="{{ path('admin_news_index') }}"><img src="{{ asset('assets/sufeeadmin/images/logo2.png') }}" alt="Logo"></a>
         </div>
 
         <div id="main-menu" class="main-menu collapse navbar-collapse">
@@ -26,7 +26,7 @@
                             <a href="{{ path('admin_news_index') }}">{{ 'menu.news_list'|trans }}</a>
                         </li>
                         <li>
-                            <i class="fa fa-list-alt"></i>
+                            <i class="fa fa-edit"></i>
                             <a href="{{ path('admin_news_new') }}">{{ 'menu.add_new'|trans }}</a>
                         </li>
                         <li>
@@ -34,7 +34,7 @@
                             <a href="{{ path('admin_newscategory_index') }}">{{ 'menu.category_list'|trans }}</a>
                         </li>
                         <li>
-                            <i class="fa fa-list-alt"></i>
+                            <i class="fa fa-tags"></i>
                             <a href="{{ path('admin_tag_index') }}">{{ 'menu.tags'|trans }}</a>
                         </li>
                     </ul>

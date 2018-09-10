@@ -204,7 +204,7 @@
             </trans-unit>
             <trans-unit id="label.published_at">
                 <source>label.published_at</source>
-                <target>Published at</target>
+                <target>Published</target>
             </trans-unit>
             <trans-unit id="label.tags">
                 <source>label.tags</source>
@@ -258,43 +258,6 @@
             <trans-unit id="menu.search">
                 <source>menu.search</source>
                 <target>Search</target>
-            </trans-unit>
-
-            <trans-unit id="post.to_publish_a_comment">
-                <source>post.to_publish_a_comment</source>
-                <target>to publish a comment</target>
-            </trans-unit>
-            <trans-unit id="post.num_comments">
-                <source>post.num_comments</source>
-                <target>%count% comment|%count% comments</target>
-            </trans-unit>
-            <trans-unit id="post.commented_on">
-                <source>post.commented_on</source>
-                <target>commented on</target>
-            </trans-unit>
-            <trans-unit id="post.no_comments">
-                <source>post.no_comments</source>
-                <target>Be the first to comment on this post.</target>
-            </trans-unit>
-            <trans-unit id="post.no_posts_found">
-                <source>post.no_posts_found</source>
-                <target>No posts found.</target>
-            </trans-unit>
-            <trans-unit id="post.created_successfully">
-                <source>post.created_successfully</source>
-                <target>Post created successfully!</target>
-            </trans-unit>
-            <trans-unit id="post.updated_successfully">
-                <source>post.updated_successfully</source>
-                <target>Post updated successfully!</target>
-            </trans-unit>
-            <trans-unit id="post.deleted_successfully">
-                <source>post.deleted_successfully</source>
-                <target>Post deleted successfully!</target>
-            </trans-unit>
-            <trans-unit id="post.search_for">
-                <source>post.search_for</source>
-                <target>Search for...</target>
             </trans-unit>
 
             <trans-unit id="notification.comment_created">
@@ -360,6 +323,12 @@
                 <source>title.newscategory_list</source>
                 <target>Category</target>
             </trans-unit>
+            <trans-unit id="title.tag_list">
+                <source>title.tag_list</source>
+                <target>Tags</target>
+            </trans-unit>
+
+
             <trans-unit id="label.enable">
                 <source>label.enable</source>
                 <target>Enable</target>
@@ -510,12 +479,11 @@
                 <target>Edit Comment #%id%</target>
             </trans-unit>
 
+            <!-- Menu -->
             <trans-unit id="menu.tags">
                 <source>menu.tags</source>
                 <target>Tags</target>
             </trans-unit>
-
-            <!-- Menu -->
             <trans-unit id="menu.page_list">
                 <source>menu.page_list</source>
                 <target>Page</target>

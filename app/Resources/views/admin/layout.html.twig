@@ -2,45 +2,14 @@
 
 {% block stylesheets %}
     {{ parent() }}
-    {# <link rel="stylesheet" href="{{ asset('build/css/admin.css') }}"> #}
+
+    <link rel="stylesheet" href="{{ asset('build/css/admin.css') }}">
 {% endblock %}
 
 {% block javascripts %}
     {{ parent() }}
+    
     <script src="{{ asset('assets/ivoryckeditor/ckeditor.js') }}"></script>
     <script src="{{ asset('assets/cksourceckfinder/ckfinder/ckfinder.js') }}"></script>
     <script src="{{ asset('build/js/admin.js') }}"></script>
-{% endblock %}
-
-{% block header_navigation_links %}
-    <li>
-        <a href="{{ path('admin_newscategory_index') }}">
-            <i class="fa fa-list-alt" aria-hidden="true"></i> {{ 'menu.category_list'|trans }}
-        </a>
-    </li>
-    <li>
-        <a href="{{ path('admin_news_index') }}">
-            <i class="fa fa-home" aria-hidden="true"></i> {{ 'menu.news_list'|trans }}
-        </a>
-    </li>
-    <li>
-        <a href="{{ path('admin_page_index') }}">
-            <i class="fa fa-home" aria-hidden="true"></i> {{ 'menu.page_list'|trans }}
-        </a>
-    </li>
-    <li>
-        <a href="{{ path('admin_comment_index') }}">
-            <i class="fa fa-home" aria-hidden="true"></i> {{ 'menu.comment_list'|trans }}
-        </a>
-    </li>
-    <li>
-        <a href="{{ path('admin_tag_index') }}">
-            <i class="fa fa-home" aria-hidden="true"></i> {{ 'menu.tags'|trans }}
-        </a>
-    </li>
-    <li>
-        <a href="{{ path('dmishh_settings_manage_global') }}">
-            <i class="fa fa-home" aria-hidden="true"></i> {{ 'menu.setting'|trans }}
-        </a>
-    </li>
 {% endblock %}
