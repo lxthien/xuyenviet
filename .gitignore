@@ -19,8 +19,6 @@
 /web/bundles/
 /web/build/fonts/glyphicons-*
 /web/build/images/glyphicons-*
-/web/uploads/
-/web/css/
-/web/js/
-media
-build
+/web/uploads/ckfinder/
+/web/media/
+/web/build/

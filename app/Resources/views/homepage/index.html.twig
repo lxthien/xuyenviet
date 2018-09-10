@@ -60,24 +60,24 @@
                     Lý do nên chọn sửa nhà minh duy
                 </h3>
                 <span class="text-center block-underline"></span>
-                <p class="text-center">Hoàng AGC với đội ngũ kiến trúc sư chuyên môn cao, nhân viên tận tâm, năng động luôn nỗ lực phấn đấu phục vụ khách hàng một cách tốt nhất. Ngoài ra, sự cải tiến không ngừng chất lượng dịch vụ và những sáng tạo trong thiết kế thi công, Hoàng AGC mang đến bạn trải nghiệm xứng tầm .</p>
+                <p class="text-center">Sửa nhà Minh Duy với đội ngũ kiến trúc sư chuyên môn cao, nhân viên tận tâm, năng động luôn nỗ lực phấn đấu phục vụ khách hàng một cách tốt nhất. Ngoài ra, sự cải tiến không ngừng chất lượng dịch vụ và những sáng tạo trong thiết kế thi công, Hoàng AGC mang đến bạn trải nghiệm xứng tầm .</p>
             </div>
             <div class="col-lg-4">
-                <img class="rounded-circle" src="{{ asset('assets/images/profesional.png') }}" alt="Uy tín, chuyên nghiệp">
+                <img class="rounded-circle" src="{{ asset('assets/images/profesional.jpg') }}" alt="Uy tín, chuyên nghiệp">
                 <h2 class="text-center text-uppercase">Uy tín, chuyên nghiệp</h2>
                 <p>Rút ngắn thời gian triển khai dự án bạn có thể tìm hiểu thêm quy trình làm việc hoặc Brochure của chúng tôi để bắt đầu ngay ngôi nhà mơ ước của mình.</p>
                 <p><a class="btn btn-secondary" href="#" role="button">{{'view.details'|trans}}</a></p>
             </div>
             <!-- /.col-lg-4 -->
             <div class="col-lg-4">
-                <img class="rounded-circle" src="{{ asset('assets/images/save.png') }}" alt="Chi phí hợp lý">
+                <img class="rounded-circle" src="{{ asset('assets/images/save-money.jpg') }}" alt="Chi phí hợp lý">
                 <h2 class="text-center text-uppercase">Chi phí hợp lý</h2>
                 <p>Rút ngắn thời gian triển khai dự án bạn có thể tìm hiểu thêm quy trình làm việc hoặc Brochure của chúng tôi để bắt đầu ngay ngôi nhà mơ ước của mình.</p>
                 <p><a class="btn btn-secondary" href="#" role="button">{{'view.details'|trans}}</a></p>
             </div>
             <!-- /.col-lg-4 -->
             <div class="col-lg-4">
-                <img class="rounded-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Cam kết bảo hành">
+                <img class="rounded-circle" src="{{ asset('assets/images/warranty.jpg') }}" alt="Cam kết bảo hành">
                 <h2 class="text-center text-uppercase">Cam kết bảo hành</h2>
                 <p>Rút ngắn thời gian triển khai dự án bạn có thể tìm hiểu thêm quy trình làm việc hoặc Brochure của chúng tôi để bắt đầu ngay ngôi nhà mơ ước của mình.</p>
                 <p><a class="btn btn-secondary" href="#" role="button">{{'view.details'|trans}}</a></p>
@@ -93,9 +93,6 @@
                 <div class="row">
                     {% for row in posts %}
                         {{ include('news/components/itemsGrid.html.twig') }}
-                        {{ include('news/components/itemsGrid.html.twig') }}
-                        {{ include('news/components/itemsGrid.html.twig') }}
-                        {{ include('news/components/itemsGrid.html.twig') }}
                     {% endfor %}
                 </div>
             </div>
@@ -108,9 +105,6 @@
             <div class="col-md-12 list-news-items">
                 <div class="row">
                     {% for row in posts %}
-                        {{ include('news/components/itemsGrid.html.twig') }}
-                        {{ include('news/components/itemsGrid.html.twig') }}
-                        {{ include('news/components/itemsGrid.html.twig') }}
                         {{ include('news/components/itemsGrid.html.twig') }}
                     {% endfor %}
                 </div>

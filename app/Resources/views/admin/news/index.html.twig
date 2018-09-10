@@ -8,6 +8,13 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="card">
+                        <a class="btn btn-primary" href="#" role="button">Link</a>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
                         <div class="card-header">
                             <strong class="card-title">{{ 'title.news_list'|trans }}</strong>
                         </div>
@@ -32,7 +39,7 @@
                                         </td>
                                         <td><strong>{{ row.getTitle() }}</strong></td>
                                         <td>{{ row.getCategory() }}</td>
-                                        <td>{{ row.getCreatedAt() | localizeddate('medium', 'none', null, 'Asia/Ho_Chi_Minh', 'dd/mm/YY') }}</td>
+                                        <td>{{ row.getCreatedAt() | localizeddate('medium', 'none', null, 'Asia/Ho_Chi_Minh', 'd/M/YYYY') }}</td>
                                         <td>
                                             <div class="item-actions">
                                                 <a href="{{ path('admin_news_edit', {id: row.id}) }}" class="btn-sm">

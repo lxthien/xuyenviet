@@ -31,13 +31,23 @@
 
     <body id="{% block body_id %}{% endblock %}" class="{% block body_class %}{% endblock %}">
 
-        {{ include('admin/layout/sidebar.html.twig') }}
+        {% block sidebar %}
+            {{ include('admin/layout/sidebar.html.twig') }}
+        {% endblock %}
 
         <!-- Right Panel -->
         <div id="right-panel" class="right-panel">
-            {{ include('admin/layout/header.html.twig') }}
-            {{ include('admin/layout/breadcrumbs.html.twig') }}
-            {{ include('admin/common/_flash_messages.html.twig') }}
+            {% block header_panel %}
+                {{ include('admin/layout/header.html.twig') }}
+            {% endblock %}
+
+            {% block breadcrumbs %}
+                {# {{ include('admin/layout/breadcrumbs.html.twig') }} #}
+            {% endblock %}
+
+            {% block flash_messages %}
+                {{ include('admin/common/_flash_messages.html.twig') }}
+            {% endblock %}
 
             {% block main %}
                 {# TODO #}
@@ -67,12 +77,5 @@
             <script src="{{ asset('build/js/common.js') }}"></script>
             <script src="{{ asset('build/js/app.js') }}"></script>
         {% endblock %}
-
-        <script type="text/javascript">
-            $(document).ready(function() {
-                //$('#bootstrap-data-table-export').DataTable();
-            });
-        </script>
-
     </body>
 </html>
