@@ -12,8 +12,11 @@ function intHandleFormComment() {
             data: $formComment.serialize(),
             success: function(data) {
                 var response = JSON.parse(data);
-                if (response.status == 'success') {
+                if (response.status === 'success') {
                     $('p#comment-response').html(response.message);
+
+                    // Clear form comment
+                    $formComment[0].reset();
                 } else {
                     alert(data);
                 }
@@ -24,13 +27,19 @@ function intHandleFormComment() {
 
 function intHandleFormReplyComment() {
     var $commentReply = $('#comment-reply');
+    var $formComment = $('#form-comment');
 
     $commentReply.click(function(e) {
         e.preventDefault();
 
         var postID = $(this).data('postId');
-        if (postID.length) {
-            alert(postID);
+
+        if (postID) {
+            $formComment.find('input#form_comment_id').val(postID);
+
+            $('html, body').animate({
+                scrollTop: $formComment.offset().top
+            }, 1000);
         }
     });
 }

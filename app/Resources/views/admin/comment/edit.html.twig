@@ -3,24 +3,32 @@
 {% block body_id 'admin_comment_edit' %}
 
 {% block main %}
-    <h1>{{ 'title.edit_comment'|trans({'%id%': comment.id}) }}</h1>
-
-    {{ include('admin/comment/_form.html.twig', {
-        form: form,
-        button_label: 'action.save'|trans,
-        include_back_to_home_link: true,
-    }, with_context = false) }}
-    
-{% endblock %}
-
-{% block sidebar %}
-    <div class="section">
-        <a href="{{ path('admin_comment_show', {id: comment.id}) }}" class="btn btn-lg btn-block btn-success">
-            <i class="fa fa-eye" aria-hidden="true"></i> {{ 'action.show_news'|trans }}
-        </a>
+    <div class="content mt-3">
+        <div class="animated fadeIn">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <strong class="card-title">{{ 'title.edit_comment'|trans({'%id%': comment.id}) }}</strong>
+                        </div>
+                        <div class="card-body">
+                            <!-- Credit Card -->
+                            <div id="pay-invoice">
+                                <div class="card-body">
+                                    {{ include('admin/comment/_form.html.twig', {
+                                        form: form,
+                                        button_label: 'action.save'|trans,
+                                        include_back_to_home_link: true,
+                                    }, with_context = false) }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- .card -->
+                </div>
+                <!--/.col-->
+            </div>
+        </div>
+        <!-- .animated -->
     </div>
-
-    {{ parent() }}
-
-    {{ show_source_code(_self) }}
 {% endblock %}

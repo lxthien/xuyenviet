@@ -1,16 +1,16 @@
 {% if relatedNews|length > 0 %}
-<div class="related-news">
-    <h4 class="text-uppercase"><span>{{ 'Related news'|trans }}</span></h4>
-    <div class="row">
-        {% for row in relatedNews %}
-        <div class="col-md-4">
-            <img class="mr-3 img-thumbnail" src="{{ (vich_uploader_asset(row, 'imageFile') ? vich_uploader_asset(row, 'imageFile') : asset('assets/images/no-image.png')) | imagine_filter('news_thumb') }}" alt="{{row.getTitle()}}">
-            <a href="{{ path('news_show', {'slug': row.getUrl() }) }}" title="{{ row.getTitle() }}">
-                {{ row.getTitle() }}
-            </a>
+    <div class="related-news">
+        <h4 class="text-uppercase"><span>{{ 'Related news'|trans }}</span></h4>
+        <div class="row">
+            {% for row in relatedNews %}
+                <div class="col-md-4">
+                    <img class="mr-3 img-thumbnail" src="{{ (vich_uploader_asset(row, 'imageFile') ? vich_uploader_asset(row, 'imageFile') : asset('assets/images/no-image.png')) | imagine_filter('news_thumb') }}" alt="{{row.getTitle()}}">
+                    <a href="{{ path('news_show', {'slug': row.getUrl() }) }}" title="{{ row.getTitle() }}" class="text-uppercase">
+                        {{ row.getTitle() }}
+                    </a>
+                </div>
+            {% endfor %}
         </div>
-        {% endfor %}
     </div>
-</div>
-<div class="clearfix"></div>
+    <div class="clearfix"></div>
 {% endif %}

@@ -348,6 +348,7 @@ class NewsController extends Controller
             $comment->setAuthor( $request->request->get('form')['author'] );
             $comment->setEmail( $request->request->get('form')['email'] );
             $comment->setNewsId( $request->request->get('form')['news_id'] );
+            $comment->setCommentId( $request->request->get('form')['comment_id'] );
             $comment->setIp( $request->request->get('form')['ip'] );
 
             $em->persist($comment);
@@ -371,9 +372,9 @@ class NewsController extends Controller
                 ;
                 
                 if ($mailer->send($message)) {
-                    echo '[SWIFTMAILER] sent email to ' . $request->request->get('form')['email'];
+                    //echo '[SWIFTMAILER] sent email to ' . $request->request->get('form')['email'];
                 } else {
-                    echo '[SWIFTMAILER] not sending email: ' . $mailLogger->dump();
+                    //echo '[SWIFTMAILER] not sending email: ' . $mailLogger->dump();
                 }
 
                 return new Response(

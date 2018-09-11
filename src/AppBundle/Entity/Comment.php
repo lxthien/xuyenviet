@@ -11,6 +11,8 @@
 
 namespace AppBundle\Entity;
 
+use AppBundle\Entity\News;
+
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 
@@ -45,36 +47,17 @@ class Comment
      * @var int
      *
      * @ORM\Column(name="comment_id", type="integer", nullable=true)
+     * @Assert\NotBlank(message="comment.blank")
      */
     private $comment_id;
 
     /**
-     * One Comment has Many Comment.
-     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Comment", mappedBy="parentcat")
-     */
-    protected $children;
-
-    /**
-     * Many Comments have One Comment.
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Comment", inversedBy="children")
-     * @ORM\JoinColumn(name="comment_id", referencedColumnName="id", nullable=true)
-     */
-    private $parentcat;
-
-    /**
      * @var int
      *
-     * @ORM\Column(name="news_id", type="integer", nullable=true)
+     * @ORM\Column(name="news_id", type="integer", nullable=false)
      * @Assert\NotBlank(message="comment.blank")
      */
     private $news_id;
-
-    /**
-     * Many Comment have One News.
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\News", inversedBy="comments")
-     * @ORM\JoinColumn(name="news_id", referencedColumnName="id")
-     */
-    private $news;
 
     /**
      * @var string
@@ -163,44 +146,16 @@ class Comment
     }
 
     /**
-     * Set parentcat
-     *
-     * @param Comment $parent
-     * @return Comment
-     */
-    public function setParentcat(\AppBundle\Entity\Comment $parent = null) {
-        $this->parentcat = $parent;
-
-        return $this;
-    }
-
-    /**
-     * Get parentcat
-     *
-     * @return Comment
-     */
-    public function getParentcat() {
-        return $this->parentcat;
-    }
-
-    /**
-     * Get children
-     *
-     * @return Comment
-     */
-    public function getChildren() {
-        return $this->children;
-    }
-
-    /**
      * Set news_id
      *
-     * @param int $news_id
+     * @param int $newsId
      * @return Comment
      */
-    public function setNewsId($news_id)
+    public function setNewsId($newsId)
     {
-        $this->news_id = $news_id;
+        $this->news_id = $newsId;
+
+        return $this;
     }
 
     /**
@@ -216,12 +171,14 @@ class Comment
     /**
      * Set comment_id
      *
-     * @param int $comment_id
+     * @param int $commentId
      * @return Comment
      */
-    public function setCommentId($comment_id)
+    public function setCommentId($commentId)
     {
-        $this->comment_id = $comment_id;
+        $this->comment_id = $commentId;
+
+        return $this;
     }
 
     /**
@@ -235,16 +192,6 @@ class Comment
     }
 
     /**
-     * Get news
-     *
-     * @return News
-     */
-    public function getNews()
-    {
-        return $this->news;
-    }
-
-    /**
      * Set content
      *
      * @param string $content
@@ -253,6 +200,8 @@ class Comment
     public function setContent($content)
     {
         $this->content = $content;
+
+        return $this;
     }
 
     /**
@@ -320,6 +269,8 @@ class Comment
     public function setAuthor($author)
     {
         $this->author = $author;
+
+        return $this;
     }
 
     /**
@@ -399,5 +350,16 @@ class Comment
     public function getUpdatedAt()
     {
         return $this->updatedAt;
+    }
+
+    public function getNews()
+    {
+        global $kernel;
+        $em = $kernel->getContainer()->get('doctrine')->getManager();
+        
+        return $em->getRepository('AppBundle:News')
+            ->findOneBy(
+                array('id'=> $this->getNewsId())
+            );
     }
 }

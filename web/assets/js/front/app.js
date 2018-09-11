@@ -3,11 +3,12 @@
 var $ = require('jquery');
 
 var news = require('./pages/news');
-var news = require('./global/global');
+var global = require('./global/global');
 
 var app = {
     init: function () {
         news.init();
+        global.init();
     }
 };
 

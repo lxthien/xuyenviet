@@ -51,7 +51,7 @@
         </div>
         <div class="row marquee">
             <div class="col-md-12 text-uppercase">
-                <marquee scrollamount="7">{{ get_setting('marqueeHomepage') }}</marquee>
+                <marquee scrollamount="7">{{ get_setting('marqueeHomepage')|raw }}</marquee>
             </div>
         </div>
         <div class="row marketing">
@@ -63,24 +63,24 @@
                 <p class="text-center">Sửa nhà Minh Duy với đội ngũ kiến trúc sư chuyên môn cao, nhân viên tận tâm, năng động luôn nỗ lực phấn đấu phục vụ khách hàng một cách tốt nhất. Ngoài ra, sự cải tiến không ngừng chất lượng dịch vụ và những sáng tạo trong thiết kế thi công, Hoàng AGC mang đến bạn trải nghiệm xứng tầm .</p>
             </div>
             <div class="col-lg-4">
-                <img class="rounded-circle" src="{{ asset('assets/images/profesional.jpg') }}" alt="Uy tín, chuyên nghiệp">
+                <img class="rounded-circle" src="{{ asset('assets/images/profesional.jpg') | imagine_filter('homepage_200_200') }}" alt="Uy tín, chuyên nghiệp">
                 <h2 class="text-center text-uppercase">Uy tín, chuyên nghiệp</h2>
                 <p>Rút ngắn thời gian triển khai dự án bạn có thể tìm hiểu thêm quy trình làm việc hoặc Brochure của chúng tôi để bắt đầu ngay ngôi nhà mơ ước của mình.</p>
-                <p><a class="btn btn-secondary" href="#" role="button">{{'view.details'|trans}}</a></p>
+                <p><a class="btn btn-secondary" href="{{ path('news_show', {'slug': 'sua-nha-uy-tin-chuyen-nghiep' }) }}" role="button">{{'view.details'|trans}}</a></p>
             </div>
             <!-- /.col-lg-4 -->
             <div class="col-lg-4">
-                <img class="rounded-circle" src="{{ asset('assets/images/save-money.jpg') }}" alt="Chi phí hợp lý">
+                <img class="rounded-circle" src="{{ asset('assets/images/save-money.jpg') | imagine_filter('homepage_200_200') }}" alt="Chi phí hợp lý">
                 <h2 class="text-center text-uppercase">Chi phí hợp lý</h2>
                 <p>Rút ngắn thời gian triển khai dự án bạn có thể tìm hiểu thêm quy trình làm việc hoặc Brochure của chúng tôi để bắt đầu ngay ngôi nhà mơ ước của mình.</p>
-                <p><a class="btn btn-secondary" href="#" role="button">{{'view.details'|trans}}</a></p>
+                <p><a class="btn btn-secondary" href="{{ path('news_show', {'slug': 'chi-phi-sua-nha-hop-ly' }) }}" role="button">{{'view.details'|trans}}</a></p>
             </div>
             <!-- /.col-lg-4 -->
             <div class="col-lg-4">
-                <img class="rounded-circle" src="{{ asset('assets/images/warranty.jpg') }}" alt="Cam kết bảo hành">
+                <img class="rounded-circle" src="{{ asset('assets/images/warranty.jpg') | imagine_filter('homepage_200_200') }}" alt="Cam kết bảo hành">
                 <h2 class="text-center text-uppercase">Cam kết bảo hành</h2>
                 <p>Rút ngắn thời gian triển khai dự án bạn có thể tìm hiểu thêm quy trình làm việc hoặc Brochure của chúng tôi để bắt đầu ngay ngôi nhà mơ ước của mình.</p>
-                <p><a class="btn btn-secondary" href="#" role="button">{{'view.details'|trans}}</a></p>
+                <p><a class="btn btn-secondary" href="{{ path('news_show', {'slug': 'cam-ket-bao-hanh' }) }}" role="button">{{'view.details'|trans}}</a></p>
             </div>
             <!-- /.col-lg-4 -->
         </div>

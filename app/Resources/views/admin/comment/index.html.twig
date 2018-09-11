@@ -25,7 +25,7 @@
                                     {% for row in objects %}
                                         <tr>
                                             <td>{{ row.getAuthor() }}</td>
-                                            <td><a href="{{ path('admin_news_edit', {id: 1}) }}">{{ row.getNews() }}<a></td>
+                                            <td><a href="{{ path('admin_news_edit', {id: row.getNews().getId()}) }}">{{ row.getNews().getTitle() }}<a></td>
                                             <td>{{ row.getCreatedAt() | localizeddate('medium', 'short', null, 'UTC') }}</td>
                                             <td>
                                                 <div class="item-actions">

@@ -6,7 +6,7 @@
         <a href="{{ path('news_show', {'slug': row.getUrl() }) }}" class="list-group-item td-list-group-item" title="{{ row.getTitle() }}">
             <img
                 alt="{{ row.getTitle() }}"
-                src="{{ (vich_uploader_asset(row, 'imageFile') ? vich_uploader_asset(row, 'imageFile') : asset('assets/images/no-image.png')) | imagine_filter('news_thumb_70_70') }}" />
+                src="{{ (vich_uploader_asset(row, 'imageFile') ? vich_uploader_asset(row, 'imageFile') : asset('assets/images/no-image.png')) | imagine_filter('news_70_70') }}" />
             <span>{{ row.getTitle() }}</span>
         </a>
     {% endfor %}

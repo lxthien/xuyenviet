@@ -548,6 +548,11 @@
                 <source>news.recent</source>
                 <target>Recent news</target>
             </trans-unit>
+
+            <trans-unit id="search">
+                <source>search</source>
+                <target>Search</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>

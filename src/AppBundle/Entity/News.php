@@ -176,7 +176,7 @@ class News
 
     public function __toString()
     {
-        return $this->getTitle();
+        return (string)$this->getTitle();
     }
 
     public function __construct()
