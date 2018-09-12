@@ -129,6 +129,7 @@ class NewsController extends Controller
             ->createQueryBuilder('c')
             ->where('c.news_id = :news_id')
             ->andWhere('c.approved = :approved')
+            ->andWhere('c.comment_id IS NULL')
             ->setParameter('news_id', $post->getId())
             ->setParameter('approved', 1)
             ->getQuery()->getResult();

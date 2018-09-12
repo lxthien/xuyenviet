@@ -92,21 +92,30 @@ class CommentController extends Controller
     public function replyAction(Request $request, Comment $comment, Slugger $slugger)
     {
         //$this->denyAccessUnlessGranted('edit', $category, 'Posts can only be edited by their authors.');
+        $replyComment = new Comment();
+        $replyComment->setNewsId( $comment->getNewsId() );
+        $replyComment->setCommentId( $comment->getId() );
+        $replyComment->setEmail( $this->getUser()->getEmail() );
+        $replyComment->setAuthor( $this->getUser()->getFullName() );
+        $replyComment->setIp( $this->container->get('request_stack')->getCurrentRequest()->getClientIp() );
 
-        $form = $this->createForm(CommentType::class, $comment);
+        $form = $this->createForm(CommentType::class, $replyComment);
+
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
 
-            $this->getDoctrine()->getManager()->flush();
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($replyComment);
+            $em->flush();
 
-            $this->addFlash('success', 'updated_successfully');
-
+            $this->addFlash('success', 'action.updated_successfully');
+            
             return $this->redirectToRoute('admin_comment_index');
         }
 
-        return $this->render('admin/comment/edit.html.twig', [
-            'comment' => $comment,
+        return $this->render('admin/comment/reply.html.twig', [
+            'comment' => $replyComment,
             'form' => $form->createView(),
         ]);
     }

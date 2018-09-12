@@ -97,23 +97,6 @@ class NewsCategoryController extends Controller
     }
 
     /**
-     * Finds and displays a NewsCategory entity.
-     *
-     * @Route("/{id}", requirements={"id": "\d+"}, name="admin_newscategory_show")
-     * @Method("GET")
-     */
-    public function showAction(NewsCategory $category)
-    {
-        // This security check can also be performed
-        // using an annotation: @Security("is_granted('show', post)")
-        //$this->denyAccessUnlessGranted('show', $post, 'Posts can only be shown to their authors.');
-
-        return $this->render('admin/blog/show.html.twig', [
-            'category' => $category,
-        ]);
-    }
-
-    /**
      * Displays a form to edit an existing NewsCategory entity.
      *
      * @Route("/{id}/edit", requirements={"id": "\d+"}, name="admin_newscategory_edit")

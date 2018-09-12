@@ -106,23 +106,6 @@ class NewsController extends Controller
     }
 
     /**
-     * Finds and displays a News entity.
-     *
-     * @Route("/{id}", requirements={"id": "\d+"}, name="admin_news_show")
-     * @Method("GET")
-     */
-    public function showAction(News $news)
-    {
-        // This security check can also be performed
-        // using an annotation: @Security("is_granted('show', post)")
-        //$this->denyAccessUnlessGranted('show', $post, 'Posts can only be shown to their authors.');
-
-        return $this->render('admin/news/show.html.twig', [
-            'news' => $news,
-        ]);
-    }
-
-    /**
      * Displays a form to edit an existing News entity.
      *
      * @Route("/{id}/edit", requirements={"id": "\d+"}, name="admin_news_edit")

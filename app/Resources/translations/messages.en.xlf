@@ -357,6 +357,12 @@
                 <target>Page keyword</target>
             </trans-unit>
 
+            <!-- Action -->
+            <trans-unit id="action.updated_successfully">
+                <source>action.updated_successfully</source>
+                <target>Updated successfully</target>
+            </trans-unit>
+
             <!-- Categories -->
             <trans-unit id="title.categories">
                 <source>title.categories</source>
