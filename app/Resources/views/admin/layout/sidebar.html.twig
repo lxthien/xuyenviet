@@ -71,6 +71,23 @@
                     </a>
                 </li>
 
+                <li class="menu-item-has-children active dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="menu-icon fa fa-picture-o"></i>
+                        {{ 'menu.banners'|trans }}
+                    </a>
+                    <ul class="sub-menu children dropdown-menu">
+                        <li>
+                            <i class="fa fa-picture-o"></i>
+                            <a href="{{ path('admin_banner_index') }}">{{ 'menu.banner_list'|trans }}</a>
+                        </li>
+                        <li>
+                            <i class="fa fa-list-alt"></i>
+                            <a href="{{ path('admin_bannercategory_index') }}">{{ 'menu.banner_category'|trans }}</a>
+                        </li>
+                    </ul>
+                </li>
+
                 <li>
                     <a href="{{ path('dmishh_settings_manage_global') }}">
                         <i class="menu-icon fa fa-cogs"></i>

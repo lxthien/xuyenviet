@@ -134,6 +134,8 @@ class Banner
     public function setPosition($position)
     {
         $this->position = $position;
+
+        return $this;
     }
 
     /**
@@ -155,6 +157,8 @@ class Banner
     public function setName($name)
     {
         $this->name = $name;
+
+        return $this;
     }
 
     /**
@@ -176,6 +180,8 @@ class Banner
     public function setUrl($url)
     {
         $this->url = $url;
+
+        return $this;
     }
 
     /**

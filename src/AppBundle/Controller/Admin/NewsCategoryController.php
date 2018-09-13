@@ -22,7 +22,7 @@ use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\HttpFoundation\Request;
 
 /**
- * Controller used to manage blog contents in the backend.
+ * Controller used to manage post category contents in the backend.
  *
  * @Route("/admin/newscategory")
  * @Security("has_role('ROLE_ADMIN')")
@@ -51,10 +51,6 @@ class NewsCategoryController extends Controller
      *
      * @Route("/new", name="admin_newscategory_new")
      * @Method({"GET", "POST"})
-     *
-     * NOTE: the Method annotation is optional, but it's a recommended practice
-     * to constraint the HTTP methods each controller responds to (by default
-     * it responds to all methods).
      */
     public function newAction(Request $request, Slugger $slugger)
     {
@@ -67,21 +63,13 @@ class NewsCategoryController extends Controller
 
         $form->handleRequest($request);
 
-        // the isSubmitted() method is completely optional because the other
-        // isValid() method already checks whether the form is submitted.
-        // However, we explicitly add it to improve code readability.
-        // See https://symfony.com/doc/current/best_practices/forms.html#handling-form-submits
         if ($form->isSubmitted() && $form->isValid()) {
 
             $em = $this->getDoctrine()->getManager();
             $em->persist($category);
             $em->flush();
 
-            // Flash messages are used to notify the user about the result of the
-            // actions. They are deleted automatically from the session as soon
-            // as they are accessed.
-            // See https://symfony.com/doc/current/book/controller.html#flash-messages
-            $this->addFlash('success', 'newscategory.created_successfully');
+            $this->addFlash('success', 'action.created_successfully');
 
             if ($form->get('saveAndCreateNew')->isClicked()) {
                 return $this->redirectToRoute('admin_newscategory_new');
@@ -104,17 +92,12 @@ class NewsCategoryController extends Controller
      */
     public function editAction(Request $request, NewsCategory $category, Slugger $slugger)
     {
-        //$this->denyAccessUnlessGranted('edit', $category, 'Posts can only be edited by their authors.');
-
         $form = $this->createForm(NewsCategoryType::class, $category);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-
             $this->getDoctrine()->getManager()->flush();
-
-            $this->addFlash('success', 'newscategory.updated_successfully');
-
+            $this->addFlash('success', 'action.updated_successfully');
             return $this->redirectToRoute('admin_newscategory_index');
         }
 
@@ -130,9 +113,6 @@ class NewsCategoryController extends Controller
      * @Route("/{id}/delete", name="admin_newscategory_delete")
      * @Method("POST")
      * @Security("is_granted('delete', post)")
-     *
-     * The Security annotation value is an expression (if it evaluates to false,
-     * the authorization mechanism will prevent the user accessing this resource).
      */
     public function deleteAction(Request $request, NewsCategory $category)
     {
@@ -140,15 +120,11 @@ class NewsCategoryController extends Controller
             return $this->redirectToRoute('admin_newscategory_index');
         }
 
-        // Delete the tags associated with this blog post. This is done automatically
-        // by Doctrine, except for SQLite (the database used in this application)
-        // because foreign key support is not enabled by default in SQLite
-
         $em = $this->getDoctrine()->getManager();
         $em->remove($category);
         $em->flush();
 
-        $this->addFlash('success', 'newscategory.deleted_successfully');
+        $this->addFlash('success', 'action.deleted_successfully');
 
         return $this->redirectToRoute('admin_newscategory_index');
     }

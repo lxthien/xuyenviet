@@ -59,15 +59,11 @@ class ContactController extends Controller
             return $this->redirectToRoute('admin_contact_index');
         }
 
-        // Delete the tags associated with this blog post. This is done automatically
-        // by Doctrine, except for SQLite (the database used in this application)
-        // because foreign key support is not enabled by default in SQLite
-
         $em = $this->getDoctrine()->getManager();
         $em->remove($contact);
         $em->flush();
 
-        $this->addFlash('success', 'deleted_successfully');
+        $this->addFlash('success', 'action.deleted_successfully');
 
         return $this->redirectToRoute('admin_contact_index');
     }

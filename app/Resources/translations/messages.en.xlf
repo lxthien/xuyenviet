@@ -358,9 +358,17 @@
             </trans-unit>
 
             <!-- Action -->
+            <trans-unit id="action.created_successfully">
+                <source>action.created_successfully</source>
+                <target>Created successfully</target>
+            </trans-unit>
             <trans-unit id="action.updated_successfully">
                 <source>action.updated_successfully</source>
                 <target>Updated successfully</target>
+            </trans-unit>
+            <trans-unit id="action.deleted_successfully">
+                <source>action.deleted_successfully</source>
+                <target>Deleted successfully</target>
             </trans-unit>
 
             <!-- Categories -->
@@ -497,6 +505,18 @@
             <trans-unit id="menu.comment_list">
                 <source>menu.comment_list</source>
                 <target>Comment</target>
+            </trans-unit>
+            <trans-unit id="menu.banners">
+                <source>menu.banners</source>
+                <target>Banners</target>
+            </trans-unit>
+            <trans-unit id="menu.banner_list">
+                <source>menu.banner_list</source>
+                <target>All Banners</target>
+            </trans-unit>
+            <trans-unit id="menu.banner_category">
+                <source>menu.banner_category</source>
+                <target>Banner Category</target>
             </trans-unit>
             <trans-unit id="menu.contact">
                 <source>menu.contact</source>

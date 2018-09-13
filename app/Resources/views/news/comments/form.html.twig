@@ -1,27 +1,27 @@
 <div class="comment-form mt-3">
-	<div id="respond" class="comment-respond">
-		<h3 id="reply-title" class="comment-reply-title">{{'Leave your comment below'|trans}}</h3>
-		<p class="comment-response" id="comment-response"></p>
-		{{ form_start(form, {'attr': {'id': 'form-comment'}}) }}
-			{{ form_errors(form) }}
-			<div class="form-group">
-				{{ form_label(form.content) }}
-		        {{ form_errors(form.content) }}
-		        {{ form_widget(form.content, {'attr': {'class': 'form-control'}}) }}
-			</div>
-			<div class="form-group">
-				{{ form_label(form.author) }}
-		        {{ form_errors(form.author) }}
-		        {{ form_widget(form.author, {'attr': {'class': 'form-control'}}) }}
-			</div>
-			<div class="form-group">
-				{{ form_label(form.email) }}
-		        {{ form_errors(form.email) }}
-		        {{ form_widget(form.email, {'attr': {'class': 'form-control'}}) }}
-			</div>
-			<div class="form-group">
-		        {{ form_widget(form.send, {'attr': {'class': 'btn btn-primary'}}) }}
-			</div>
-		{{ form_end(form) }}
-	</div>
+    <div id="respond" class="comment-respond">
+        <h3 id="reply-title" class="comment-reply-title">{{'Leave your comment below'|trans}}</h3>
+        <p class="comment-response" id="comment-response"></p>
+        {{ form_start(form, {'attr': {'id': 'form-comment'}}) }}
+            {{ form_errors(form) }}
+            <div class="form-group">
+                {{ form_label(form.content) }}
+                {{ form_errors(form.content) }}
+                {{ form_widget(form.content, {'attr': {'class': 'form-control'}}) }}
+            </div>
+            <div class="form-group">
+                {{ form_label(form.author) }}
+                {{ form_errors(form.author) }}
+                {{ form_widget(form.author, {'attr': {'class': 'form-control'}}) }}
+            </div>
+            <div class="form-group">
+                {{ form_label(form.email) }}
+                {{ form_errors(form.email) }}
+                {{ form_widget(form.email, {'attr': {'class': 'form-control'}}) }}
+            </div>
+            <div class="form-group">
+                {{ form_widget(form.send, {'attr': {'class': 'btn btn-primary'}}) }}
+            </div>
+        {{ form_end(form) }}
+    </div>
 </div>

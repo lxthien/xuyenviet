@@ -22,19 +22,10 @@ use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\HttpFoundation\Request;
 
 /**
- * Controller used to manage blog contents in the backend.
- *
- * Please note that the application backend is developed manually for learning
- * purposes. However, in your real Symfony application you should use any of the
- * existing bundles that let you generate ready-to-use backends without effort.
- *
- * See http://knpbundles.com/keyword/admin
+ * Controller used to manage page contents in the backend.
  *
  * @Route("/admin/page")
  * @Security("has_role('ROLE_ADMIN')")
- *
- * @author Ryan Weaver <weaverryan@gmail.com>
- * @author Javier Eguiluz <javier.eguiluz@gmail.com>
  */
 
 class PageController extends Controller
@@ -48,7 +39,7 @@ class PageController extends Controller
     public function indexAction()
     {
         $em = $this->getDoctrine()->getManager();
-        $pages = $em->getRepository(News::class)->findBy(array('postType' => 'page'));
+        $pages = $em->getRepository(News::class)->findAllPages();
 
         return $this->render('admin/page/index.html.twig', ['pages' => $pages]);
     }
@@ -58,10 +49,6 @@ class PageController extends Controller
      *
      * @Route("/new", name="admin_page_new")
      * @Method({"GET", "POST"})
-     *
-     * NOTE: the Method annotation is optional, but it's a recommended practice
-     * to constraint the HTTP methods each controller responds to (by default
-     * it responds to all methods).
      */
     public function newAction(Request $request, Slugger $slugger)
     {
@@ -69,27 +56,18 @@ class PageController extends Controller
         $news->setAuthor($this->getUser());
         $news->setPostType('page');
 
-        // See https://symfony.com/doc/current/book/forms.html#submitting-forms-with-multiple-buttons
         $form = $this->createForm(PageType::class, $news)
             ->add('saveAndCreateNew', SubmitType::class);
 
         $form->handleRequest($request);
 
-        // the isSubmitted() method is completely optional because the other
-        // isValid() method already checks whether the form is submitted.
-        // However, we explicitly add it to improve code readability.
-        // See https://symfony.com/doc/current/best_practices/forms.html#handling-form-submits
         if ($form->isSubmitted() && $form->isValid()) {
 
             $em = $this->getDoctrine()->getManager();
             $em->persist($news);
             $em->flush();
 
-            // Flash messages are used to notify the user about the result of the
-            // actions. They are deleted automatically from the session as soon
-            // as they are accessed.
-            // See https://symfony.com/doc/current/book/controller.html#flash-messages
-            $this->addFlash('success', 'page.created_successfully');
+            $this->addFlash('success', 'action.created_successfully');
 
             if ($form->get('saveAndCreateNew')->isClicked()) {
                 return $this->redirectToRoute('admin_page_new');
@@ -116,8 +94,10 @@ class PageController extends Controller
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+
             $this->getDoctrine()->getManager()->flush();
-            $this->addFlash('success', 'label.updated_successfully');
+            $this->addFlash('success', 'action.updated_successfully');
+
             return $this->redirectToRoute('admin_page_index');
         }
 

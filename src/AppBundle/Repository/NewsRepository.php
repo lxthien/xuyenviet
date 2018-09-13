@@ -2,6 +2,8 @@
 
 namespace AppBundle\Repository;
 
+use Doctrine\ORM\EntityRepository;
+
 /**
  * NewsRepository
  *
@@ -10,4 +12,23 @@ namespace AppBundle\Repository;
  */
 class NewsRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function findAllPosts()
+    {
+        return $this->getEntityManager()
+            ->createQuery(
+                'SELECT n FROM AppBundle:News n WHERE n.postType = :postType ORDER BY n.createdAt DESC'
+            )
+            ->setParameter('postType', "post")
+            ->getResult();
+    }
+
+    public function findAllPages()
+    {
+        return $this->getEntityManager()
+            ->createQuery(
+                'SELECT n FROM AppBundle:News n WHERE n.postType = :postType ORDER BY n.createdAt DESC'
+            )
+            ->setParameter('postType', "page")
+            ->getResult();
+    }
 }

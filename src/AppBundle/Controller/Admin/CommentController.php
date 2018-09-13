@@ -22,19 +22,10 @@ use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\HttpFoundation\Request;
 
 /**
- * Controller used to manage blog contents in the backend.
- *
- * Please note that the application backend is developed manually for learning
- * purposes. However, in your real Symfony application you should use any of the
- * existing bundles that let you generate ready-to-use backends without effort.
- *
- * See http://knpbundles.com/keyword/admin
+ * Controller used to manage comment in the backend.
  *
  * @Route("/admin/comment")
  * @Security("has_role('ROLE_ADMIN')")
- *
- * @author Ryan Weaver <weaverryan@gmail.com>
- * @author Javier Eguiluz <javier.eguiluz@gmail.com>
  */
 
 class CommentController extends Controller
@@ -71,8 +62,7 @@ class CommentController extends Controller
         if ($form->isSubmitted() && $form->isValid()) {
 
             $this->getDoctrine()->getManager()->flush();
-
-            $this->addFlash('success', 'updated_successfully');
+            $this->addFlash('success', 'action.updated_successfully');
 
             return $this->redirectToRoute('admin_comment_index');
         }
@@ -91,7 +81,6 @@ class CommentController extends Controller
      */
     public function replyAction(Request $request, Comment $comment, Slugger $slugger)
     {
-        //$this->denyAccessUnlessGranted('edit', $category, 'Posts can only be edited by their authors.');
         $replyComment = new Comment();
         $replyComment->setNewsId( $comment->getNewsId() );
         $replyComment->setCommentId( $comment->getId() );
@@ -126,9 +115,6 @@ class CommentController extends Controller
      * @Route("/{id}/delete", name="admin_comment_delete")
      * @Method("POST")
      * @Security("is_granted('delete', post)")
-     *
-     * The Security annotation value is an expression (if it evaluates to false,
-     * the authorization mechanism will prevent the user accessing this resource).
      */
     public function deleteAction(Request $request, Comment $comment)
     {
@@ -136,15 +122,11 @@ class CommentController extends Controller
             return $this->redirectToRoute('admin_comment_index');
         }
 
-        // Delete the tags associated with this blog post. This is done automatically
-        // by Doctrine, except for SQLite (the database used in this application)
-        // because foreign key support is not enabled by default in SQLite
-
         $em = $this->getDoctrine()->getManager();
         $em->remove($comment);
         $em->flush();
 
-        $this->addFlash('success', 'deleted_successfully');
+        $this->addFlash('success', 'action.deleted_successfully');
 
         return $this->redirectToRoute('admin_comment_index');
     }

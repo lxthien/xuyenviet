@@ -24,19 +24,10 @@ use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\HttpFoundation\Request;
 
 /**
- * Controller used to manage blog contents in the backend.
- *
- * Please note that the application backend is developed manually for learning
- * purposes. However, in your real Symfony application you should use any of the
- * existing bundles that let you generate ready-to-use backends without effort.
- *
- * See http://knpbundles.com/keyword/admin
+ * Controller used to manage post contents in the backend.
  *
  * @Route("/admin/news")
  * @Security("has_role('ROLE_ADMIN')")
- *
- * @author Ryan Weaver <weaverryan@gmail.com>
- * @author Javier Eguiluz <javier.eguiluz@gmail.com>
  */
 
 class NewsController extends Controller
@@ -50,9 +41,9 @@ class NewsController extends Controller
     public function indexAction()
     {
         $em = $this->getDoctrine()->getManager();
-        $news = $em->getRepository(News::class)->findBy(array('postType' => 'post'));
+        $news = $em->getRepository(News::class)->findAllPosts();
 
-        return $this->render('admin/news/index.html.twig', ['news' => $news]);
+        return $this->render('admin/news/index.html.twig', ['objects' => $news]);
     }
 
     /**
@@ -60,37 +51,24 @@ class NewsController extends Controller
      *
      * @Route("/new", name="admin_news_new")
      * @Method({"GET", "POST"})
-     *
-     * NOTE: the Method annotation is optional, but it's a recommended practice
-     * to constraint the HTTP methods each controller responds to (by default
-     * it responds to all methods).
      */
     public function newAction(Request $request, Slugger $slugger)
     {
         $news = new News();
         $news->setAuthor($this->getUser());
 
-        // See https://symfony.com/doc/current/book/forms.html#submitting-forms-with-multiple-buttons
         $form = $this->createForm(NewsType::class, $news)
             ->add('saveAndCreateNew', SubmitType::class);
 
         $form->handleRequest($request);
 
-        // the isSubmitted() method is completely optional because the other
-        // isValid() method already checks whether the form is submitted.
-        // However, we explicitly add it to improve code readability.
-        // See https://symfony.com/doc/current/best_practices/forms.html#handling-form-submits
         if ($form->isSubmitted() && $form->isValid()) {
 
             $em = $this->getDoctrine()->getManager();
             $em->persist($news);
             $em->flush();
 
-            // Flash messages are used to notify the user about the result of the
-            // actions. They are deleted automatically from the session as soon
-            // as they are accessed.
-            // See https://symfony.com/doc/current/book/controller.html#flash-messages
-            $this->addFlash('success', 'news.created_successfully');
+            $this->addFlash('success', 'action.created_successfully');
 
             if ($form->get('saveAndCreateNew')->isClicked()) {
                 return $this->redirectToRoute('admin_news_new');
@@ -121,8 +99,7 @@ class NewsController extends Controller
         if ($form->isSubmitted() && $form->isValid()) {
 
             $this->getDoctrine()->getManager()->flush();
-
-            $this->addFlash('success', 'news.updated_successfully');
+            $this->addFlash('success', 'action.updated_successfully');
 
             return $this->redirectToRoute('admin_news_index');
         }
@@ -139,9 +116,6 @@ class NewsController extends Controller
      * @Route("/{id}/delete", name="admin_news_delete")
      * @Method("POST")
      * @Security("is_granted('delete', post)")
-     *
-     * The Security annotation value is an expression (if it evaluates to false,
-     * the authorization mechanism will prevent the user accessing this resource).
      */
     public function deleteAction(Request $request, NewsCategory $category)
     {
@@ -149,15 +123,11 @@ class NewsController extends Controller
             return $this->redirectToRoute('admin_newscategory_index');
         }
 
-        // Delete the tags associated with this blog post. This is done automatically
-        // by Doctrine, except for SQLite (the database used in this application)
-        // because foreign key support is not enabled by default in SQLite
-
         $em = $this->getDoctrine()->getManager();
         $em->remove($category);
         $em->flush();
 
-        $this->addFlash('success', 'newscategory.deleted_successfully');
+        $this->addFlash('success', 'action.deleted_successfully');
 
         return $this->redirectToRoute('admin_newscategory_index');
     }
