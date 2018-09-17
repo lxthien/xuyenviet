@@ -1,7 +1,12 @@
-{# Bootstrap modal, see http://getbootstrap.com/javascript/#modals #}
-<div class="modal fade" id="confirmationModal" tabindex="-1">
-    <div class="modal-dialog">
+<div class="modal fade" id="confirmationModal{{id}}" tabindex="-1" role="dialog" aria-labelledby="staticModalLabel" aria-hidden="true" data-backdrop="false">
+    <div class="modal-dialog modal-sm" role="document">
         <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="staticModalLabel">Static Modal</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
             <div class="modal-body">
                 <h4>{{ 'delete_post_modal.title'|trans }}</h4>
                 <p>{{ 'delete_post_modal.body'|trans }}</p>

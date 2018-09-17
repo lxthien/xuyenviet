@@ -537,6 +537,12 @@
                 <target>Tags</target>
             </trans-unit>
 
+            <!-- Banner -->
+            <trans-unit id="title.banner_list">
+                <source>title.banner_list</source>
+                <target>All Banners</target>
+            </trans-unit>
+
             <!-- Front page -->
             <trans-unit id="home">
                 <source>home</source>

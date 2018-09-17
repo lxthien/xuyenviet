@@ -3,6 +3,8 @@ import 'typeahead.js';
 import Bloodhound from "bloodhound-js";
 import 'bootstrap-tagsinput';
 
+import 'bootstrap-sass/assets/javascripts/bootstrap/modal.js';
+
 $(function() {
     // Build the slug for object entiry from the name
     initBuildSluggable();
@@ -128,7 +130,7 @@ $(function() {
 // Handling the modal confirmation message.
 $(document).on('submit', 'form[data-confirmation]', function (event) {
     var $form = $(this),
-        $confirm = $('#confirmationModal');
+        $confirm = $('#' + $form.data('confirmationmodal'));
 
     if ($confirm.data('result') !== 'yes') {
         //cancel submit event

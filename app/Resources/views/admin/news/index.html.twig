@@ -6,9 +6,20 @@
     <div class="content mt-3">
         <div class="animated fadeIn">
             <div class="row">
-                <div class="col-md-12">
-                    <div class="card">
-                        <a class="btn btn-primary" href="#" role="button">Link</a>
+                <div class="col-md-3">
+                    <div class="card add">
+                        <div class="card-body">
+                            <div class="stat-widget-one">
+                                <a href="{{ path('admin_news_new') }}">
+                                    <div class="stat-icon dib">
+                                        <i class="ti-plus text-success border-success"></i>
+                                    </div>
+                                    <div class="stat-content dib">
+                                        <div class="stat-text text-success">{{ 'menu.add_new'|trans }}</div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
