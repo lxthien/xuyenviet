@@ -410,7 +410,7 @@ class NewsController extends Controller
         $breadcrumbs = $this->get("white_october_breadcrumbs");
         
         // Add home item into first breadcrum.
-        $breadcrumbs->addItem("Home", $this->generateUrl("homepage"));
+        $breadcrumbs->addItem("home", $this->generateUrl("homepage"));
         
         // Breadcrum for category page
         if( !empty($category) ) {
