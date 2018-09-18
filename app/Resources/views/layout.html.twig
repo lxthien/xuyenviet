@@ -3,7 +3,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <link rel="icon" type="image/x-icon" href="{{ asset('assets/cms/images/favicon.ico') }}" />
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
 
         <title>{% block title %}{{ get_setting('pageTitle') }}{% endblock %}</title>
         <meta name="description" content="{% block description %}{{ get_setting('pageDescription') }}{% endblock %}">
@@ -26,11 +26,14 @@
         <div class="container wrapper">
             {{ include('layout/header.html.twig') }}
             {{ include('layout/menu.html.twig') }}
+            
             <div class="row td-wrapper">
                 {% block body %}{% endblock %}
             </div>
+            
             {{ include('layout/footer.html.twig') }}
         </div>
+        
         {{ include('layout/footer_UI.html.twig') }}
     </body>
 </html>
