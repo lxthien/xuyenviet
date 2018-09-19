@@ -572,6 +572,18 @@
                 <source>comments.count</source>
                 <target>%count% Comments</target>
             </trans-unit>
+            <trans-unit id="comment.leave_your_comment_below">
+                <source>comment.leave_your_comment_below</source>
+                <target>Leave your comment below</target>
+            </trans-unit>
+            <trans-unit id="label.send">
+                <source>label.send</source>
+                <target>Send</target>
+            </trans-unit>
+            <trans-unit id="news.news_related">
+                <source>news.news_related</source>
+                <target>New related</target>
+            </trans-unit>
             <trans-unit id="view.details">
                 <source>view.details</source>
                 <target>View details »</target>

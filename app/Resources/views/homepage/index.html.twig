@@ -91,13 +91,13 @@
             </div>
             <div class="col-md-12 list-news-items">
                 <div class="row">
-                    {% for row in posts %}
+                    {% for row in services %}
                         {{ include('news/components/itemsGrid.html.twig') }}
                     {% endfor %}
                 </div>
             </div>
         </div>
-        <div class="row">
+        {# <div class="row">
             <div class="col-md-12">
                 <h3 class="text-center text-uppercase">Dự án đã thi công</h3>
                 <span class="text-center block-underline"></span>
@@ -109,6 +109,6 @@
                     {% endfor %}
                 </div>
             </div>
-        </div>
+        </div> #}
     </div>
 {% endblock %}

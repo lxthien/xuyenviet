@@ -181,11 +181,11 @@
 
             <trans-unit id="label.author">
                 <source>label.author</source>
-                <target>Author</target>
+                <target>Tên của bạn</target>
             </trans-unit>
             <trans-unit id="label.author_email">
                 <source>label.author_email</source>
-                <target>Author email</target>
+                <target>Địa chỉ email</target>
             </trans-unit>
             <trans-unit id="label.username">
                 <source>label.username</source>
@@ -201,7 +201,7 @@
             </trans-unit>
             <trans-unit id="label.content">
                 <source>label.content</source>
-                <target>Content</target>
+                <target>Nội dung</target>
             </trans-unit>
             <trans-unit id="label.summary">
                 <source>label.summary</source>
@@ -445,7 +445,7 @@
             </trans-unit>
             <trans-unit id="label.contents">
                 <source>label.contents</source>
-                <target>Contents</target>
+                <target>Nội dung</target>
             </trans-unit>
             <trans-unit id="label.create_news">
                 <source>label.create_news</source>
@@ -576,6 +576,18 @@
             <trans-unit id="comments.count">
                 <source>comments.count</source>
                 <target>%count% Bình luận</target>
+            </trans-unit>
+            <trans-unit id="comment.leave_your_comment_below">
+                <source>comment.leave_your_comment_below</source>
+                <target>Hãy để lại ý kiến của bạn bên dưới</target>
+            </trans-unit>
+            <trans-unit id="label.send">
+                <source>label.send</source>
+                <target>Gửi</target>
+            </trans-unit>
+            <trans-unit id="news.news_related">
+                <source>news.news_related</source>
+                <target>Tin liên quan</target>
             </trans-unit>
             <trans-unit id="view.details">
                 <source>view.details</source>

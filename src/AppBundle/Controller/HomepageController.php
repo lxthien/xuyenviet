@@ -12,16 +12,16 @@ class HomepageController extends Controller
 {
     public function indexAction(Request $request)
     {
-        $posts = $this->getDoctrine()
+        $services = $this->getDoctrine()
             ->getRepository(News::class)
             ->findBy(
                 array('postType' => 'post'),
                 array('createdAt' => 'DESC'),
-                10
+                12
             );
 
         return $this->render('homepage/index.html.twig', [
-            'posts' => $posts,
+            'services' => $services,
         ]);
     }
 }

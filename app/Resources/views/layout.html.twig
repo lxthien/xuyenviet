@@ -12,8 +12,22 @@
         <meta name="robots" content="index, follow" />
         <meta name="revisit-after" content="1 days">
         <meta http-equiv="content-language" content="vi">
-        
         <link rel="canonical" href="{{ url(app.request.attributes.get('_route'), app.request.attributes.get('_route_params')) }}"/>
+
+        <!-- Open Graph data -->
+        <meta property="og:url" content="{{ url(app.request.attributes.get('_route'), app.request.attributes.get('_route_params')) }}" />
+        <meta property="og:type" content="article" />
+        <meta property="og:title" content="{{ block('title') }}" />
+        <meta property="og:description" content="{{ block('description') }}" />
+        <meta property="og:image" content="" />
+
+        <!-- Twitter Card data -->
+        <meta name="twitter:card" content="summary">
+        <meta name="twitter:site" content="@suanhaminhduy">
+        <meta name="twitter:title" content="{{ block('title') }}">
+        <meta name="twitter:description" content="{{ block('description') }}">
+        <meta name="twitter:creator" content="@suanhaminhduy">
+        <meta name="twitter:image" content="">
 
         <!-- Global site tag (gtag.js) - Google Analytics -->
         {{ get_setting('googleAnalytic')|raw }}

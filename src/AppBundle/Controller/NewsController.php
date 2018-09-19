@@ -313,13 +313,16 @@ class NewsController extends Controller
 
         $form = $this->createFormBuilder($comment)
             ->setAction($this->generateUrl('handle_comment_form'))
-            ->add('content', TextareaType::class)
-            ->add('author', TextType::class)
-            ->add('email', EmailType::class)
+            ->add('content', TextareaType::class, array(
+                'label' => 'label.content',
+                'attr' => array('rows' => '5')
+                ))
+            ->add('author', TextType::class, array('label' => 'label.author'))
+            ->add('email', EmailType::class, array('label' => 'label.author_email'))
             ->add('ip', HiddenType::class)
             ->add('news_id', HiddenType::class)
             ->add('comment_id', HiddenType::class)
-            ->add('send', SubmitType::class, array('label' => 'Send'))
+            ->add('send', SubmitType::class, array('label' => 'label.send'))
             ->getForm();
 
         return $form;

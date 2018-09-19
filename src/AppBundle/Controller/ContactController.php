@@ -24,12 +24,12 @@ class ContactController extends Controller
         $contact = new Contact();
         
         $form = $this->createFormBuilder($contact)
-            ->add('name', TextType::class, array('label' => 'Author'))
-            ->add('email', EmailType::class, array('label' => 'Email'))
-            ->add('phone', TextType::class, array('label' => 'Phone'))
-            ->add('title', TextType::class, array('label' => 'Title'))
-            ->add('contents', TextareaType::class, array('label' => 'Contents'))
-            ->add('send', SubmitType::class, array('label' => 'Send'))
+            ->add('name', TextType::class, array('label' => 'label.author'))
+            ->add('email', EmailType::class, array('label' => 'label.author_email'))
+            ->add('phone', TextType::class, array('label' => 'label.phone'))
+            ->add('title', TextType::class, array('label' => 'label.title'))
+            ->add('contents', TextareaType::class, array('label' => 'label.content'))
+            ->add('send', SubmitType::class, array('label' => 'label.send'))
             ->getForm();
 
         $form->handleRequest($request);
