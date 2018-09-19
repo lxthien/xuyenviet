@@ -2,5 +2,23 @@
     .navbar {
         min-height: 40px;
         margin-bottom: 0px;
+        background: $chathamsBlue;
+        border-radius: 0px;
+        padding-bottom: 0px;
+        padding-top: 0px;
+
+        #navbarSupportedContent {
+            .navbar-nav {
+                .nav-item {
+                    margin-bottom: 0;
+
+                    .nav-link {
+                        color: $white;
+                        padding: 12px 15px;
+                        font-size: 17px;
+                    }
+                }
+            }
+        }
     }
 }

@@ -564,6 +564,10 @@
                 <source>projects</source>
                 <target>Projects</target>
             </trans-unit>
+            <trans-unit id="advisory">
+                <source>advisory</source>
+                <target>Advisory</target>
+            </trans-unit>
             <trans-unit id="contactus">
                 <source>contactus</source>
                 <target>Contact Us</target>

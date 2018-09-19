@@ -121,7 +121,12 @@ class NewsController extends Controller
         // Get news related
         $relatedNews = $this->getDoctrine()
             ->getRepository(News::class)
-            ->findBy(array('postType' => 'post'));
+            ->createQueryBuilder('r')
+            ->where('r.id <> :id')
+            ->andWhere('r.postType = :postType')
+            ->setParameter('id', $post->getId())
+            ->setParameter('postType', $post->getPostType())
+            ->getQuery()->getResult();;
 
         // Get the list comment for post
         $comments = $this->getDoctrine()

@@ -1,8 +1,10 @@
 .breadcrumb {
     padding: 8px 0px;
+    margin-top: 15px;
     margin-bottom: 20px;
-    border-bottom: 2px solid $mercury;
+    border-bottom: 1px solid $mercury;
     background: none;
+    border-radius: 0px;
 
     li {
         margin-bottom: 0em;

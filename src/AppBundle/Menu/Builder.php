@@ -44,6 +44,12 @@ class Builder implements ContainerAwareInterface
             'routeParameters' => ['level1' => 'du-an']
         ])->setLinkAttribute('class', 'nav-link');
 
+        $menu->addChild('advisory', [
+            'attributes' => ['class' => 'nav-item'],
+            'route' => 'news_category',
+            'routeParameters' => ['level1' => 'tu-van']
+        ])->setLinkAttribute('class', 'nav-link');
+
         // Contact us
         $menu->addChild('contactus', [
             'attributes' => ['class' => 'nav-item'],

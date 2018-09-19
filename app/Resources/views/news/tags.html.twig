@@ -13,31 +13,33 @@
 {% block body %}
     <div class="container">
         <div class="row">
-            <div class="col-md-9">
+            <div class="col-md-8">
                 <h1>{{ tag.getName() }}</h1>
                 
                 <div class="description">
                     <p>{{ tag.getContents()|raw }}</p>
                 </div>
 
-                {# Sort #}
-                {{ include('news/components/sort.html.twig') }}
-
                 {# List item on this page #}
                 {% if pagination|length > 0  %}
-                    <ul class="list-unstyled">
+                    {# Sort #}
+                    {% if get_setting('isShowSortOnCategory') %}
+                        {{ include('news/components/sort.html.twig') }}
+                    {% endif %}
+
+                    <ul class="list-unstyled list-news-items">
                         {% for row in pagination %}
                             {{ include('news/components/items.html.twig') }}
                         {% endfor %}
                     </ul>
+
+                    {# Pagination #}
+                    {{ include('news/components/pagination.html.twig') }}
                 {% else %}
                     <div class="no-record">
                         <p>{{ 'Do not have item on this page'|trans }}</p>
                     </div>
                 {% endif %}
-
-                {# Pagination #}
-                {{ include('news/components/pagination.html.twig') }}
             </div>
             
             {# Side bar #}

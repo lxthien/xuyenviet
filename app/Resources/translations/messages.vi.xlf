@@ -569,6 +569,10 @@
                 <source>projects</source>
                 <target>Dự án</target>
             </trans-unit>
+            <trans-unit id="advisory">
+                <source>advisory</source>
+                <target>Tư vấn</target>
+            </trans-unit>
             <trans-unit id="contactus">
                 <source>contactus</source>
                 <target>Liên hệ</target>
