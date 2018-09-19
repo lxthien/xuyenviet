@@ -1,0 +1,58 @@
+# DmishhSettingsBundle
+dmishh_settings:
+    security:
+        manage_global_settings_role: ROLE_ADMIN
+        users_can_manage_own_settings: true
+    settings:
+        siteName:
+            type: Symfony\Component\Form\Extension\Core\Type\TextType
+            options:
+                required: false
+        pageTitle:
+            type: Symfony\Component\Form\Extension\Core\Type\TextType
+            options:
+                required: false
+        pageDescription:
+            type: Symfony\Component\Form\Extension\Core\Type\TextareaType
+            options:
+                required: false
+        pageKeyword:
+            type: Symfony\Component\Form\Extension\Core\Type\TextType
+            options:
+                required: false
+        isShowSortOnCategory:
+            type: Symfony\Component\Form\Extension\Core\Type\CheckboxType
+            options:
+                required: false
+        isShowCommentOnPost:
+            type: Symfony\Component\Form\Extension\Core\Type\CheckboxType
+            options:
+                required: false
+        numberRecordOnPage:
+            type: Symfony\Component\Form\Extension\Core\Type\NumberType
+            options:
+                required: true
+        emailContact:
+            type: Symfony\Component\Form\Extension\Core\Type\EmailType
+            options:
+                required: false
+        hotLine1:
+            type: Symfony\Component\Form\Extension\Core\Type\TextType
+            options:
+                required: false
+        hotLine2:
+            type: Symfony\Component\Form\Extension\Core\Type\TextType
+            options:
+                required: false
+        marqueeHomepage:
+            type: Symfony\Component\Form\Extension\Core\Type\TextareaType
+            options:
+                required: false
+                attr:
+                    rows: 7
+        googleAnalytic:
+            type: Symfony\Component\Form\Extension\Core\Type\TextareaType
+            options:
+                required: false
+                attr:
+                    rows: 7

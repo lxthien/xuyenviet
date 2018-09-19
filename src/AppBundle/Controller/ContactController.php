@@ -14,9 +14,6 @@ use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
 use AppBundle\Entity\Contact;
 
-// Include the recaptcha lib
-use ReCaptcha\ReCaptcha;
-
 class ContactController extends Controller
 {
     /**

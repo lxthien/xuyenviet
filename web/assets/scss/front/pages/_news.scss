@@ -41,8 +41,9 @@
     }
 
     .news-container {
-        ul {
-            padding-left: 25px;
+        ul, ol {
+            padding-left: 30px;
+            margin-bottom: 15px;
         }
     }
 }

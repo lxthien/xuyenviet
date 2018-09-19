@@ -34,6 +34,7 @@
         .btn-secondary {
             background: $chathamsBlue;
             color: $white;
+            border-width: 0px;
 
             &:hover {
                 border: none;
@@ -48,16 +49,24 @@
         .media-thumb {
             .img-thumbnail {
                 padding: 0px;
-                border: 2px solid $mercury;
+                border: none;
                 border-radius: 0px;
             }
         }
 
         .media-body {
-            h5 a {
-                padding: 10px 0;
-                min-height: 40px;
-                display: block;
+            h5 {
+                font-size: 18px;
+
+                a {
+                    padding: 10px 0;
+                    min-height: 40px;
+                    display: block;
+
+                    &:hover {
+                        text-decoration: none;
+                    }
+                }
             }
         }
     }

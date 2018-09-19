@@ -15,7 +15,7 @@
                             <table id="bootstrap-data-table" class="table table-striped table-bordered">
                                 <thead>
                                     <tr>
-                                        <th>{{ 'lable.title'|trans }}</th>
+                                        <th>{{ 'label.title'|trans }}</th>
                                         <th>{{ 'label.published_at'|trans }}</th>
                                         <th>{{ 'label.actions'|trans }}</th>
                                     </tr>
@@ -23,8 +23,8 @@
                                 <tbody>
                                     {% for row in pages %}
                                     <tr>
-                                        <td><strong>{{ row.getTitle() }}</strong></td>
-                                        <td>{{ row.getCreatedAt() | localizeddate('medium', 'none', null, 'Asia/Ho_Chi_Minh', 'dd/mm/YY') }}</td>
+                                        <td><a class="btn-link" href="{{ path('admin_page_edit', {id: row.id}) }}">{{ row.getTitle() }}</a></td>
+                                        <td>{{ row.getCreatedAt() | localizeddate('medium', 'none', null, 'Asia/Ho_Chi_Minh', 'd/M/YYYY') }}</td>
                                         <td>
                                             <div class="item-actions">
                                                 <a href="{{ path('admin_page_edit', {id: row.id}) }}" class="btn-sm">

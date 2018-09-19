@@ -92,6 +92,14 @@
                 <source>title.comment_error</source>
                 <target>There was an error publishing your comment</target>
             </trans-unit>
+            <trans-unit id="title.page_list">
+                <source>title.page_list</source>
+                <target>All Pages</target>
+            </trans-unit>
+            <trans-unit id="title.page_new">
+                <source>title.page_new</source>
+                <target>Add New Page</target>
+            </trans-unit>
 
             <trans-unit id="action.show">
                 <source>action.show</source>
@@ -170,10 +178,6 @@
                 <target>Browse backend</target>
             </trans-unit>
 
-            <trans-unit id="label.title">
-                <source>label.title</source>
-                <target>Title</target>
-            </trans-unit>
             <trans-unit id="label.author">
                 <source>label.author</source>
                 <target>Author</target>

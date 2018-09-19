@@ -48,7 +48,7 @@
                                                 <img src="{{ (vich_uploader_asset(row, 'imageFile') ? vich_uploader_asset(row, 'imageFile') : asset('assets/images/no-image.png')) | imagine_filter('admin_news_thumb') }}" alt="{{ row.getTitle() }}" />
                                             </div>
                                         </td>
-                                        <td><strong>{{ row.getTitle() }}</strong></td>
+                                        <td><a class="btn-link" href="{{ path('admin_news_edit', {id: row.id}) }}">{{ row.getTitle() }}</a></td>
                                         <td>{{ row.getCategory() }}</td>
                                         <td>{{ row.getCreatedAt() | localizeddate('medium', 'none', null, 'Asia/Ho_Chi_Minh', 'd/M/YYYY') }}</td>
                                         <td>

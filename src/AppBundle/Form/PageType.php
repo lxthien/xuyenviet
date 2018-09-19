@@ -44,10 +44,6 @@ class PageType extends AbstractType
                 'attr' => ['class' => 'url', 'readonly' => 'readonly'],
                 'label' => 'label.url',
             ])
-            ->add('enable', CheckboxType::class, [
-                'required' => false,
-                'label' => 'label.enable',
-            ])
             ->add('description', TextareaType::class, [
                 'label' => 'label.description',
             ])

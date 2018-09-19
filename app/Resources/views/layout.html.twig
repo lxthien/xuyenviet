@@ -9,7 +9,14 @@
         <meta name="description" content="{% block description %}{{ get_setting('pageDescription') }}{% endblock %}">
         <meta name="keywords" content="{% block keyword %}{{ get_setting('pageKeyword') }}{% endblock %}">
         
+        <meta name="robots" content="index, follow" />
+        <meta name="revisit-after" content="1 days">
+        <meta http-equiv="content-language" content="vi">
+        
         <link rel="canonical" href="{{ url(app.request.attributes.get('_route'), app.request.attributes.get('_route_params')) }}"/>
+
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        {{ get_setting('googleAnalytic')|raw }}
 
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
@@ -18,9 +25,6 @@
         {% block stylesheets %}
             <link rel="stylesheet" href="{{ asset('build/css/app.css') }}">
         {% endblock %}
-
-        <!-- Important to add the recaptcha api in your document -->
-        <script src='https://www.google.com/recaptcha/api.js'></script>
     </head>
     <body>
         <div class="container wrapper">
