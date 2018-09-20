@@ -331,15 +331,19 @@
             </trans-unit>
             <trans-unit id="label.title">
                 <source>label.title</source>
-                <target>Title</target>
+                <target>Tiêu đề</target>
             </trans-unit>
             <trans-unit id="label.name">
                 <source>label.name</source>
-                <target>Name</target>
+                <target>Tên</target>
+            </trans-unit>
+            <trans-unit id="label.phone">
+                <source>label.phone</source>
+                <target>Điện thoại</target>
             </trans-unit>
             <trans-unit id="label.parentcat">
                 <source>label.parentcat</source>
-                <target>Parent Category</target>
+                <target>Danh mục cha</target>
             </trans-unit>
             <trans-unit id="label.url">
                 <source>label.url</source>
@@ -347,7 +351,7 @@
             </trans-unit>
             <trans-unit id="label.description">
                 <source>label.description</source>
-                <target>Description</target>
+                <target>Tóm tắt</target>
             </trans-unit>
             <trans-unit id="label.seo">
                 <source>label.seo</source>

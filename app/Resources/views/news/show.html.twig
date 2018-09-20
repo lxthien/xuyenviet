@@ -1,8 +1,11 @@
 {% extends 'layout.html.twig' %}
 
-{% block title %}{{ post.getPageTitle() != null ? post.getPageTitle() : post.getTitle() }}{% endblock %}
-{% block description %}{{ post.getPageDescription() }}{% endblock %}
+{% block title %}{{ post.getPageTitle() is not null ? post.getPageTitle() : post.getTitle() }}{% endblock %}
+{% block description %}{{ post.getPageDescription() is not null ? post.getPageDescription() : post.getDescription() }}{% endblock %}
 {% block keyword %}{{ post.getPageKeyword() }}{% endblock %}
+
+{% block ogImage %}<meta property="og:image" content="{{ (vich_uploader_asset(post, 'imageFile') ? vich_uploader_asset(post, 'imageFile') : asset('assets/images/no-image.png')) | imagine_filter('news_120_120') }}" />{% endblock %}
+{% block twitterImage %}<meta property="twitter:image" content="{{ (vich_uploader_asset(post, 'imageFile') ? vich_uploader_asset(post, 'imageFile') : asset('assets/images/no-image.png')) | imagine_filter('news_120_120') }}" />{% endblock %}
 
 {% block body %}
     <div class="container">

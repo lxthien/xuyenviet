@@ -19,7 +19,7 @@
         <meta property="og:type" content="article" />
         <meta property="og:title" content="{{ block('title') }}" />
         <meta property="og:description" content="{{ block('description') }}" />
-        <meta property="og:image" content="" />
+        {% block ogImage %}{% endblock %}
 
         <!-- Twitter Card data -->
         <meta name="twitter:card" content="summary">
@@ -27,7 +27,7 @@
         <meta name="twitter:title" content="{{ block('title') }}">
         <meta name="twitter:description" content="{{ block('description') }}">
         <meta name="twitter:creator" content="@suanhaminhduy">
-        <meta name="twitter:image" content="">
+        {% block twitterImage %}{% endblock %}
 
         <!-- Global site tag (gtag.js) - Google Analytics -->
         {{ get_setting('googleAnalytic')|raw }}

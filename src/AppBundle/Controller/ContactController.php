@@ -28,7 +28,10 @@ class ContactController extends Controller
             ->add('email', EmailType::class, array('label' => 'label.author_email'))
             ->add('phone', TextType::class, array('label' => 'label.phone'))
             ->add('title', TextType::class, array('label' => 'label.title'))
-            ->add('contents', TextareaType::class, array('label' => 'label.content'))
+            ->add('contents', TextareaType::class, array(
+                'label' => 'label.content',
+                'attr' => array('rows' => '7')
+            ))
             ->add('send', SubmitType::class, array('label' => 'label.send'))
             ->getForm();
 
@@ -74,6 +77,10 @@ class ContactController extends Controller
                 }
             }
         }
+
+        $breadcrumbs = $this->get("white_october_breadcrumbs");
+        $breadcrumbs->addItem("home", $this->generateUrl("homepage"));
+        $breadcrumbs->addItem('contactus');
 
         return $this->render('contact/index.html.twig', [
             'form' => $form->createView(),

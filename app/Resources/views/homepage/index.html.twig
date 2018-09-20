@@ -65,38 +65,47 @@
             <div class="col-lg-4">
                 <img class="rounded-circle" src="{{ asset('assets/images/profesional.jpg') | imagine_filter('homepage_200_200') }}" alt="Uy tín, chuyên nghiệp">
                 <h2 class="text-center text-uppercase">Uy tín, chuyên nghiệp</h2>
-                <p>Rút ngắn thời gian triển khai dự án bạn có thể tìm hiểu thêm quy trình làm việc hoặc Brochure của chúng tôi để bắt đầu ngay ngôi nhà mơ ước của mình.</p>
+                <p>
+                    Quy trình làm việc uy tín chuyên nghiệp. <br>
+                    Đội ngũ kiến trúc sư, kĩ sư, công nhân viên chuyên nghiệp
+                </p>
                 <p><a class="btn btn-secondary" href="{{ path('news_show', {'slug': 'sua-nha-uy-tin-chuyen-nghiep' }) }}" role="button">{{'view.details'|trans}}</a></p>
             </div>
             <!-- /.col-lg-4 -->
             <div class="col-lg-4">
                 <img class="rounded-circle" src="{{ asset('assets/images/save-money.jpg') | imagine_filter('homepage_200_200') }}" alt="Chi phí hợp lý">
                 <h2 class="text-center text-uppercase">Chi phí hợp lý</h2>
-                <p>Rút ngắn thời gian triển khai dự án bạn có thể tìm hiểu thêm quy trình làm việc hoặc Brochure của chúng tôi để bắt đầu ngay ngôi nhà mơ ước của mình.</p>
+                <p>
+                    Dịch vụ Sửa Nhà Minh Duy cam kết là dịch vụ rẻ nhất và chất lượng nhất tại TP HCM và các tỉnh thành lân cận.
+                </p>
                 <p><a class="btn btn-secondary" href="{{ path('news_show', {'slug': 'chi-phi-sua-nha-hop-ly' }) }}" role="button">{{'view.details'|trans}}</a></p>
             </div>
             <!-- /.col-lg-4 -->
             <div class="col-lg-4">
                 <img class="rounded-circle" src="{{ asset('assets/images/warranty.jpg') | imagine_filter('homepage_200_200') }}" alt="Cam kết bảo hành">
                 <h2 class="text-center text-uppercase">Cam kết bảo hành</h2>
-                <p>Rút ngắn thời gian triển khai dự án bạn có thể tìm hiểu thêm quy trình làm việc hoặc Brochure của chúng tôi để bắt đầu ngay ngôi nhà mơ ước của mình.</p>
+                <p>
+                    Chế độ hậu mãi, bảo hành công trình lâu dài. Khắc phục giải quyết các vấn đề trong quá trình bảo hành thực hiện trong ngày.
+                </p>
                 <p><a class="btn btn-secondary" href="{{ path('news_show', {'slug': 'cam-ket-bao-hanh' }) }}" role="button">{{'view.details'|trans}}</a></p>
             </div>
             <!-- /.col-lg-4 -->
         </div>
+        {% for objectOnHomepage in objectOnHomepages %}
         <div class="row">
             <div class="col-md-12">
-                <h3 class="text-center text-uppercase">Dịch vụ của chúng tôi</h3>
+                <h3 class="text-center text-uppercase">{{ objectOnHomepage.category.getName() }}</h3>
                 <span class="text-center block-underline"></span>
             </div>
             <div class="col-md-12 list-news-items">
                 <div class="row">
-                    {% for row in services %}
+                    {% for row in objectOnHomepage.posts %}
                         {{ include('news/components/itemsGrid.html.twig') }}
                     {% endfor %}
                 </div>
             </div>
         </div>
+        {% endfor %}
         {# <div class="row">
             <div class="col-md-12">
                 <h3 class="text-center text-uppercase">Dự án đã thi công</h3>

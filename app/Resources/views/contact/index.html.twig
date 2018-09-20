@@ -2,6 +2,8 @@
 
 {% block body %}
     <div class="container contacts">
+        {{ include('news/components/breadcrumbs.html.twig') }}
+        
         <div class="row">
             <div class="col-md-8">
                 {% for message in app.flashes('error') %}

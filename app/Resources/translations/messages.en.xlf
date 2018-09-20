@@ -332,6 +332,10 @@
                 <source>label.name</source>
                 <target>Name</target>
             </trans-unit>
+            <trans-unit id="label.phone">
+                <source>label.phone</source>
+                <target>Phone</target>
+            </trans-unit>
             <trans-unit id="label.parentcat">
                 <source>label.parentcat</source>
                 <target>Parent Category</target>

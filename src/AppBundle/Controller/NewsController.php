@@ -320,8 +320,8 @@ class NewsController extends Controller
             ->setAction($this->generateUrl('handle_comment_form'))
             ->add('content', TextareaType::class, array(
                 'label' => 'label.content',
-                'attr' => array('rows' => '5')
-                ))
+                'attr' => array('rows' => '7')
+            ))
             ->add('author', TextType::class, array('label' => 'label.author'))
             ->add('email', EmailType::class, array('label' => 'label.author_email'))
             ->add('ip', HiddenType::class)
