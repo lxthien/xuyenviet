@@ -1,5 +1,17 @@
 /* Homepage
 ------------------------------------------------------------------------- */
+#myCarousel {
+    margin-top: 2px;
+
+    .carousel-inner {
+        .carousel-item {
+            img {
+                width: 1140px;
+            }
+        }
+    }
+}
+
 .marquee {
     marquee {
         padding-top: 15px;

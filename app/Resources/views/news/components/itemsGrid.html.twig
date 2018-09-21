@@ -8,19 +8,21 @@
     </a>
     <div class="media-body">
         <h5 class="mt-0 mb-1">
-            <a itemprop="headline" title="{{ row.getTitle() }}" href="{{ path('news_show', {'slug': row.getUrl() }) }}" title="{{ row.getTitle() }}">{{ row.getTitle() }}</a>
+            <a title="{{ row.getTitle() }}" href="{{ path('news_show', {'slug': row.getUrl() }) }}" title="{{ row.getTitle() }}">
+                <span itemprop="headline">{{ row.getTitle() }}</span>
+            </a>
         </h5>
     </div>
     <div itemprop="publisher" itemscope itemtype="https://schema.org/Organization">
         <div itemprop="logo" itemscope itemtype="https://schema.org/ImageObject">
-            <meta itemprop="url" content="https://google.com/logo.jpg">
+            <meta itemprop="url" content="{{ absolute_url(asset('assets/images/logo.jpg')) }}">
             <meta itemprop="width" content="600">
             <meta itemprop="height" content="60">
         </div>
-        <meta itemprop="name" content="Google">
+        <meta itemprop="name" content="@suanhaminhduy">
     </div>
     <div itemprop="author" itemscope itemtype="https://schema.org/Person">
-        <meta itemprop="name" content="Raotinnhadat.xyz"/>
+        <meta itemprop="name" content="@suanhaminhduy"/>
     </div>
     <meta itemprop="datePublished" content="{{ row.getCreatedAt()|date("Y-m-d h:m:s") }}"/>
     <meta itemprop="dateModified" content="{{ row.getUpdatedAt()|date("Y-m-d h:m:s") }}"/>
