@@ -12,6 +12,9 @@
         }
 
         .td-list-group-item {
+            font-weight: bold;
+            color: $black;
+
             &:hover {
                 background: none;
                 color: $chathamsBlue;

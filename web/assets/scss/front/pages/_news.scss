@@ -1,6 +1,10 @@
 /* News
 ------------------------------------------------------------------------- */
 .category-list-items {
+    .description {
+        margin-bottom: 40px;
+    }
+
     .list-unstyled.list-news-items {
         .news-item {
             padding-bottom: 20px;
@@ -13,7 +17,7 @@
 
             .media-body {
                 h5 a {
-                    font-size: 18px;
+                    font-size: 20px;
                     padding: 0 0 10px 0;
                     color: $chathamsBlue;
                     font-weight: 700;
