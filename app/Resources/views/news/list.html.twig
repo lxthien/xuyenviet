@@ -10,7 +10,7 @@
         {{ include('news/components/breadcrumbs.html.twig') }}
 
         <div class="row category-list-items">
-            <div class="col-md-8">
+            <div class="col-12 col-md-12 col-lg-8">
                 <h1>{{ category.getName() }}</h1>
                 
                 <div class="description">
@@ -24,8 +24,8 @@
                         {{ include('news/components/sort.html.twig') }}
                     {% endif %}
 
-                    <div class="row">
-                        <div class="col-md-12 list-news-items">
+                    <div class="list-news-items">
+                        <div class="row">
                             {% for row in pagination %}
                                 {{ include('news/components/itemsGrid.html.twig') }}
                             {% endfor %}

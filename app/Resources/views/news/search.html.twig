@@ -12,10 +12,10 @@
                         {{ include('news/components/sort.html.twig') }}
                     {% endif %}
 
-                    <div class="col-md-12 list-news-items">
+                    <div class="list-news-items">
                         <div class="row">
-                            {% for row in objectOnHomepage.posts %}
-                                {{ include('news/components/itemsGridHomepage.html.twig') }}
+                            {% for row in pagination %}
+                                {{ include('news/components/itemsGrid.html.twig') }}
                             {% endfor %}
                         </div>
                     </div>
