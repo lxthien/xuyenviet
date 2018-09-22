@@ -12,8 +12,11 @@
 
 {% block body %}
     <div class="container">
-        <div class="row">
-            <div class="col-md-8">
+        {# breadcrumbs #}
+        {{ include('news/components/breadcrumbs.html.twig') }}
+
+        <div class="row category-list-items">
+            <div class="col-12 col-md-12 col-lg-8">
                 <h1>{{ tag.getName() }}</h1>
                 
                 <div class="description">
@@ -38,9 +41,7 @@
                     {# Pagination #}
                     {{ include('news/components/pagination.html.twig') }}
                 {% else %}
-                    <div class="no-record">
-                        <p>{{ 'Do not have item on this page'|trans }}</p>
-                    </div>
+                    {{ include('news/components/noRecord.html.twig') }}
                 {% endif %}
             </div>
             

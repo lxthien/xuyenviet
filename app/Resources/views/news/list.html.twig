@@ -35,9 +35,7 @@
                     {# Pagination #}
                     {{ include('news/components/pagination.html.twig') }}
                 {% else %}
-                    <div class="no-record">
-                        <p>{{ 'Do not have item on this page'|trans }}</p>
-                    </div>
+                    {{ include('news/components/noRecord.html.twig') }}
                 {% endif %}
             </div>
 

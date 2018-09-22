@@ -189,8 +189,12 @@ class NewsController extends Controller
         $pagination = $paginator->paginate(
             $posts,
             !empty($request->query->get('page')) ? $request->query->get('page') : 1,
-            10
+            $this->get('settings_manager')->get('numberRecordOnPage') ?: 10
         );
+
+        $breadcrumbs = $this->get("white_october_breadcrumbs");
+        $breadcrumbs->addItem("home", $this->generateUrl("homepage"));
+        $breadcrumbs->addItem('post.tags');
 
         return $this->render('news/tags.html.twig', [
             'tag' => $tag,
@@ -296,8 +300,12 @@ class NewsController extends Controller
         $pagination = $paginator->paginate(
             $query->getResult(),
             1,
-            10
+            $this->get('settings_manager')->get('numberRecordOnPage') ?: 10
         );
+
+        $breadcrumbs = $this->get("white_october_breadcrumbs");
+        $breadcrumbs->addItem("home", $this->generateUrl("homepage"));
+        $breadcrumbs->addItem('search');
 
         return $this->render('news/search.html.twig', [
             'q' => ucfirst($request->query->get('q')),

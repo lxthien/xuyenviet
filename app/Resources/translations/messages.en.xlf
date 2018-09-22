@@ -576,6 +576,14 @@
                 <source>contactus</source>
                 <target>Contact Us</target>
             </trans-unit>
+            <trans-unit id="post.tags">
+                <source>post.tags</source>
+                <target>Tags</target>
+            </trans-unit>
+            <trans-unit id="post.do_not_have_item_on_this_page">
+                <source>post.do_not_have_item_on_this_page</source>
+                <target>Do not have item on this page</target>
+            </trans-unit>
             <trans-unit id="comments.count">
                 <source>comments.count</source>
                 <target>%count% Comments</target>

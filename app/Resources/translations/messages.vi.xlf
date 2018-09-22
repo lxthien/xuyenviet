@@ -581,6 +581,14 @@
                 <source>contactus</source>
                 <target>Liên hệ</target>
             </trans-unit>
+            <trans-unit id="post.tags">
+                <source>post.tags</source>
+                <target>Tags</target>
+            </trans-unit>
+            <trans-unit id="post.do_not_have_item_on_this_page">
+                <source>post.do_not_have_item_on_this_page</source>
+                <target>Chưa có bài viết trong danh mục này</target>
+            </trans-unit>
             <trans-unit id="comments.count">
                 <source>comments.count</source>
                 <target>%count% Bình luận</target>
