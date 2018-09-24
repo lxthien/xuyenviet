@@ -185,3 +185,10 @@ knp_menu:
 
 white_october_breadcrumbs:
     separator:          ''
+
+# EWZRecaptchaBundle
+ewz_recaptcha:
+    public_key:  6LfF6jkUAAAAAEXwdFdSqBiu7S5EQ6EuDAf449uM
+    private_key: 6LfF6jkUAAAAAJzxFsfmh2Pt3MxuQT5MC62fzPiH
+    locale_key:  %kernel.default_locale%
+    locale_from_request: true
