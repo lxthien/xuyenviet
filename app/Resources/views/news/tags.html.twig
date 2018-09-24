@@ -1,13 +1,13 @@
 {% extends 'layout.html.twig' %}
 
 {% block title %}
-    {{tag.getPageTitle() ~ ' - Page ' ~ pagination.currentPageNumber ~ ' of ' ~ pagination.pageCount }}
+    {{ 'post.archives.title'|trans({'%title%': tag.getPageTitle() is not null ? tag.getPageTitle() : tag.getName(), '%currentPage%': pagination.currentPageNumber, '%totalPage%': pagination.pageCount}) }}
 {% endblock %}
 {% block description %}
-    {{tag.getPageDescription()}}
+    {{ tag.getPageDescription() }}
 {% endblock %}
 {% block keyword %}
-    {{tag.getPageKeyword()}}
+    {{ tag.getPageKeyword() }}
 {% endblock %}
 
 {% block body %}

@@ -576,14 +576,21 @@
                 <source>contactus</source>
                 <target>Contact Us</target>
             </trans-unit>
+
             <trans-unit id="post.tags">
                 <source>post.tags</source>
                 <target>Tags</target>
             </trans-unit>
+            <trans-unit id="post.archives.title">
+                <source>post.archives.title</source>
+                <target>%title% - Page %currentPage% of %totalPage%</target>
+            </trans-unit>
+
             <trans-unit id="post.do_not_have_item_on_this_page">
                 <source>post.do_not_have_item_on_this_page</source>
                 <target>Do not have item on this page</target>
             </trans-unit>
+
             <trans-unit id="comments.count">
                 <source>comments.count</source>
                 <target>%count% Comments</target>
@@ -592,6 +599,7 @@
                 <source>comment.leave_your_comment_below</source>
                 <target>Leave your comment below</target>
             </trans-unit>
+            
             <trans-unit id="label.send">
                 <source>label.send</source>
                 <target>Send</target>

@@ -195,6 +195,7 @@ class NewsController extends Controller
         $breadcrumbs = $this->get("white_october_breadcrumbs");
         $breadcrumbs->addItem("home", $this->generateUrl("homepage"));
         $breadcrumbs->addItem('post.tags');
+        $breadcrumbs->addItem($tag->getName());
 
         return $this->render('news/tags.html.twig', [
             'tag' => $tag,
@@ -306,6 +307,7 @@ class NewsController extends Controller
         $breadcrumbs = $this->get("white_october_breadcrumbs");
         $breadcrumbs->addItem("home", $this->generateUrl("homepage"));
         $breadcrumbs->addItem('search');
+        $breadcrumbs->addItem(ucfirst($request->query->get('q')));
 
         return $this->render('news/search.html.twig', [
             'q' => ucfirst($request->query->get('q')),
