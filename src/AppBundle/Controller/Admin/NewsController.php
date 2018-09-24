@@ -113,22 +113,22 @@ class NewsController extends Controller
     /**
      * Deletes a News entity.
      *
-     * @Route("/{id}/delete", name="admin_news_delete")
-     * @Method("POST")
-     * @Security("is_granted('delete', post)")
+     * @Route("/{id}/delete", methods={"POST"}, name="admin_news_delete")
      */
-    public function deleteAction(Request $request, NewsCategory $category)
+    public function deleteAction(Request $request, $id, News $news)
     {
         if (!$this->isCsrfTokenValid('delete', $request->request->get('token'))) {
-            return $this->redirectToRoute('admin_newscategory_index');
+            return $this->redirectToRoute('admin_news_index');
         }
 
+        $news->getTags()->clear();
+
         $em = $this->getDoctrine()->getManager();
-        $em->remove($category);
+        $em->remove($news);
         $em->flush();
 
         $this->addFlash('success', 'action.deleted_successfully');
 
-        return $this->redirectToRoute('admin_newscategory_index');
+        return $this->redirectToRoute('admin_news_index');
     }
 }

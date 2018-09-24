@@ -130,7 +130,7 @@ $(function() {
 // Handling the modal confirmation message.
 $(document).on('submit', 'form[data-confirmation]', function (event) {
     var $form = $(this),
-        $confirm = $('#' + $form.data('confirmationmodal'));
+        $confirm = $($form.find('button').data('target'));
 
     if ($confirm.data('result') !== 'yes') {
         //cancel submit event

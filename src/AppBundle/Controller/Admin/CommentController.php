@@ -114,7 +114,6 @@ class CommentController extends Controller
      *
      * @Route("/{id}/delete", name="admin_comment_delete")
      * @Method("POST")
-     * @Security("is_granted('delete', post)")
      */
     public function deleteAction(Request $request, Comment $comment)
     {

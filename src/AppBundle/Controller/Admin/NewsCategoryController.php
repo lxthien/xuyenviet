@@ -110,9 +110,7 @@ class NewsCategoryController extends Controller
     /**
      * Deletes a NewsCategory entity.
      *
-     * @Route("/{id}/delete", name="admin_newscategory_delete")
-     * @Method("POST")
-     * @Security("is_granted('delete', post)")
+     * @Route("/{id}/delete", methods={"POST"}, name="admin_newscategory_delete")
      */
     public function deleteAction(Request $request, NewsCategory $category)
     {
