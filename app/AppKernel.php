@@ -40,7 +40,6 @@ class AppKernel extends Kernel
             new Knp\Bundle\MenuBundle\KnpMenuBundle(), //KnpMenuBundle
             new Dmishh\SettingsBundle\DmishhSettingsBundle(), //DmishhSettingsBundle
             new WhiteOctober\BreadcrumbsBundle\WhiteOctoberBreadcrumbsBundle(), //WhiteOctoberBreadcrumbsBundle
-            new EWZ\Bundle\RecaptchaBundle\EWZRecaptchaBundle(), //EWZRecaptchaBundle
         ];
 
         // Some bundles are only used while developing the application or during
