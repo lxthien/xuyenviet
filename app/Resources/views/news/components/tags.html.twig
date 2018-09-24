@@ -1,9 +1,9 @@
 {% if post.getTags()|length > 0 %}
     <div class="tags">
         <ul>
-            <li class="d-inline label-tags text-uppercase"><span>{{ 'post.tags'|trans }}</span></li>
+            <li class="d-inline-block label-tags text-uppercase"><span>{{ 'post.tags'|trans }}</span></li>
             {% for tag in post.getTags() %}
-                <li class="d-inline"><a href="{{ path('tags', {'slug': tag.getUrl() }) }}" title="{{ tag.getName() }}">{{ tag.getName() }}</a></li>
+                <li class="d-inline-block"><a href="{{ path('tags', {'slug': tag.getUrl() }) }}" title="{{ tag.getName() }}">{{ tag.getName() }}</a></li>
             {% endfor %}
         </ul>
     </div>

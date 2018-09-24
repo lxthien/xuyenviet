@@ -20,7 +20,7 @@ class Builder implements ContainerAwareInterface
 
         // Homepage
         $menu->addChild('', [
-            'attributes' => ['class' => 'nav-item'],
+            'attributes' => ['class' => 'nav-item d-none d-lg-block'],
             'route' => 'homepage'
         ])->setLinkAttribute('class', 'nav-link fa fa-home');
 
