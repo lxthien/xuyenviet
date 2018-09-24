@@ -39,7 +39,7 @@
         {{ get_setting('googleAnalytic')|raw }}
 
         <!-- Bootstrap CSS -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
 
         <!-- Custom css -->
         {% block stylesheets %}
@@ -48,6 +48,11 @@
     </head>
     <body>
         <div class="container wrapper">
+            <div class="row marquee">
+                <div class="col-md-12">
+                    <marquee scrollamount="6">{{ get_setting('marqueeHomepage')|raw }}</marquee>
+                </div>
+            </div>
             {{ include('layout/header.html.twig') }}
             {{ include('layout/menu.html.twig') }}
             

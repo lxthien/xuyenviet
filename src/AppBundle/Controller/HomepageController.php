@@ -13,19 +13,19 @@ class HomepageController extends Controller
 {
     public function indexAction(Request $request)
     {
-        $listCategoryOnHomepage = $this->get('settings_manager')->get('listCategoryOnHomepage');
-        $objectOnHomepages = array();
+        $listCategoriesOnHomepage = $this->get('settings_manager')->get('listCategoryOnHomepage');
+        $blocksOnHomepage = array();
 
-        if (!empty($listCategoryOnHomepage)) {
-            // $listCategoryOnHomepage like 1,2
-            $listCategoryOnHomepage = explode(',', $listCategoryOnHomepage);
+        if (!empty($listCategoriesOnHomepage)) {
+            $listCategoriesOnHomepage = explode(',', $listCategoriesOnHomepage);
 
-            if (is_array($listCategoryOnHomepage)) {
-                for ($i = 0; $i < count($listCategoryOnHomepage); $i++) {
-                    $objectOnHomepage = [];
-                    $category = $this->getDoctrine()->getRepository(NewsCategory::class)->find($listCategoryOnHomepage[$i]);
-                    //echo $category->getId(); die;
-                    //print_r($category); die;
+            if (is_array($listCategoriesOnHomepage)) {
+                for ($i = 0; $i < count($listCategoriesOnHomepage); $i++) {
+                    $blockOnHomepage = [];
+                    $category = $this->getDoctrine()
+                                    ->getRepository(NewsCategory::class)
+                                    ->find($listCategoriesOnHomepage[$i]);
+
                     if ($category) {
                         $posts = $this->getDoctrine()
                             ->getRepository(News::class)
@@ -36,14 +36,14 @@ class HomepageController extends Controller
                             );
                     }
 
-                    $objectOnHomepage = (object) array('category' => $category, 'posts' => $posts);
-                    $objectOnHomepages[] = $objectOnHomepage;
+                    $blockOnHomepage = (object) array('category' => $category, 'posts' => $posts);
+                    $blocksOnHomepage[] = $blockOnHomepage;
                 }
             }
         }
 
         return $this->render('homepage/index.html.twig', [
-            'objectOnHomepages' => $objectOnHomepages,
+            'blocksOnHomepage' => $blocksOnHomepage,
         ]);
     }
 }

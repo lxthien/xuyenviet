@@ -26,15 +26,13 @@ settings:
 
 homepage:
     path: /
-    requirements:
-        _locale: '%app_locales%'
-    defaults: { _controller: AppBundle:Homepage:index }
+    defaults:
+        _controller: AppBundle:Homepage:index
 
 handle_comment_form:
     path: /comment
-    requirements:
-        _locale: '%app_locales%'
-    defaults: { _controller: AppBundle:News:handleCommentForm }
+    defaults:
+        _controller: AppBundle:News:handleCommentForm
 
 news_category:
     path: /{level1}/{page}

@@ -47,11 +47,6 @@
                   <span class="sr-only">Next</span>
                 </a>
         </div>
-        <div class="row marquee">
-            <div class="col-md-12 text-uppercase">
-                <marquee scrollamount="7">{{ get_setting('marqueeHomepage')|raw }}</marquee>
-            </div>
-        </div>
         <div class="row marketing">
             <div class="col-lg-12">
                 <h3 class="text-center text-uppercase">
@@ -86,15 +81,15 @@
             </div>
             <!-- /.col-lg-4 -->
         </div>
-        {% for objectOnHomepage in objectOnHomepages %}
+        {% for blockOnHomepage in blocksOnHomepage %}
         <div class="row">
             <div class="col-md-12">
-                <h3 class="text-center text-uppercase">{{ objectOnHomepage.category.getName() }}</h3>
+                <h3 class="text-center text-uppercase">{{ blockOnHomepage.category.getName() }}</h3>
                 <span class="text-center block-underline"></span>
             </div>
             <div class="col-md-12 list-news-items">
                 <div class="row">
-                    {% for row in objectOnHomepage.posts %}
+                    {% for row in blockOnHomepage.posts %}
                         {{ include('news/components/itemsGridHomepage.html.twig') }}
                     {% endfor %}
                 </div>

@@ -13,12 +13,16 @@
 }
 
 .marquee {
+    background-color: $chathamsBlue;
+    color: $white;
+    height: 35px;
+
     marquee {
-        padding-top: 15px;
-        padding-bottom: 15px;
+        line-height: 35px;
 
         a {
-            color: $chathamsBlue;
+            color: $white;
+            text-decoration: underline;
         }
     }
 }
