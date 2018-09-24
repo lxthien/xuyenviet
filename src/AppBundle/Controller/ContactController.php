@@ -12,6 +12,8 @@ use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
+use EWZ\Bundle\RecaptchaBundle\Form\Type\EWZRecaptchaType;
+
 use AppBundle\Entity\Contact;
 
 class ContactController extends Controller
@@ -32,49 +34,34 @@ class ContactController extends Controller
                 'label' => 'label.content',
                 'attr' => array('rows' => '7')
             ))
+            ->add('recaptcha', EWZRecaptchaType::class)
             ->add('send', SubmitType::class, array('label' => 'label.send'))
             ->getForm();
 
         $form->handleRequest($request);
 
-        if ( $form->isSubmitted() && $form->isValid() ) {
-            
-            $recaptcha = new ReCaptcha($this->get('settings_manager')->get('googleCapchaSecretKey'));
-            $response = $recaptcha->verify($request->request->get('g-recaptcha-response'), $request->getClientIp());
+        if ($form->isSubmitted() && $form->isValid()) {
 
-            if ( !$response->isSuccess() ) {
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($contact);
+            $em->flush();
+            
+            if (null === $contact->getId()) {
                 $this->addFlash(
                     'error',
-                    'The reCAPTCHA was not entered correctly. Go back and try it again.'
+                    'Have a problem into process. Go back and try it again.'
                 );
 
                 return $this->render('contact/index.html.twig', [
                     'form' => $form->createView(),
                 ]);
             } else {
-                $task = $form->getData();
+                $this->addFlash(
+                    'notice',
+                    'Thank for your contact'
+                );
 
-                $em = $this->getDoctrine()->getManager();
-                $em->persist($contact);
-                $em->flush();
-                
-                if( null == $contact->getId() ) {
-                    $this->addFlash(
-                        'error',
-                        'Have a problem into process. Go back and try it again.'
-                    );
-
-                    return $this->render('contact/index.html.twig', [
-                        'form' => $form->createView(),
-                    ]);
-                } else {
-                    $this->addFlash(
-                        'notice',
-                        'Thank for your contact'
-                    );
-
-                    return $this->redirectToRoute('contact');
-                }
+                return $this->redirectToRoute('contact');
             }
         }
 

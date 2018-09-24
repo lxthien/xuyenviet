@@ -181,11 +181,11 @@
 
             <trans-unit id="label.author">
                 <source>label.author</source>
-                <target>Tên của bạn</target>
+                <target>Tên</target>
             </trans-unit>
             <trans-unit id="label.author_email">
                 <source>label.author_email</source>
-                <target>Địa chỉ email</target>
+                <target>Email</target>
             </trans-unit>
             <trans-unit id="label.username">
                 <source>label.username</source>

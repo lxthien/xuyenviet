@@ -1,36 +1,35 @@
-{% extends 'admin/layout.html.twig' %}
-
-{% block body_id 'admin_news_show' %}
-
-{% block main %}
-    <h1>{{ news.getTitle() }}</h1>
-
-    <p class="post-metadata">
-        <span class="metadata"><i class="fa fa-calendar"></i> {{ news.getCreatedAt() | localizeddate('long', 'medium', null, 'UTC') }}</span>
-        <span class="metadata"><i class="fa fa-user"></i> {{ news.author.fullName }}</span>
-    </p>
-
-    <div class="well">
-        <p class="m-b-0"><strong>{{ 'label.summary'|trans }}</strong>: {{ news.getDescription() }}</p>
+<div class="modal fade" id="showContact{% if object is defined %}{{ object.id }}{% endif %}" tabindex="-1" role="dialog" aria-labelledby="staticModalLabel" aria-hidden="true" data-backdrop="false">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header"> 
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="card">
+                    <table class="table">
+                        <tbody>
+                            <tr>
+                                <th scope="row">Name</th>
+                                <td>{{ object.getName() }}</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Email</th>
+                                <td>{{ object.getEmail() }}</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Phone</th>
+                                <td>{{ object.getPhone() }}</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Content</th>
+                                <td>{{ object.getContents() }}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
     </div>
-
-    {{ news.getContents() | md2html }}
-
-    {{ include('blog/_post_tags.html.twig') }}
-{% endblock %}
-
-{% block sidebar %}
-    <div class="section">
-        <a href="{{ path('admin_news_edit', {id: news.id}) }}" class="btn btn-lg btn-block btn-success">
-            <i class="fa fa-edit" aria-hidden="true"></i> {{ 'action.edit_contents'|trans }}
-        </a>
-    </div>
-
-    <div class="section">
-        {{ include('admin/blog/_delete_form.html.twig', {post: news}, with_context = false) }}
-    </div>
-
-    {{ parent() }}
-
-    {{ show_source_code(_self) }}
-{% endblock %}
+</div>

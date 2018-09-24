@@ -16,7 +16,8 @@
                                 <thead>
                                     <tr>
                                         <th>{{ 'label.author'|trans }}</th>
-                                        <th>{{ 'label.response.on.post'|trans }}</th>
+                                        <th>{{ 'label.title'|trans }}</th>
+                                        <th>{{ 'label.email'|trans }}</th>
                                         <th>{{ 'label.published_at'|trans }}</th>
                                         <th>{{ 'label.actions'|trans }}</th>
                                     </tr>
@@ -24,19 +25,19 @@
                                 <tbody>
                                     {% for row in objects %}
                                         <tr>
-                                            <td>{{ row.getAuthor() }}</td>
-                                            <td><a href="{{ path('admin_news_edit', {id: 1}) }}">{{ row.getNews() }}<a></td>
-                                            <td>{{ row.getCreatedAt() | localizeddate('medium', 'short', null, 'UTC') }}</td>
+                                            <td>{{ row.getName() }}</td>
+                                            <td>{{ row.getTitle() }}</td>
+                                            <td>{{ row.getEmail() }}</td>
+                                            <td>{{ row.getCreatedAt() | localizeddate('medium', 'short', null, 'Asia/Ho_Chi_Minh', 'd/M/YYYY') }}</td>
                                             <td>
                                                 <div class="item-actions">
-                                                    <a href="{{ path('admin_comment_edit', {id: row.id}) }}" class="btn-sm">
-                                                        <i class="fa fa-edit" aria-hidden="true"></i>
-                                                    </a>
-                                                    <a href="{{ path('admin_comment_reply', {id: row.id}) }}" class="btn-sm">
-                                                        <i class="fa fa-reply" aria-hidden="true"></i>
+                                                    {{ include('admin/contact/show.html.twig', {object: row}, with_context = false) }}
+                                                    
+                                                    <a href="#" class="btn-sm" data-toggle="modal" data-target="#showContact{{row.id}}">
+                                                        <i class="fa fa-eye" aria-hidden="true"></i>
                                                     </a>
 
-                                                    {{ include('admin/contact/_delete_form.html.twig', {comment: row}, with_context = false) }}
+                                                    {{ include('admin/contact/_delete_form.html.twig', {object: row}, with_context = false) }}
                                                 </div>
                                             </td>
                                         </tr>
