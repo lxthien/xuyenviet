@@ -106,4 +106,24 @@ class PageController extends Controller
             'form' => $form->createView(),
         ]);
     }
+
+    /**
+     * Deletes a News entity.
+     *
+     * @Route("/{id}/delete", methods={"POST"}, name="admin_page_delete")
+     */
+    public function deleteAction(Request $request, $id, News $page)
+    {
+        if (!$this->isCsrfTokenValid('delete', $request->request->get('token'))) {
+            return $this->redirectToRoute('admin_page_index');
+        }
+
+        $em = $this->getDoctrine()->getManager();
+        $em->remove($page);
+        $em->flush();
+
+        $this->addFlash('success', 'action.deleted_successfully');
+
+        return $this->redirectToRoute('admin_page_index');
+    }
 }
