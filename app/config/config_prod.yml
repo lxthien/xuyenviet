@@ -23,10 +23,3 @@ monolog:
             level: debug
         console:
             type:  console
-
-# EWZRecaptchaBundle
-ewz_recaptcha:
-    public_key:  6LdpzHEUAAAAAKwRzhbaJgv12ZzJT1BesNEWc4t5
-    private_key: 6LdpzHEUAAAAABSCqH__OeunrVcMshQ2TfEN5oHe
-    locale_key:  %kernel.default_locale%
-    locale_from_request: true
