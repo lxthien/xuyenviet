@@ -21,7 +21,7 @@
 
             <trans-unit id="http_error.name">
                 <source>http_error.name</source>
-                <target>Error %status_code%</target>
+                <target>Ooops... Lỗi %status_code%</target>
             </trans-unit>
             <trans-unit id="http_error.description">
                 <source>http_error.description</source>
@@ -41,11 +41,11 @@
             </trans-unit>
             <trans-unit id="http_error_404.description">
                 <source>http_error_404.description</source>
-                <target>We couldn't find the page you requested.</target>
+                <target>Chúng tôi không thể tìm thấy trang bạn tìm kiếm</target>
             </trans-unit>
             <trans-unit id="http_error_404.suggestion">
                 <source>http_error_404.suggestion</source>
-                <target><![CDATA[Check out any misspelling in the URL or <a href="%url%">go back to the homepage</a>.]]></target>
+                <target><![CDATA[Vui lòng kiểm tra lại URL hoặc đi đến <a href="%url%">trang chủ</a>.]]></target>
             </trans-unit>
             <trans-unit id="http_error_500.description">
                 <source>http_error_500.description</source>

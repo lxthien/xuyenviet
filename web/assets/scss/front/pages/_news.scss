@@ -69,13 +69,17 @@
 ------------------------------------------------------------------------- */
 .news {
     h1 {
-
+        font-size: 35px;
     }
 
     .news-container {
         ul, ol {
             padding-left: 30px;
             margin-bottom: 15px;
+        }
+
+        img {
+            height: auto !important;
         }
     }
 }

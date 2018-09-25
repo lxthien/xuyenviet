@@ -19,7 +19,7 @@ use AppBundle\Entity\Contact;
 class ContactController extends Controller
 {
     /**
-     * @Route("contact", name="contact")
+     * @Route("lien-he", name="contact")
      */
     public function indexAction(Request $request)
     {

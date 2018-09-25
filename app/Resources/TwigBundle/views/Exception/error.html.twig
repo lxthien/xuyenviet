@@ -1,12 +1,22 @@
 {% extends 'layout.html.twig' %}
 
 {% block body %}
-    <h1 class="text-danger">{{ 'http_error.name'|trans({ '%status_code%': status_code }) }}</h1>
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-md-12 col-lg-12">
+                <div class="error">
+                    <h1 class="text-danger text-center">
+                        {{ 'http_error.name'|trans({ '%status_code%': status_code }) }}
+                    </h1>
 
-    <p class="lead">
-        {{ 'http_error.description'|trans({ '%status_code%': status_code }) }}
-    </p>
-    <p>
-        {{ 'http_error.suggestion'|trans({ '%url%': path('homepage') })|raw }}
-    </p>
+                    <p class="lead text-center">
+                        {{ 'http_error.description'|trans({ '%status_code%': status_code }) }}
+                    </p>
+                    <p class="text-center">
+                        {{ 'http_error.suggestion'|trans({ '%url%': path('homepage') })|raw }}
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
 {% endblock %}
