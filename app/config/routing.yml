@@ -25,9 +25,10 @@ settings:
     prefix: /admin/settings
 
 homepage:
-    path: /
+    path: /{_locale}
     defaults:
         _controller: AppBundle:Homepage:index
+        _locale: 'vi'
 
 handle_comment_form:
     path: /comment
