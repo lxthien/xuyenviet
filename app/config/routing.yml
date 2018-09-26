@@ -17,18 +17,11 @@ app:
 # the route (FrameworkBundle:Template:template) is a convenient shortcut when
 # the template can be rendered without executing any logic in your own controller.
 # See https://symfony.com/doc/current/cookbook/templating/render_without_controller.html
-_liip_imagine:
-    resource: "@LiipImagineBundle/Resources/config/routing.xml"
-
-settings:
-    resource: "@DmishhSettingsBundle/Resources/config/routing.yml"
-    prefix: /admin/settings
 
 homepage:
-    path: /{_locale}
+    path: /
     defaults:
         _controller: AppBundle:Homepage:index
-        _locale: 'vi'
 
 handle_comment_form:
     path: /comment
@@ -53,3 +46,10 @@ list_category:
         level1: '[-\w]+'
         level2: '[-\w]+'
         page: '\d+'
+
+_liip_imagine:
+    resource: "@LiipImagineBundle/Resources/config/routing.xml"
+
+settings:
+    resource: "@DmishhSettingsBundle/Resources/config/routing.yml"
+    prefix: /admin/settings

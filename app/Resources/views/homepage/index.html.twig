@@ -66,7 +66,7 @@
                 <span class="text-center block-underline"></span>
             </div>
             <div class="col-md-12 list-news-items">
-                <div class="row">
+                <div class="grid row">
                     {% for row in blockOnHomepage.posts %}
                         {{ include('news/components/itemsGridHomepage.html.twig') }}
                     {% endfor %}
@@ -74,18 +74,5 @@
             </div>
         </div>
         {% endfor %}
-        {# <div class="row">
-            <div class="col-md-12">
-                <h3 class="text-center text-uppercase">Dự án đã thi công</h3>
-                <span class="text-center block-underline"></span>
-            </div>
-            <div class="col-md-12 list-news-items">
-                <div class="row">
-                    {% for row in posts %}
-                        {{ include('news/components/itemsGrid.html.twig') }}
-                    {% endfor %}
-                </div>
-            </div>
-        </div> #}
     </div>
 {% endblock %}
