@@ -18,18 +18,19 @@
         <meta name="robots" content="index, follow" />
         <meta name="revisit-after" content="1 days">
         <meta http-equiv="content-language" content="vi">
-        {# {% if status_code != 404 %}
+        {% if app.request.attributes.get('_route') is not null %}
         <link rel="canonical" href="{{ url(app.request.attributes.get('_route'), app.request.attributes.get('_route_params')) }}"/>
-        {% endif %} #}
+        {% endif %}
         
         <!-- Open Graph data -->
-        {# {% if status_code != 404 %}
+        {% if app.request.attributes.get('_route') is not null %}
         <meta property="og:url" content="{{ url(app.request.attributes.get('_route'), app.request.attributes.get('_route_params')) }}" />
-        {% endif %} #}
+        {% endif %}
         <meta property="og:type" content="article" />
         <meta property="og:title" content="{{ block('title') }}" />
         <meta property="og:description" content="{{ block('description') }}" />
-        {% block ogImage %}{% endblock %}
+        {% block ogImage %}
+        {% endblock %}
 
         <!-- Twitter Card data -->
         <meta name="twitter:card" content="summary">
@@ -37,7 +38,21 @@
         <meta name="twitter:title" content="{{ block('title') }}">
         <meta name="twitter:description" content="{{ block('description') }}">
         <meta name="twitter:creator" content="@suanhaminhduy">
-        {% block twitterImage %}{% endblock %}
+        {% block twitterImage %}
+        {% endblock %}
+
+        <script type="application/ld+json">
+        {
+            "@context": "http://schema.org",
+            "@type": "WebSite",
+            "url": "http://suanhaminhduy.com/",
+            "potentialAction": {
+                "@type": "SearchAction",
+                "target": "http://suanhaminhduy.com/search?q={search_term_string}",
+                "query-input": "required name=search_term_string"
+            }
+        }
+        </script>
 
         <!-- Global site tag (gtag.js) - Google Analytics -->
         {{ get_setting('googleAnalytic')|raw }}
