@@ -20,6 +20,8 @@ use AppBundle\Entity\Page;
 use AppBundle\Entity\Comment;
 use AppBundle\Entity\Tag;
 
+use EWZ\Bundle\RecaptchaBundle\Form\Type\EWZRecaptchaType;
+
 class NewsController extends Controller
 {
     /**
@@ -124,9 +126,11 @@ class NewsController extends Controller
             ->createQueryBuilder('r')
             ->where('r.id <> :id')
             ->andWhere('r.postType = :postType')
+            ->andWhere('r.category = :category')
             ->setParameter('id', $post->getId())
             ->setParameter('postType', $post->getPostType())
-            ->getQuery()->getResult();;
+            ->setParameter('category', $post->getCategory())
+            ->getQuery()->getResult();
 
         // Get the list comment for post
         $comments = $this->getDoctrine()
@@ -334,6 +338,7 @@ class NewsController extends Controller
             ))
             ->add('author', TextType::class, array('label' => 'label.author'))
             ->add('email', EmailType::class, array('label' => 'label.author_email'))
+            ->add('recaptcha', EWZRecaptchaType::class)
             ->add('ip', HiddenType::class)
             ->add('news_id', HiddenType::class)
             ->add('comment_id', HiddenType::class)
@@ -374,12 +379,8 @@ class NewsController extends Controller
             $em->flush();
             
             if (null != $comment->getId()) {
-
-                $mailLogger = new \Swift_Plugins_Loggers_ArrayLogger();
-                $mailer->registerPlugin(new \Swift_Plugins_LoggerPlugin($mailLogger));
-
                 $message = (new \Swift_Message('Hello Email'))
-                    ->setFrom('send@example.com')
+                    ->setFrom($request->request->get('form')['email'])
                     ->setTo('lxthien@gmail.com')
                     ->setBody(
                         $this->renderView(

@@ -20,6 +20,11 @@
                 {{ form_widget(form.email, {'attr': {'class': 'form-control'}}) }}
             </div>
             <div class="form-group">
+                {{ form_label(form.recaptcha) }}
+                {{ form_errors(form.recaptcha) }}
+                {{ form_widget(form.recaptcha, {'attr': {'class': 'form-control'}}) }}
+            </div>
+            <div class="form-group">
                 {{ form_widget(form.send, {'attr': {'class': 'btn btn-primary'}}) }}
             </div>
         {{ form_end(form) }}

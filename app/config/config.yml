@@ -102,11 +102,13 @@ vich_uploader:
         product_images:
             uri_prefix:         '%app.path.product_images%'
             upload_destination: '%kernel.root_dir%/../web/uploads/images/products'
-            namer: vich_uploader.namer_uniqid
+            namer: vich_uploader.namer_origname
         news_images:
             uri_prefix:         '%app.path.news_images%'
             upload_destination: '%kernel.root_dir%/../web/uploads/images/news'
-            namer: vich_uploader.namer_uniqid
+            namer: vich_uploader.namer_origname
+            delete_on_remove: true
+            delete_on_update: true
 
 
 # LiipImagineBundle
