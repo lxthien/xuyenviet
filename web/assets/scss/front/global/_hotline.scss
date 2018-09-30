@@ -3,8 +3,8 @@
     position: fixed;
     bottom: 85px;
     right: 19px;
-    width: 40px;
-    height: 40px;
+    width: 35px;
+    height: 35px;
     background-color: $chathamsBlue;
 
     i {
@@ -13,23 +13,23 @@
         font-size: 20px;
         display: block;
         text-align: center;
-        width: 40px;
+        width: 35px;
         top: 7px;
     }
 }
 
 .hotline {
     position: fixed;
-    bottom: 40px;
+    bottom: 35px;
     right: 30px;
     text-align: center;
     background-color: $chathamsBlue;
     color: $white;
-    z-index: 9999;
+    z-index: 100;
     font-family: $robotoCondesed;
-    font-size: 22px;
+    font-size: 20px;
     text-transform: uppercase;
-    padding: 0px 30px;
+    padding: 0px 15px;
     font-weight: bold;
 
     a {
@@ -37,10 +37,6 @@
 
         &:hover {
             text-decoration: none;
-        }
-
-        i {
-            padding-right: 5px;
         }
     }
 }
