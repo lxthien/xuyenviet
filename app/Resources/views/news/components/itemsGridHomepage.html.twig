@@ -1,29 +1,29 @@
-<div class="col col-6 col-md-4 col-lg-3 news-item" itemscope itemtype="http://schema.org/Article">
-    <meta itemscope itemprop="mainEntityOfPage"  itemType="https://schema.org/WebPage" itemid="{{ absolute_url(path('news_show', {'slug': row.getUrl() })) }}"/>
+<div class="col-6 col-md-4 col-lg-3 news-item" itemscope itemtype="http://schema.org/Article">
+    <meta itemscope itemprop="mainEntityOfPage" itemType="https://schema.org/WebPage" itemid="{{ absolute_url(path('news_show', {'slug': row.getUrl() })) }}" />
     <a class="media-thumb" title="{{ row.getTitle() }}" href="{{ path('news_show', {'slug': row.getUrl() }) }}" itemprop="image" itemscope itemtype="https://schema.org/ImageObject">
-        <img class="mr-3 img-thumbnail" src="{{ (vich_uploader_asset(row, 'imageFile') ? vich_uploader_asset(row, 'imageFile') : asset('assets/images/no-image.png')) | imagine_filter('news_255_220') }}" alt="{{row.getTitle()}}">
-        <meta itemprop="url" content="{{ (vich_uploader_asset(row, 'imageFile') ? vich_uploader_asset(row, 'imageFile') : asset('assets/images/no-image.png')) | imagine_filter('news_255_220') }}">
-        <meta itemprop="width" content="255">
-        <meta itemprop="height" content="220">
+        <img class="mr-3 img-thumbnail" src="{{ (vich_uploader_asset(row, 'imageFile') ? vich_uploader_asset(row, 'imageFile') : asset('assets/images/no-image.png')) | imagine_filter('news_255_220') }}" alt="{{row.getTitle()}}" />
+        <meta itemprop="url" content="{{ (vich_uploader_asset(row, 'imageFile') ? vich_uploader_asset(row, 'imageFile') : asset('assets/images/no-image.png')) | imagine_filter('news_255_220') }}" />
+        <meta itemprop="width" content="255" />
+        <meta itemprop="height" content="220" />
     </a>
     <div class="media-body">
         <h5 class="mt-0 mb-1">
-            <a title="{{ row.getTitle() }}" href="{{ path('news_show', {'slug': row.getUrl() }) }}" title="{{ row.getTitle() }}">
+            <a href="{{ path('news_show', {'slug': row.getUrl() }) }}" title="{{ row.getTitle() }}">
                 <span itemprop="headline">{{ row.getTitle() }}</span>
             </a>
         </h5>
     </div>
     <div itemprop="publisher" itemscope itemtype="https://schema.org/Organization">
         <div itemprop="logo" itemscope itemtype="https://schema.org/ImageObject">
-            <meta itemprop="url" content="{{ absolute_url(asset('assets/images/logo.jpg')) }}">
-            <meta itemprop="width" content="600">
-            <meta itemprop="height" content="60">
+            <meta itemprop="url" content="{{ absolute_url(asset('assets/images/logo.jpg')) }}" />
+            <meta itemprop="width" content="600" />
+            <meta itemprop="height" content="60" />
         </div>
-        <meta itemprop="name" content="@suanhaminhduy">
+        <meta itemprop="name" content="@suanhaminhduy" />
     </div>
     <div itemprop="author" itemscope itemtype="https://schema.org/Person">
-        <meta itemprop="name" content="@suanhaminhduy"/>
+        <meta itemprop="name" content="@suanhaminhduy" />
     </div>
-    <meta itemprop="datePublished" content="{{ row.getCreatedAt()|date("Y-m-d h:m:s") }}"/>
-    <meta itemprop="dateModified" content="{{ row.getUpdatedAt()|date("Y-m-d h:m:s") }}"/>
+    <meta itemprop="datePublished" content="{{ row.getCreatedAt()|date('Y-m-d h:m:s') }}" />
+    <meta itemprop="dateModified" content="{{ row.getUpdatedAt()|date('Y-m-d h:m:s') }}" />
 </div>
