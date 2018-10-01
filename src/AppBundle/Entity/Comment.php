@@ -48,7 +48,6 @@ class Comment
      * @var int
      *
      * @ORM\Column(name="comment_id", type="integer", nullable=true)
-     * @Assert\NotBlank(message="comment.blank")
      */
     private $comment_id;
 
@@ -56,7 +55,7 @@ class Comment
      * @var int
      *
      * @ORM\Column(name="news_id", type="integer", nullable=false)
-     * @Assert\NotBlank(message="comment.blank")
+     * @Assert\NotBlank(message="news.blank")
      */
     private $news_id;
 
@@ -64,12 +63,12 @@ class Comment
      * @var string
      *
      * @ORM\Column(type="text")
-     * @Assert\NotBlank(message="comment.blank")
+     * @Assert\NotBlank(message="content.blank")
      * @Assert\Length(
      *     min=5,
-     *     minMessage="comment.too_short",
+     *     minMessage="content.too_short",
      *     max=10000,
-     *     maxMessage="comment.too_long"
+     *     maxMessage="content.too_long"
      * )
      */
     private $content;

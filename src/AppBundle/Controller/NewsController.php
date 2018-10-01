@@ -332,6 +332,7 @@ class NewsController extends Controller
         $form = $this->createFormBuilder($comment)
             ->setAction($this->generateUrl('handle_comment_form'))
             ->add('content', TextareaType::class, array(
+                'required' => true,
                 'label' => 'label.content',
                 'attr' => array('rows' => '7')
             ))
@@ -364,52 +365,64 @@ class NewsController extends Controller
                 )
             );
         } else {
-            $em = $this->getDoctrine()->getManager();
-            
             $comment = new Comment();
-            $comment->setContent( $request->request->get('form')['content'] );
-            $comment->setAuthor( $request->request->get('form')['author'] );
-            $comment->setEmail( $request->request->get('form')['email'] );
-            $comment->setNewsId( $request->request->get('form')['news_id'] );
-            $comment->setCommentId( $request->request->get('form')['comment_id'] );
-            $comment->setIp( $request->request->get('form')['ip'] );
-
-            $em->persist($comment);
-            $em->flush();
             
-            if (null !== $comment->getId()) {
-                $message = (new \Swift_Message('Hello Email'))
-                    ->setFrom($request->request->get('form')['email'])
-                    ->setTo('lxthien@gmail.com')
-                    ->setBody(
-                        $this->renderView(
-                            'Emails/comment.html.twig',
-                            array('name' => $request->request->get('form')['author'])
-                        ),
-                        'text/html'
-                    )
-                ;
-                
-                if ($mailer->send($message)) {
-                    //echo '[SWIFTMAILER] sent email to ' . $request->request->get('form')['email'];
-                } else {
-                    //echo '[SWIFTMAILER] not sending email: ' . $mailLogger->dump();
-                }
+            $form = $this->createFormBuilder($comment)
+                ->add('content', TextareaType::class)
+                ->add('author', TextType::class)
+                ->add('email', EmailType::class)
+                ->add('recaptcha', EWZRecaptchaType::class)
+                ->add('ip', HiddenType::class)
+                ->add('news_id', HiddenType::class)
+                ->add('comment_id', HiddenType::class)
+                ->getForm();
 
-                return new Response(
-                    json_encode(
-                        array(
-                            'status'=>'success',
-                            'message' => 'Thank for your comment. We will review your comment before display on this page'
+            $form->handleRequest($request);
+
+            if ($form->isValid()) {
+                $em = $this->getDoctrine()->getManager();
+                $em->persist($comment);
+                $em->flush();
+
+                if (null !== $comment->getId()) {
+                    $message = (new \Swift_Message('Hello Email'))
+                        ->setFrom($request->request->get('form')['email'])
+                        ->setTo('lxthien@gmail.com')
+                        ->setBody(
+                            $this->renderView(
+                                'Emails/comment.html.twig',
+                                array('name' => $request->request->get('form')['author'])
+                            ),
+                            'text/html'
                         )
-                    )
-                );
+                    ;
+                    
+                    $mailer->send($message);
+    
+                    return new Response(
+                        json_encode(
+                            array(
+                                'status'=>'success',
+                                'message' => 'Thank for your comment. We will review your comment before display on this page'
+                            )
+                        )
+                    );
+                } else {
+                    return new Response(
+                        json_encode(
+                            array(
+                                'status'=>'fail',
+                                'message' => 'Have a problem on your comment. Please try again'
+                            )
+                        )
+                    );
+                }
             } else {
                 return new Response(
                     json_encode(
                         array(
-                            'status'=>'fail',
-                            'message' => 'Have a problem on your comment. Please try again'
+                            'status'=>'error',
+                            'message' => $form->getErrors()
                         )
                     )
                 );
