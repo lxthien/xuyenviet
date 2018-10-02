@@ -97,6 +97,8 @@
 
         li {
             margin-bottom: 0px;
+            list-style-type: none;
+            display: inline-block;
             
             span {
                 background-color: $mineShaft;
@@ -170,8 +172,11 @@
     margin-bottom: 20px;
 
     .media {
-        img {
-            width: 85px;
+        .media-left {
+            img {
+                width: 85px;
+                max-width: none;
+            }
         }
 
         .media-body {

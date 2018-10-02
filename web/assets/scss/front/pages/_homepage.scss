@@ -2,7 +2,7 @@
 ------------------------------------------------------------------------- */
 #myCarousel {
     .carousel-inner {
-        .carousel-item {
+        .item {
             img {
                 width: 1140px;
             }
@@ -37,6 +37,7 @@
             border: 2px solid $chathamsBlue;
             width: 180px;
             height: 180px;
+            border-radius: 50%;
         }
 
         h2 {

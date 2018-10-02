@@ -14,45 +14,39 @@ class Builder implements ContainerAwareInterface
     {
         $menu = $factory->createItem('root', array(
             'childrenAttributes' => array (
-                'class' => 'navbar-nav mr-auto mt-2 mt-lg-0',
+                'class' => 'nav navbar-nav',
             ),
         ));
 
         // Homepage
         $menu->addChild('', [
-            'attributes' => ['class' => 'nav-item d-none d-lg-block'],
             'route' => 'homepage'
         ])->setLinkAttribute('class', 'nav-link fa fa-home');
 
         // About Us
         $menu->addChild('aboutus', [
-            'attributes' => ['class' => 'nav-item'],
             'route' => 'news_show',
             'routeParameters' => ['slug' => 'gioi-thieu']
         ])->setLinkAttribute('class', 'nav-link');
 
         // News
         $menu->addChild('services', [
-            'attributes' => ['class' => 'nav-item'],
             'route' => 'news_category',
             'routeParameters' => ['level1' => 'dich-vu']
         ])->setLinkAttribute('class', 'nav-link');
 
         $menu->addChild('projects', [
-            'attributes' => ['class' => 'nav-item'],
             'route' => 'news_category',
             'routeParameters' => ['level1' => 'du-an']
         ])->setLinkAttribute('class', 'nav-link');
 
         $menu->addChild('advisory', [
-            'attributes' => ['class' => 'nav-item'],
             'route' => 'news_category',
             'routeParameters' => ['level1' => 'tu-van']
         ])->setLinkAttribute('class', 'nav-link');
 
         // Contact us
         $menu->addChild('contactus', [
-            'attributes' => ['class' => 'nav-item'],
             'route' => 'contact'
         ])->setLinkAttribute('class', 'nav-link');
 

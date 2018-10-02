@@ -1,9 +1,14 @@
 {% if comments|length > 0 %}
-    <div class="list-unstyled" id="list-comments">
+    {# <div class="media-list" id="list-comments">
         <h4 class="text-uppercase"><span>{{ 'comments.count' | trans({ '%count%': comments|length }) }} </span></h4>
         {% for comment in comments %}
             <div class="media" id="comment-{{ comment.getId() }}">
-                <img class="mr-3 img-thumbnail" src="{{ asset('assets/images/user.png') }}" alt="{{ comment.getAuthor() }} comment on this post {{ post.getTitle() }}">
+                
+                <div class="media-left">
+                    <a href="#">
+                        <img class="mr-3 img-thumbnail" src="{{ asset('assets/images/user.png') }}" alt="{{ comment.getAuthor() }} comment on this post {{ post.getTitle() }}">
+                    </a>
+                </div>
                 <div class="media-body">
                     <h5 class="mt-0">{{ comment.getAuthor() }}</h5>
                     <div class="comment-container">{{ comment.getContent()|raw }}</div>
@@ -11,5 +16,20 @@
                 </div>
             </div>
         {% endfor %}
-    </div>
+    </div> #}
+    <h4 class="text-uppercase"><span>{{ 'comments.count' | trans({ '%count%': comments|length }) }} </span></h4>
+    <ul class="media-list" id="list-comments">
+        {% for comment in comments %}
+            <li class="media" id="comment-{{ comment.getId() }}">
+                <div class="media-left">
+                    <img alt="{{ comment.getAuthor() }} comment on this post {{ post.getTitle() }}" class="media-object" src="{{ asset('assets/images/user.png') }}">
+                </div>
+                <div class="media-body">
+                    <h5 class="mt-0">{{ comment.getAuthor() }}</h5>
+                    <div class="comment-container">{{ comment.getContent()|raw }}</div>
+                    <a class="comment-reply-link" id="comment-reply" href="#" data-post-id="{{ comment.getId() }}">{{ 'Reply'|trans }}</a>
+                </div>
+            </li>
+        {% endfor %}
+    </ul>
 {% endif %}
