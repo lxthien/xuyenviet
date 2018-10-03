@@ -76,6 +76,7 @@ class NewsType extends AbstractType
                 'label' => 'label.category',
             ])
             ->add('tags', TagsInputType::class, [
+                'attr' => ['data-role' => 'tagsinput'],
                 'label' => 'label.tags',
                 'required' => false,
             ])

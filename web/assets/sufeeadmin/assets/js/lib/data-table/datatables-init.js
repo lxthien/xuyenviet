@@ -9,7 +9,7 @@
 
 
     $('#bootstrap-data-table').DataTable({
-        lengthMenu: [[5, 10, 20, 50, -1], [5, 10, 20, 50, "All"]],
+        lengthMenu: [[10, 20, 50, -1], [10, 20, 50, "All"]],
         language: {
             url: '//cdn.datatables.net/plug-ins/1.10.19/i18n/Vietnamese.json'
         }

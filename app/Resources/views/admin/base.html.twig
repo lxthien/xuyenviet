@@ -11,8 +11,7 @@
         <title>{% block title %}{{ get_setting('siteName') }}{% endblock %}</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <link rel="apple-touch-icon" href="apple-icon.png">
-        <link rel="shortcut icon" href="favicon.ico">
+        <meta name="robots" content="noindex" />
 
         {% block stylesheets %}
             <link rel="stylesheet" href="{{ asset('assets/sufeeadmin/assets/css/normalize.css') }}">
