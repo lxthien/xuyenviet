@@ -1,32 +1,34 @@
 'use strict';
 
+require('jquery-validation');
+
 function intHandleFormComment() {
     var $formComment = $('#form-comment');
 
     $formComment.on('click', '#form_send', function(e) {
-        e.preventDefault();
-        
-        $.ajax({
-            type: "POST",
-            url: $formComment.attr('action'),
-            data: $formComment.serialize(),
-            success: function(data) {
-                var response = JSON.parse(data);
-                if (response.status === 'success') {
-                    $('p#comment-response').html(response.message);
-
-                    // Clear form comment
-                    $formComment[0].reset();
-                } else {
-                    alert(data);
+        if ($formComment.valid()) {
+            $.ajax({
+                type: "POST",
+                url: $formComment.attr('action'),
+                data: $formComment.serialize(),
+                success: function(data) {
+                    var response = JSON.parse(data);
+                    if (response.status === 'success') {
+                        $('p#comment-response').html(response.message);
+    
+                        // Clear form comment
+                        $formComment[0].reset();
+                    } else {
+                        $('p#comment-response').html(response.message);
+                    }
                 }
-            }
-        });
+            });
+        }
     })
 }
 
 function intHandleFormReplyComment() {
-    var $commentReply = $('#comment-reply');
+    var $commentReply = $('.comment-reply-link');
     var $formComment = $('#form-comment');
 
     $commentReply.click(function(e) {
@@ -45,6 +47,9 @@ function intHandleFormReplyComment() {
 }
 
 exports.init = function () {
+
+    $('#form-comment').validate();
+
     intHandleFormComment();
     intHandleFormReplyComment();
 };

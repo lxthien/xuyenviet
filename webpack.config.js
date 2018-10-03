@@ -9,9 +9,7 @@ Encore
         "window.Bloodhound": require.resolve('bloodhound-js'),
         "jQuery.tagsinput": "bootstrap-tagsinput"
     })
-    .enableSassLoader(function(sassOptions) {}, {
-        resolveUrlLoader: false
-    })
+    .enableSassLoader()
     .enableVersioning(false)
     .createSharedEntry('js/common', ['jquery'])
     .addEntry('js/app', './web/assets/js/front/app.js')

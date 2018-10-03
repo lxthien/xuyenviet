@@ -70,13 +70,15 @@
         }
 
         .media-body {
+            height: 95px;
+
             h5 {
                 font-size: 18px;
                 min-height: 70px;
+                margin: 0;
 
                 a {
-                    padding: 10px 0;
-                    min-height: 40px;
+                    padding: 8px 0;
                     display: block;
 
                     &:hover {

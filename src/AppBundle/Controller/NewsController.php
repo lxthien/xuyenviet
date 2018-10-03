@@ -342,7 +342,7 @@ class NewsController extends Controller
             ->add('ip', HiddenType::class)
             ->add('news_id', HiddenType::class)
             ->add('comment_id', HiddenType::class)
-            ->add('send', SubmitType::class, array('label' => 'label.send'))
+            ->add('send', ButtonType::class, array('label' => 'label.send'))
             ->getForm();
 
         return $form;
@@ -359,7 +359,7 @@ class NewsController extends Controller
             return new Response(
                 json_encode(
                     array(
-                        'status'=>'fail',
+                        'status'=>'error',
                         'message' => 'You can access this only using Ajax!'
                     )
                 )
@@ -403,7 +403,7 @@ class NewsController extends Controller
                         json_encode(
                             array(
                                 'status'=>'success',
-                                'message' => 'Thank for your comment. We will review your comment before display on this page'
+                                'message' => '<div class="alert alert-success" role="alert">Thank for your comment. We will review your comment before display on this page</div>'
                             )
                         )
                     );
@@ -411,8 +411,8 @@ class NewsController extends Controller
                     return new Response(
                         json_encode(
                             array(
-                                'status'=>'fail',
-                                'message' => 'Have a problem on your comment. Please try again'
+                                'status'=>'error',
+                                'message' => '<div class="alert alert-warning" role="alert">Have a problem on your comment. Please try again!</div>'
                             )
                         )
                     );
@@ -422,7 +422,7 @@ class NewsController extends Controller
                     json_encode(
                         array(
                             'status'=>'error',
-                            'message' => $form->getErrors()
+                            'message' => '<div class="alert alert-warning" role="alert">Have a problem on your comment. Please check your comment again!</div>'
                         )
                     )
                 );
