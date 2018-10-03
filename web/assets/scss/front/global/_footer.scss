@@ -17,6 +17,12 @@ footer {
     }
 
     .footer-top {
+        .about-us {
+            li a {
+                font-weight: bold;
+            }
+        }
+
         .footer-company {
             padding-left: 0px;
 
@@ -36,7 +42,7 @@ footer {
         li {
             list-style-type: none;
             display: inline-block;
-            border: 1px solid $mercury;
+            border: 1px solid $primaryColor;
             margin: 0 0 10px 0;
             padding: 0 10px;
         }
