@@ -1,8 +1,30 @@
 .contacts {
+    .company {
+        margin-bottom: 30px;
+
+        ul {
+            padding-left: 0;
+
+            li {
+                list-style-type: none;
+
+                i {
+                    color: $primaryColor;
+                }
+            }
+        }
+    }
+
     #form {
         .form-group {
             .form-control, input {
                 border-width: 1px;
+            }
+
+            button.btn {
+                background: $primaryColor;
+                border-width: 0px;
+                width: 90px;
             }
         }
     }

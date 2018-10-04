@@ -1,5 +1,11 @@
 'use strict';
 
+function protectedContent() {
+    $('body').bind('cut copy paste', function (e) {
+        e.preventDefault();
+    });
+}
+
 function goToTop() {
     var $goToTop = $('.go-to-top');
 
@@ -10,5 +16,6 @@ function goToTop() {
 }
 
 exports.init = function () {
+    protectedContent();
     goToTop();
 };

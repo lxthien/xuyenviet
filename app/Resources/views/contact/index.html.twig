@@ -5,7 +5,33 @@
         {{ include('news/components/breadcrumbs.html.twig') }}
         
         <div class="row">
-            <div class="col-12 col-md-12 col-lg-8">
+            <div class="col-xs-12 col-sm-12 col-md-8">
+                <div class="company">
+                    <h3 class="text-uppercase">Sửa nhà Minh Duy</h3>
+                    <ul>
+                        <li>
+                            <i class="fa fa-map-marker"></i>
+                            <span><strong>VPGD: 165 Đường 51, KP 4, P. Tân Quy, Quận 7, TP.HCM</strong></span>
+                        </li>
+                        <li>
+                            <i class="fa fa-map-marker"></i>
+                            <span><strong>VPGD: 108/40/10 Lê Văn Lương, KP 4, P. Tân Hưng, Quận 7, TP.HCM</strong></span>
+                        </li>
+                        <li>
+                            <i class="fa fa-phone"></i>
+                            <span><strong>0982.96.93.79</strong></span>
+                        </li>
+                        <li>
+                            <i class="fa fa-envelope-o"></i>
+                            <span><strong>xaydungminhduy@gmail.com</strong></span>
+                        </li>
+                        <li>
+                            <i class="fa fa-internet-explorer"></i>
+                            <span><strong>www.suanhaminhduy.com</strong></span>
+                        </li>
+                    </ul>
+                </div>
+            
                 {% for message in app.flashes('error') %}
                     <div class="alert alert-danger" role="alert">
                         {{ message }}

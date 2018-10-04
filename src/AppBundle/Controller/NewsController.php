@@ -72,6 +72,7 @@ class NewsController extends Controller
                 ->createQueryBuilder('p')
                 ->where('p.category IN (:listCategoriesIds)')
                 ->setParameter('listCategoriesIds', $listCategoriesIds)
+                ->orderBy('p.createdAt', 'DESC')
                 ->getQuery()->getResult();
         } else {
             $news = $this->getDoctrine()
@@ -79,6 +80,7 @@ class NewsController extends Controller
                 ->createQueryBuilder('p')
                 ->where('p.category = :category')
                 ->setParameter('category', $category->getId())
+                ->orderBy('p.createdAt', 'DESC')
                 ->getQuery()->getResult();
         }
 
@@ -129,6 +131,7 @@ class NewsController extends Controller
             ->setParameter('id', $post->getId())
             ->setParameter('postType', $post->getPostType())
             ->setParameter('category', $post->getCategory())
+            ->orderBy('r.createdAt', 'DESC')
             ->getQuery()->getResult();
 
         // Get the list comment for post

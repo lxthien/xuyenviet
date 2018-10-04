@@ -35,7 +35,7 @@ class ContactController extends Controller
                 'attr' => array('rows' => '7')
             ))
             ->add('recaptcha', EWZRecaptchaType::class)
-            ->add('send', SubmitType::class, array('label' => 'label.send'))
+            ->add('send', SubmitType::class, array('label' => 'label.send', 'attr' => array('class' => 'btn btn-primary')))
             ->getForm();
 
         $form->handleRequest($request);
