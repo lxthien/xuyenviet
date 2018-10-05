@@ -26,7 +26,7 @@
                                         <tr>
                                             <td>{{ row.getAuthor() }}</td>
                                             <td><a href="{{ path('admin_news_edit', {id: row.getNews().getId()}) }}">{{ row.getNews().getTitle() }}<a></td>
-                                            <td>{{ row.getCreatedAt() | localizeddate('medium', 'short', null, 'UTC') }}</td>
+                                            <td>{{ row.getCreatedAt() | localizeddate('medium', 'none', null, 'Asia/Ho_Chi_Minh', 'd/M/YYYY') }}</td>
                                             <td>
                                                 <div class="item-actions">
                                                     <a href="{{ path('admin_comment_edit', {id: row.id}) }}" class="btn-sm">
