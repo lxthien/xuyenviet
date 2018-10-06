@@ -573,6 +573,10 @@
                 <source>projects</source>
                 <target>Dự án</target>
             </trans-unit>
+            <trans-unit id="cafe">
+                <source>cafe</source>
+                <target>Thiết kế thi công quán cafe</target>
+            </trans-unit>
             <trans-unit id="advisory">
                 <source>advisory</source>
                 <target>Tư vấn</target>

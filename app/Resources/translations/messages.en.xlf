@@ -568,6 +568,10 @@
                 <source>projects</source>
                 <target>Projects</target>
             </trans-unit>
+            <trans-unit id="cafe">
+                <source>cafe</source>
+                <target>Coffee</target>
+            </trans-unit>
             <trans-unit id="advisory">
                 <source>advisory</source>
                 <target>Advisory</target>

@@ -40,6 +40,11 @@ class Builder implements ContainerAwareInterface
             'routeParameters' => ['level1' => 'du-an']
         ])->setLinkAttribute('class', 'nav-link');
 
+        $menu->addChild('cafe', [
+            'route' => 'news_category',
+            'routeParameters' => ['level1' => 'thiet-ke-thi-cong-quan-cafe']
+        ])->setLinkAttribute('class', 'nav-link');
+
         $menu->addChild('advisory', [
             'route' => 'news_category',
             'routeParameters' => ['level1' => 'tu-van']
