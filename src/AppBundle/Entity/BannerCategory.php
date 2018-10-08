@@ -2,18 +2,17 @@
 
 namespace AppBundle\Entity;
 
+use AppBundle\Utils\Slugger;
+
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 
 use Gedmo\Mapping\Annotation as Gedmo;
 
-use AppBundle\Utils\Slugger;
-
 /**
- * BannerCategory
- *
+ * @ORM\Entity
+ * @ORM\HasLifecycleCallbacks()
  * @ORM\Table(name="bannercategory")
- * @ORM\Entity(repositoryClass="AppBundle\Repository\BannerCategoryRepository")
  */
 
 class BannerCategory
@@ -30,7 +29,7 @@ class BannerCategory
     /**
      * @var string
      *
-     * @Assert\NotBlank(message="comment.blank")
+     * @Assert\NotBlank(message="name.blank")
      * @ORM\Column(name="name", type="string", length=255)
      */
     private $name;
@@ -38,8 +37,8 @@ class BannerCategory
     /**
      * @var string
      *
-     * @Assert\NotBlank(message="comment.blank")
-     * @ORM\Column(name="url", type="string", length=255)
+     * @Assert\NotBlank(message="url.blank")
+     * @ORM\Column(name="url", type="string", length=255, unique=true)
      */
     private $url;
 
@@ -58,6 +57,12 @@ class BannerCategory
      * @ORM\Column(name="updatedAt", type="datetime")
      */
     private $updatedAt;
+
+    public function __toString()
+    {
+        return $this->name;
+    }
+
 
     public function __construct()
     {
@@ -99,13 +104,14 @@ class BannerCategory
 
     /**
      * Set url
+     * 
      * @ORM\PrePersist
      * @ORM\PreUpdate
      * @return BannerCategory
      */
     public function setUrl()
     {
-        $this->url = (new Slugger())->slugifyUtf8($this->getName());
+        $this->url = $this->getName();
 
         return $this;
     }

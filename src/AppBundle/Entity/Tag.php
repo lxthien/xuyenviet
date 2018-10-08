@@ -20,12 +20,6 @@ use Symfony\Component\Validator\Constraints as Assert;
  * @ORM\Entity()
  * @ORM\HasLifecycleCallbacks()
  * @ORM\Table(name="tag")
- *
- * Defines the properties of the Tag entity to represent the post tags.
- *
- * See https://symfony.com/doc/current/book/doctrine.html#creating-an-entity-class
- *
- * @author Yonel Ceruto <yonelceruto@gmail.com>
  */
 class Tag implements \JsonSerializable
 {
@@ -138,6 +132,7 @@ class Tag implements \JsonSerializable
 
     /**
      * Set url
+     * 
      * @ORM\PrePersist
      * @ORM\PreUpdate
      * @return Tag

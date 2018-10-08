@@ -1,0 +1,47 @@
+<?php
+
+namespace AppBundle\Form;
+
+use AppBundle\Entity\Banner;
+use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
+
+use Vich\UploaderBundle\Form\Type\VichFileType;
+
+class BannerType extends AbstractType
+{
+    /**
+     * {@inheritdoc}
+     */
+    public function buildForm(FormBuilderInterface $builder, array $options)
+    {
+        $builder
+            ->add('bannercategory', null, [
+                'required' => false,
+                'label' => 'label.category',
+            ])
+            ->add('name', TextType::class, [
+                'label' => 'label.name',
+            ])
+            ->add('url', TextType::class, [
+                'label' => 'label.url',
+            ])
+            ->add('imageFile', VichFileType::class, [
+                'required' => false,
+                'allow_delete' => true,
+            ])
+        ;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function configureOptions(OptionsResolver $resolver)
+    {
+        $resolver->setDefaults([
+            'data_class' => Banner::class,
+        ]);
+    }
+}
