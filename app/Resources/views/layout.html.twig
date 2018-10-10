@@ -79,5 +79,7 @@
 
         {{ include('layout/footer.html.twig') }}
         {{ include('layout/footer_UI.html.twig') }}
+
+        {{ get_setting('facebookMessenger')|raw }}
     </body>
 </html>

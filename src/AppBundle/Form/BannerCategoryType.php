@@ -19,9 +19,11 @@ class BannerCategoryType extends AbstractType
     {
         $builder
             ->add('name', TextType::class, [
+                'attr' => ['class' => 'sluggable'],
                 'label' => 'label.name',
             ])
             ->add('url', TextType::class, [
+                'attr' => ['class' => 'url', 'readonly' => 'readonly'],
                 'label' => 'label.url',
             ])
         ;

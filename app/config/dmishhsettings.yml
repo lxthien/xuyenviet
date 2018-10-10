@@ -66,3 +66,9 @@ dmishh_settings:
                 required: false
                 attr:
                     rows: 10
+        facebookMessenger:
+            type: Symfony\Component\Form\Extension\Core\Type\TextareaType
+            options:
+                required: false
+                attr:
+                    rows: 10
