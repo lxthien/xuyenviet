@@ -17,17 +17,7 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
-
-/**
- * Defines the form used to create and manipulate blog comments. Although in this
- * case the form is trivial and we could build it inside the controller, a good
- * practice is to always define your forms as classes.
- *
- * See https://symfony.com/doc/current/book/forms.html#creating-form-classes
- *
- * @author Ryan Weaver <weaverryan@gmail.com>
- * @author Javier Eguiluz <javier.eguiluz@gmail.com>
- */
+use EWZ\Bundle\RecaptchaBundle\Form\Type\EWZRecaptchaType;
 
 class CommentType extends AbstractType
 {
@@ -46,6 +36,7 @@ class CommentType extends AbstractType
             ->add('content', TextareaType::class, [
                 'attr' => ['class' => 'txt-ckeditor', 'data-height' => '300'],
             ])
+            ->add('recaptcha', EWZRecaptchaType::class)
         ;
     }
 

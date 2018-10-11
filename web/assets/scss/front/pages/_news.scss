@@ -92,6 +92,10 @@
         img {
             height: auto !important;
         }
+
+        a {
+            color: $primaryColor;
+        }
     }
 }
 
@@ -167,6 +171,7 @@
             font-size: 18px;
             font-family: $robotoCondesed;
             font-weight: 700;
+            min-height: 90px;
 
             &:hover {
                 text-decoration: none;
