@@ -1,0 +1,15 @@
+{% if comments|length > 0 %}
+    <ul class="media-list">
+        {% for comment in comments %}
+            <li class="media">
+                <div class="media-left">
+                    <img alt="{{ comment.getAuthor() is same as ('Webmaster') ? get_setting('displayNameCommentAs')|raw : comment.getAuthor() }}" class="media-object" src="{{ asset('assets/images/user.png') }}">
+                </div>
+                <div class="media-body">
+                    <h5 class="mt-0">{{ comment.getAuthor() is same as ('Webmaster') ? get_setting('displayNameCommentAs')|raw : comment.getAuthor() }}</h5>
+                    <div class="comment-container">{{ comment.getContent()|raw }}</div>
+                </div>
+            </li>
+        {% endfor %}
+    </ul>
+{% endif %}
