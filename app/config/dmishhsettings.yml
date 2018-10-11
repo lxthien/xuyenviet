@@ -72,3 +72,7 @@ dmishh_settings:
                 required: false
                 attr:
                     rows: 10
+        displayNameCommentAs:
+            type: Symfony\Component\Form\Extension\Core\Type\TextType
+            options:
+                required: false

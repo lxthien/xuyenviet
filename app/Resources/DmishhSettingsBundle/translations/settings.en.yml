@@ -18,7 +18,9 @@ labels:
   emailContact: Email contact
   hotLine1: Hotline 1
   hotLine2: Hotline 2
-  marqueeHomepage: Slogan On Homepage
-  googleAnalytic: Google Analytic
-  listCategoryOnHomepage: List Category On Homepage
+  marqueeHomepage: Slogan on homepage
+  googleAnalytic: Google analytic
+  listCategoryOnHomepage: List the category display on homepage
   topKeyword: Top keyword at footer
+  facebookMessenger: Script facebook messenger
+  displayNameCommentAs: Display name publicly as

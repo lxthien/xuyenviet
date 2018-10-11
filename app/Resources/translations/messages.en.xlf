@@ -603,6 +603,10 @@
                 <source>comment.leave_your_comment_below</source>
                 <target>Leave your comment below</target>
             </trans-unit>
+            <trans-unit id="comment.reply">
+                <source>comment.reply</source>
+                <target>Reply</target>
+            </trans-unit>
             
             <trans-unit id="label.send">
                 <source>label.send</source>

@@ -34,12 +34,6 @@
                                             {{ form_widget(settings_form.marqueeHomepage) }}
                                         </div>
                                         <div class="form-group">
-                                            {{ form_label(settings_form.listCategoryOnHomepage) }}
-                                            {{ form_errors(settings_form.listCategoryOnHomepage) }}
-                                            {{ form_widget(settings_form.listCategoryOnHomepage) }}
-                                            <small class="form-text text-muted">Example: 15,5</small>
-                                        </div>
-                                        <div class="form-group">
                                             {{ form_label(settings_form.googleAnalytic) }}
                                             {{ form_errors(settings_form.googleAnalytic) }}
                                             {{ form_widget(settings_form.googleAnalytic) }}
@@ -55,6 +49,22 @@
                                             {{ form_widget(settings_form.facebookMessenger) }}
                                         </div>
                                         <div class="form-group">
+                                            {{ form_label(settings_form.listCategoryOnHomepage) }}
+                                            {{ form_errors(settings_form.listCategoryOnHomepage) }}
+                                            {{ form_widget(settings_form.listCategoryOnHomepage) }}
+                                            <small class="form-text text-muted">Example: 15,5</small>
+                                        </div>
+                                        <div class="form-group">
+                                            {{ form_label(settings_form.numberRecordOnPage) }}
+                                            {{ form_errors(settings_form.numberRecordOnPage) }}
+                                            {{ form_widget(settings_form.numberRecordOnPage) }}
+                                        </div>
+                                        <div class="form-group">
+                                            {{ form_label(settings_form.displayNameCommentAs) }}
+                                            {{ form_errors(settings_form.displayNameCommentAs) }}
+                                            {{ form_widget(settings_form.displayNameCommentAs) }}
+                                        </div>
+                                        <div class="form-group">
                                             {{ form_label(settings_form.isShowSortOnCategory) }}
                                             {{ form_errors(settings_form.isShowSortOnCategory) }}
                                             {{ form_widget(settings_form.isShowSortOnCategory) }}
@@ -63,11 +73,6 @@
                                             {{ form_label(settings_form.isShowCommentOnPost) }}
                                             {{ form_errors(settings_form.isShowCommentOnPost) }}
                                             {{ form_widget(settings_form.isShowCommentOnPost) }}
-                                        </div>
-                                        <div class="form-group">
-                                            {{ form_label(settings_form.numberRecordOnPage) }}
-                                            {{ form_errors(settings_form.numberRecordOnPage) }}
-                                            {{ form_widget(settings_form.numberRecordOnPage) }}
                                         </div>
                                     </div>
                                     <div class="tab-pane fade" id="nav-seo" role="tabpanel" aria-labelledby="nav-seo-tab">

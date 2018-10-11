@@ -608,6 +608,10 @@
                 <source>comment.leave_your_comment_below</source>
                 <target>Hãy để lại ý kiến của bạn bên dưới</target>
             </trans-unit>
+            <trans-unit id="comment.reply">
+                <source>comment.reply</source>
+                <target>Trả lời</target>
+            </trans-unit>
 
             <trans-unit id="label.send">
                 <source>label.send</source>

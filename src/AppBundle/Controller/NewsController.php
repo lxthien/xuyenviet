@@ -165,6 +165,21 @@ class NewsController extends Controller
         }
     }
 
+    public function loadCommentsFromParentCategoryAction($commentId) {
+        $comments = $this->getDoctrine()
+            ->getRepository(Comment::class)
+            ->createQueryBuilder('c')
+            ->where('c.approved = :approved')
+            ->andWhere('c.comment_id = :comment_id')
+            ->setParameter('approved', 1)
+            ->setParameter('comment_id', $commentId)
+            ->getQuery()->getResult();
+        
+        return $this->render('news/comments/listReply.html.twig', [
+            'comments'      => $comments,
+        ]);
+    }
+
     /**
      * @Route("/tags/{slug}.html",
      *      defaults={"_format"="html"},
