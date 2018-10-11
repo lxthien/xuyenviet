@@ -142,6 +142,10 @@ liip_imagine:
 
     filter_sets:
         cache: ~
+        user:
+            quality: 75
+            filters:
+                thumbnail: { size: [65, 65], mode: outbound }
         admin_news_thumb:
             quality: 75
             filters:

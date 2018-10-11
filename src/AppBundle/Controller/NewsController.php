@@ -140,7 +140,6 @@ class NewsController extends Controller
             ->createQueryBuilder('c')
             ->where('c.news_id = :news_id')
             ->andWhere('c.approved = :approved')
-            ->andWhere('c.comment_id IS NULL')
             ->setParameter('news_id', $post->getId())
             ->setParameter('approved', 1)
             ->getQuery()->getResult();
@@ -163,21 +162,6 @@ class NewsController extends Controller
                 'comments'      => $comments,
             ]);
         }
-    }
-
-    public function loadCommentsFromParentCategoryAction($commentId) {
-        $comments = $this->getDoctrine()
-            ->getRepository(Comment::class)
-            ->createQueryBuilder('c')
-            ->where('c.approved = :approved')
-            ->andWhere('c.comment_id = :comment_id')
-            ->setParameter('approved', 1)
-            ->setParameter('comment_id', $commentId)
-            ->getQuery()->getResult();
-        
-        return $this->render('news/comments/listReply.html.twig', [
-            'comments'      => $comments,
-        ]);
     }
 
     /**
