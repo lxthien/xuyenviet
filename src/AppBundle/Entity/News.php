@@ -162,18 +162,6 @@ class News
      */
     private $tags;
 
-    /**
-     * @var Comment[]|ArrayCollection
-     *
-     * @ORM\OneToMany(
-     *      targetEntity="AppBundle\Entity\Comment",
-     *      mappedBy="news",
-     *      orphanRemoval=true
-     * )
-     * @ORM\OrderBy({"createdAt": "DESC"})
-     */
-    private $comments;
-
     public function __toString()
     {
         return (string)$this->getTitle();
