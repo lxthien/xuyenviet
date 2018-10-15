@@ -405,7 +405,7 @@ class NewsController extends Controller
                         json_encode(
                             array(
                                 'status'=>'success',
-                                'message' => '<div class="alert alert-success" role="alert">Thank for your comment. We will review your comment before display on this page</div>'
+                                'message' => '<div class="alert alert-success" role="alert">'.$this->get('translator')->trans('comment.thank_for_your_comment').'</div>'
                             )
                         )
                     );
@@ -414,7 +414,7 @@ class NewsController extends Controller
                         json_encode(
                             array(
                                 'status'=>'error',
-                                'message' => '<div class="alert alert-warning" role="alert">Have a problem on your comment. Please try again!</div>'
+                                'message' => '<div class="alert alert-warning" role="alert">'.$this->get('translator')->trans('comment.have_a_problem_on_your_request').'</div>'
                             )
                         )
                     );
@@ -424,7 +424,7 @@ class NewsController extends Controller
                     json_encode(
                         array(
                             'status'=>'error',
-                            'message' => '<div class="alert alert-warning" role="alert">Have a problem on your comment. Please check your comment again!</div>'
+                            'message' => '<div class="alert alert-warning" role="alert">'.$this->get('translator')->trans('comment.have_a_problem_on_your_request').'</div>'
                         )
                     )
                 );

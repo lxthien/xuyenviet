@@ -612,6 +612,14 @@
                 <source>comment.reply</source>
                 <target>Trả lời</target>
             </trans-unit>
+            <trans-unit id="comment.have_a_problem_on_your_request">
+                <source>comment.have_a_problem_on_your_request</source>
+                <target>Đã có lỗi xảy ra. Vui lòng kiểm tra lại nội dung bên dưới</target>
+            </trans-unit>
+            <trans-unit id="comment.thank_for_your_comment">
+                <source>comment.thank_for_your_comment</source>
+                <target>Cảm ơn ý kiến của bạn. Chúng tôi sẽ xem xét trước khi hiển thị bình luận của bạn trên trang này</target>
+            </trans-unit>
 
             <trans-unit id="label.send">
                 <source>label.send</source>
@@ -637,6 +645,10 @@
             <trans-unit id="search">
                 <source>search</source>
                 <target>Tìm kiếm</target>
+            </trans-unit>
+            <trans-unit id="sidebar.fanpage">
+                <source>sidebar.fanpage</source>
+                <target>Fanpage</target>
             </trans-unit>
         </body>
     </file>

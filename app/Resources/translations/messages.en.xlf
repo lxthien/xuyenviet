@@ -607,6 +607,14 @@
                 <source>comment.reply</source>
                 <target>Reply</target>
             </trans-unit>
+            <trans-unit id="comment.have_a_problem_on_your_request">
+                <source>comment.have_a_problem_on_your_request</source>
+                <target>Have a problem on your comment. Please check your comment again!</target>
+            </trans-unit>
+            <trans-unit id="comment.thank_for_your_comment">
+                <source>comment.thank_for_your_comment</source>
+                <target>Thank for your comment. We will review your comment before display on this page</target>
+            </trans-unit>
             
             <trans-unit id="label.send">
                 <source>label.send</source>
@@ -632,6 +640,10 @@
             <trans-unit id="search">
                 <source>search</source>
                 <target>Search</target>
+            </trans-unit>
+            <trans-unit id="sidebar.fanpage">
+                <source>sidebar.fanpage</source>
+                <target>Fanpage</target>
             </trans-unit>
         </body>
     </file>
