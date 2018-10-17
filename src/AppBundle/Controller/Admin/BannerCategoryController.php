@@ -85,4 +85,25 @@ class BannerCategoryController extends Controller
             'form' => $form->createView(),
         ]);
     }
+
+    /**
+     * Deletes a banner category entity.
+     *
+     * @Route("/{id}/delete", name="admin_bannercategory_delete")
+     * @Method("POST")
+     */
+    public function deleteAction(Request $request, BannerCategory $bannerCategory)
+    {
+        if (!$this->isCsrfTokenValid('delete', $request->request->get('token'))) {
+            return $this->redirectToRoute('admin_bannercategory_index');
+        }
+
+        $em = $this->getDoctrine()->getManager();
+        $em->remove($bannerCategory);
+        $em->flush();
+
+        $this->addFlash('success', 'action.deleted_successfully');
+
+        return $this->redirectToRoute('admin_bannercategory_index');
+    }
 }

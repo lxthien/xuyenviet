@@ -108,7 +108,7 @@ class Banner
      * @param \AppBundle\Entity\BannerCategory $bannercategory
      * @return Banner
      */
-    public function setBannerCategory(\AppBundle\Entity\NewsCategory $bannercategory = null)
+    public function setBannerCategory(\AppBundle\Entity\BannerCategory $bannercategory)
     {
         $this->bannercategory = $bannercategory;
 

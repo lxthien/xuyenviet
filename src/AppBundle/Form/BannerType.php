@@ -19,17 +19,16 @@ class BannerType extends AbstractType
     {
         $builder
             ->add('bannercategory', null, [
-                'required' => false,
                 'label' => 'label.category',
             ])
             ->add('name', TextType::class, [
                 'label' => 'label.name',
             ])
             ->add('url', TextType::class, [
+                'required' => false,
                 'label' => 'label.url',
             ])
             ->add('imageFile', VichFileType::class, [
-                'required' => false,
                 'allow_delete' => true,
             ])
         ;

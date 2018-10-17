@@ -10,8 +10,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
- * @ORM\Entity
- * @ORM\HasLifecycleCallbacks()
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\BannerCategoryRepository")
  * @ORM\Table(name="bannercategory")
  */
 
@@ -105,13 +104,12 @@ class BannerCategory
     /**
      * Set url
      * 
-     * @ORM\PrePersist
-     * @ORM\PreUpdate
+     * @param string $url
      * @return BannerCategory
      */
-    public function setUrl()
+    public function setUrl($url)
     {
-        $this->url = $this->getName();
+        $this->url = $url;
 
         return $this;
     }

@@ -34,6 +34,7 @@
                                 <thead>
                                     <tr>
                                         <th>{{ 'label.name'|trans }}</th>
+                                        <th>{{ 'label.url'|trans }}</th>
                                         <th>{{ 'label.published_at'|trans }}</th>
                                         <th>{{ 'label.actions'|trans }}</th>
                                     </tr>
@@ -42,6 +43,7 @@
                                     {% for row in objects %}
                                     <tr>
                                         <td><strong>{{ row.getName() }}</strong></td>
+                                        <td>{{ row.getUrl() }}</td>
                                         <td>{{ row.getCreatedAt() | localizeddate('medium', 'none', null, 'Asia/Ho_Chi_Minh', 'd/M/YYYY') }}</td>
                                         <td>
                                             <div class="item-actions">
@@ -49,7 +51,7 @@
                                                     <i class="fa fa-edit" aria-hidden="true"></i>
                                                 </a>
                                                 
-                                                {{ include('admin/banner/_delete_form.html.twig', {object: row}, with_context = false) }}
+                                                {{ include('admin/bannercategory/_delete_form.html.twig', {object: row}, with_context = false) }}
                                             </div>
                                         </td>
                                     </tr>

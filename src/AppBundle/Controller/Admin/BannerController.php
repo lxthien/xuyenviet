@@ -85,4 +85,25 @@ class BannerController extends Controller
             'form' => $form->createView(),
         ]);
     }
+
+    /**
+     * Deletes a banner entity.
+     *
+     * @Route("/{id}/delete", name="admin_banner_delete")
+     * @Method("POST")
+     */
+    public function deleteAction(Request $request, Banner $banner)
+    {
+        if (!$this->isCsrfTokenValid('delete', $request->request->get('token'))) {
+            return $this->redirectToRoute('admin_banner_index');
+        }
+
+        $em = $this->getDoctrine()->getManager();
+        $em->remove($banner);
+        $em->flush();
+
+        $this->addFlash('success', 'action.deleted_successfully');
+
+        return $this->redirectToRoute('admin_banner_index');
+    }
 }

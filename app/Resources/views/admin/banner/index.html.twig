@@ -34,7 +34,7 @@
                                 <thead>
                                     <tr>
                                         <th>{{ 'label.images'|trans }}</th>
-                                        <th>{{ 'lable.news.title'|trans }}</th>
+                                        <th>{{ 'label.name'|trans }}</th>
                                         <th>{{ 'label.category'|trans }}</th>
                                         <th>{{ 'label.published_at'|trans }}</th>
                                         <th>{{ 'label.actions'|trans }}</th>
@@ -45,19 +45,19 @@
                                     <tr>
                                         <td>
                                             <div class="images-container">
-                                                <img src="{{ (vich_uploader_asset(row, 'imageFile') ? vich_uploader_asset(row, 'imageFile') : asset('assets/images/no-image.png')) | imagine_filter('admin_news_thumb') }}" alt="{{ row.getTitle() }}" />
+                                                <img src="{{ (vich_uploader_asset(row, 'imageFile') ? vich_uploader_asset(row, 'imageFile') : asset('assets/images/no-image.png')) | imagine_filter('admin_news_thumb') }}" alt="{{ row.getName() }}" />
                                             </div>
                                         </td>
-                                        <td><strong>{{ row.getTitle() }}</strong></td>
-                                        <td>{{ row.getCategory() }}</td>
+                                        <td><strong>{{ row.getName() }}</strong></td>
+                                        <td>{{ row.getBannerCategory() }}</td>
                                         <td>{{ row.getCreatedAt() | localizeddate('medium', 'none', null, 'Asia/Ho_Chi_Minh', 'd/M/YYYY') }}</td>
                                         <td>
                                             <div class="item-actions">
-                                                <a href="{{ path('admin_news_edit', {id: row.id}) }}" class="btn-sm">
+                                                <a href="{{ path('admin_banner_edit', {id: row.id}) }}" class="btn-sm">
                                                     <i class="fa fa-edit" aria-hidden="true"></i>
                                                 </a>
                                                 
-                                                {{ include('admin/news/_delete_form.html.twig', {news: row}, with_context = false) }}
+                                                {{ include('admin/banner/_delete_form.html.twig', {object: row}, with_context = false) }}
                                             </div>
                                         </td>
                                     </tr>
