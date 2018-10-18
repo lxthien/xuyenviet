@@ -5,10 +5,10 @@
 {% block keyword %}{{ post.getPageKeyword() }}{% endblock %}
 
 {% block ogImage %}
-    <meta property="og:image" content="{{ (vich_uploader_asset(post, 'imageFile') ? vich_uploader_asset(post, 'imageFile') : asset('assets/images/no-image.png')) }}" />
+    <meta property="og:image" content="{{ vich_uploader_asset(post, 'imageFile') ? app.request.getUriForPath(vich_uploader_asset(post, 'imageFile')) : absolute_url(asset('assets/images/no-image.png')) }}" />
 {% endblock %}
 {% block twitterImage %}
-    <meta property="twitter:image" content="{{ (vich_uploader_asset(post, 'imageFile') ? vich_uploader_asset(post, 'imageFile') : asset('assets/images/no-image.png')) }}" />
+    <meta property="twitter:image" content="{{ vich_uploader_asset(post, 'imageFile') ? app.request.getUriForPath(vich_uploader_asset(post, 'imageFile')) : absolute_url(asset('assets/images/no-image.png')) }}" />
 {% endblock %}
 
 {% block body %}
@@ -20,9 +20,9 @@
             <div class="col-12 col-md-12 col-lg-8">
                 <div class="news" itemscope itemtype="http://schema.org/Article">
                     {# Begin google snippet #}
-                    <meta itemscope itemprop="mainEntityOfPage"  itemType="https://schema.org/WebPage" itemid="{{ absolute_url(path('news_show', {'slug': post.getUrl() })) }}"/>
+                    <meta itemscope itemprop="mainEntityOfPage" itemType="https://schema.org/WebPage" itemid="{{ absolute_url(path('news_show', {'slug': post.getUrl() })) }}"/>
                     <div itemprop="image" itemscope itemtype="https://schema.org/ImageObject">
-                        <meta itemprop="url" content="{{ (vich_uploader_asset(post, 'imageFile') ? vich_uploader_asset(post, 'imageFile') : asset('assets/images/no-image.png')) | imagine_filter('news_255_220') }}">
+                        <meta itemprop="url" content="{{ (vich_uploader_asset(post, 'imageFile') ? app.request.getUriForPath(vich_uploader_asset(post, 'imageFile')) : absolute_url(asset('assets/images/no-image.png'))) | imagine_filter('news_255_220') }}">
                         <meta itemprop="width" content="255">
                         <meta itemprop="height" content="220">
                     </div>
