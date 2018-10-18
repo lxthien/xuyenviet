@@ -71,7 +71,9 @@ class NewsController extends Controller
                 ->getRepository(News::class)
                 ->createQueryBuilder('p')
                 ->where('p.category IN (:listCategoriesIds)')
+                ->andWhere('p.enable = :enable')
                 ->setParameter('listCategoriesIds', $listCategoriesIds)
+                ->setParameter('enable', 1)
                 ->orderBy('p.createdAt', 'DESC')
                 ->getQuery()->getResult();
         } else {
@@ -79,7 +81,9 @@ class NewsController extends Controller
                 ->getRepository(News::class)
                 ->createQueryBuilder('p')
                 ->where('p.category = :category')
+                ->andWhere('p.enable = :enable')
                 ->setParameter('category', $category->getId())
+                ->setParameter('enable', 1)
                 ->orderBy('p.createdAt', 'DESC')
                 ->getQuery()->getResult();
         }
@@ -217,7 +221,7 @@ class NewsController extends Controller
         $posts = $this->getDoctrine()
             ->getRepository(News::class)
             ->findBy(
-                array('postType' => 'post'),
+                array('postType' => 'post', 'enable' => 1),
                 array('createdAt' => 'DESC'),
                 10
             );
@@ -236,7 +240,7 @@ class NewsController extends Controller
         $posts = $this->getDoctrine()
             ->getRepository(News::class)
             ->findBy(
-                array('postType' => 'post'),
+                array('postType' => 'post', 'enable' => 1),
                 array('viewCounts' => 'DESC'),
                 10
             );
@@ -297,9 +301,13 @@ class NewsController extends Controller
 
         $query = $this->getDoctrine()
             ->getRepository(News::class)
-            ->createQueryBuilder('a')
-            ->where('a.title LIKE :q')
+            ->createQueryBuilder('p')
+            ->where('p.title LIKE :q')
+            ->andWhere('p.enable = :enable')
+            ->andWhere('p.postType = :postType')
             ->setParameter('q', '%'.$request->query->get('q').'%')
+            ->setParameter('enable', 1)
+            ->setParameter('postType', 'post')
             ->getQuery();
         
         $paginator  = $this->get('knp_paginator');

@@ -30,7 +30,7 @@ class HomepageController extends Controller
                         $posts = $this->getDoctrine()
                             ->getRepository(News::class)
                             ->findBy(
-                                array('postType' => 'post', 'category' => $category->getId()),
+                                array('postType' => 'post', 'enable' => 1, 'category' => $category->getId()),
                                 array('createdAt' => 'DESC'),
                                 12
                             );
