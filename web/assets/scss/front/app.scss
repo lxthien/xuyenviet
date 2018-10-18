@@ -9,6 +9,8 @@ $web-font-path: 'data:text/css;base64,';
 @import "~font-awesome/scss/font-awesome.scss";
 @import "~highlight.js/styles/solarized-light.css";
 
+@import '~bxslider/dist/jquery.bxslider.css';
+
 // pick the Lato fonts individually to avoid importing the entire font family
 @import '~lato-font/scss/public-api';
 @include lato-include-font('normal');
@@ -20,6 +22,7 @@ $web-font-path: 'data:text/css;base64,';
 @import "global/error";
 @import "global/header";
 @import "global/menu";
+@import "global/partner";
 @import "global/sidebar";
 @import "global/pagination";
 @import "global/breadcrumbs";
