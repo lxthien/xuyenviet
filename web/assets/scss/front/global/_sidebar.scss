@@ -17,12 +17,11 @@
         }
 
         .td-list-group-item {
-            font-weight: bold;
-            height: 95px;
+            height: 75px;
             color: $black;
 
             &:hover {
-                background: none;
+                background: $gray94;
                 color: $chathamsBlue;
             }
 

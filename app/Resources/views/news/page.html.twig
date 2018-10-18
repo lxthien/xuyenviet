@@ -1,7 +1,7 @@
 {% extends 'layout.html.twig' %}
 
-{% block title %}{{ post.getPageTitle() }}{% endblock %}
-{% block description %}{{ post.getPageDescription() }}{% endblock %}
+{% block title %}{{ post.getPageTitle() is not null ? post.getPageTitle() : post.getTitle() }}{% endblock %}
+{% block description %}{{ post.getPageDescription() is not null ? post.getPageDescription() : post.getDescription() }}{% endblock %}
 {% block keyword %}{{ post.getPageKeyword() }}{% endblock %}
 
 {% block body %}
@@ -39,6 +39,15 @@
                     <div class="news-container">
                         {{ post.getContents()|raw }}
                     </div>
+
+                    {# Social share #}
+                    {{ include('news/components/share.html.twig') }}
+
+                    {# List comments #}
+                    {{ include('news/comments/list.html.twig') }}
+                    
+                    {# Render form comment #}
+                    {{ include('news/comments/form.html.twig') }}
                 </div>
             </div>
 

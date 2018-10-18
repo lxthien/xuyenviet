@@ -156,7 +156,9 @@ class NewsController extends Controller
 
         if ($post->isPage()) {
             return $this->render('news/page.html.twig', [
-                'post'          => $post
+                'post'          => $post,
+                'form'          => $form->createView(),
+                'comments'      => $comments
             ]);
         } else {
             return $this->render('news/show.html.twig', [

@@ -5,10 +5,10 @@
 {% block keyword %}{{ post.getPageKeyword() }}{% endblock %}
 
 {% block ogImage %}
-    <meta property="og:image" content="{{ (vich_uploader_asset(post, 'imageFile') ? vich_uploader_asset(post, 'imageFile') : asset('assets/images/no-image.png')) | imagine_filter('news_120_120') }}" />
+    <meta property="og:image" content="{{ (vich_uploader_asset(post, 'imageFile') ? vich_uploader_asset(post, 'imageFile') : asset('assets/images/no-image.png')) }}" />
 {% endblock %}
 {% block twitterImage %}
-    <meta property="twitter:image" content="{{ (vich_uploader_asset(post, 'imageFile') ? vich_uploader_asset(post, 'imageFile') : asset('assets/images/no-image.png')) | imagine_filter('news_120_120') }}" />
+    <meta property="twitter:image" content="{{ (vich_uploader_asset(post, 'imageFile') ? vich_uploader_asset(post, 'imageFile') : asset('assets/images/no-image.png')) }}" />
 {% endblock %}
 
 {% block body %}
