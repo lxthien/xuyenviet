@@ -1,14 +1,5 @@
 <?php
 
-/*
- * This file is part of the Symfony package.
- *
- * (c) Fabien Potencier <fabien@symfony.com>
- *
- * For the full copyright and license information, please view the LICENSE
- * file that was distributed with this source code.
- */
-
 namespace AppBundle\Controller\Admin;
 
 use AppBundle\Entity\Comment;
@@ -39,7 +30,10 @@ class CommentController extends Controller
     public function indexAction()
     {
         $em = $this->getDoctrine()->getManager();
-        $comments = $em->getRepository(Comment::class)->findAll();
+        $comments = $em->getRepository(Comment::class)->findBy(
+            array(),
+            array('createdAt' => 'DESC')
+        );
 
         return $this->render('admin/comment/index.html.twig', [
             'objects' => $comments

@@ -29,7 +29,10 @@
                                                 <a href="mailto:{{ row.getEmail() }}"><i>{{ row.getEmail() }}</i></a><br />
                                                 <a href="{{ path('admin_comment_edit', {id: row.id}) }}"><i>{{ row.getIp() }}</i></a>
                                             </td>
-                                            <td><a href="{{ path('admin_news_edit', {id: row.getNewsId()}) }}">{{ row.getNews() }}<a></td>
+                                            <td>
+                                                <a href="{{ path('admin_news_edit', {id: row.getNewsId()}) }}"><strong>{{ row.getNews() }}</strong><a>
+                                                <p>{{ row.getContent()|striptags|slice(0, 200)|raw }}</p>
+                                            </td>
                                             <td>{{ row.getCreatedAt() | localizeddate('medium', 'none', null, 'Asia/Ho_Chi_Minh', 'd/M/YYYY') }}</td>
                                             <td>
                                                 <div class="item-actions">

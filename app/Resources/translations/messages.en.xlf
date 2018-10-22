@@ -56,6 +56,7 @@
                 <target><![CDATA[Try loading this page again in some minutes or <a href="%url%">go back to the homepage</a>.]]></target>
             </trans-unit>
 
+            <!-- Title -->
             <trans-unit id="title.homepage">
                 <source>title.homepage</source>
                 <target><![CDATA[Welcome to the <strong>Symfony Demo</strong> application]]></target>
@@ -328,6 +329,10 @@
                 <source>label.enable</source>
                 <target>Enable</target>
             </trans-unit>
+            <trans-unit id="label.title">
+                <source>label.title</source>
+                <target>Title</target>
+            </trans-unit>
             <trans-unit id="label.name">
                 <source>label.name</source>
                 <target>Name</target>
@@ -475,6 +480,12 @@
             <trans-unit id="title.edit_comment">
                 <source>title.edit_comment</source>
                 <target>Edit Comment #%id%</target>
+            </trans-unit>
+
+            <!-- Contact -->
+            <trans-unit id="contact.title.list">
+                <source>contact.title.list</source>
+                <target>Contact List</target>
             </trans-unit>
 
             <!-- Menu -->

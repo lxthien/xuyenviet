@@ -1,14 +1,5 @@
 <?php
 
-/*
- * This file is part of the Symfony package.
- *
- * (c) Fabien Potencier <fabien@symfony.com>
- *
- * For the full copyright and license information, please view the LICENSE
- * file that was distributed with this source code.
- */
-
 namespace AppBundle\Form;
 
 use AppBundle\Entity\News;
@@ -20,13 +11,7 @@ use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-/**
- * Defines the form used to create and manipulate blog posts.
- *
- * @author Ryan Weaver <weaverryan@gmail.com>
- * @author Javier Eguiluz <javier.eguiluz@gmail.com>
- * @author Yonel Ceruto <yonelceruto@gmail.com>
- */
+use Vich\UploaderBundle\Form\Type\VichFileType;
 
 class PageType extends AbstractType
 {
@@ -44,7 +29,12 @@ class PageType extends AbstractType
                 'attr' => ['class' => 'url', 'readonly' => 'readonly'],
                 'label' => 'label.url',
             ])
+            ->add('imageFile', VichFileType::class, [
+                'required' => false,
+                'allow_delete' => true,
+            ])
             ->add('description', TextareaType::class, [
+                'required' => false,
                 'label' => 'label.description',
             ])
             ->add('contents', TextareaType::class, [

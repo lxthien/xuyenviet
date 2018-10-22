@@ -482,6 +482,12 @@
                 <target>Edit Comment #%id%</target>
             </trans-unit>
 
+            <!-- Contact -->
+            <trans-unit id="contact.title.list">
+                <source>contact.title.list</source>
+                <target>Contact List</target>
+            </trans-unit>
+
             <!-- Menu -->
             <trans-unit id="menu.dashboard">
                 <source>menu.dashboard</source>
