@@ -36,6 +36,37 @@ footer {
         }
     }
 
+    .footer-middle {
+        padding-top: 40px;
+        margin-top: 40px;
+        border-top: 1px solid $gray94;
+
+        .footer-text-wrap {
+            p {
+                text-align: justify;
+                margin-bottom: 5px;
+            }
+        }
+
+        .td-social-icon-wrap {
+            display: inline-block;
+            margin: 5px 10px 10px 0;
+            
+            a {
+                i {
+                    font-size: 14px;
+                    width: 40px;
+                    height: 40px;
+                    line-height: 40px;
+                    text-align: center;
+                    border: 1px solid #dadada;
+                    position: relative;
+                    color: $primaryColor;
+                }
+            }
+        }
+    }
+
     .keyword {
         padding-left: 0;
         
