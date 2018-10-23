@@ -1,12 +1,11 @@
 footer {
-    
     border-top: 5px solid $chathamsBlue;
     padding-top: 30px;
     position: relative;
 
     &:after {
         content : "";
-        background: url("../../assets/images/background_construction.jpg") no-repeat center center;
+        background: url("../../assets/images/background_construction.jpg") repeat-y center center;
         opacity: 0.3;
         position: absolute;
         top: 0;
@@ -37,8 +36,8 @@ footer {
     }
 
     .footer-middle {
-        padding-top: 40px;
-        margin-top: 40px;
+        padding-top: 20px;
+        margin-top: 20px;
         border-top: 1px solid $gray94;
 
         .footer-text-wrap {
