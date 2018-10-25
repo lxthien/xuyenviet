@@ -166,15 +166,23 @@
         }
 
         a {
-            padding: 10px 0;
-            display: flex;
-            line-height: 22px;
-            font-size: 18px;
+            padding: 10px 0 0;
+            line-height: 26px;
+            font-size: 17px;
             letter-spacing: -0.2px;
-            min-height: 90px;
+            min-height: 75px;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
 
             &:hover {
                 text-decoration: none;
+            }
+
+            /* Small Devices, Tablets */
+            @media only screen and (max-width : 768px) {
+                margin-bottom: 10px;
             }
         }
     }
@@ -226,6 +234,8 @@
 }
 
 #respond {
+    margin-top: 30px;
+
     .comment-response {
         div {
             padding: 5px 15px;
