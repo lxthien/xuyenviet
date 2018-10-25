@@ -209,12 +209,3 @@ ewz_recaptcha:
     private_key: 6LfF6jkUAAAAAJzxFsfmh2Pt3MxuQT5MC62fzPiH
     locale_key:  %kernel.default_locale%
     locale_from_request: true
-
-# FOSUserBundle
-fos_user:
-    db_driver: orm
-    firewall_name: main
-    user_class: AppBundle\Entity\User
-    from_email:
-        address: "webmaster@webmaster.com"
-        sender_name: "CMS"
