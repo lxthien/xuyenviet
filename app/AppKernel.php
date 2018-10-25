@@ -41,7 +41,6 @@ class AppKernel extends Kernel
             new Dmishh\SettingsBundle\DmishhSettingsBundle(), //DmishhSettingsBundle
             new WhiteOctober\BreadcrumbsBundle\WhiteOctoberBreadcrumbsBundle(), //WhiteOctoberBreadcrumbsBundle
             new EWZ\Bundle\RecaptchaBundle\EWZRecaptchaBundle(), //EWZRecaptchaBundle
-            new FOS\UserBundle\FOSUserBundle(),
         ];
 
         // Some bundles are only used while developing the application or during
