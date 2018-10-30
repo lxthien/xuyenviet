@@ -35,6 +35,25 @@
     }
 }
 
+.bang-gia {
+    padding-top: 40px;
+    padding-bottom: 20px;
+    background-color: rgba(241, 241, 241, 0.5);
+
+    .two, .three, .four {
+        div {
+            background: $chathamsBlue;
+            margin-top: 30px;
+            padding: 10px 0;
+            text-align: center;
+
+            a {
+                color: $white;
+            }
+        }
+    }
+}
+
 .marketing {
     padding-top: 20px;
     padding-bottom: 20px;

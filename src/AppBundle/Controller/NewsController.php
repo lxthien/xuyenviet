@@ -135,8 +135,10 @@ class NewsController extends Controller
             ->setParameter('id', $post->getId())
             ->setParameter('postType', $post->getPostType())
             ->setParameter('category', $post->getCategory())
-            ->orderBy('r.createdAt', 'DESC')
-            ->getQuery()->getResult();
+            ->setMaxResults( 6 )
+            ->orderBy('r.viewCounts', 'DESC')
+            ->getQuery()
+            ->getResult();
 
         // Get the list comment for post
         $comments = $this->getDoctrine()
