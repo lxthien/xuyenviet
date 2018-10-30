@@ -7,6 +7,7 @@ not_allowed_to_edit_own_settings: Bạn không có quyền cho cài đặt này
 general: Cài đặt chung
 seo: SEO
 contact: Liên hệ
+social_networks: Mạng xã hội
 labels:
   siteName: Tên website
   pageTitle: Page title
@@ -24,3 +25,8 @@ labels:
   topKeyword: Từ khóa nổi bật tại footer
   facebookMessenger: Script facebook messenger
   displayNameCommentAs: Tên hiển thị tại mục bình luận
+  linkToFacebook: Facebook
+  linkToGooglePlus: Google Plus
+  linkToTwitter: Twitter
+  linkToYoutube: Youtube
+  linkToLinkedin: Linkedin

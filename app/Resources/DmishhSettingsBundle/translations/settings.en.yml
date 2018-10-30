@@ -7,6 +7,7 @@ not_allowed_to_edit_own_settings: You are not allowed to edit your settings
 general: General
 seo: SEO
 contact: Contact
+social_networks: Social Networks
 labels:
   siteName: Site name
   pageTitle: Page title
@@ -24,3 +25,8 @@ labels:
   topKeyword: Top keyword at footer
   facebookMessenger: Script facebook messenger
   displayNameCommentAs: Display name publicly as
+  linkToFacebook: Facebook
+  linkToGooglePlus: Google Plus
+  linkToTwitter: Twitter
+  linkToYoutube: Youtube
+  linkToLinkedIn: Linkedin
