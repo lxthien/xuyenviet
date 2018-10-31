@@ -2,6 +2,23 @@
 
 require('bxslider/dist/jquery.bxslider');
 
+function initSearchBox() {
+    var $formSearch = $('#form-search');
+    var $searchField = $('.search-field');
+
+    $searchField.keypress(function (e) {
+        if (e.which == 13) {
+            e.preventDefault();
+
+            if ($searchField.val() === '') {
+                $searchField.focus();
+            } else {
+                $formSearch.submit();
+            }
+        }
+    })
+}
+
 function initProtectedContent() {
     $('body').bind('cut copy paste', function (e) {
         e.preventDefault();
@@ -35,6 +52,7 @@ function initPartnerSlider() {
 }
 
 exports.init = function () {
+    initSearchBox();
     initPartnerSlider();
     initProtectedContent();
     initGoToTop();

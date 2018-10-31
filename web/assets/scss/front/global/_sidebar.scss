@@ -14,6 +14,19 @@
             border: none;
             padding-left: 0px;
             font-size: 20px;
+            position: relative;
+            border-bottom: 3px solid $mercury;
+            margin-bottom: 20px;
+
+            &:before {
+                position: absolute;
+                bottom: -3px;
+                left: 0;
+                content: "";
+                width: 90px;
+                height: 3px;
+                background: $primaryColor;
+            }
         }
 
         .td-list-group-item {

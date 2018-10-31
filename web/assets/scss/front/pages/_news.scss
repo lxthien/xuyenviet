@@ -104,7 +104,7 @@
 ------------------------------------------------------------------------- */
 .tags {
     display: flex;
-    margin: 20px 0;
+    margin: 10px 0;
     font-size: 12px;
 
     ul {
@@ -147,15 +147,25 @@
 /* News Share
 ------------------------------------------------------------------------- */
 .social-share {
-    margin: 0 0 20px 0;
+    margin: 20px 0 10px;
 }
 
 /* News Related
 ------------------------------------------------------------------------- */
 .related-news {
-    h4 {
-        font-family: $robotoCondesed;
-        font-weight: 700;
+    h3 {
+        position: relative;
+        border-bottom: 3px solid $mercury;
+
+        &:before {
+            position: absolute;
+            bottom: -3px;
+            left: 0;
+            content: "";
+            width: 90px;
+            height: 3px;
+            background: $primaryColor;
+        }
     }
 
     .row {
@@ -232,9 +242,18 @@
 #respond {
     margin-top: 30px;
 
-    .comment-response {
-        div {
-            padding: 5px 15px;
+    .comment-reply-title {
+        position: relative;
+        border-bottom: 3px solid $mercury;
+
+        &:before {
+            position: absolute;
+            bottom: -3px;
+            left: 0;
+            content: "";
+            width: 90px;
+            height: 3px;
+            background: $primaryColor;
         }
     }
 
