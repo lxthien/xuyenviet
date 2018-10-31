@@ -40,6 +40,11 @@
     padding-bottom: 20px;
     background-color: rgba(241, 241, 241, 0.5);
 
+    /* Small Devices, Tablets */
+    @media only screen and (max-width : 768px) {
+        padding-bottom: 40px;
+    }
+
     .two, .three, .four {
         div {
             background: $chathamsBlue;
@@ -47,42 +52,74 @@
             padding: 10px 0;
             text-align: center;
 
+            /* Small Devices, Tablets */
+            @media only screen and (max-width : 768px) {
+                margin-top: 15px;
+            }
+
             a {
                 color: $white;
+
+                i {
+                    margin-right: 10px;
+                }
             }
         }
     }
 }
 
 .marketing {
-    padding-top: 20px;
-    padding-bottom: 20px;
+    padding-top: 30px;
+    padding-bottom: 30px;
 
-    .col-lg-4 {
-        margin-bottom: 1.5rem;
-        text-align: center;
-
-        .rounded-circle {
-            border: 2px solid $chathamsBlue;
-            width: 180px;
-            height: 180px;
-            border-radius: 50%;
+    .col-md-4 {
+        margin: 20px 0;
+        
+        /* Small Devices, Tablets */
+        @media only screen and (max-width : 768px) {
+            margin: 5px 0;
         }
 
-        h2 {
-            font-size: 22px;
-            padding: 15px 0 10px;
-            margin-bottom: 0;
+        .marketing-company {
+            p {
+                margin-bottom: 5px;
+                font-size: 15px;
+
+                /* Small Devices, Tablets */
+                @media only screen and (max-width : 768px) {
+                    margin-bottom: 10px;
+                    font-size: 16px;
+                }
+            }
         }
 
-        .btn-secondary {
-            background: $chathamsBlue;
-            color: $white;
-            border-width: 0px;
-
-            &:hover {
-                border: none;
-                text-decoration: underline;
+        .media {
+            .media-left {
+                span {
+                    display: block;
+                    width: 70px;
+                    height: 70px;
+                    text-align: center;
+                    background: $chathamsBlue;
+                    border-radius: 5px;
+    
+                    i {
+                        margin-top: 25px;
+                        margin-right: 0;
+                        color: $white;
+                    }
+                }
+            }
+    
+            .media-body {
+                h4 {
+                    font-size: 18px;
+                    margin-bottom: 3px;
+                }
+    
+                .marketing-container {
+                    font-size: 15px;
+                }
             }
         }
     }

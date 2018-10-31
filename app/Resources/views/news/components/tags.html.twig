@@ -1,7 +1,7 @@
 {% if post.getTags()|length > 0 %}
     <div class="tags">
         <ul>
-            <li class="label-tags text-uppercase"><span>{{ 'post.tags'|trans }}</span></li>
+            <li class="label-tags text-uppercase"><span><i class="fa fa-tags"></i> {{ 'post.tags'|trans }}</span></li>
             {% for tag in post.getTags() %}
                 <li><a href="{{ path('tags', {'slug': tag.getUrl() }) }}" title="{{ tag.getName() }}">{{ tag.getName() }}</a></li>
             {% endfor %}

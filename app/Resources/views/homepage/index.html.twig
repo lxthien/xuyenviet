@@ -48,42 +48,84 @@
         {{ include('news/components/listPrices.html.twig') }}
 
         <div class="row marketing">
-            <div class="col-lg-12">
-                <h3 class="text-center text-uppercase">
-                    Xây Dựng Minh Duy
-                </h3>
-                <span class="text-center block-underline"></span>
-                <p class="text-center">
-                    Xây Dựng Minh Duy với đội ngũ kiến trúc sư chuyên môn cao, nhân viên tận tâm, năng động luôn nỗ lực phấn đấu phục vụ khách hàng một cách tốt nhất.
-                    <br>
-                    Ngoài ra, sự cải tiến không ngừng chất lượng dịch vụ và những sáng tạo trong thiết kế thi công, Xây Dựng Minh Duy mang đến bạn trải nghiệm xứng tầm.
-                </p>
+            <div class="col-xs-12 col-sm-12 col-md-4">
+                <h3 class="text-uppercase">Xây Dựng Minh Duy</h3>
+                <div class="marketing-company">
+                    <p>Tự hào là nhà thầu xây dựng uy tín số 1 tại Thành Phố Hồ Chí Minh.</p>
+                    <p>Xây Dựng Minh Duy với đội ngũ kiến trúc sư chuyên môn cao, nhân viên tận tâm, năng động luôn nỗ lực phấn đấu phục vụ khách hàng một cách tốt nhất.</p>
+                    <p>Chúng tôi cải tiến không ngừng chất lượng dịch vụ và những sáng tạo trong thiết kế thi công.</p>
+                </div>
             </div>
-            <div class="col-12 col-md-4 col-lg-4">
-                <img class="rounded-circle" src="{{ asset('assets/images/profesional.jpg') | imagine_filter('homepage_200_200') }}" alt="Uy tín, chuyên nghiệp">
-                <h2 class="text-center text-uppercase">Uy tín, chuyên nghiệp</h2>
-                <p>
-                    Quy trình làm việc uy tín chuyên nghiệp. <br>
-                    Đội ngũ kiến trúc sư, kĩ sư, công nhân viên chuyên nghiệp
-                </p>
+            <div class="col-xs-12 col-sm-6 col-md-4">
+                <div class="media">
+                    <div class="media-left">
+                        <span><i class="fa fa-check"></i></span>
+                    </div>
+                    <div class="media-body">
+                        <h4 class="media-heading text-uppercase">Giá cả hợp lý, cạnh tranh</h4>
+                        <div class="marketing-container">
+                            Giá cả xây dựng hợp lý, cạnh tranh
+                        </div>
+                    </div>
+                </div>
+                <div class="media">
+                    <div class="media-left">
+                        <span><i class="fa fa-check"></i></span>
+                    </div>
+                    <div class="media-body">
+                        <h4 class="media-heading text-uppercase">Báo giá miễn phí, tận nơi</h4>
+                        <div class="marketing-container">
+                            Báo giá xây dựng miễn phí, tận nơi
+                        </div>
+                    </div>
+                </div>
+                <div class="media">
+                    <div class="media-left">
+                        <span><i class="fa fa-check"></i></span>
+                    </div>
+                    <div class="media-body">
+                        <h4 class="media-heading text-uppercase">Đội ngũ chuyên nghiệp</h4>
+                        <div class="marketing-container">
+                            Đội ngũ kiến trúc sư, kĩ sư, thợ chuyên nghiệp, nhiều kinh nghiệm
+                        </div>
+                    </div>
+                </div>
             </div>
-            <!-- /.col-lg-4 -->
-            <div class="col-12 col-md-4 col-lg-4">
-                <img class="rounded-circle" src="{{ asset('assets/images/save-money.jpg') | imagine_filter('homepage_200_200') }}" alt="Chi phí hợp lý">
-                <h2 class="text-center text-uppercase">Chi phí hợp lý</h2>
-                <p>
-                    Xây Dựng Minh Duy cam kết là dịch vụ rẻ nhất và chất lượng nhất tại TP HCM và các tỉnh thành lân cận.
-                </p>
+            <div class="col-xs-12 col-sm-6 col-md-4">
+                <div class="media">
+                    <div class="media-left">
+                        <span><i class="fa fa-check"></i></span>
+                    </div>
+                    <div class="media-body">
+                        <h4 class="media-heading text-uppercase">Cam kết bảo hành</h4>
+                        <div class="marketing-container">
+                            Cam kết bảo hành công trình lâu dài
+                        </div>
+                    </div>
+                </div>
+                <div class="media">
+                    <div class="media-left">
+                        <span><i class="fa fa-check"></i></span>
+                    </div>
+                    <div class="media-body">
+                        <h4 class="media-heading text-uppercase">Thi công nhanh, đảm bảo</h4>
+                        <div class="marketing-container">
+                            Thi công nhanh, đúng hợp đồng, đảm bảo chất lượng
+                        </div>
+                    </div>
+                </div>
+                <div class="media">
+                    <div class="media-left">
+                        <span><i class="fa fa-check"></i></span>
+                    </div>
+                    <div class="media-body">
+                        <h4 class="media-heading text-uppercase">Không phát sinh phí</h4>
+                        <div class="marketing-container">
+                            Không phát sinh phí hoặc có nhưng rất ít
+                        </div>
+                    </div>
+                </div>
             </div>
-            <!-- /.col-lg-4 -->
-            <div class="col-12 col-md-4 col-lg-4">
-                <img class="rounded-circle" src="{{ asset('assets/images/warranty.jpg') | imagine_filter('homepage_200_200') }}" alt="Cam kết bảo hành">
-                <h2 class="text-center text-uppercase">Cam kết bảo hành</h2>
-                <p>
-                    Chế độ hậu mãi, bảo hành công trình lâu dài. Khắc phục giải quyết các vấn đề trong quá trình bảo hành thực hiện trong ngày.
-                </p>
-            </div>
-            <!-- /.col-lg-4 -->
         </div>
         {% for blockOnHomepage in blocksOnHomepage %}
         <div class="row">
