@@ -32,7 +32,7 @@ class HomepageController extends Controller
                             ->findBy(
                                 array('postType' => 'post', 'enable' => 1, 'category' => $category->getId()),
                                 array('viewCounts' => 'DESC'),
-                                6
+                                8
                             );
                     }
 
