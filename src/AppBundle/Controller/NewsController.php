@@ -136,7 +136,7 @@ class NewsController extends Controller
             ->setParameter('postType', $post->getPostType())
             ->setParameter('category', $post->getCategory())
             ->setMaxResults( 6 )
-            ->orderBy('r.viewCounts', 'DESC')
+            ->orderBy('r.createdAt', 'DESC')
             ->getQuery()
             ->getResult();
 

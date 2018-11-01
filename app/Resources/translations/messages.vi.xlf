@@ -575,6 +575,10 @@
                 <source>services</source>
                 <target>Dịch vụ</target>
             </trans-unit>
+            <trans-unit id="fengshui">
+                <source>fengshui</source>
+                <target>Phong thủy xây dựng</target>
+            </trans-unit>
             <trans-unit id="projects">
                 <source>projects</source>
                 <target>Dự án</target>

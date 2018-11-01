@@ -31,8 +31,8 @@ class HomepageController extends Controller
                             ->getRepository(News::class)
                             ->findBy(
                                 array('postType' => 'post', 'enable' => 1, 'category' => $category->getId()),
-                                array('createdAt' => 'DESC'),
-                                12
+                                array('viewCounts' => 'DESC'),
+                                6
                             );
                     }
 
