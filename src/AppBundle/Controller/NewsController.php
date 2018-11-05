@@ -246,30 +246,10 @@ class NewsController extends Controller
             ->findBy(
                 array('postType' => 'post', 'enable' => 1),
                 array('viewCounts' => 'DESC'),
-                10
+                15
             );
 
         return $this->render('news/hot.html.twig', [
-            'posts' => $posts,
-        ]);
-    }
-
-    /**
-     * Render list news by category
-     * @return News
-     */
-    public function listNewsByCategoryAction($categoryId)
-    {
-        $category = $this->getDoctrine()
-            ->getRepository(NewsCategory::class)
-            ->find($categoryId);
-
-        $posts = $this->getDoctrine()
-            ->getRepository(News::class)
-            ->findAll();
-
-        return $this->render('news/listByCategory.html.twig', [
-            'category' => $category,
             'posts' => $posts,
         ]);
     }

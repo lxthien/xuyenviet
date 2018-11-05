@@ -53,4 +53,15 @@
             }
         }
     }
+
+    .post-bxslider-wrapper {
+        .bx-wrapper {
+            border: none;
+            margin-bottom: 20px;
+
+            a {
+                border-radius: 0;
+            }
+        }
+    }
 }
