@@ -17,14 +17,14 @@ class HomepageController extends Controller
         $blocksOnHomepage = array();
 
         if (!empty($listCategoriesOnHomepage)) {
-            $listCategoriesOnHomepage = explode(',', $listCategoriesOnHomepage);
+            $listCategoriesOnHomepage = json_decode($listCategoriesOnHomepage, true);
 
             if (is_array($listCategoriesOnHomepage)) {
                 for ($i = 0; $i < count($listCategoriesOnHomepage); $i++) {
                     $blockOnHomepage = [];
                     $category = $this->getDoctrine()
                                     ->getRepository(NewsCategory::class)
-                                    ->find($listCategoriesOnHomepage[$i]);
+                                    ->find($listCategoriesOnHomepage[$i]["id"]);
 
                     if ($category) {
                         $posts = $this->getDoctrine()
@@ -32,7 +32,7 @@ class HomepageController extends Controller
                             ->findBy(
                                 array('postType' => 'post', 'enable' => 1, 'category' => $category->getId()),
                                 array('viewCounts' => 'DESC'),
-                                8
+                                $listCategoriesOnHomepage[$i]["items"]
                             );
                     }
 
