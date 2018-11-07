@@ -575,6 +575,10 @@
                 <source>services</source>
                 <target>Services</target>
             </trans-unit>
+            <trans-unit id="construction">
+                <source>construction</source>
+                <target>Construction</target>
+            </trans-unit>
             <trans-unit id="fengshui">
                 <source>fengshui</source>
                 <target>Feng Shui</target>

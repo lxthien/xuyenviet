@@ -34,6 +34,11 @@ class Builder implements ContainerAwareInterface
             'routeParameters' => ['level1' => 'dich-vu']
         ])->setLinkAttribute('class', 'nav-link');
 
+        $menu->addChild('construction', [
+            'route' => 'news_category',
+            'routeParameters' => ['level1' => 'xay-dung']
+        ])->setLinkAttribute('class', 'nav-link');
+
         $menu->addChild('fengshui', [
             'route' => 'news_category',
             'routeParameters' => ['level1' => 'phong-thuy-xay-dung']
