@@ -60,7 +60,7 @@ class Comment
      *
      * @ORM\Column(name="approved", type="boolean")
      */
-    private $approved = true;
+    private $approved = false;
 
     /**
      * @var string

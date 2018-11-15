@@ -357,6 +357,10 @@
                 <source>label.seo</source>
                 <target>SEO</target>
             </trans-unit>
+            <trans-unit id="label.approved">
+                <source>label.approved</source>
+                <target>Approved</target>
+            </trans-unit>
             <trans-unit id="label.pageTitle">
                 <source>label.pageTitle</source>
                 <target>Page title</target>

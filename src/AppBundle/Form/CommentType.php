@@ -9,6 +9,7 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use EWZ\Bundle\RecaptchaBundle\Form\Type\EWZRecaptchaType;
 
 class CommentType extends AbstractType
@@ -20,7 +21,11 @@ class CommentType extends AbstractType
     {
         $builder
             ->add('content', TextareaType::class, [
-                'attr' => ['class' => 'txt-ckeditor', 'data-height' => '300'],
+                'attr' => ['class' => 'txt-ckeditor', 'data-height' => '300']
+            ])
+            ->add('approved', CheckboxType::class, [
+                'required' => false,
+                'label' => 'label.approved',
             ])
             ->add('recaptcha', EWZRecaptchaType::class)
         ;
