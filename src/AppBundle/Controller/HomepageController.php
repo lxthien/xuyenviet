@@ -44,6 +44,7 @@ class HomepageController extends Controller
 
         return $this->render('homepage/index.html.twig', [
             'blocksOnHomepage' => $blocksOnHomepage,
+            'showSlide' => true
         ]);
     }
 }

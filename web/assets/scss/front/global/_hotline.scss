@@ -1,7 +1,7 @@
 .td-scroll-up {
     cursor: pointer;
     position: fixed;
-    bottom: 105px;
+    bottom: 85px;
     right: 19px;
     width: 35px;
     height: 35px;
@@ -104,4 +104,55 @@
     100% {
         -webkit-transform: translate(0, 0) scale(1, 1) rotateZ(0)
     }
+}
+
+.floating {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 2;
+    background-color: #f37022;
+
+    .inside {
+        .call-now,
+        .chat-us {
+            float: left;
+            border-right: 1px dotted $mercury;
+            vertical-align: middle;
+            color: $white;
+            text-align: center;
+            padding: 10px 0;
+            position: relative;
+            font-size: 16px;
+
+            div {
+                text-align: center;
+                line-height: 24px;
+                position: relative;
+
+                i {
+                    position: absolute;
+                    font-size: 20px;
+                    top: 12px;
+                    left: 15px;
+                }
+
+                span, strong {
+                    display: block;
+                }
+            }
+        }
+
+        .chat-us {
+            border-right: none;
+        }
+    }
+}
+
+#fb-root > div.fb_dialog.fb_dialog_advanced {
+    bottom: 150px !important;
+}
+#fb-root .fb-customerchat.fb_invisible_flow.fb_iframe_widget iframe {
+    bottom: 150px !important;
 }
