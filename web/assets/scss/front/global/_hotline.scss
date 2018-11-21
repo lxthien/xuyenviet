@@ -150,9 +150,10 @@
     }
 }
 
-#fb-root > div.fb_dialog.fb_dialog_advanced {
+#fb-root > div.fb_dialog.fb_dialog_advanced.fb_customer_chat_bubble_animated_no_badge {
     bottom: 150px !important;
 }
-#fb-root .fb-customerchat.fb_invisible_flow.fb_iframe_widget iframe {
-    bottom: 150px !important;
+.fb-customerchat.fb_invisible_flow.fb_iframe_widget iframe {
+    bottom: 130px !important;
+    right: 90px !important;
 }
