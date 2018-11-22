@@ -1,4 +1,4 @@
-<div class="col-xs-6 col-sm-3 col-md-3 news-item" itemscope itemtype="http://schema.org/Article">
+<div class="col-xs-12 col-sm-3 col-md-3 news-item" itemscope itemtype="http://schema.org/Article">
     <div class="news-item-wrapper">
         <meta itemscope itemprop="mainEntityOfPage"  itemType="https://schema.org/WebPage" itemid="{{ absolute_url(path('news_show', {'slug': row.getUrl() })) }}"/>
         <a class="media-thumb" title="{{ row.getTitle() }}" href="{{ path('news_show', {'slug': row.getUrl() }) }}" itemprop="image" itemscope itemtype="https://schema.org/ImageObject">
@@ -13,7 +13,7 @@
                     <span itemprop="headline">{{ row.getTitle() }}</span>
                 </a>
             </h5>
-            <p>{{ row.getDescription()|slice(0, 90) }}</p>
+            <p>{{ row.getDescription()|slice(0, 85) }}</p>
         </div>
         <div itemprop="publisher" itemscope itemtype="https://schema.org/Organization">
             <div itemprop="logo" itemscope itemtype="https://schema.org/ImageObject">

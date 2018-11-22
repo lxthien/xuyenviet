@@ -1,6 +1,18 @@
-<div class="row">
-    <div class="col-md-12">
-        {# Breadcrum #}
-        {{ wo_render_breadcrumbs() }}
+<div class="breadcrumbs" style='background-image: url("http://industrial.bold-themes.com/yellow-factory/wp-content/uploads/sites/10/2016/09/hero_inner_page.jpg"); background-position: center center'>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                {# Breadcrum #}
+                {{ wo_render_breadcrumbs() }}
+
+                {% if category is defined and category is not null %}
+                    <h1>{{ category.getName() }}</h1>
+
+                    <div class="description">
+                        <p>{{ category.getDescription()|raw }}</p>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
     </div>
 </div>

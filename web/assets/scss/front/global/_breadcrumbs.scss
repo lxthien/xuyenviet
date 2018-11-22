@@ -1,16 +1,27 @@
-.breadcrumb {
-    padding: 8px 0px;
-    margin-top: 15px;
-    margin-bottom: 20px;
-    border-bottom: 1px solid $mercury;
-    background: none;
-    border-radius: 0px;
+.breadcrumbs {
+    height: 235px;
+    color: $white;
 
-    li {
-        margin-bottom: 0em;
+    .breadcrumb {
+        padding: 8px 0px;
+        margin-top: 15px;
+        margin-bottom: 5px;
+        background: none;
 
-        &:before {
-            color: $mercury;
+        li {
+            margin-bottom: 0em;
+    
+            &:before {
+                color: $mercury;
+            }
+    
+            a {
+                color: $white;
+            }
         }
+    }
+
+    .description {
+        width: 70%;
     }
 }

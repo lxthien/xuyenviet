@@ -1,13 +1,15 @@
 /* News
 ------------------------------------------------------------------------- */
 .category-list-items {
+    padding-top: 50px;
+
     .description {
         margin-bottom: 30px;
     }
 }
 
 .project-hot {
-    margin: 60px 0 30px;
+    margin: 60px 0 0;
 
     .title-list-news-items {
         h1 {
@@ -23,6 +25,7 @@
         .bx-wrapper {
             border: none;
             max-width: 1170px !important;
+            margin-bottom: 0;
 
             .news-item {
                 margin-right: 30px;

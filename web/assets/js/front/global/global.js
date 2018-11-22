@@ -41,7 +41,7 @@ function initPartnerSlider() {
         stopAutoOnClick: true,
         pager: false,
         controls: true,
-        minSlides: 4,
+        minSlides: 1,
         maxSlides: 4,
         moveSlides: 1,
         slideWidth: 262,
