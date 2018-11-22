@@ -18,11 +18,6 @@ class Builder implements ContainerAwareInterface
             ),
         ));
 
-        // Homepage
-        $menu->addChild('', [
-            'route' => 'homepage'
-        ])->setLinkAttribute('class', 'nav-link fa fa-home');
-
         // About Us
         $menu->addChild('aboutus', [
             'route' => 'news_show',
@@ -47,11 +42,6 @@ class Builder implements ContainerAwareInterface
         $menu->addChild('projects', [
             'route' => 'news_category',
             'routeParameters' => ['level1' => 'du-an']
-        ])->setLinkAttribute('class', 'nav-link');
-
-        $menu->addChild('cafe', [
-            'route' => 'news_category',
-            'routeParameters' => ['level1' => 'thiet-ke-thi-cong-quan-cafe']
         ])->setLinkAttribute('class', 'nav-link');
 
         $menu->addChild('advisory', [

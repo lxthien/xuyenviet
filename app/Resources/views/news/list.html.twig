@@ -5,12 +5,12 @@
 {% block keyword %} {{category.getPageKeyword()}} {% endblock %}
 
 {% block body %}
-    <div class="container">
-        {# breadcrumbs #}
-        {{ include('news/components/breadcrumbs.html.twig') }}
-
+    {# breadcrumbs #}
+    {# {{ include('news/components/breadcrumbs.html.twig') }} #}
+    
+    <div class="container wrapper-container">
         <div class="row category-list-items">
-            <div class="col-12 col-md-12 col-lg-8">
+            <div class="col-12 col-md-12 col-lg-12">
                 <h1>{{ category.getName() }}</h1>
                 
                 <div class="description">
@@ -38,9 +38,20 @@
                     {{ include('news/components/noRecord.html.twig') }}
                 {% endif %}
             </div>
-
-            {# Side bar #}
-            {{ include('layout/sidebar.html.twig') }}
+        </div>
+        <div class="row project-hot">
+            <div class="col-md-12 title-list-news-items">
+                <h1 class="text-center text-uppercase">Dự án nổi bật</h1>
+                <span class="text-center block-underline"></span>
+            </div>
+            <div class="clearfix"></div>
+            <div class="list-news-items">
+                <div class="row bxslider">
+                    {% for row in pagination %}
+                        {{ include('news/components/itemsGridHomepage.html.twig') }}
+                    {% endfor %}
+                </div>
+            </div>
         </div>
     </div>
 {% endblock %}

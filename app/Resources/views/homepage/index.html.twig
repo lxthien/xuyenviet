@@ -1,7 +1,7 @@
 {% extends 'layout.html.twig' %}
 
 {% block body %}
-    <div class="container">
+    <div class="container wrapper-container">
         {{ include('news/components/listPrices.html.twig') }}
 
         <div class="row marketing">
@@ -111,6 +111,7 @@
             <div class="col-md-12 title-list-news-items">
                 <h1 class="text-center text-uppercase">{{ blockOnHomepage.category.getName() }}</h1>
                 <span class="text-center block-underline"></span>
+                <p>{{ blockOnHomepage.description }}</p>
             </div>
             <div class="col-md-12 list-news-items">
                 <div class="row">

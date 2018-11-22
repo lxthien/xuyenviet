@@ -37,7 +37,12 @@ body {
 }
 
 .wrapper {
+    background: $gray94;
+}
+
+.wrapper-container {
     background: $white;
+    padding-bottom: 40px;
 }
 
 .td-wrapper {

@@ -36,7 +36,7 @@ class HomepageController extends Controller
                             );
                     }
 
-                    $blockOnHomepage = (object) array('category' => $category, 'posts' => $posts);
+                    $blockOnHomepage = (object) array('category' => $category, 'posts' => $posts, 'description' => $listCategoriesOnHomepage[$i]["description"]);
                     $blocksOnHomepage[] = $blockOnHomepage;
                 }
             }

@@ -1,25 +1,40 @@
 #nav {
-    background: $primaryColor;
+    background: url("../../assets/images/background_header.jpg") repeat center center;
 
     .navbar {
-        background: $primaryColor;
-        min-height: 40px;
+        background: transparent;
         margin-bottom: 0px;
         border-radius: 0px;
         padding-bottom: 0px;
         padding-top: 0px;
         justify-content: left;
 
+        .navbar-header {
+            .navbar-brand {
+                padding-top: 7px;
+                padding-left: 0;
+
+                img {
+                    width: 150px;
+                }
+            }
+        }
+
         .navbar-collapse {
             border-width: 0px;
             box-shadow: none;
+            padding: 0;
 
             ul li {
                 margin-bottom: 0px;
 
                 a {
-                    padding-top: 15px;
-                    padding-bottom: 15px;
+                    padding: 40px 10px;
+                    color: $black;
+                    font-weight: 700;
+                    text-transform: uppercase;
+                    font-size: 17px;
+                    font-family: $robotoCondesed;
                 }
             }
         }

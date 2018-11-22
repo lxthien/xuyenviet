@@ -1,12 +1,29 @@
 .header {
     padding: 0;
-    background: url("../../assets/images/background_header.jpg") repeat center center;
+    background: $killarney;
+    color: $white;
+    height: 42px;
 
-    img {
-        width: 100%;
+    .col-md-6 {
+        span {
+            line-height: 42px;
+            font-size: 15px;
+            margin-right: 10px;
+        }
 
-        @media (max-width: 575.98px) {
-            
+        a {
+            color: $white;
+            line-height: 42px;
+
+            &:hover {
+                text-decoration: none;
+            }
+        }
+    }
+
+    .header-social {
+        a {
+            padding: 0 5px;
         }
     }
 }
