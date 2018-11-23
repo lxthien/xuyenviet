@@ -1,5 +1,7 @@
 #nav {
-    background: url("../../assets/images/background_header.jpg") repeat center center;
+    background: $white;
+    box-shadow: 0 3px 3px rgba(0,0,0,0.2);
+    z-index: 100;
 
     .navbar {
         background: transparent;
@@ -16,6 +18,18 @@
 
                 img {
                     width: 150px;
+
+                    @media only screen and (max-width: 767.98px) {
+                        width: 85px;
+                    }
+                }
+            }
+
+            .navbar-toggle {
+                border-color: $killarney;
+
+                .icon-bar {
+                    background-color: $killarney;
                 }
             }
         }
@@ -25,8 +39,35 @@
             box-shadow: none;
             padding: 0;
 
+            @media only screen and (max-width: 767.98px) {
+                width: 100%;
+                float: left !important;
+            }
+
+            .navbar-nav {
+                @media only screen and (max-width: 767.98px) {
+                    margin: 0;
+                }
+            }
+
             ul li {
                 margin-bottom: 0px;
+
+                &.current {
+                    a {
+                        padding-bottom: 37px;
+
+                        &::before {
+                            content: "";
+                            width: 100%;
+                            position: absolute;
+                            bottom: -3px;
+                            left: 0;
+                            height: 3px;
+                            background: $killarney;
+                        }
+                    }
+                }
 
                 a {
                     padding: 40px 10px;
@@ -35,6 +76,26 @@
                     text-transform: uppercase;
                     font-size: 17px;
                     font-family: $robotoCondesed;
+
+                    &:hover {
+                        padding-bottom: 37px;
+
+                        &::before {
+                            content: "";
+                            width: 100%;
+                            position: absolute;
+                            bottom: -3px;
+                            left: 0;
+                            height: 3px;
+                            background: $killarney;
+                        }
+                    }
+
+                    @media only screen and (max-width: 767.98px) {
+                        padding: 10px 10px;
+                        font-size: 16px;
+                        color: $killarney;
+                    }
                 }
             }
         }

@@ -6,7 +6,7 @@
 
 {% block body %}
     {# breadcrumbs #}
-    {{ include('news/components/breadcrumbs.html.twig') }}
+    {{ include('news/components/breadcrumbs.html.twig', {type: 'category'}) }}
     
     <div class="container wrapper-container">
         <div class="row category-list-items">

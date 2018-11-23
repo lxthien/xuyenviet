@@ -1,6 +1,9 @@
 .breadcrumbs {
-    height: 235px;
-    color: $white;
+    &.type-category {
+        height: 235px;
+        color: $white;
+        background-image: url("../../assets/images/background-breadcrumb.jpg");
+    }
 
     .breadcrumb {
         padding: 8px 0px;
