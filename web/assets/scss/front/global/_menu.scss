@@ -1,100 +1,151 @@
 #nav {
-    background: $white;
-    box-shadow: 0 3px 3px rgba(0,0,0,0.2);
-    z-index: 100;
+    background: $gray94;
+    z-index: 10000;
 
-    .navbar {
-        background: transparent;
-        margin-bottom: 0px;
-        border-radius: 0px;
-        padding-bottom: 0px;
-        padding-top: 0px;
-        justify-content: left;
+    .nav-container {
+        position: relative;
 
-        .navbar-header {
-            .navbar-brand {
-                padding-top: 7px;
-                padding-left: 0;
-
-                img {
-                    width: 150px;
-
-                    @media only screen and (max-width: 767.98px) {
-                        width: 85px;
-                    }
-                }
-            }
-
-            .navbar-toggle {
-                border-color: $killarney;
-
-                .icon-bar {
-                    background-color: $killarney;
-                }
-            }
+        &::before {
+            content: "";
+            background: transparent url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAAMBAMAAABRpcpkAAAAD1BMVEUAAAAAAAAAAAAAAAAAAABPDueNAAAABXRSTlMGAhQQCyEd++8AAAAUSURBVAjXY1AAQgMgdABCCBAAQQAT6AFRBPHcWgAAAABJRU5ErkJggg==);
+            width: 100%;
+            height: 12px;
+            position: absolute;
+            left: 0;
+            bottom: -12px;
+            z-index: 1;
         }
 
-        .navbar-collapse {
-            border-width: 0px;
-            box-shadow: none;
-            padding: 0;
-
-            @media only screen and (max-width: 767.98px) {
-                width: 100%;
-                float: left !important;
+        .navbar {
+            background: transparent;
+            margin-bottom: 0px;
+            border-radius: 0px;
+            padding-bottom: 0px;
+            padding-top: 0px;
+            justify-content: left;
+    
+            .navbar-header {
+                .navbar-brand {
+                    padding-top: 7px;
+                    padding-left: 0;
+    
+                    img {
+                        width: 150px;
+    
+                        @media only screen and (max-width: 767.98px) {
+                            width: 85px;
+                        }
+                    }
+                }
+    
+                .navbar-toggle {
+                    border-color: $killarney;
+    
+                    .icon-bar {
+                        background-color: $killarney;
+                    }
+                }
             }
-
-            .navbar-nav {
+    
+            .navbar-collapse {
+                border-width: 0px;
+                box-shadow: none;
+                padding: 0;
+    
                 @media only screen and (max-width: 767.98px) {
-                    margin: 0;
+                    width: 100%;
+                    float: left !important;
                 }
-            }
-
-            ul li {
-                margin-bottom: 0px;
-
-                &.current {
-                    a {
-                        padding-bottom: 37px;
-
-                        &::before {
-                            content: "";
-                            width: 100%;
-                            position: absolute;
-                            bottom: -3px;
-                            left: 0;
-                            height: 3px;
-                            background: $killarney;
-                        }
-                    }
-                }
-
-                a {
-                    padding: 40px 10px;
-                    color: $black;
-                    font-weight: 700;
-                    text-transform: uppercase;
-                    font-size: 17px;
-                    font-family: $robotoCondesed;
-
-                    &:hover {
-                        padding-bottom: 37px;
-
-                        &::before {
-                            content: "";
-                            width: 100%;
-                            position: absolute;
-                            bottom: -3px;
-                            left: 0;
-                            height: 3px;
-                            background: $killarney;
-                        }
-                    }
-
+    
+                .navbar-nav {
                     @media only screen and (max-width: 767.98px) {
-                        padding: 10px 10px;
-                        font-size: 16px;
+                        margin: 0;
+                    }
+                }
+    
+                ul li {
+                    margin-bottom: 0px;
+    
+                    &.current {
+                        a {
+                            padding-bottom: 37px;
+    
+                            &::before {
+                                content: "";
+                                width: 100%;
+                                position: absolute;
+                                bottom: -3px;
+                                left: 0;
+                                height: 3px;
+                                background: $killarney;
+                            }
+                        }
+                    }
+    
+                    a {
+                        padding: 40px 10px;
                         color: $killarney;
+                        font-weight: 500;
+                        font-size: 17px;
+    
+                        &:hover {
+                            padding-bottom: 37px;
+    
+                            &::before {
+                                content: "";
+                                width: 100%;
+                                position: absolute;
+                                bottom: -3px;
+                                left: 0;
+                                height: 3px;
+                                background: $killarney;
+                            }
+                        }
+
+                        &:focus, &:hover {
+                            background: $gray94;
+                        }
+    
+                        @media only screen and (max-width: 767.98px) {
+                            padding: 10px 10px;
+                            font-size: 16px;
+                            color: $killarney;
+                        }
+                    }
+
+                    &.dropdown {
+                        &:hover {
+                            .dropdown-menu {
+                                display: block;
+                            }
+                        }
+                    }
+
+                    ul.dropdown-menu {
+                        border: none;
+                        padding: 0 10px;
+                        top: 103%;
+                        min-width: 200px;
+
+                        li {
+                            border-bottom: 1px dotted $geyser;
+
+                            &.last {
+                                border-bottom: none;
+                            }
+
+                            a {
+                                padding: 10px 0;
+
+                                &::before {
+                                    content: none;
+                                }
+
+                                &:focus, &:hover {
+                                    background: $white;
+                                }
+                            }
+                        }
                     }
                 }
             }

@@ -1,5 +1,9 @@
 {% extends 'layout.html.twig' %}
 
+{% block title %}{{ post.getPageTitle() is not null ? post.getPageTitle() : post.getTitle() }}{% endblock %}
+{% block description %}{{ post.getPageDescription() is not null ? post.getPageDescription() : post.getDescription() }}{% endblock %}
+{% block keyword %}{{ post.getPageKeyword() }}{% endblock %}
+
 {% block body %}
     <div class="container contacts">
         {{ include('news/components/breadcrumbs.html.twig') }}
@@ -7,7 +11,7 @@
         <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-8">
                 <div class="company">
-                    <h3 class="text-uppercase">Sửa nhà Minh Duy</h3>
+                    <h3 class="text-uppercase">Xây Dựng Minh Duy</h3>
                     <ul>
                         <li>
                             <i class="fa fa-map-marker"></i>
@@ -19,7 +23,7 @@
                         </li>
                         <li>
                             <i class="fa fa-phone"></i>
-                            <span><strong>0982.96.93.79</strong></span>
+                            <span><strong>0982.96.93.79 A Minh</strong></span>
                         </li>
                         <li>
                             <i class="fa fa-envelope-o"></i>
@@ -27,7 +31,7 @@
                         </li>
                         <li>
                             <i class="fa fa-internet-explorer"></i>
-                            <span><strong>www.suanhaminhduy.com</strong></span>
+                            <span><strong>www.xaydungminhduy.com</strong></span>
                         </li>
                     </ul>
                 </div>

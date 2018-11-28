@@ -15,6 +15,7 @@ use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use EWZ\Bundle\RecaptchaBundle\Form\Type\EWZRecaptchaType;
 
 use AppBundle\Entity\Contact;
+use AppBundle\Entity\News;
 
 class ContactController extends Controller
 {
@@ -29,7 +30,6 @@ class ContactController extends Controller
             ->add('name', TextType::class, array('label' => 'label.author'))
             ->add('email', EmailType::class, array('label' => 'label.author_email'))
             ->add('phone', TextType::class, array('label' => 'label.phone'))
-            ->add('title', TextType::class, array('label' => 'label.title'))
             ->add('contents', TextareaType::class, array(
                 'label' => 'label.content',
                 'attr' => array('rows' => '7')
@@ -69,8 +69,15 @@ class ContactController extends Controller
         $breadcrumbs->addItem("home", $this->generateUrl("homepage"));
         $breadcrumbs->addItem('contactus');
 
+        $post = $this->getDoctrine()
+            ->getRepository(News::class)
+            ->findOneBy(
+                array('url' => 'lien-he')
+            );
+
         return $this->render('contact/index.html.twig', [
             'form' => $form->createView(),
+            'post' => $post
         ]);
     }
 }

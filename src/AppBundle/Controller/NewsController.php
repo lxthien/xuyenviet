@@ -16,7 +16,6 @@ use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
 use AppBundle\Entity\NewsCategory;
 use AppBundle\Entity\News;
-use AppBundle\Entity\Page;
 use AppBundle\Entity\Comment;
 use AppBundle\Entity\Tag;
 

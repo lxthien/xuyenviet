@@ -3,6 +3,14 @@
         height: 235px;
         color: $white;
         background-image: url("../../assets/images/background-breadcrumb.jpg");
+
+        .breadcrumb {
+            li {
+                a {
+                    color: $white;
+                }
+            }
+        }
     }
 
     .breadcrumb {
@@ -19,7 +27,7 @@
             }
     
             a {
-                color: $white;
+                color: $black;
             }
         }
     }

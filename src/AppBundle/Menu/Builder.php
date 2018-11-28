@@ -19,40 +19,73 @@ class Builder implements ContainerAwareInterface
         ));
 
         // About Us
-        $menu->addChild('aboutus', [
+        $menu->addChild('Giới thiệu', [
             'route' => 'news_show',
             'routeParameters' => ['slug' => 'gioi-thieu']
-        ])->setLinkAttribute('class', 'nav-link');
+        ])
+        ->setAttribute('class', 'dropdown')
+        ->setLinkAttribute('class', 'dropdown-toggle')
+        ->setLinkAttribute('data-toggle', 'dropdown')
+        ->setChildrenAttribute('class', 'dropdown-menu');
 
-        $menu->addChild('services', [
+        $menu['Giới thiệu']->addChild('Về chúng tôi', [
+            'route' => 'news_show',
+            'routeParameters' => ['slug' => 'gioi-thieu']
+        ]);
+
+        $menu['Giới thiệu']->addChild('Tuyển dụng', [
+            'route' => 'news_show',
+            'routeParameters' => ['slug' => 'tuyen-dung']
+        ]);
+
+        $menu->addChild('Dịch vụ', [
             'route' => 'news_category',
             'routeParameters' => ['level1' => 'dich-vu']
-        ])->setLinkAttribute('class', 'nav-link');
+        ]);
 
-        $menu->addChild('construction', [
+        $menu->addChild('Xây dựng', [
             'route' => 'news_category',
             'routeParameters' => ['level1' => 'xay-dung']
-        ])->setLinkAttribute('class', 'nav-link');
+        ]);
 
-        $menu->addChild('fengshui', [
+        $menu->addChild('Thiết kế', [
+            'route' => 'news_category',
+            'routeParameters' => ['level1' => 'thiet-ke']
+        ])
+        ->setAttribute('class', 'dropdown')
+        ->setLinkAttribute('class', 'dropdown-toggle')
+        ->setLinkAttribute('data-toggle', 'dropdown')
+        ->setChildrenAttribute('class', 'dropdown-menu');
+
+        $menu['Thiết kế']->addChild('Thiết kế quán cafe', [
+            'route' => 'list_category',
+            'routeParameters' => ['level1' => 'thiet-ke', 'level2' => 'thiet-ke-thi-cong-quan-cafe']
+        ]);
+
+        $menu->addChild('Sửa chữa nhà', [
+            'route' => 'news_category',
+            'routeParameters' => ['level1' => 'sua-chua-nha']
+        ]);
+
+        $menu->addChild('Phong thủy xây dựng', [
             'route' => 'news_category',
             'routeParameters' => ['level1' => 'phong-thuy-xay-dung']
-        ])->setLinkAttribute('class', 'nav-link');
+        ]);
 
-        $menu->addChild('projects', [
+        $menu->addChild('Dự án thi công', [
             'route' => 'news_category',
             'routeParameters' => ['level1' => 'du-an']
-        ])->setLinkAttribute('class', 'nav-link');
+        ]);
 
-        $menu->addChild('advisory', [
+        $menu->addChild('Tư vấn', [
             'route' => 'news_category',
             'routeParameters' => ['level1' => 'tu-van']
-        ])->setLinkAttribute('class', 'nav-link');
+        ]);
 
         // Contact us
-        $menu->addChild('contactus', [
+        $menu->addChild('Liên hệ', [
             'route' => 'contact'
-        ])->setLinkAttribute('class', 'nav-link');
+        ]);
 
         return $menu;
     }
