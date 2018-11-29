@@ -28,12 +28,16 @@
                 .navbar-brand {
                     padding-top: 7px;
                     padding-left: 0;
+
+                    @media only screen and (max-width : 768px) {
+                        padding-top: 5px;
+                    }
     
                     img {
                         width: 150px;
     
-                        @media only screen and (max-width: 767.98px) {
-                            width: 85px;
+                        @media only screen and (max-width : 768px) {
+                            width: 90px;
                         }
                     }
                 }
@@ -66,18 +70,30 @@
                 ul li {
                     margin-bottom: 0px;
     
-                    &.current {
-                        a {
-                            padding-bottom: 37px;
-    
+                    @media only screen and (min-width: 979.98px) {
+                        &.current {
                             &::before {
                                 content: "";
                                 width: 100%;
                                 position: absolute;
-                                bottom: -3px;
+                                bottom: 0px;
                                 left: 0;
                                 height: 3px;
                                 background: $killarney;
+                                z-index: 10001;
+                            }
+                        }
+
+                        &:hover {
+                            &::before {
+                                content: "";
+                                width: 100%;
+                                position: absolute;
+                                bottom: 0px;
+                                left: 0;
+                                height: 3px;
+                                background: $killarney;
+                                z-index: 10001;
                             }
                         }
                     }
@@ -87,20 +103,6 @@
                         color: $killarney;
                         font-weight: 500;
                         font-size: 17px;
-    
-                        &:hover {
-                            padding-bottom: 37px;
-    
-                            &::before {
-                                content: "";
-                                width: 100%;
-                                position: absolute;
-                                bottom: -3px;
-                                left: 0;
-                                height: 3px;
-                                background: $killarney;
-                            }
-                        }
 
                         &:focus, &:hover {
                             background: $gray94;
@@ -110,40 +112,91 @@
                             padding: 10px 10px;
                             font-size: 16px;
                             color: $killarney;
+                            border-bottom: 1px dotted $geyser;
+                        }
+                    }
+
+                    &.open {
+                        a {
+                            &:focus, &:hover {
+                                background: $gray94;
+                            }
                         }
                     }
 
                     &.dropdown {
-                        &:hover {
-                            .dropdown-menu {
-                                display: block;
+                        @media only screen and (min-width: 979.98px) {
+                            &:hover {
+                                .dropdown-menu {
+                                    display: block;
+                                }
                             }
                         }
-                    }
 
-                    ul.dropdown-menu {
-                        border: none;
-                        padding: 0 10px;
-                        top: 103%;
-                        min-width: 200px;
+                        ul.dropdown-menu {
+                            border: none;
+                            padding: 0 10px;
+                            min-width: 200px;
 
-                        li {
-                            border-bottom: 1px dotted $geyser;
-
-                            &.last {
-                                border-bottom: none;
+                            @media only screen and (max-width: 767.98px) {
+                                padding: 0 10px 0 30px;
+                                min-width: 100%;
                             }
-
-                            a {
-                                padding: 10px 0;
-
+    
+                            li {
                                 &::before {
                                     content: none;
                                 }
 
-                                &:focus, &:hover {
-                                    background: $white;
+                                @media only screen and (min-width: 979.98px) {
+                                    border-bottom: 1px dotted $geyser;
                                 }
+
+                                &.last {
+                                    border-bottom: none;
+                                }
+    
+                                a {
+                                    padding: 10px 0;
+    
+                                    &:focus, &:hover {
+                                        background: $white;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            @media only screen and (max-width: 990px) {
+                .navbar-header {
+                    float: none;
+                }
+
+                .navbar-toggle {
+                    display: block;
+                }
+
+                .navbar-collapse {
+                    width: 100%;
+
+                    &.collapse {
+                        display: none !important;
+
+                        &.in {
+                            display: block !important;
+                        }
+                    }
+
+                    .navbar-nav {
+                        float: none!important;
+    
+                        &>li {
+                            float: none;
+
+                            a {
+                                padding: 10px;
                             }
                         }
                     }

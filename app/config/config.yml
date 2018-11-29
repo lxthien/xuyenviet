@@ -196,6 +196,7 @@ knp_menu:
     # the renderer to use, list is also available by default
     default_renderer: twig
 
+# BreadcrumbsBundle
 white_october_breadcrumbs:
     separator:          ''
 
@@ -205,3 +206,12 @@ ewz_recaptcha:
     private_key: 6LfF6jkUAAAAAJzxFsfmh2Pt3MxuQT5MC62fzPiH
     locale_key:  %kernel.default_locale%
     locale_from_request: true
+
+# FriendSofBundle
+fos_user:
+    db_driver: orm
+    firewall_name: main
+    user_class: AppBundle\Entity\User
+    from_email:
+        address: "hotro.raotinnhadat.vn@gmail.com"
+        sender_name: "hotro.raotinnhadat.vn@gmail.com"

@@ -28,10 +28,12 @@
             margin-bottom: 0;
 
             .news-item {
-                margin-right: 30px;
-    
-                .news-item-wrapper {
-                    width: 262px !important;
+                @media only screen and (min-width: 979.98px) {
+                    margin-right: 30px;
+
+                    .news-item-wrapper {
+                        width: 262px !important;
+                    }
                 }
             }
         }
@@ -131,27 +133,46 @@
     }
 
     .row {
-        .img-thumbnail {
-            border-radius: 0px;
-            padding: 0px;
-            border: none;
-            width: 100%;
-        }
+        .related-wrapper {
+            border: 1px solid $killarney;
+            margin-bottom: 30px;
 
-        a.related-title {
-            padding: 10px 0 0;
-            line-height: 26px;
-            font-size: 18px;
-            letter-spacing: -0.2px;
-            height: 90px;
-            display: -webkit-box;
-            -webkit-line-clamp: 3;
-            -webkit-box-orient: vertical;
-            overflow: hidden;
-            margin-bottom: 10px;
+            .related-img {
+                display: block;
+                overflow: hidden;
 
-            &:hover {
-                text-decoration: none;
+                .img-thumbnail {
+                    border-radius: 0px;
+                    padding: 0px;
+                    border: none;
+                    width: 100%;
+                    transition: 0.6s ease;
+
+                    &:hover {
+                        transform: scale(1.2);
+                    }
+                }
+            }
+    
+            a.related-title {
+                padding: 10px 10px 0 10px;
+                line-height: 26px;
+                font-size: 18px;
+                letter-spacing: -0.2px;
+                height: 90px;
+                display: -webkit-box;
+                -webkit-line-clamp: 3;
+                -webkit-box-orient: vertical;
+                overflow: hidden;
+                margin-bottom: 10px;
+    
+                &:hover {
+                    text-decoration: none;
+                }
+
+                @media only screen and (max-width: 767.98px) {
+                    height: auto;
+                }
             }
         }
     }

@@ -256,6 +256,33 @@ class NewsController extends Controller
     }
 
     /**
+     * Render list news by category
+     * @return News
+     */
+    public function listNewsByCategoryAction($categoryId)
+    {
+        $category = $this->getDoctrine()
+            ->getRepository(NewsCategory::class)
+            ->find($categoryId);
+
+        $posts = $this->getDoctrine()
+            ->getRepository(News::class)
+            ->createQueryBuilder('r')
+            ->where('r.category = :category')
+            ->andWhere('r.enable = :enable')
+            ->setParameter('category', $categoryId)
+            ->setParameter('enable', 1)
+            ->setMaxResults( 10 )
+            ->orderBy('r.viewCounts', 'DESC')
+            ->getQuery()
+            ->getResult();
+
+        return $this->render('news/listByCategory.html.twig', [
+            'posts' => $posts,
+        ]);
+    }
+
+    /**
      * @Route("/search", name="news_search")
      * 
      * @return News

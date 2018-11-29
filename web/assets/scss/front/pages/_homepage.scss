@@ -41,9 +41,22 @@
     padding-top: 40px;
     padding-bottom: 20px;
 
+    @media only screen and (min-width: 979.98px) {
+        border-bottom: 1px solid $geyser;
+    }
+
     /* Small Devices, Tablets */
     @media only screen and (max-width : 768px) {
-        padding-bottom: 40px;
+        padding: 20px 0;
+    }
+
+    .one {
+        h3 {
+            @media only screen and (max-width : 768px) {
+                margin-bottom: 0;
+                text-align: center;
+            }
+        }
     }
 
     .two, .three, .four {
@@ -57,6 +70,7 @@
             /* Small Devices, Tablets */
             @media only screen and (max-width : 768px) {
                 margin-top: 15px;
+                padding: 10px;
             }
 
             a {

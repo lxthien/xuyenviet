@@ -33,14 +33,15 @@ class AppKernel extends Kernel
             new Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle(), // used for initial population of non-SQLite databases in production envs
             new Symfony\Bundle\SwiftmailerBundle\SwiftmailerBundle(),
 
-            new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(), //GedmoBundle
-            new Vich\UploaderBundle\VichUploaderBundle(), //VichUploadBundle
-            new Liip\ImagineBundle\LiipImagineBundle(), //LiipImagineBundle
-            new Knp\Bundle\PaginatorBundle\KnpPaginatorBundle(), //KnpPaginationBundle
-            new Knp\Bundle\MenuBundle\KnpMenuBundle(), //KnpMenuBundle
-            new Dmishh\SettingsBundle\DmishhSettingsBundle(), //DmishhSettingsBundle
-            new WhiteOctober\BreadcrumbsBundle\WhiteOctoberBreadcrumbsBundle(), //WhiteOctoberBreadcrumbsBundle
-            new EWZ\Bundle\RecaptchaBundle\EWZRecaptchaBundle(), //EWZRecaptchaBundle
+            new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),
+            new Vich\UploaderBundle\VichUploaderBundle(),
+            new Liip\ImagineBundle\LiipImagineBundle(),
+            new Knp\Bundle\PaginatorBundle\KnpPaginatorBundle(),
+            new Knp\Bundle\MenuBundle\KnpMenuBundle(),
+            new Dmishh\SettingsBundle\DmishhSettingsBundle(),
+            new WhiteOctober\BreadcrumbsBundle\WhiteOctoberBreadcrumbsBundle(),
+            new EWZ\Bundle\RecaptchaBundle\EWZRecaptchaBundle(),
+            new FOS\UserBundle\FOSUserBundle(),
         ];
 
         // Some bundles are only used while developing the application or during

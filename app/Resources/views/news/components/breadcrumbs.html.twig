@@ -6,7 +6,7 @@
                 {{ wo_render_breadcrumbs() }}
 
                 {% if category is defined and category is not null %}
-                    <h1>{{ category.getName() }}</h1>
+                    <h1 class="title">{{ category.getName() }}</h1>
 
                     <div class="description">
                         <p>{{ category.getDescription()|raw }}</p>
