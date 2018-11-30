@@ -1,12 +1,14 @@
 {% extends 'layout.html.twig' %}
 
-{% block title %} {{category.getPageTitle()}} {% endblock %}
+{% block title %} {{ category.getPageTitle() ~ ' - Trang ' ~ pagination.currentPageNumber }} {% endblock %}
 {% block description %} {{category.getPageDescription()}} {% endblock %}
 {% block keyword %} {{category.getPageKeyword()}} {% endblock %}
 
 {% block body %}
     {# breadcrumbs #}
-    {{ include('news/components/breadcrumbs.html.twig', {type: 'category'}) }}
+    {{ include('news/components/breadcrumbs.html.twig',
+        { type: 'category', title: category.getName(), description: category.getDescription() })
+    }}
     
     <div class="container wrapper-container">
         <div class="row category-list-items">

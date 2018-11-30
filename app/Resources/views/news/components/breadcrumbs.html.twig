@@ -5,11 +5,11 @@
                 {# Breadcrum #}
                 {{ wo_render_breadcrumbs() }}
 
-                {% if category is defined and category is not null %}
-                    <h1 class="title">{{ category.getName() }}</h1>
+                {% if type is defined and type is not null %}
+                    <h1 class="title">{{ title }}</h1>
 
                     <div class="description">
-                        <p>{{ category.getDescription()|raw }}</p>
+                        <p>{{ description|raw }}</p>
                     </div>
                 {% endif %}
             </div>

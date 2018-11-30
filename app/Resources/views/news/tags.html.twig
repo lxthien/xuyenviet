@@ -12,17 +12,11 @@
 
 {% block body %}
     {# breadcrumbs #}
-    {{ include('news/components/breadcrumbs.html.twig', {type: 'category'}) }}
+    {{ include('news/components/breadcrumbs.html.twig', {type: 'category', title: tag.getName(), description: tag.getContents() }) }}
 
     <div class="container wrapper-container">
         <div class="row category-list-items">
             <div class="col-12 col-md-12 col-lg-12">
-                <h1>{{ tag.getName() }}</h1>
-                
-                <div class="description">
-                    <p>{{ tag.getContents()|raw }}</p>
-                </div>
-
                 {# List item on this page #}
                 {% if pagination|length > 0  %}
                     {# Sort #}

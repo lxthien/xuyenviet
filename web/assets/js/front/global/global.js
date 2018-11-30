@@ -44,7 +44,6 @@ function initPartnerSlider() {
         minSlides: 1,
         maxSlides: 4,
         moveSlides: 1,
-        slideWidth: 262,
         onSliderLoad: function() {
             $('.bxslider-wrapper').css("visibility", "visible");
         }

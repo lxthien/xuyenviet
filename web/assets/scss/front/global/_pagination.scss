@@ -1,9 +1,10 @@
 .pagination {
-    margin: 0 auto;
+    margin: 20px auto 0;
     display: block;
-    border: 1px solid $mercury;
+    border: 1px solid $killarney;
     padding: 10px 0;
     text-align: center;
+    border-radius: 0;
 
     span {
         display: inline-block;
@@ -11,5 +12,11 @@
         margin: 0 3px;
         border: 1px solid $mercury;
         font-size: 13px;
+
+        &.current {
+            background: $killarney;
+            border: 1px solid $killarney;
+            color: $white;
+        }
     }
 }
