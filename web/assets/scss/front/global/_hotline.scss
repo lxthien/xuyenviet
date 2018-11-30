@@ -152,8 +152,17 @@
 
 #fb-root > div.fb_dialog.fb_dialog_advanced.fb_customer_chat_bubble_animated_no_badge {
     bottom: 150px !important;
+
+    @media only screen and (max-width: 767.98px) {
+        bottom: 70px !important;
+    }
 }
 .fb-customerchat.fb_invisible_flow.fb_iframe_widget iframe {
     bottom: 130px !important;
     right: 90px !important;
+
+    @media only screen and (max-width: 767.98px) {
+        bottom: 130px !important;
+        right: 0px !important;
+    }
 }
