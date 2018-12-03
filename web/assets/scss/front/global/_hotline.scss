@@ -1,12 +1,17 @@
 .td-scroll-up {
     cursor: pointer;
     position: fixed;
-    bottom: 50px;
-    right: 20px;
+    bottom: 30px;
+    right: 25px;
     width: 35px;
     height: 35px;
     background-color: $killarney;
     z-index: 100;
+
+    @media only screen and (max-width: 767.98px) {
+        bottom: 75px;
+        right: 12px;
+    }
 
     i {
         position: relative;
@@ -150,9 +155,19 @@
     }
 }
 
-#fb-root > div.fb_dialog.fb_dialog_advanced {
-    bottom: 150px !important;
+#fb-root > div.fb_dialog.fb_dialog_advanced.fb_customer_chat_bubble_animated_no_badge {
+    bottom: 90px !important;
+
+    @media only screen and (max-width: 767.98px) {
+        bottom: 120px!important;
+        right: 10px !important;
+    }
 }
-#fb-root .fb-customerchat.fb_invisible_flow.fb_iframe_widget iframe {
-    bottom: 150px !important;
+.fb-customerchat.fb_invisible_flow.fb_iframe_widget iframe {
+    bottom: 160px !important;
+
+    @media only screen and (max-width: 767.98px) {
+        bottom: 180px !important;
+        right: 0px !important;
+    }
 }

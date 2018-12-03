@@ -51,7 +51,7 @@ class NewsController extends Controller
         // Init breadcrum for category page
         $breadcrumbs = $this->buildBreadcrums(!empty($level2) ? $subCategory : $category, null, null);
 
-        if (!empty($level2)) {
+        if (empty($level2)) {
             // Get all post for this category and sub category
             $listCategoriesIds = array($category->getId());
 
@@ -81,7 +81,7 @@ class NewsController extends Controller
                 ->createQueryBuilder('p')
                 ->where('p.category = :category')
                 ->andWhere('p.enable = :enable')
-                ->setParameter('category', $category->getId())
+                ->setParameter('category', $subCategory->getId())
                 ->setParameter('enable', 1)
                 ->orderBy('p.createdAt', 'DESC')
                 ->getQuery()->getResult();
