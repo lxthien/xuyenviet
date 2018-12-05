@@ -566,6 +566,16 @@
                 <target>All Banners</target>
             </trans-unit>
 
+            <!-- Email -->
+            <trans-unit id="contact.email.title">
+                <source>contact.email.title</source>
+                <target>The email contact from %siteName%</target>
+            </trans-unit>
+            <trans-unit id="comment.email.title">
+                <source>comment.email.title</source>
+                <target>The email notification from website [%siteName%]</target>
+            </trans-unit>
+
             <!-- Front page -->
             <trans-unit id="home">
                 <source>home</source>
@@ -667,6 +677,15 @@
             <trans-unit id="sidebar.fanpage">
                 <source>sidebar.fanpage</source>
                 <target>Fanpage</target>
+            </trans-unit>
+
+            <trans-unit id="contact.message.success">
+                <source>contact.message.success</source>
+                <target>Thank for your contact</target>
+            </trans-unit>
+            <trans-unit id="contact.message.error">
+                <source>contact.message.error</source>
+                <target>Have a problem into process. Go back and try it again.</target>
             </trans-unit>
         </body>
     </file>

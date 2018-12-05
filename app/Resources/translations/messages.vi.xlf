@@ -566,6 +566,16 @@
                 <target>All Banners</target>
             </trans-unit>
 
+            <!-- Email -->
+            <trans-unit id="contact.email.title">
+                <source>contact.email.title</source>
+                <target>Email liên hệ từ website [%siteName%]</target>
+            </trans-unit>
+            <trans-unit id="comment.email.title">
+                <source>comment.email.title</source>
+                <target>Email thông báo từ website [%siteName%]</target>
+            </trans-unit>
+
             <!-- Front page -->
             <trans-unit id="home">
                 <source>home</source>
@@ -667,6 +677,15 @@
             <trans-unit id="sidebar.fanpage">
                 <source>sidebar.fanpage</source>
                 <target>Fanpage</target>
+            </trans-unit>
+
+            <trans-unit id="contact.message.success">
+                <source>contact.message.success</source>
+                <target>Cảm ơn đã liên hệ đến công ty. Chúng tôi sẽ sớm phản hồi lại thông tin của bạn</target>
+            </trans-unit>
+            <trans-unit id="contact.message.error">
+                <source>contact.message.error</source>
+                <target>Đã có lỗi xảy ra. Vui lòng thử lại sau</target>
             </trans-unit>
         </body>
     </file>

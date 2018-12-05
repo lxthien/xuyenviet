@@ -24,6 +24,10 @@ monolog:
         console:
             type:  console
 
+#Disable send email on Production
+swiftmailer:
+    disable_delivery:  true
+
 # EWZRecaptchaBundle
 ewz_recaptcha:
     public_key:  6LdpzHEUAAAAAKwRzhbaJgv12ZzJT1BesNEWc4t5

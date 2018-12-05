@@ -22,7 +22,7 @@ class ContactController extends Controller
     /**
      * @Route("lien-he", name="contact")
      */
-    public function indexAction(Request $request)
+    public function indexAction(Request $request, \Swift_Mailer $mailer)
     {
         $contact = new Contact();
         
@@ -49,7 +49,7 @@ class ContactController extends Controller
             if (null === $contact->getId()) {
                 $this->addFlash(
                     'error',
-                    'Have a problem into process. Go back and try it again.'
+                    $this->get('translator')->trans('contact.message.error')
                 );
 
                 return $this->render('contact/index.html.twig', [
@@ -58,8 +58,28 @@ class ContactController extends Controller
             } else {
                 $this->addFlash(
                     'notice',
-                    'Thank for your contact'
+                    $this->get('translator')->trans('contact.message.success')
                 );
+
+                $message = \Swift_Message::newInstance()
+                        ->setSubject($this->get('translator')->trans('contact.email.title', ['%siteName%' => $this->get('settings_manager')->get('siteName')]))
+                        ->setFrom(['hotro.xaydungminhduy@gmail.com' => $this->get('settings_manager')->get('siteName')])
+                        ->setTo($this->get('settings_manager')->get('emailContact'))
+                        ->setBody(
+                            $this->renderView(
+                                'Emails/contact.html.twig',
+                                array(
+                                    'name' => $form->get('name')->getData(),
+                                    'phone' => $form->get('phone')->getData(),
+                                    'email' => $form->get('email')->getData(),
+                                    'body' => $form->get('contents')->getData()
+                                )
+                            ),
+                            'text/html'
+                        )
+                    ;
+
+                $mailer->send($message);
 
                 return $this->redirectToRoute('contact');
             }

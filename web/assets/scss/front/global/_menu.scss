@@ -206,3 +206,25 @@
         }
     }
 }
+
+#nav {
+    &.navbar-fixed-top {
+        .nav-container .navbar {
+            min-height: auto;
+        }
+
+        .nav-container .navbar {
+            .navbar-header .navbar-brand {
+                img {
+                    width: 85px;
+                }
+            }
+
+            .navbar-collapse {
+                ul li a {
+                    padding: 20px 10px;
+                }
+            }
+        }
+    }
+}

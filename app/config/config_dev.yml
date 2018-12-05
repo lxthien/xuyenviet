@@ -38,4 +38,4 @@ monolog:
         #    level:  info
 
 swiftmailer:
-    disable_delivery:  true
+    disable_delivery:  false
