@@ -3,11 +3,13 @@
         <h1 class="text-center text-uppercase">Dự án nổi bật</h1>
         <span class="text-center block-underline"></span>
     </div>
+    
     <div class="clearfix"></div>
+    
     <div class="list-news-items">
-        <div class="row bxslider">
+        <div class="bxslider">
             {% for row in posts %}
-                {{ include('news/components/itemsGrid.html.twig') }}
+                {{ include('news/components/itemsGridSlide.html.twig') }}
             {% endfor %}
         </div>
     </div>

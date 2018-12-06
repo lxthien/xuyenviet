@@ -43,7 +43,8 @@ function initProjectHotSlider() {
         controls: true,
         minSlides: 1,
         maxSlides: 4,
-        moveSlides: 1
+        moveSlides: 1,
+        slideMargin: 30
     });
 }
 
@@ -87,7 +88,7 @@ exports.init = function () {
     initGoToTop();
     initFixedMenu();
 
-    var $newsItem = $('.project-hot .list-news-items .news-item'),
+    /* var $newsItem = $('.project-hot .list-news-items .news-item'),
         windowWidth = $(window).width();
 
     $newsItem.css({
@@ -100,5 +101,5 @@ exports.init = function () {
         $newsItem.css({
             'width': windowWidth + 'px'
         });
-    });
+    }); */
 };
