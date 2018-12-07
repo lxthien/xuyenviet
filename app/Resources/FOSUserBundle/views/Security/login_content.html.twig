@@ -29,11 +29,19 @@
                             <input type="checkbox" id="remember_me" name="_remember_me" value="on" />
                             {{ 'security.login.remember_me'|trans }}
                         </label>
+                        <label class="pull-right">
+                            <a href="{{ path('fos_user_resetting_request') }}">Quên mật khẩu?</a>
+                        </label>
                     </div>
+                    
                     {% if csrf_token %}
                         <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
                     {% endif %}
+                    
                     <input type="submit" id="_submit" name="_submit" value="{{ 'security.login.submit'|trans }}" class="btn btn-primary btn-flat m-b-30 m-t-30" />
+                    <div class="register-link m-t-15 text-center">
+                        <p>Bạn chưa có tài khoản? <a href="{{ path('fos_user_registration_register') }}"> Đăng ký tại đây</a></p>
+                    </div>
                 </form>
             </div>
         </div>

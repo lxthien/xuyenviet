@@ -545,6 +545,22 @@
                 <source>menu.contact</source>
                 <target>Contacts</target>
             </trans-unit>
+            <trans-unit id="menu.users">
+                <source>menu.users</source>
+                <target>Users</target>
+            </trans-unit>
+            <trans-unit id="menu.users_list">
+                <source>menu.users_list</source>
+                <target>All Users</target>
+            </trans-unit>
+            <trans-unit id="title.users_list">
+                <source>title.users_list</source>
+                <target>Users</target>
+            </trans-unit>
+            <trans-unit id="menu.users_profile">
+                <source>menu.users_profile</source>
+                <target>Your profile</target>
+            </trans-unit>
             <trans-unit id="menu.setting">
                 <source>menu.setting</source>
                 <target>Settings</target>

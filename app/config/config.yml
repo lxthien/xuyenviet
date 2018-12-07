@@ -146,7 +146,7 @@ liip_imagine:
             quality: 75
             filters:
                 thumbnail: { size: [65, 65], mode: outbound }
-        admin_news_thumb:
+        admin_thumb:
             quality: 75
             filters:
                 thumbnail: { size: [50, 50], mode: outbound }
@@ -158,18 +158,10 @@ liip_imagine:
             quality: 75
             filters:
                 thumbnail: { size: [70, 50], mode: outbound }
-        news_255_190:
-            quality: 75
-            filters:
-                thumbnail: { size: [255, 190], mode: outbound }
         news_382_285:
             quality: 75
             filters:
                 thumbnail: { size: [382, 285], mode: outbound }
-        news_255_220:
-            quality: 75
-            filters:
-                thumbnail: { size: [255, 220], mode: outbound }
 
 # KnpPaginationBundle
 knp_paginator:
@@ -212,6 +204,13 @@ fos_user:
     db_driver: orm
     firewall_name: main
     user_class: AppBundle\Entity\User
+    service:
+        mailer: fos_user.mailer.twig_swift
     from_email:
-        address: "hotro.raotinnhadat.vn@gmail.com"
-        sender_name: "hotro.raotinnhadat.vn@gmail.com"
+        address: "hotro.xaydungminhduy@gmail.com"
+        sender_name: "Xây Dựng Minh Duy"
+    registration:
+        form:
+            type: AppBundle\Form\RegistrationType
+        confirmation:
+            enabled: true

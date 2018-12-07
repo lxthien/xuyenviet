@@ -62,10 +62,9 @@ class Builder implements ContainerAwareInterface
             'routeParameters' => ['level1' => 'thiet-ke', 'level2' => 'thiet-ke-thi-cong-quan-cafe']
         ]);
 
-        $menu->addChild('Sửa chữa nhà', [
-            'route' => 'news_category',
-            'routeParameters' => ['level1' => 'sua-chua-nha']
-        ]);
+        $menu->addChild('Sửa chữa nhà', array('uri' => 'https://suanhaminhduy.com/'))
+            ->setLinkAttribute('target', '_blank')
+            ->setLinkAttribute('rel', 'nofollow');
 
         $menu->addChild('Phong thủy xây dựng', [
             'route' => 'news_category',

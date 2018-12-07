@@ -17,7 +17,7 @@
                     </a>
                 </li>
                 <!-- /.menu-title -->
-                <li class="menu-item-has-children active dropdown">
+                <li class="menu-item-has-children dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <i class="menu-icon fa fa-table"></i>{{ 'menu.news'|trans }}</a>
                     <ul class="sub-menu children dropdown-menu">
@@ -40,7 +40,7 @@
                     </ul>
                 </li>
 
-                <li class="menu-item-has-children active dropdown">
+                <li class="menu-item-has-children dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <i class="menu-icon fa fa-file"></i>
                         {{ 'menu.pages'|trans }}
@@ -71,7 +71,7 @@
                     </a>
                 </li>
 
-                <li class="menu-item-has-children active dropdown">
+                <li class="menu-item-has-children dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <i class="menu-icon fa fa-picture-o"></i>
                         {{ 'menu.banners'|trans }}
@@ -88,6 +88,27 @@
                     </ul>
                 </li>
 
+                <li class="menu-item-has-children dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="menu-icon fa fa-users"></i>
+                        {{ 'menu.users'|trans }}
+                    </a>
+                    <ul class="sub-menu children dropdown-menu">
+                        <li>
+                            <i class="fa fa-list-alt"></i>
+                            <a href="{{ path('admin_user_index') }}">{{ 'menu.users_list'|trans }}</a>
+                        </li>
+                        <li>
+                            <i class="fa fa-edit"></i>
+                            <a href="{{ path('admin_user_index') }}">{{ 'menu.add_new'|trans }}</a>
+                        </li>
+                        <li>
+                            <i class="fa fa-user"></i>
+                            <a href="{{ path('fos_user_profile_edit') }}">{{ 'menu.users_profile'|trans }}</a>
+                        </li>
+                    </ul>
+                </li>
+                
                 <li>
                     <a href="{{ path('dmishh_settings_manage_global') }}">
                         <i class="menu-icon fa fa-cogs"></i>
