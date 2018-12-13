@@ -2,23 +2,6 @@
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
     <file source-language="en" target-language="en" datatype="plaintext" original="file.ext">
         <body>
-            <trans-unit id="note">
-                <source>note</source>
-                <target>NOTE</target>
-            </trans-unit>
-            <trans-unit id="tip">
-                <source>tip</source>
-                <target>TIP</target>
-            </trans-unit>
-            <trans-unit id="not_available">
-                <source>not_available</source>
-                <target>Not available</target>
-            </trans-unit>
-            <trans-unit id="mit_license">
-                <source>mit_license</source>
-                <target>MIT License</target>
-            </trans-unit>
-
             <trans-unit id="http_error.name">
                 <source>http_error.name</source>
                 <target>Error %status_code%</target>
@@ -102,6 +85,7 @@
                 <target>Add New Page</target>
             </trans-unit>
 
+            <!-- Action -->
             <trans-unit id="action.show">
                 <source>action.show</source>
                 <target>Show</target>
@@ -178,7 +162,20 @@
                 <source>action.browse_admin</source>
                 <target>Browse backend</target>
             </trans-unit>
+            <trans-unit id="action.created_successfully">
+                <source>action.created_successfully</source>
+                <target>Created successfully</target>
+            </trans-unit>
+            <trans-unit id="action.updated_successfully">
+                <source>action.updated_successfully</source>
+                <target>Updated successfully</target>
+            </trans-unit>
+            <trans-unit id="action.deleted_successfully">
+                <source>action.deleted_successfully</source>
+                <target>Deleted successfully</target>
+            </trans-unit>
 
+            <!-- Label -->
             <trans-unit id="label.author">
                 <source>label.author</source>
                 <target>Author</target>
@@ -219,112 +216,6 @@
                 <source>label.actions</source>
                 <target>Actions</target>
             </trans-unit>
-            <trans-unit id="title.post_new">
-                <source>title.post_new</source>
-                <target>Post creation</target>
-            </trans-unit>
-            <trans-unit id="action.edit_contents">
-                <source>action.edit_contents</source>
-                <target>Edit contents</target>
-            </trans-unit>
-
-            <trans-unit id="menu.toggle_nav">
-                <source>menu.toggle_nav</source>
-                <target>Toggle navigation</target>
-            </trans-unit>
-            <trans-unit id="menu.choose_language">
-                <source>menu.choose_language</source>
-                <target>Choose language</target>
-            </trans-unit>
-            <trans-unit id="menu.post_list">
-                <source>menu.post_list</source>
-                <target>Post list</target>
-            </trans-unit>
-            <trans-unit id="menu.back_to_blog">
-                <source>menu.back_to_blog</source>
-                <target>Back to blog</target>
-            </trans-unit>
-            <trans-unit id="menu.homepage">
-                <source>menu.homepage</source>
-                <target>Homepage</target>
-            </trans-unit>
-            <trans-unit id="menu.admin">
-                <source>menu.admin</source>
-                <target>Backend</target>
-            </trans-unit>
-            <trans-unit id="menu.logout">
-                <source>menu.logout</source>
-                <target>Logout</target>
-            </trans-unit>
-            <trans-unit id="menu.rss">
-                <source>menu.rss</source>
-                <target>Blog Posts RSS</target>
-            </trans-unit>
-            <trans-unit id="menu.search">
-                <source>menu.search</source>
-                <target>Search</target>
-            </trans-unit>
-
-            <trans-unit id="notification.comment_created">
-                <source>notification.comment_created</source>
-                <target>Your post received a comment!</target>
-            </trans-unit>
-            <trans-unit id="notification.comment_created.description">
-                <source>notification.comment_created.description</source>
-                <target><![CDATA[Your post "%title%" has received a new comment. You can read the comment by following <a href="%link%">this link</a>]]></target>
-            </trans-unit>
-
-            <trans-unit id="help.app_description">
-                <source>help.app_description</source>
-                <target><![CDATA[This is a <strong>demo application</strong> built in the Symfony Framework to illustrate the recommended way of developing Symfony applications.]]></target>
-            </trans-unit>
-            <trans-unit id="help.show_code">
-                <source>help.show_code</source>
-                <target><![CDATA[Click on this button to show the source code of the <strong>Controller</strong> and <strong>template</strong> used to render this page.]]></target>
-            </trans-unit>
-            <trans-unit id="help.browse_app">
-                <source>help.browse_app</source>
-                <target><![CDATA[Browse the <strong>public section</strong> of the demo application.]]></target>
-            </trans-unit>
-            <trans-unit id="help.browse_admin">
-                <source>help.browse_admin</source>
-                <target><![CDATA[Browse the <strong>admin backend</strong> of the demo application.]]></target>
-            </trans-unit>
-            <trans-unit id="help.login_users">
-                <source>help.login_users</source>
-                <target>Try either of the following users</target>
-            </trans-unit>
-            <trans-unit id="help.role_user">
-                <source>help.role_user</source>
-                <target>regular user</target>
-            </trans-unit>
-            <trans-unit id="help.role_admin">
-                <source>help.role_admin</source>
-                <target>administrator</target>
-            </trans-unit>
-            <trans-unit id="help.reload_fixtures">
-                <source>help.reload_fixtures</source>
-                <target>If these users don't work, reload application fixtures by running this command from the terminal:</target>
-            </trans-unit>
-            <trans-unit id="help.add_user">
-                <source>help.add_user</source>
-                <target>If you want to create new users, run this other command:</target>
-            </trans-unit>
-            <trans-unit id="help.more_information">
-                <source>help.more_information</source>
-                <target><![CDATA[For more information, check out the <a href="https://symfony.com/doc">Symfony doc</a>.]]></target>
-            </trans-unit>
-
-            <trans-unit id="rss.title">
-                <source>rss.title</source>
-                <target>Symfony Demo blog</target>
-            </trans-unit>
-            <trans-unit id="rss.description">
-                <source>rss.description</source>
-                <target>Most recent posts published on the Symfony Demo blog</target>
-            </trans-unit>
-
-            <!-- Label -->
             <trans-unit id="label.enable">
                 <source>label.enable</source>
                 <target>Enable</target>
@@ -336,6 +227,10 @@
             <trans-unit id="label.name">
                 <source>label.name</source>
                 <target>Name</target>
+            </trans-unit>
+            <trans-unit id="label.email">
+                <source>label.email</source>
+                <target>Email</target>
             </trans-unit>
             <trans-unit id="label.phone">
                 <source>label.phone</source>
@@ -374,20 +269,6 @@
                 <target>Page keyword</target>
             </trans-unit>
 
-            <!-- Action -->
-            <trans-unit id="action.created_successfully">
-                <source>action.created_successfully</source>
-                <target>Created successfully</target>
-            </trans-unit>
-            <trans-unit id="action.updated_successfully">
-                <source>action.updated_successfully</source>
-                <target>Updated successfully</target>
-            </trans-unit>
-            <trans-unit id="action.deleted_successfully">
-                <source>action.deleted_successfully</source>
-                <target>Deleted successfully</target>
-            </trans-unit>
-
             <!-- Categories -->
             <trans-unit id="title.categories">
                 <source>title.categories</source>
@@ -420,10 +301,6 @@
             <trans-unit id="newscategory.deleted_successfully">
                 <source>newscategory.deleted_successfully</source>
                 <target>News Category deleted successfully!</target>
-            </trans-unit>
-            <trans-unit id="menu.category_list">
-                <source>menu.category_list</source>
-                <target>Categories</target>
             </trans-unit>
 
             <!-- Posts -->
@@ -516,6 +393,10 @@
             <trans-unit id="menu.news_list">
                 <source>menu.news_list</source>
                 <target>All Posts</target>
+            </trans-unit>
+            <trans-unit id="menu.category_list">
+                <source>menu.category_list</source>
+                <target>Categories</target>
             </trans-unit>
             <trans-unit id="menu.tags">
                 <source>menu.tags</source>

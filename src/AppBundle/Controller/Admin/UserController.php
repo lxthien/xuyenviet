@@ -31,4 +31,13 @@ class UserController extends Controller
 
         return $this->render('admin/user/index.html.twig', ['objects' => $users]);
     }
+
+    /**
+     * @Route("/{id}/edit", name="admin_user_edit")
+     * @Method({"GET", "POST"})
+     */
+    public function editAction(Request $request)
+    {
+        
+    }
 }

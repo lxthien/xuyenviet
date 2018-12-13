@@ -42,7 +42,7 @@
                                 <tbody>
                                     {% for row in objects %}
                                     <tr>
-                                        <td><strong><a href="">{{ row.getUsername() }}</a></strong></td>
+                                        <td><strong><a href="{{ path('admin_user_edit', {id: row.id}) }}">{{ row.getUsername() }}</a></strong></td>
                                         <td>{{ row.getName() }}</td>
                                         <td>{{ row.getEmail() }}</td>
                                         <td>
