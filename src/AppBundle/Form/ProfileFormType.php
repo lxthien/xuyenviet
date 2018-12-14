@@ -5,7 +5,7 @@ namespace AppBundle\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 
-class RegistrationType extends AbstractType
+class ProfileFormType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
@@ -14,11 +14,11 @@ class RegistrationType extends AbstractType
 
     public function getParent()
     {
-        return 'FOS\UserBundle\Form\Type\RegistrationFormType';
+        return 'FOS\UserBundle\Form\Type\ProfileFormType';
     }
 
     public function getBlockPrefix()
     {
-        return 'app_user_registration';
+        return 'fos_user_profile_edit';
     }
 }

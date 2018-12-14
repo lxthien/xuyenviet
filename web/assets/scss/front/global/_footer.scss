@@ -6,6 +6,12 @@ footer {
     background-position: 50% 119.476px;
     color: $white;
 
+    h3.text-uppercase {
+        @media (max-width: 767.98px) {
+            margin-top: 20px;
+        }
+    }
+
     .footer-top {
         .about-us {
             li a {
@@ -76,9 +82,12 @@ footer {
     }
 
     .copyright {
-        height: 30px;
+        height: 45px;
         line-height: 30px;
         color: $white;
+        border-top: 1px solid $gray94;
+        margin-top: 8px;
+        padding-top: 8px;
 
         p, a {
             color: $white;
@@ -87,6 +96,25 @@ footer {
 
             @media (max-width: 767.98px) {
                 font-size: 13px;
+            }
+        }
+    }
+
+    .event-footer {
+        margin-top: 20px;
+
+        .event-footer-item {
+            h6 {
+                margin-bottom: 10px;
+                font-size: 14px;
+
+                a {
+                    color: $white;
+
+                    &:hover {
+                        color: $white;
+                    }
+                }
             }
         }
     }

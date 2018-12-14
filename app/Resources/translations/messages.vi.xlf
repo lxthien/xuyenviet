@@ -446,6 +446,10 @@
                 <source>menu.setting</source>
                 <target>Settings</target>
             </trans-unit>
+            <trans-unit id="menu.logout">
+                <source>menu.logout</source>
+                <target>Thoát</target>
+            </trans-unit>
 
             <!-- Tag -->
             <trans-unit id="title.edit_tag">
