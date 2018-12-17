@@ -24,7 +24,7 @@ monolog:
         console:
             type:  console
 
-#Disable send email on Production
+# Disable send email on Production
 swiftmailer:
     disable_delivery:  true
 

@@ -102,9 +102,6 @@ class Comment
      */
     private $updatedAt;
 
-    /**
-     * @Recaptcha\IsTrue
-     */
     public $recaptcha;
 
     public function __construct()

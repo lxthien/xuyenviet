@@ -157,11 +157,10 @@
 
 #fb-root > div.fb_dialog.fb_dialog_advanced.fb_customer_chat_bubble_animated_no_badge {
     bottom: 90px !important;
-
-    @media only screen and (max-width: 767.98px) {
-        bottom: 120px!important;
-        right: 10px !important;
-    }
+}
+#fb-root > div.fb_dialog.fb_dialog_mobile.fb_customer_chat_bubble_animated_no_badge {
+    bottom: 120px!important;
+    right: 10px !important;
 }
 .fb-customerchat.fb_invisible_flow.fb_iframe_widget iframe {
     bottom: 160px !important;

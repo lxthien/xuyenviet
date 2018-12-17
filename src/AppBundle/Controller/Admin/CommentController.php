@@ -79,7 +79,8 @@ class CommentController extends Controller
         $replyComment->setNewsId( $comment->getNewsId() );
         $replyComment->setCommentId( $comment->getId() );
         $replyComment->setEmail( $this->getUser()->getEmail() );
-        $replyComment->setAuthor( $this->getUser()->getFullName() );
+        $replyComment->setApproved( true );
+        $replyComment->setAuthor( $this->getUser()->getName() );
         $replyComment->setIp( $this->container->get('request_stack')->getCurrentRequest()->getClientIp() );
 
         $form = $this->createForm(CommentType::class, $replyComment);
@@ -91,6 +92,14 @@ class CommentController extends Controller
             $em = $this->getDoctrine()->getManager();
             $em->persist($replyComment);
             $em->flush();
+
+            if (!$comment->getApproved()) {
+                $comment->setApproved( true );
+                
+                $em = $this->getDoctrine()->getManager();
+                $em->persist($comment);
+                $em->flush();
+            }
 
             $this->addFlash('success', 'action.updated_successfully');
             
