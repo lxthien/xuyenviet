@@ -122,5 +122,17 @@
             </div>
         </div>
         {% endfor %}
+        <div class="row">
+            <div class="col-md-12 title-list-news-items">
+                <h1 class="text-center text-uppercase">Dự toán chi phí xây dựng</h1>
+                <span class="text-center block-underline"></span>
+                <p>Dễ dàng dự toán chi phí trước khi xây dựng nhà cùng công ty Xây Dựng Minh Duy</p>
+            </div>
+            <div class="col-12">
+                {{ render(controller(
+                    'AppBundle:News:caculatorCostConstruction', {type: 'page'}
+                )) }}
+            </div>
+        </div>
     </div>
 {% endblock %}

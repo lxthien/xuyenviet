@@ -1,0 +1,109 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %}{{ post.getPageTitle() is not null ? post.getPageTitle() : post.getTitle() }}{% endblock %}
+{% block description %}{{ post.getPageDescription() is not null ? post.getPageDescription() : post.getDescription() }}{% endblock %}
+{% block keyword %}{{ post.getPageKeyword() }}{% endblock %}
+
+{% block body %}
+    <div class="container wrapper-container costs">
+        {# breadcrumbs #}
+        {{ include('news/components/breadcrumbs.html.twig') }}
+
+        <div class="row">
+            <div class="col-12 col-md-12 col-lg-8">
+                {% for message in app.flashes('error') %}
+                    <div class="alert alert-danger" role="alert">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+                
+                {{ form_start(form) }}
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            {{ form_label(form.type) }}
+                            {{ form_errors(form.type) }}
+                            {{ form_widget(form.type) }}
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            {{ form_label(form.method) }}
+                            {{ form_errors(form.method) }}
+                            {{ form_widget(form.method) }}
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            {{ form_label(form.wide) }}
+                            {{ form_errors(form.wide) }}
+                            {{ form_widget(form.wide) }}
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            {{ form_label(form.long) }}
+                            {{ form_errors(form.long) }}
+                            {{ form_widget(form.long) }}
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            {{ form_label(form.floor) }}
+                            {{ form_errors(form.floor) }}
+                            {{ form_widget(form.floor) }}
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            {{ form_label(form.mong) }}
+                            {{ form_errors(form.mong) }}
+                            {{ form_widget(form.mong) }}
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            {{ form_label(form.mai) }}
+                            {{ form_errors(form.mai) }}
+                            {{ form_widget(form.mai) }}
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            {{ form_widget(form.reset) }}
+                            {{ form_widget(form.caculator) }}
+                        </div>
+                    </div>
+                </div>
+                {{ form_end(form) }}
+
+                {% if costs is not null %}
+                <div class="row costs-result">
+                    <div class="col-md-12">
+                        <h1 class="text-uppercase">Kết quả tính diện tích và chi phí</h1>
+                        <p><span>Diện tích tầng trệt:</span> {{ costs.area }} m<sup>2</sup></p>
+                        {% if costs.floor > 1 %}
+                            {% for i in range(1, costs.floor - 1) %}
+                            <p><span>Diện tích tầng {{ i }}:</span> {{ costs.area }} m<sup>2</sup></p>
+                            {% endfor %}
+                        {% endif %}
+                        <p><span>{{ costs.titleMong }}:</span> {{ costs.areaMong }} m<sup>2</sup></p>
+                        <p><span>{{ costs.titleMai }}:</span> {{ costs.areaMai }} m<sup>2</sup></p>
+                        <p><span>Tổng diện tích:</span> {{ costs.areaTotal }} m<sup>2</sup></p>
+                        <p><span>{{ costs.title }}:</span> {{ costs.cost|number_format(0, '.', ',') }} <sup>đ</sup></p>
+                        <p><span>Chi phí dự kiến:</span> {{ costs.costTotal|number_format(0, '.', ',') }} <sup>đ</sup></p>
+                        <p><i><strong>Lưu ý: {{ costs.note|raw }}</strong></i></p>
+                    </div>
+                </div>
+                {% endif %}
+            </div>
+
+            {# Side bar #}
+            {{ include('layout/sidebar.html.twig') }}
+        </div>
+
+        {{ render(controller(
+            'AppBundle:News:listNewsByCategory', { 'categoryId': 2 }
+        )) }}
+    </div>
+{% endblock %}

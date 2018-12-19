@@ -17,6 +17,7 @@
                                     <tr>
                                         <th>{{ 'label.author'|trans }}</th>
                                         <th>{{ 'label.response.on.post'|trans }}</th>
+                                        <th>{{ 'label.status'|trans }}</th>
                                         <th>{{ 'label.published_at'|trans }}</th>
                                         <th>{{ 'label.actions'|trans }}</th>
                                     </tr>
@@ -33,13 +34,20 @@
                                                 <a href="{{ path('admin_news_edit', {id: row.getNewsId()}) }}"><strong>{{ row.getNews() }}</strong><a>
                                                 <p>{{ row.getContent()|striptags|slice(0, 200)|raw }}</p>
                                             </td>
+                                            <td>
+                                                <label class="switch switch-text switch-primary switch-pill">
+                                                    <input type="checkbox" class="switch-input" {{ row.getApproved() ? 'checked="true"' : '' }}>
+                                                    <span data-on="On" data-off="Off" class="switch-label"></span>
+                                                    <span class="switch-handle"></span>
+                                                </label>
+                                            </td>
                                             <td>{{ row.getCreatedAt() | localizeddate('medium', 'none', null, 'Asia/Ho_Chi_Minh', 'd/M/YYYY') }}</td>
                                             <td>
                                                 <div class="item-actions">
-                                                    <a href="{{ path('admin_comment_edit', {id: row.id}) }}" class="btn-sm">
+                                                    <a href="{{ path('admin_comment_edit', {id: row.id}) }}" class="btn-sm btn-edit">
                                                         <i class="fa fa-edit" aria-hidden="true"></i>
                                                     </a>
-                                                    <a href="{{ path('admin_comment_reply', {id: row.id}) }}" class="btn-sm">
+                                                    <a href="{{ path('admin_comment_reply', {id: row.id}) }}" class="btn-sm btn-reply">
                                                         <i class="fa fa-reply" aria-hidden="true"></i>
                                                     </a>
 

@@ -13,8 +13,9 @@
     }
 
     td .item-actions {
-        .btn-edit {
-            padding: 5px;
+        .btn-edit,
+        .btn-reply {
+            padding: 5px 3px;
         }
 
         .modal.fade {

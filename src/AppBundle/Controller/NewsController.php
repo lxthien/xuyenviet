@@ -11,8 +11,10 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\HiddenType;
+use Symfony\Component\Form\Extension\Core\Type\ResetType;
 use Symfony\Component\Form\Extension\Core\Type\ButtonType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 
 use AppBundle\Entity\NewsCategory;
 use AppBundle\Entity\News;
@@ -505,5 +507,204 @@ class NewsController extends Controller
         }
 
         return $breadcrumbs;
+    }
+
+    /**
+     * @Route("/chi-phi-xay-dung", name="caculator_cost_construction")
+     * 
+     */
+    public function caculatorCostConstructionAction($type = null, Request $request) {
+        $form = $this->createFormBuilder(null, array(
+                'csrf_protection' => false,
+            ))
+            ->setAction($this->generateUrl('caculator_cost_construction'))
+            ->setMethod('POST')
+            ->add('type', ChoiceType::class, array(
+                'choices'  => array(
+                    'Nhà phố' => 1,
+                    'Biệt thự' => 2,
+                    'Nhà cấp 4' => 3,
+                ),
+                'label' => 'Loại nhà'
+            ))
+            ->add('method', ChoiceType::class, array(
+                'choices'  => array(
+                    'Xây dựng phần thô' => 1,
+                    'Xây dựng trọn gói' => 2,
+                ),
+                'label' => 'Hình thức xây dựng'
+            ))
+            ->add('wide', TextType::class, array(
+                'label' => 'Chiều rộng (m)',
+                'attr' => array(
+                    'placeholder' => 'VD: Nhập 4 hoặc 4.5'
+                )
+            ))
+            ->add('long', TextType::class, array(
+                'label' => 'Chiều dài (m)',
+                'attr' => array(
+                    'placeholder' => 'VD: Nhập 12 hoặc 12.3'
+                )
+            ))
+            ->add('floor', ChoiceType::class, array(
+                'choices'  => array(
+                    '1 trệt' => 1,
+                    '1 trệt 1 lầu' => 2,
+                    '1 trệt 2 lầu' => 3,
+                    '1 trệt 3 lầu' => 4,
+                    '1 trệt 4 lầu' => 5,
+                    '1 trệt 5 lầu' => 6,
+                    '1 trệt 6 lầu' => 7,
+                ),
+                'label' => 'Số tầng'
+            ))
+            ->add('mong', ChoiceType::class, array(
+                'choices'  => array(
+                    'Móng đài cọc' => 1,
+                    'Móng băng' => 2,
+                    'Móng đơn' => 3,
+                ),
+                'label' => 'Móng nhà'
+            ))
+            ->add('mai', ChoiceType::class, array(
+                'choices'  => array(
+                    'Mái bằng đúc BTCT' => 1,
+                    'Mái lợp tôn lạnh' => 2,
+                    'Mái xà gồ thép lợp ngói' => 3,
+                    'Mái đúc BTCT lợp ngói' => 4,
+                ),
+                'label' => 'Mái nhà'
+            ))
+            ->add('reset', ResetType::class, array(
+                'label' => 'Nhập lại'
+            ))
+            ->add('caculator', SubmitType::class, array(
+                'label' => 'Dự toán chi phí'
+            ))
+            ->getForm();
+
+        $form->handleRequest($request);
+
+        $costs = [];
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $type = $form->get('type')->getData();
+            $method = $form->get('method')->getData();
+            $long = $form->get('long')->getData();
+            $wide = $form->get('wide')->getData();
+            $floor = $form->get('floor')->getData();
+            $mong = $form->get('mong')->getData();
+            $mai = $form->get('mai')->getData();
+            $cost = 0;
+            $title = '';
+            $titleMong = '';
+            $areaMong = 0;
+            $titleMai = '';
+            $areaMai = 0;
+            $note = 'Chi phí xây dựng trên chỉ áp dụng đối với diện tích xây dựng 80 m<sup>2</sup>/1sàn trở lên. Áp dụng với các nhà phố thông dụng không có các kiến trúc kết cấu đặc biệt.';
+
+            if (!is_numeric($long) || !is_numeric($wide) || !is_numeric($type) || !is_numeric($method) || !is_numeric($floor) || !is_numeric($mong) || !is_numeric($mai)) {
+                $this->addFlash(
+                    'error',
+                    "Vui lòng nhập đúng dữ liệu"
+                );
+                return $this->redirectToRoute('caculator_cost_construction');
+            }
+
+            $area = $long * $wide;
+
+            if ($type === 1) {
+                if ($method === 1) {
+                    $cost = 2950000;
+                    $title = "Đơn giá nhà phố phần thô";
+                } else {
+                    $cost = 4600000;
+                    $title = "Đơn giá nhà phố trọn gói";
+                }
+            } elseif ($type === 3) {
+                if ($method === 1) {
+                    $cost = 2800000;
+                    $title = "Đơn giá nhà cấp 4 phần thô";
+                } else {
+                    $cost = 3900000;
+                    $title = "Đơn giá nhà cấp 4 trọn gói";
+                }
+            } else {
+                if ($method === 1) {
+                    $cost = 3200000;
+                    $title = "Đơn giá biệt thự phần thô";
+                } else {
+                    $cost = 6000000;
+                    $title = "Đơn giá biệt thự trọn gói";
+                }
+            }
+
+            if ($mong === 1) {
+                $titleMong = "Móng đài cọc";
+                $areaMong = $area * 0.5;
+            } elseif ($mong === 2) {
+                $titleMong = "Móng băng";
+                $areaMong = $area * 5.5;
+            } else {
+                $titleMong = "Móng đơn";
+                $areaMong = $area * 0.3;
+            }
+
+            if ($mai === 1) {
+                $titleMai = "Mái bằng đúc BTCT";
+                $areaMai = $area * 0.4;
+            } elseif ($mai === 2) {
+                $titleMai = "Mái lợp tôn lạnh";
+                $areaMai = $area * 0.25;
+            } elseif ($mai === 3) {
+                $titleMai = "Mái xà gồ thép lợp ngói";
+                $areaMai = $area * 0.7;
+            } else {
+                $titleMai = "Mái đúc BTCT lợp ngói";
+                $areaMai = $area * 1;
+            }
+
+            $areaTotal = ($area * $floor) + $areaMong + $areaMai;
+            
+            $costs = (object) array(
+                'area' => $area,
+                'floor' => $floor,
+                'titleMong' => $titleMong,
+                'areaMong' => $areaMong,
+                'titleMai' => $titleMai,
+                'areaMai' => $areaMai,
+                'areaTotal' => $areaTotal,
+                'cost' => $cost,
+                'costTotal' => $cost * $areaTotal,
+                'title' => $title,
+                'note' => $note
+            );
+        }
+
+        $breadcrumbs = $this->get("white_october_breadcrumbs");
+        $breadcrumbs->addItem("home", $this->generateUrl("homepage"));
+        $breadcrumbs->addItem('Dự toán chi phí xây dựng');
+
+        $post = $this->getDoctrine()
+            ->getRepository(News::class)
+            ->findOneBy(
+                array('url' => 'chi-phi-xay-dung')
+            );
+
+        if (!empty($type) && $type === 'page') {
+            return $this->render('form/caculatorcost/page.html.twig', [
+                'form' => $form->createView()
+            ]);
+        } elseif (!empty($type) && $type === 'sidebar') {
+            return $this->render('form/caculatorcost/sidebar.html.twig', [
+                'form' => $form->createView()
+            ]);
+        } else {
+            return $this->render('form/caculatorcost/caculator.html.twig', [
+                'form' => $form->createView(),
+                'costs' => $costs ? $costs : null,
+                'post' => $post
+            ]);
+        }
     }
 }

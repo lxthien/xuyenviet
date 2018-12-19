@@ -46,6 +46,24 @@ class Builder implements ContainerAwareInterface
         $menu->addChild('Xây dựng', [
             'route' => 'news_category',
             'routeParameters' => ['level1' => 'xay-dung']
+        ])
+        ->setAttribute('class', 'dropdown')
+        ->setLinkAttribute('class', 'dropdown-toggle')
+        ->setLinkAttribute('data-toggle', 'dropdown')
+        ->setChildrenAttribute('class', 'dropdown-menu');
+
+        $menu['Xây dựng']->addChild('Nhà phố', [
+            'route' => 'news_category',
+            'routeParameters' => ['level1' => 'xay-dung']
+        ]);
+
+        $menu['Xây dựng']->addChild('Dự toán chi phí', [
+            'route' => 'caculator_cost_construction'
+        ]);
+
+        $menu['Xây dựng']->addChild('Chính sách bảo hành', [
+            'route' => 'news_show',
+            'routeParameters' => ['slug' => 'chinh-sach-bao-hanh']
         ]);
 
         $menu->addChild('Thiết kế', [

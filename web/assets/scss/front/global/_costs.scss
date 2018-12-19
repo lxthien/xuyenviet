@@ -1,0 +1,45 @@
+.costs {
+    .control-label {
+        font-size: 16px;
+    }
+
+    .form-control {
+        border-width: 1px;
+        height: 38px;
+        padding: 0px 10px;
+    }
+
+    button {
+        border-width: 0px;
+        background-color: $primaryColor;
+        margin-top: 8px;
+    }
+
+    .costs-result {
+        h1 {
+            font-size: 28px;
+            margin-top: 30px;
+            position: relative;
+
+            &:before {
+                position: absolute;
+                bottom: -3px;
+                left: 0;
+                content: "";
+                width: 120px;
+                height: 2px;
+                background: $primaryColor;
+            }
+        }
+
+        p {
+            margin-bottom: 10px;
+
+            span {
+                display: inline-block;
+                width: 35%;
+                font-weight: bold;
+            }
+        }
+    }
+}
