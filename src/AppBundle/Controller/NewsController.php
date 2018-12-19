@@ -199,9 +199,9 @@ class NewsController extends Controller
             ->innerJoin('n.tags', 't')
             ->where('t.id = :tags_id')
             ->setParameter('tags_id', $tag->getId())
+            ->orderBy('n.createdAt', 'DESC')
             ->getQuery()->getResult();
 
-        
         $paginator  = $this->get('knp_paginator');
         $pagination = $paginator->paginate(
             $posts,
@@ -644,7 +644,7 @@ class NewsController extends Controller
                 $areaMong = $area * 0.5;
             } elseif ($mong === 2) {
                 $titleMong = "Móng băng";
-                $areaMong = $area * 5.5;
+                $areaMong = $area * 0.55;
             } else {
                 $titleMong = "Móng đơn";
                 $areaMong = $area * 0.3;
