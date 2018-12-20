@@ -80,6 +80,25 @@ function initFixedMenu() {
     });
 }
 
+function initCostConstruction() {
+    var $formType = $('.costs #form_type');
+    var $formFloor = $('.costs #form_floor');
+
+    if ($formType.val() == 3) {
+        $formFloor.val(1);
+        $formFloor.attr('disabled', 'disabled');
+    }
+
+    $formType.change(function(e) {
+        if ($(this).val() == 3) {
+            $formFloor.val(1);
+            $formFloor.attr('disabled', 'disabled');
+        } else {
+            $formFloor.removeAttr('disabled');
+        }
+    })
+}
+
 exports.init = function () {
     initSearchBox();
     initProjectHotSlider();
@@ -87,4 +106,5 @@ exports.init = function () {
     initProtectedContent();
     initGoToTop();
     initFixedMenu();
+    initCostConstruction();
 };

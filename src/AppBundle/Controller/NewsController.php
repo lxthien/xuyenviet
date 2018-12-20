@@ -592,7 +592,7 @@ class NewsController extends Controller
             $method = $form->get('method')->getData();
             $long = $form->get('long')->getData();
             $wide = $form->get('wide')->getData();
-            $floor = $form->get('floor')->getData();
+            $floor = $form->get('floor')->getData() ? $form->get('floor')->getData() : 1;
             $mong = $form->get('mong')->getData();
             $mai = $form->get('mai')->getData();
             $cost = 0;
@@ -623,7 +623,7 @@ class NewsController extends Controller
                 }
             } elseif ($type === 3) {
                 if ($method === 1) {
-                    $cost = 2800000;
+                    $cost = 2750000;
                     $title = "Đơn giá nhà cấp 4 phần thô";
                 } else {
                     $cost = 3900000;
@@ -639,32 +639,47 @@ class NewsController extends Controller
                 }
             }
 
+            if ($type !== 3) {
+                if ($mong === 1) {
+                    $areaMong = $area * 0.5;
+                } elseif ($mong === 2) {
+                    $areaMong = $area * 0.55;
+                } else {
+                    $areaMong = $area * 0.3;
+                }
+
+                if ($mai === 1) {
+                    $areaMai = $area * 0.4;
+                } elseif ($mai === 2) {
+                    $areaMai = $area * 0.25;
+                } elseif ($mai === 3) {
+                    $areaMai = $area * 0.7;
+                } else {
+                    $areaMai = $area * 1;
+                }
+
+                $areaTotal = ($area * $floor) + $areaMong + $areaMai;
+            } else {
+                $areaTotal = $area;
+            }
+
             if ($mong === 1) {
                 $titleMong = "Móng đài cọc";
-                $areaMong = $area * 0.5;
             } elseif ($mong === 2) {
                 $titleMong = "Móng băng";
-                $areaMong = $area * 0.55;
             } else {
                 $titleMong = "Móng đơn";
-                $areaMong = $area * 0.3;
             }
 
             if ($mai === 1) {
                 $titleMai = "Mái bằng đúc BTCT";
-                $areaMai = $area * 0.4;
             } elseif ($mai === 2) {
                 $titleMai = "Mái lợp tôn lạnh";
-                $areaMai = $area * 0.25;
             } elseif ($mai === 3) {
                 $titleMai = "Mái xà gồ thép lợp ngói";
-                $areaMai = $area * 0.7;
             } else {
                 $titleMai = "Mái đúc BTCT lợp ngói";
-                $areaMai = $area * 1;
             }
-
-            $areaTotal = ($area * $floor) + $areaMong + $areaMai;
             
             $costs = (object) array(
                 'area' => $area,
