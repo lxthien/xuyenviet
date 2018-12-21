@@ -529,8 +529,8 @@ class NewsController extends Controller
             ))
             ->add('method', ChoiceType::class, array(
                 'choices'  => array(
-                    'Xây dựng phần thô' => 1,
-                    'Xây dựng trọn gói' => 2,
+                    'Xây phần thô' => 1,
+                    'Xây trọn gói' => 2,
                 ),
                 'label' => 'Hình thức xây dựng'
             ))
