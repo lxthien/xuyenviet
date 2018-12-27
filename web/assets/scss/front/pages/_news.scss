@@ -111,12 +111,12 @@
             
             span {
                 background-color: $mineShaft;
-                padding: 5px 9px;
+                padding: 5px 8px;
                 color: $white;
                 display: block;
-                line-height: 10px;
+                line-height: 16px;
                 float: left;
-                height: 20px;
+                height: 25px;
             }
 
             a {
@@ -124,12 +124,13 @@
                 float: left;
                 border: 1px solid $gallery;
                 margin-left: 4px;
-                line-height: 8px;
+                line-height: 15px;
                 padding: 5px 8px;
-                height: 20px;
+                height: 25px;
 
                 &:hover {
                     text-decoration: none;
+                    border: 1px solid $primaryColor;
                     background: $primaryColor;
                     color: $white;
                 }
@@ -185,23 +186,20 @@
             }
     
             a.related-title {
-                padding: 10px 10px 0 10px;
+                padding: 10px 8px;
+                font-size: 16px;
                 line-height: 26px;
-                font-size: 18px;
-                letter-spacing: -0.2px;
-                height: 90px;
-                display: -webkit-box;
-                -webkit-line-clamp: 3;
-                -webkit-box-orient: vertical;
+                height: 67px;
+                max-height: 67px;
+                color: #0f4224;
                 overflow: hidden;
-                margin-bottom: 10px;
-    
+                text-overflow: ellipsis;
+                display: -webkit-box;
+                -webkit-line-clamp: 2;
+                -webkit-box-orient: vertical;
+
                 &:hover {
                     text-decoration: none;
-                }
-
-                @media only screen and (max-width: 767.98px) {
-                    height: auto;
                 }
             }
         }
@@ -214,48 +212,67 @@
     margin-top: 20px;
     margin-bottom: 20px;
 
-    .media {
-        margin-top: 10px;
+    & > h4 {
+        font-size: 26px;
+        position: relative;
 
-        &.first-child {
-            margin-top: 2px;
+        &:before {
+            position: absolute;
+            bottom: -3px;
+            left: 0;
+            content: "";
+            width: 90px;
+            height: 3px;
+            background: $primaryColor;
         }
+    }
 
-        .media-left {
-            @media only screen and (max-width: 767.98px) {
-                margin-right: 5px;
+    .media-list {
+        .media {
+            border-top: 1px dotted $gallery;
+            margin-top: 10px;
+            padding-top: 10px;
+
+            &.first {
+                border-top: none;
             }
-
-            img {
-                width: 65px;
-                max-width: none;
-
+    
+            .media-left {
                 @media only screen and (max-width: 767.98px) {
-                    width: 50px;
+                    margin-right: 5px;
+                }
+    
+                img {
+                    width: 65px;
+                    max-width: none;
+    
+                    @media only screen and (max-width: 767.98px) {
+                        width: 50px;
+                    }
                 }
             }
-        }
-
-        .media-body {
-            h5 {
-                font-weight: 700;
-                font-size: 16px;
-                margin-bottom: 2px;
-            }
-
-            .comment-container {
-                font-size: 15px;
-            }
-
-            .comment-container p {
-                font-size: 14px;
-                margin-bottom: 0px;
-            }
-
-            a.comment-reply-link {
-                font-size: 14px;
-                color: $mineShaft;
-                text-decoration: underline;
+    
+            .media-body {
+                h5 {
+                    font-weight: 700;
+                    font-size: 16px;
+                    margin-bottom: 2px;
+                }
+    
+                .comment-container {
+                    font-size: 15px;
+                }
+    
+                .comment-container p {
+                    font-size: 14px;
+                    margin-bottom: 0px;
+                }
+    
+                a.comment-reply-link {
+                    font-size: 14px;
+                    color: $mineShaft;
+                    text-decoration: underline;
+                }
             }
         }
     }
@@ -281,13 +298,20 @@
 
     #form-comment {
         .form-group {
-            .form-control {
+            .form-control,
+            input {
                 border-width: 1px;
+                height: 40px;
+                padding: 5px 15px;
 
                 &.error {
                     border: 1px solid $red;
-                    padding: 0 15px;
+                    padding: 5px 15px;
                 }
+            }
+
+            textarea.form-control {
+                height: 100px;
             }
 
             label.error {

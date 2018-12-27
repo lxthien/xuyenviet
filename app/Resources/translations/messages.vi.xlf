@@ -535,7 +535,7 @@
 
             <trans-unit id="comments.count">
                 <source>comments.count</source>
-                <target>%count% Bình luận</target>
+                <target>Có %count% bình luận</target>
             </trans-unit>
             <trans-unit id="comment.leave_your_comment_below">
                 <source>comment.leave_your_comment_below</source>
