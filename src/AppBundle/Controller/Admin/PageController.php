@@ -1,14 +1,5 @@
 <?php
 
-/*
- * This file is part of the Symfony package.
- *
- * (c) Fabien Potencier <fabien@symfony.com>
- *
- * For the full copyright and license information, please view the LICENSE
- * file that was distributed with this source code.
- */
-
 namespace AppBundle\Controller\Admin;
 
 use AppBundle\Entity\News;
@@ -73,7 +64,9 @@ class PageController extends Controller
                 return $this->redirectToRoute('admin_page_new');
             }
 
-            return $this->redirectToRoute('admin_page_index');
+            return $this->redirectToRoute('admin_page_edit', array(
+                'id' => $news->getId()
+            ));
         }
 
         return $this->render('admin/page/new.html.twig', [
@@ -98,7 +91,9 @@ class PageController extends Controller
             $this->getDoctrine()->getManager()->flush();
             $this->addFlash('success', 'action.updated_successfully');
 
-            return $this->redirectToRoute('admin_page_index');
+            return $this->redirectToRoute('admin_page_edit', array(
+                'id' => $news->getId()
+            ));
         }
 
         return $this->render('admin/page/edit.html.twig', [

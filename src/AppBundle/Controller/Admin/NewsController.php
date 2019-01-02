@@ -74,7 +74,9 @@ class NewsController extends Controller
                 return $this->redirectToRoute('admin_news_new');
             }
 
-            return $this->redirectToRoute('admin_news_index');
+            return $this->redirectToRoute('admin_news_edit', array(
+                'id' => $news->getId()
+            ));
         }
 
         return $this->render('admin/news/new.html.twig', [
@@ -101,7 +103,9 @@ class NewsController extends Controller
             $this->getDoctrine()->getManager()->flush();
             $this->addFlash('success', 'action.updated_successfully');
 
-            return $this->redirectToRoute('admin_news_index');
+            return $this->redirectToRoute('admin_news_edit', array(
+                'id' => $news->getId()
+            ));
         }
 
         return $this->render('admin/news/edit.html.twig', [
