@@ -129,13 +129,19 @@ class NewsController extends Controller
      *          "slug": "[^/\.]++"
      *      })
      */
-    public function showAction($slug)
+    public function showAction($slug, Request $request)
     {
-        $post = $this->getDoctrine()
-            ->getRepository(News::class)
-            ->findOneBy(
-                array('url' => $slug, 'enable' => 1)
-            );
+        if ($request->query->get('preview') === false || $request->query->get('preview_id') === null) {
+            $post = $this->getDoctrine()
+                ->getRepository(News::class)
+                ->findOneBy(
+                    array('url' => $slug, 'enable' => 1)
+                );
+        } else {
+            $post = $this->getDoctrine()
+                ->getRepository(News::class)
+                ->find($request->query->get('preview_id'));
+        }
 
         if (!$post) {
             throw $this->createNotFoundException("The item does not exist");

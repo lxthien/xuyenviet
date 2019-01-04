@@ -63,7 +63,7 @@ framework:
 
 # Twig Configuration (used for rendering application templates)
 twig:
-    cache: true
+    cache: false
     debug:            '%kernel.debug%'
     strict_variables: '%kernel.debug%'
     form_themes:
