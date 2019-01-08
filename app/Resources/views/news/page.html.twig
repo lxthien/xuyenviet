@@ -5,7 +5,7 @@
 {% block keyword %}{{ post.getPageKeyword() }}{% endblock %}
 
 {% block body %}
-    <div class="container">
+    <div class="container page">
         {{ include('news/components/listPrices.html.twig') }}
 
         {# breadcrumbs #}
@@ -42,8 +42,11 @@
                         {{ post.getContents()|raw }}
                     </div>
 
-                    {# Social share #}
-                    {{ include('news/components/share.html.twig') }}
+                    {# Rating and Share #}
+                    <div class="rating-share-container">
+                        {{ include('news/rating/rating.html.twig') }}
+                        {{ include('news/components/share.html.twig') }}
+                    </div>
 
                     {# List comments #}
                     {{ include('news/comments/list.html.twig') }}

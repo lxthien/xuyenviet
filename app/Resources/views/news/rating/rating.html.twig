@@ -1,0 +1,26 @@
+<div class="rating-container">
+    {{ ratingValue|rating }} <a href="form-rating-container" id="rating"><span class="rating-count">{{ ratingCount }} đánh giá</span></a>
+</div>
+<script type="application/ld+json">
+    {
+        "@context": "http://schema.org/",
+        "@type": "AggregateRating",
+        "name": "{{ post.getTitle() }}",
+        "ratingValue": {{ ratingValue }},
+        "ratingCount" : {{ ratingCount }},
+        "bestRating" : 5,
+        "worstRating" : 1,
+        "itemReviewed": {
+            "@type": "CreativeWork"
+        }
+    }
+</script>
+
+<div style="display:none">
+    <div id="form-rating-container">
+        <form action="{{ path('rating') }}" id="form-rating" data-news-id="{{ post.getId() }}">
+            {{ form_widget(formRating.rating) }}
+        </form>
+        <p class="rating-message"></p>
+    </div>
+</div>

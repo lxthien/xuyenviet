@@ -10,6 +10,8 @@ $web-font-path: 'data:text/css;base64,';
 @import "~highlight.js/styles/solarized-light.css";
 
 @import '~bxslider/dist/jquery.bxslider.css';
+@import '~@fancyapps/fancybox/dist/jquery.fancybox.css';
+@import '../../libs/starrating/css/rating.css';
 
 // pick the Lato fonts individually to avoid importing the entire font family
 @import '~lato-font/scss/public-api';
