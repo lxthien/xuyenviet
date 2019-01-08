@@ -20,6 +20,9 @@ use AppBundle\Entity\NewsCategory;
 use AppBundle\Entity\News;
 use AppBundle\Entity\Comment;
 use AppBundle\Entity\Tag;
+use AppBundle\Entity\Rating;
+
+use blackknight467\StarRatingBundle\Form\RatingType as RatingType;
 
 use EWZ\Bundle\RecaptchaBundle\Form\Type\EWZRecaptchaType;
 use EWZ\Bundle\RecaptchaBundle\Validator\Constraints\IsTrue as RecaptchaTrue;
@@ -181,6 +184,26 @@ class NewsController extends Controller
         // Render form comment for post.
         $form = $this->renderFormComment($post);
 
+        // Render form rating for post.
+        $formRating = $this->createFormBuilder(null, array(
+                'csrf_protection' => false,
+            ))
+            ->setAction($this->generateUrl('rating'))
+            ->add('rating', RatingType::class)
+            ->getForm();
+
+
+        // Get rating of the post
+        $repositoryRating = $this->getDoctrine()->getManager();
+
+        $queryRating = $repositoryRating->createQuery(
+            'SELECT AVG(r.rating) as ratingValue, COUNT(r) as ratingCount
+            FROM AppBundle:Rating r
+            WHERE r.news_id = :news_id'
+        )->setParameter('news_id', $post->getId());
+
+        $rating = $queryRating->setMaxResults(1)->getOneOrNullResult();
+
         // Init breadcrum for the post
         $breadcrumbs = $this->buildBreadcrums(null, $post, null);
 
@@ -188,6 +211,9 @@ class NewsController extends Controller
             return $this->render('news/page.html.twig', [
                 'post'          => $post,
                 'form'          => $form->createView(),
+                'formRating'    => $formRating->createView(),
+                'ratingValue'   => round($rating['ratingValue']),
+                'ratingCount'   => round($rating['ratingCount']),
                 'comments'      => $comments
             ]);
         } else {
@@ -195,6 +221,9 @@ class NewsController extends Controller
                 'post'          => $post,
                 'relatedNews'   => $relatedNews,
                 'form'          => $form->createView(),
+                'formRating'    => $formRating->createView(),
+                'ratingValue'   => round($rating['ratingValue']),
+                'ratingCount'   => round($rating['ratingCount']),
                 'comments'      => $comments,
             ]);
         }
@@ -307,6 +336,33 @@ class NewsController extends Controller
         return $this->render('news/listByCategory.html.twig', [
             'posts' => $posts,
         ]);
+    }
+
+    /**
+     * @Route("/rating", name="rating")
+     * 
+     * @return JSON
+     */
+    public function ratingAction(Request $request)
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $rating = new Rating();
+        $rating->setNewsId($request->request->get('newsId'));
+        $rating->setRating($request->request->get('rating'));
+
+        $em->persist($rating);
+
+        $em->flush();
+        
+        return new Response(
+            json_encode(
+                array(
+                    'status'=>'success',
+                    'message' => 'Cảm ơn đánh giá của bạn'
+                )
+            )
+        );
     }
 
     /**
@@ -493,7 +549,7 @@ class NewsController extends Controller
      * 
      * @return Breadcrums
      **/
-    public function buildBreadcrums($category = null, $post = null, $page = null)
+    private function buildBreadcrums($category = null, $post = null, $page = null)
     {
         // Init october breadcrum
         $breadcrumbs = $this->get("white_october_breadcrumbs");

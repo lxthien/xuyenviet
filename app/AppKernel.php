@@ -42,6 +42,7 @@ class AppKernel extends Kernel
             new WhiteOctober\BreadcrumbsBundle\WhiteOctoberBreadcrumbsBundle(),
             new EWZ\Bundle\RecaptchaBundle\EWZRecaptchaBundle(),
             new FOS\UserBundle\FOSUserBundle(),
+            new blackknight467\StarRatingBundle\StarRatingBundle(),
         ];
 
         // Some bundles are only used while developing the application or during

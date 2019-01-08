@@ -49,11 +49,14 @@
                         {{ post.getContents()|raw }}
                     </div>
 
-                    {# Social share #}
-                    {{ include('news/components/share.html.twig') }}
-
                     {# List tags #}
                     {{ include('news/components/tags.html.twig') }}
+
+                    {# Rating and Share #}
+                    <div class="rating-share-container">
+                        {{ include('news/rating/rating.html.twig') }}
+                        {{ include('news/components/share.html.twig') }}
+                    </div>
 
                     {# Related news #}
                     {{ include('news/components/related.html.twig') }}

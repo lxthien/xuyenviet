@@ -98,7 +98,7 @@
 ------------------------------------------------------------------------- */
 .tags {
     display: flex;
-    margin: 10px 0;
+    margin: 20px 0 5px;
     font-size: 12px;
 
     ul {
@@ -141,8 +141,24 @@
 
 /* News Share
 ------------------------------------------------------------------------- */
-.social-share {
-    margin: 20px 0 10px;
+.rating-share-container {
+    border-top: 1px solid $gallery;
+    border-bottom: 1px solid $gallery;
+    padding: 10px 0;
+    margin: 10px 0 20px;
+
+    .social-share {
+        .addthis_inline_share_toolbox_j0vv {
+            display: inline-block;
+        }
+    }
+}
+
+#form-rating-container {
+    .rating-message {
+        color: $primaryColor;
+        margin: 0;
+    }
 }
 
 /* News Related
@@ -208,6 +224,12 @@
 
 /* Comment
 ------------------------------------------------------------------------- */
+.page {
+    #list-comments {
+        margin-top: 0px;
+    }
+}
+
 #list-comments {
     margin-top: 20px;
     margin-bottom: 20px;
