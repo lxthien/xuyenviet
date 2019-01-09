@@ -23,6 +23,9 @@
                 <div class="news" itemscope itemtype="http://schema.org/Article">
                     {# Begin google snippet #}
                     <meta itemscope itemprop="mainEntityOfPage" itemType="https://schema.org/WebPage" itemid="{{ absolute_url(path('news_show', {'slug': post.getUrl() })) }}"/>
+                    <div itemprop="author" itemscope itemtype="https://schema.org/Person">
+                        <meta itemprop="name" content="{{ get_setting('siteName') }}"/>
+                    </div>
                     <div itemprop="image" itemscope itemtype="https://schema.org/ImageObject">
                         <meta itemprop="url" content="{{ (vich_uploader_asset(post, 'imageFile') ? app.request.getUriForPath(vich_uploader_asset(post, 'imageFile')) : absolute_url(asset('assets/images/no-image.png'))) | imagine_filter('news_382_285') }}">
                         <meta itemprop="width" content="382">
@@ -34,10 +37,7 @@
                             <meta itemprop="width" content="600">
                             <meta itemprop="height" content="60">
                         </div>
-                        <meta itemprop="name" content="@xaydungminhduy">
-                    </div>
-                    <div itemprop="author" itemscope itemtype="https://schema.org/Person">
-                        <meta itemprop="name" content="@xaydungminhduy"/>
+                        <meta itemprop="name" content="{{ get_setting('siteName') }}">
                     </div>
                     <meta itemprop="datePublished" content="{{ post.getCreatedAt()|date("Y-m-d h:m:s") }}"/>
                     <meta itemprop="dateModified" content="{{ post.getUpdatedAt()|date("Y-m-d h:m:s") }}"/>

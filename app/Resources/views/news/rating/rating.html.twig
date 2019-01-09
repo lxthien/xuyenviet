@@ -1,24 +1,19 @@
 <div class="rating-container">
-    {{ ratingValue|rating }} <a href="form-rating-container" id="rating"><span class="rating-count">{{ ratingCount }} đánh giá</span></a>
+    {{ ratingValue|rating }}
+    <a href="form-rating-container" id="rating">
+        <div itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating">
+            <meta itemprop="name" content="{{ post.getTitle() }}">
+            <span itemprop="ratingValue">{{ ratingValue }}</span> / <span itemprop="ratingCount">{{ ratingCount }}</span> votes
+            <meta itemprop="bestRating" content="5">
+            <meta itemprop="worstRating" content="1">
+            <div itemprop="itemReviewed" itemscope itemtype="http://schema.org/CreativeWork"></div>
+        </div>
+    </a>
 </div>
-<script type="application/ld+json">
-    {
-        "@context": "http://schema.org/",
-        "@type": "AggregateRating",
-        "name": "{{ post.getTitle() }}",
-        "ratingValue": {{ ratingValue }},
-        "ratingCount" : {{ ratingCount }},
-        "bestRating" : 5,
-        "worstRating" : 1,
-        "itemReviewed": {
-            "@type": "CreativeWork"
-        }
-    }
-</script>
 
 <div style="display:none">
     <div id="form-rating-container">
-        <form action="{{ path('rating') }}" id="form-rating" data-news-id="{{ post.getId() }}">
+        <form action="{{ path('rating') }}" id="form-rating-review" data-news-id="{{ post.getId() }}">
             {{ form_widget(formRating.rating) }}
         </form>
         <p class="rating-message"></p>

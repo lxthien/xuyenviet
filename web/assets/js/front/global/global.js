@@ -104,15 +104,16 @@ function initCostConstruction() {
 function initFancybox() {
     var $rating = $('.rating-container .rating');
     var $ratingMessage = $('p.rating-message');
-    var $star = $('#form-rating .rating-well .star');
-    var $formRating = $('#form-rating');
+    var $star = $('#form-rating-review .rating-well .star');
+    var $formRating = $('#form-rating-review');
 
     $rating.click(function() {
         $formRating.show();
         $ratingMessage.html('');
         
         $.fancybox.open({
-            src: '#form-rating-container'
+            src: '#form-rating-container',
+            touch : false
         });
 
         return false;
@@ -125,7 +126,8 @@ function initFancybox() {
         $ratingMessage.html('');
         
         $.fancybox.open({
-            src: '#form-rating-container'
+            src: '#form-rating-container',
+            touch : false
         });
 
         return false;
