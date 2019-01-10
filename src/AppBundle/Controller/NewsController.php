@@ -212,6 +212,8 @@ class NewsController extends Controller
                 'post'          => $post,
                 'form'          => $form->createView(),
                 'formRating'    => $formRating->createView(),
+                'rating'        => !empty($rating['ratingValue']) ? str_replace('.0', '', number_format($rating['ratingValue'], 1)) : 0,
+                'ratingPercent' => str_replace('.00', '', number_format(($rating['ratingValue'] * 100) / 5, 2)),
                 'ratingValue'   => round($rating['ratingValue']),
                 'ratingCount'   => round($rating['ratingCount']),
                 'comments'      => $comments
@@ -222,6 +224,8 @@ class NewsController extends Controller
                 'relatedNews'   => $relatedNews,
                 'form'          => $form->createView(),
                 'formRating'    => $formRating->createView(),
+                'rating'        => !empty($rating['ratingValue']) ? str_replace('.0', '', number_format($rating['ratingValue'], 1)) : 0,
+                'ratingPercent' => str_replace('.00', '', number_format(($rating['ratingValue'] * 100) / 5, 2)),
                 'ratingValue'   => round($rating['ratingValue']),
                 'ratingCount'   => round($rating['ratingCount']),
                 'comments'      => $comments,
