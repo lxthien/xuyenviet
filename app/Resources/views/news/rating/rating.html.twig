@@ -4,7 +4,7 @@
         <div itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating">
             <meta itemprop="name" content="{{ post.getTitle() }}">
             {% if rating > 0 %}
-                <span itemprop="ratingValue">{{ rating }}</span> ({{ ratingPercent }} %) / <span itemprop="ratingCount">{{ ratingCount }}</span> votes
+                <span itemprop="ratingValue">{{ rating }}</span> ({{ ratingPercent }}%) / <span itemprop="ratingCount">{{ ratingCount }}</span> votes
             {% else %}
                 <span>đánh giá</span>
             {% endif %}

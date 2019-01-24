@@ -255,7 +255,9 @@ class NewsController extends Controller
             ->createQueryBuilder('n')
             ->innerJoin('n.tags', 't')
             ->where('t.id = :tags_id')
+            ->andWhere('n.enable = :enable')
             ->setParameter('tags_id', $tag->getId())
+            ->setParameter('enable', 1)
             ->orderBy('n.createdAt', 'DESC')
             ->getQuery()->getResult();
 
