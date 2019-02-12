@@ -2,7 +2,7 @@
     {{ ratingValue|rating }}
     <a href="form-rating-container" id="rating">
         <div itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating">
-            <meta itemprop="name" content="{{ post.getTitle() }}">
+            <div itemprop="name" class="rating-title">{{ post.getTitle() }}</div>
             {% if rating > 0 %}
                 <span itemprop="ratingValue">{{ rating }}</span> ({{ ratingPercent }}%) / <span itemprop="ratingCount">{{ ratingCount }}</span> votes
             {% else %}
@@ -10,7 +10,9 @@
             {% endif %}
             <meta itemprop="bestRating" content="5">
             <meta itemprop="worstRating" content="1">
-            <div itemprop="itemReviewed" itemscope itemtype="http://schema.org/CreativeWork"></div>
+            <div itemprop="itemReviewed" itemscope="" itemtype="http://schema.org/CreativeWork">
+                <!-- Product properties -->
+            </div>
         </div>
     </a>
 </div>
