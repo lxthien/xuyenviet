@@ -20,7 +20,7 @@
         
         <div class="row">
             <div class="col-12 col-md-12 col-lg-8">
-                <div id="post-{{ post.getId() }}" class="news" itemscope itemtype="http://schema.org/Article">
+                <article id="post-{{ post.getId() }}" class="news hentry" itemscope itemtype="http://schema.org/Article">
                     {# Begin google snippet #}
                     <meta itemscope itemprop="mainEntityOfPage" itemType="https://schema.org/WebPage" itemid="{{ absolute_url(path('news_show', {'slug': post.getUrl() })) }}"/>
                     <div itemprop="author" itemscope itemtype="https://schema.org/Person">
@@ -43,7 +43,7 @@
                     <meta itemprop="dateModified" content="{{ post.getUpdatedAt()|date("Y-m-d h:m:s") }}"/>
                     {# End google snippet #}
 
-                    <h1 class="block-title" itemprop="headline">{{ post.getTitle() }}</h1>
+                    <h1 class="entry-title block-title" itemprop="headline">{{ post.getTitle() }}</h1>
                     
                     <div class="news-container" itemprop="articleBody">
                         {{ post.getContents()|raw }}
@@ -66,7 +66,7 @@
                     
                     {# Render form comment #}
                     {{ include('news/comments/form.html.twig') }}
-                </div>
+                </article>
             </div>
 
             {# Side bar #}
