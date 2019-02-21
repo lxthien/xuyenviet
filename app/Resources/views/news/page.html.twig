@@ -26,9 +26,9 @@
                     </div>
                     <div itemprop="publisher" itemscope itemtype="https://schema.org/Organization">
                         <div itemprop="logo" itemscope itemtype="https://schema.org/ImageObject">
-                            <meta itemprop="url" content="{{ absolute_url(asset('assets/images/logo.jpg')) }}">
-                            <meta itemprop="width" content="600">
-                            <meta itemprop="height" content="60">
+                            <meta itemprop="url" content="{{ absolute_url(asset('assets/images/SuaNhaMinhDuy.png')) }}">
+                            <meta itemprop="width" content="376">
+                            <meta itemprop="height" content="218">
                         </div>
                         <meta itemprop="name" content="{{ get_setting('siteName') }}">
                     </div>
@@ -38,7 +38,7 @@
 
                     <h1 class="entry-title block-title" itemprop="headline">{{ post.getTitle() }}</h1>
                     
-                    <div class="news-container">
+                    <div class="news-container" itemprop="articleBody">
                         {{ post.getContents()|raw }}
                     </div>
 
