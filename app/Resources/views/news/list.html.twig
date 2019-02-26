@@ -4,6 +4,12 @@
 {% block description %} {{category.getPageDescription()}} {% endblock %}
 {% block keyword %} {{category.getPageKeyword()}} {% endblock %}
 
+{% block structuredOpenGraph %}
+    <meta property="og:type" content="object" />
+    <meta property="og:title" content="{{ category.getPageTitle() ~ ' - Trang ' ~ pagination.currentPageNumber }}" />
+    <meta property="og:description" content="{{ category.getPageDescription() }}" />
+{% endblock %}
+
 {% block body %}
     {# breadcrumbs #}
     {{ include('news/components/breadcrumbs.html.twig',

@@ -18,20 +18,24 @@
         <meta name="robots" content="index, follow" />
         <meta name="revisit-after" content="1 days">
         <meta http-equiv="content-language" content="vi">
+
         {% if app.request.attributes.get('_route') is not null %}
         <link rel="canonical" href="{{ url(app.request.attributes.get('_route'), app.request.attributes.get('_route_params')) }}"/>
         {% endif %}
         
         <!-- Open Graph data -->
-        {% if app.request.attributes.get('_route') is not null %}
-        <meta property="og:url" content="{{ url(app.request.attributes.get('_route'), app.request.attributes.get('_route_params')) }}" />
-        {% endif %}
-        <meta property="og:type" content="article" />
-        <meta property="og:title" content="{{ block('title') }}" />
-        <meta property="og:description" content="{{ block('description') }}" />
-        <meta property="fb:app_id" content="1384538691837107" />
-        {% block ogImage %}
+        <meta property="og:locale" content="vi_VN" />
+        {% block structuredOpenGraph %}
+            <meta property="og:type" content="website" />
+            <meta property="og:title" content="{{ block('title') }}" />
+            <meta property="og:description" content="{{ block('description') }}" />
         {% endblock %}
+        {% if app.request.attributes.get('_route') is not null %}
+            <meta property="og:url" content="{{ url(app.request.attributes.get('_route'), app.request.attributes.get('_route_params')) }}" />
+        {% endif %}
+        <meta property="og:site_name" content="{{ get_setting('siteName') }}" />
+        <meta property="fb:app_id" content="1384538691837107" />
+        <!-- Open Graph data -->
 
         <!-- Twitter Card data -->
         <meta name="twitter:card" content="summary">
@@ -41,51 +45,17 @@
         <meta name="twitter:creator" content="@xaydungminhduy">
         {% block twitterImage %}
         {% endblock %}
+        <!-- Twitter Card data -->
 
-        <script type="application/ld+json">
-        {
-            "@context": "http://schema.org",
-            "@type": "Organization",
-            "url": "https://xaydungminhduy.com/",
-            "logo": "https://xaydungminhduy.com/assets/images/SuaNhaMinhDuy.png",
-            "contactPoint": {
-                "@type": "ContactPoint",
-                "telephone": "+84 98 2969379",
-                "contactType": "customer service"
-            }
-        }
-        </script>
+        {% block structuredOrganization %}
+        {% endblock %}
 
-        <script type="application/ld+json">
-        {
-            "@context": "http://schema.org",
-            "@type": "Person",
-            "name": "Xây Dựng Minh Duy",
-            "url": "https://xaydungminhduy.com/",
-            "sameAs": [
-                "https://www.facebook.com/minhduyconstruction/",
-                "https://twitter.com/xaydungminhduy",
-                "https://www.linkedin.com/in/xaydungminhduy/",
-                "https://plus.google.com/u/0/113879313630849593934",
-                "https://www.youtube.com/channel/UCwYmkaoSIRgpZo2Us4FzleQ"
-            ]
-        }
-        </script>
-        
-        <script type="application/ld+json">
-        {
-            "@context": "http://schema.org",
-            "@type": "WebSite",
-            "url": "https://xaydungminhduy.com/",
-            "potentialAction": {
-                "@type": "SearchAction",
-                "target": "https://xaydungminhduy.com/search?q={search_term_string}",
-                "query-input": "required name=search_term_string"
-            }
-        }
-        </script>
+        {% block structuredWebSite %}
+        {% endblock %}
 
-        <!-- Global site tag (gtag.js) - Google Analytics -->
+        {% block structuredPerson %}
+        {% endblock %}
+
         {{ get_setting('googleAnalytic')|raw }}
 
         <!-- Custom css -->

@@ -4,6 +4,12 @@
 {% block description %}{{ post.getPageDescription() is not null ? post.getPageDescription() : post.getDescription() }}{% endblock %}
 {% block keyword %}{{ post.getPageKeyword() }}{% endblock %}
 
+{% block structuredOpenGraph %}
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="{{ post.getPageTitle() is not null ? post.getPageTitle() : post.getTitle() }}" />
+    <meta property="og:description" content="{{ post.getPageDescription() is not null ? post.getPageDescription() : post.getDescription() }}" />
+{% endblock %}
+
 {% block body %}
     <div class="container page">
         {{ include('news/components/listPrices.html.twig') }}

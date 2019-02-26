@@ -48,10 +48,6 @@ class ContactController extends Controller
      *
      * @Route("/{id}/delete", name="admin_contact_delete")
      * @Method("POST")
-     * @Security("is_granted('delete', post)")
-     *
-     * The Security annotation value is an expression (if it evaluates to false,
-     * the authorization mechanism will prevent the user accessing this resource).
      */
     public function deleteAction(Request $request, Contact $contact)
     {

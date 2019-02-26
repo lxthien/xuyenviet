@@ -10,6 +10,12 @@
     {{ tag.getPageKeyword() }}
 {% endblock %}
 
+{% block structuredOpenGraph %}
+    <meta property="og:type" content="object" />
+    <meta property="og:title" content="{{ 'post.archives.title'|trans({'%title%': tag.getPageTitle() is not null ? tag.getPageTitle() : tag.getName(), '%currentPage%': pagination.currentPageNumber, '%totalPage%': pagination.pageCount}) }}" />
+    <meta property="og:description" content="{{ tag.getPageDescription() }}" />
+{% endblock %}
+
 {% block body %}
     {# breadcrumbs #}
     {{ include('news/components/breadcrumbs.html.twig', {type: 'category', title: tag.getName(), description: tag.getContents() }) }}
