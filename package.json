@@ -5,13 +5,15 @@
         "bootstrap-sass": "^3.3.7",
         "bootstrap-tagsinput": "^0.7.1",
         "bootswatch": "^3.3.7",
+        "bxslider": "^4.2.14",
         "eonasdan-bootstrap-datetimepicker": "^4.17.47",
         "font-awesome": "^4.7.0",
         "highlight.js": "^9.12.0",
         "imports-loader": "^0.7.1",
         "jquery": "^3.3.1",
+        "jquery-validation": "^1.19.0",
         "lato-font": "^3.0.0",
-        "node-sass": "^4.11.0",
+        "node-sass": "^4.5.3",
         "sass-loader": "^6.0.5",
         "typeahead.js": "^0.11.1"
     },
@@ -22,8 +24,6 @@
         "build": "./node_modules/.bin/encore production"
     },
     "dependencies": {
-        "@fancyapps/fancybox": "^3.5.6",
-        "bxslider": "^4.2.14",
-        "jquery-validation": "^1.19.0"
+        "eslint": "^5.15.1"
     }
 }
