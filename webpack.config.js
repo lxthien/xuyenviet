@@ -10,7 +10,9 @@ Encore
     })
     .enableSassLoader()
     .enableVersioning(false)
-    .createSharedEntry('js/common', ['jquery'])
+    .createSharedEntry('js/common', [
+        'jquery'
+    ])
     .addEntry('js/app', './web/assets/js/front/app.js')
     .addEntry('js/admin', './web/assets/js/admin/admin.js')
     .addEntry('js/search', './web/assets/js/admin/search.js')
