@@ -1,5 +1,6 @@
 {
     "devDependencies": {
+        "@fortawesome/fontawesome-free": "^5.7.2",
         "@symfony/webpack-encore": "^0.9.1",
         "bloodhound-js": "^1.2.1",
         "bootstrap-sass": "^3.3.7",
@@ -24,6 +25,7 @@
         "build": "./node_modules/.bin/encore production"
     },
     "dependencies": {
+        "@fancyapps/fancybox": "^3.5.7",
         "eslint": "^5.15.1"
     }
 }

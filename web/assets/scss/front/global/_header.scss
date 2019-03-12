@@ -1,13 +1,13 @@
 .header {
     padding: 0;
-    background: $killarney;
+    background: $lightningYellow;
     color: $white;
-    height: 42px;
+    height: 40px;
 
     .col-md-6 {
         span {
-            line-height: 42px;
-            font-size: 15px;
+            line-height: 40px;
+            font-size: 14px;
             margin-right: 10px;
 
             @media only screen and (max-width: 767.98px) {
@@ -17,7 +17,7 @@
 
         a {
             color: $white;
-            line-height: 42px;
+            line-height: 40px;
 
             &:hover {
                 text-decoration: none;

@@ -51,137 +51,102 @@
 
 {% block body %}
     <div class="container wrapper-container">
-        {{ include('news/components/listPrices.html.twig') }}
-
         <div class="row marketing">
-            <div class="col-xs-12 col-sm-12 col-md-4">
-                <h3 class="text-uppercase">Xây Dựng Minh Duy</h3>
-                <div class="marketing-company">
-                    <p>Xây Dựng Minh Duy tự hào là nhà thầu xây dựng uy tín số 1 tại Thành Phố Hồ Chí Minh.</p>
-                    <p>Xây Dựng Minh Duy với đội ngũ kiến trúc sư, kỹ sư, nhân viên có chuyên môn cao, tận tâm, năng động luôn nỗ lực phấn đấu phục vụ khách hàng một cách tốt nhất.</p>
-                    <p>Chúng tôi cải tiến không ngừng nâng cao chất lượng dịch vụ và những sáng tạo trong xây dựng và thiết kế thi công.</p>
+            <div class="col-md-12 title-list-news-items">
+                <h1 class="text-center text-uppercase">Vì sao nên chọn chúng tôi</h1>
+            </div>
+
+            <div class="col-xs-12 col-sm-6 col-md-3">
+                <span><i class="fa fa-balance-scale"></i></span>
+                <h2 class="media-heading text-uppercase">Giá cả hợp lý, cạnh tranh</h2>
+                <div class="marketing-container">
+                    Giá cả xây dựng hợp lý, cạnh tranh
                 </div>
             </div>
-            <div class="col-xs-12 col-sm-6 col-md-4">
-                <div class="media">
-                    <div class="media-left">
-                        <span><i class="fa fa-balance-scale"></i></span>
-                    </div>
-                    <div class="media-body">
-                        <h2 class="media-heading text-uppercase">Giá cả hợp lý, cạnh tranh</h2>
-                        <div class="marketing-container">
-                            Giá cả xây dựng hợp lý, cạnh tranh
-                        </div>
-                    </div>
-                </div>
-                <div class="media">
-                    <div class="media-left">
-                        <span><i class="fa fa-globe"></i></span>
-                    </div>
-                    <div class="media-body">
-                        <h2 class="media-heading text-uppercase">Báo giá miễn phí, tận nơi</h2>
-                        <div class="marketing-container">
-                            Báo giá xây dựng miễn phí, tận nơi
-                        </div>
-                    </div>
-                </div>
-                <div class="media">
-                    <div class="media-left">
-                        <span><i class="fa fa-cubes"></i></span>
-                    </div>
-                    <div class="media-body">
-                        <h2 class="media-heading text-uppercase">Đội ngũ chuyên nghiệp</h2>
-                        <div class="marketing-container">
-                            Đội ngũ kiến trúc sư, kĩ sư, thợ chuyên nghiệp, nhiều kinh nghiệm
-                        </div>
-                    </div>
-                </div>
-                <div class="media">
-                    <div class="media-left">
-                        <span><i class="fa fa-lightbulb-o"></i></span>
-                    </div>
-                    <div class="media-body">
-                        <h2 class="media-heading text-uppercase">Sáng tạo trong thiết kế</h2>
-                        <div class="marketing-container">
-                            Những kỹ sư thiết kế về kiến trúc và nội thất có kinh nghiệm.
-                        </div>
-                    </div>
+            <div class="col-xs-12 col-sm-6 col-md-3">
+                <span><i class="fa fa-key"></i></span>
+                <h2 class="media-heading text-uppercase">Cam kết bảo hành</h2>
+                <div class="marketing-container">
+                    Cam kết bảo hành công trình lâu dài
                 </div>
             </div>
-            <div class="col-xs-12 col-sm-6 col-md-4">
-                <div class="media">
-                    <div class="media-left">
-                        <span><i class="fa fa-key"></i></span>
-                    </div>
-                    <div class="media-body">
-                        <h2 class="media-heading text-uppercase">Cam kết bảo hành</h2>
-                        <div class="marketing-container">
-                            Cam kết bảo hành công trình lâu dài
-                        </div>
-                    </div>
+            <div class="col-xs-12 col-sm-6 col-md-3">
+                <span><i class="fa fa-globe"></i></span>
+                <h2 class="media-heading text-uppercase">Báo giá miễn phí, tận nơi</h2>
+                <div class="marketing-container">
+                    Báo giá xây dựng miễn phí, tận nơi
                 </div>
-                <div class="media">
-                    <div class="media-left">
-                        <span><i class="fa fa-cogs"></i></span>
-                    </div>
-                    <div class="media-body">
-                        <h2 class="media-heading text-uppercase">Thi công nhanh, đảm bảo</h2>
-                        <div class="marketing-container">
-                            Thi công nhanh, đúng hợp đồng, đảm bảo chất lượng
-                        </div>
-                    </div>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-3">
+                <span><i class="fa fa-cogs"></i></span>
+                <h2 class="media-heading text-uppercase">Thi công nhanh, đảm bảo</h2>
+                <div class="marketing-container">
+                    Thi công nhanh, đúng hợp đồng, đảm bảo chất lượng
                 </div>
-                <div class="media">
-                    <div class="media-left">
-                        <span><i class="fa fa-bullhorn"></i></span>
-                    </div>
-                    <div class="media-body">
-                        <h2 class="media-heading text-uppercase">Không phát sinh phí</h2>
-                        <div class="marketing-container">
-                            Không phát sinh phí hoặc có nhưng rất ít
-                        </div>
-                    </div>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-3">
+                <span><i class="fa fa-cubes"></i></span>
+                <h2 class="media-heading text-uppercase">Đội ngũ chuyên nghiệp</h2>
+                <div class="marketing-container">
+                    Đội ngũ kiến trúc sư, kĩ sư, thợ chuyên nghiệp, nhiều kinh nghiệm
                 </div>
-                <div class="media">
-                    <div class="media-left">
-                        <span><i class="fa fa-commenting-o"></i></span>
-                    </div>
-                    <div class="media-body">
-                        <h2 class="media-heading text-uppercase">Tư vấn hỗ trợ tận tình</h2>
-                        <div class="marketing-container">
-                            Sẵn sàng tư vấn hỗ trợ cho bạn đầy đủ thắc mắc và vấn đề quan tâm nhất.
-                        </div>
-                    </div>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-3">
+                <span><i class="fa fa-bullhorn"></i></span>
+                <h2 class="media-heading text-uppercase">Không phát sinh phí</h2>
+                <div class="marketing-container">
+                    Không phát sinh phí hoặc có nhưng rất ít
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-3">
+                <span><i class="fa fa-lightbulb-o"></i></span>
+                <h2 class="media-heading text-uppercase">Sáng tạo trong thiết kế</h2>
+                <div class="marketing-container">
+                    Những kỹ sư thiết kế về kiến trúc và nội thất có kinh nghiệm.
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-3">
+                <span><i class="fa fa-commenting-o"></i></span>
+                <h2 class="media-heading text-uppercase">Tư vấn hỗ trợ tận tình</h2>
+                <div class="marketing-container">
+                    Sẵn sàng tư vấn hỗ trợ cho bạn đầy đủ thắc mắc và vấn đề quan tâm nhất.
                 </div>
             </div>
         </div>
+
         {% for blockOnHomepage in blocksOnHomepage %}
-        <div class="row">
-            <div class="col-md-12 title-list-news-items">
-                <h1 class="text-center text-uppercase">{{ blockOnHomepage.category.getName() }}</h1>
-                <span class="text-center block-underline"></span>
-                <p>{{ blockOnHomepage.description }}</p>
-            </div>
-            <div class="col-md-12 list-news-items">
+            {% if blockOnHomepage.category.getUrl() != 'du-an' %}
                 <div class="row">
-                    {% for row in blockOnHomepage.posts %}
-                        {{ include('news/components/itemsGridHomepage.html.twig') }}
-                    {% endfor %}
+                    <div class="col-md-12 title-list-news-items">
+                        <h1 class="text-center text-uppercase">{{ blockOnHomepage.category.getName() }}</h1>
+                    </div>
+
+                    <div class="col-md-12 list-news-items">
+                        <div class="row">
+                            {% for row in blockOnHomepage.posts %}
+                                {{ include('news/components/itemsGridHomepage.html.twig') }}
+                            {% endfor %}
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>
+            {% else %}
+                <div class="row project-hot">
+                    <div class="col-md-12 title-list-news-items">
+                        <h1 class="text-center text-uppercase">Dự án nổi bật</h1>
+                        <span class="text-center block-underline"></span>
+                    </div>
+                    
+                    <div class="clearfix"></div>
+                    
+                    <div class="list-news-items">
+                        <div class="bxslider">
+                            {% for row in blockOnHomepage.posts %}
+                                {{ include('news/components/itemsGridSlide.html.twig') }}
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
         {% endfor %}
-        <div class="row">
-            <div class="col-md-12 title-list-news-items">
-                <h1 class="text-center text-uppercase">Dự toán chi phí xây dựng</h1>
-                <span class="text-center block-underline"></span>
-                <p>Dễ dàng dự toán chi phí trước khi xây dựng nhà cùng công ty Xây Dựng Minh Duy</p>
-            </div>
-            <div class="col-md-12">
-                {{ render(controller(
-                    'AppBundle:News:caculatorCostConstruction', {type: 'page'}
-                )) }}
-            </div>
-        </div>
     </div>
 {% endblock %}

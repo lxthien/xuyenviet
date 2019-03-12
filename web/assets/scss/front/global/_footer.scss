@@ -32,10 +32,9 @@ footer {
         }
     }
 
-    .footer-middle {
+    .footer-top {
         padding-top: 20px;
         margin-top: 20px;
-        border-top: 1px solid $gray94;
 
         .footer-text-wrap {
             p {
@@ -86,8 +85,8 @@ footer {
         line-height: 30px;
         color: $white;
         border-top: 1px solid $gray94;
-        margin-top: 8px;
-        padding-top: 8px;
+        margin-top: 40px;
+        padding-top: 5px;
 
         p, a {
             color: $white;
