@@ -5,6 +5,7 @@ footer {
     background-color: rgb(17, 17, 17) !important;
     background-position: 50% 119.476px;
     color: $white;
+    border-top: 5px solid $lightningYellow;
 
     h3.text-uppercase {
         @media (max-width: 767.98px) {

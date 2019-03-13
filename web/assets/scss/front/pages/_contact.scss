@@ -16,10 +16,18 @@
     }
 
     #form {
+        margin-bottom: 50px;
+        
         .form-group {
+            margin-bottom: 10px;
+
+            .control-label {
+                font-size: 15px;
+            }
+
             .form-control, input {
                 border-width: 1px;
-                height: 40px;
+                height: 38px;
                 padding: 5px 15px;
             }
 
@@ -31,6 +39,8 @@
                 background: $primaryColor;
                 border-width: 0px;
                 width: 90px;
+                background: $lightningYellow;
+                text-transform: uppercase;
             }
         }
     }
