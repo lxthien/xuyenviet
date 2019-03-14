@@ -1,28 +1,36 @@
 <div class="bang-gia">
+    <div class="marquee">
+        <div class="container">
+            <marquee scrollamount="5">{{ get_setting('marqueeHomepage')|raw }}</marquee>
+        </div>
+    </div>
     <div class="container">
         <div class="row">
-            <div class="one col-12 col-sm-12 col-md-3">
-                <h3>CÔNG TY TNHH THIẾT KẾ XÂY DỰNG XUYÊN VIỆT</h3>
-            </div>
-            <div class="two col-xs-12 col-sm-4 col-md-3">
+            <div class="two col-xs-12 col-sm-4 col-md-4">
                 <div>
+                    <i class="fas fa-building"></i>
                     <a href="{{ path('news_show', {'slug': 'bao-gia-xay-nha-tron-goi' }) }}" title="Bảng giá xây nhà trọn gói">
-                        <i class="fas fa-building"></i> Bảng giá xây nhà trọn gói
+                        <span>Bảng giá xây nhà trọn gói</span>
                     </a>
+                    <p><span>Miễn phí</span> giấy phép xây dựng, thiết kế kiến trúc</p>
                 </div>
             </div>
-            <div class="three col-xs-12 col-sm-4 col-md-3">
+            <div class="three col-xs-12 col-sm-4 col-md-4">
                 <div>
+                    <i class="fas fa-cogs"></i>
                     <a href="{{ path('news_show', {'slug': 'bao-gia-sua-nha-tron-goi' }) }}" title="Bảng giá sửa nhà trọn gói">
-                        <i class="fas fa-cogs"></i> Bảng giá sửa nhà trọn gói
+                        <span>Bảng giá sửa nhà trọn gói</span>
                     </a>
+                    <p><span>Miễn phí</span> thiết kế kiến trúc</p>
                 </div>
             </div>
-            <div class="four col-xs-12 col-sm-4 col-md-3">
+            <div class="four col-xs-12 col-sm-4 col-md-4">
                 <div>
+                    <i class="fas fa-award"></i>
                     <a href="{{ path('news_show', {'slug': 'bang-gia-xay-dung-nha-phan-tho' }) }}" title="Bảng giá xây nhà phần thô">
-                        <i class="fas fa-award"></i> Bảng giá xây nhà phần thô
+                        <span>Bảng giá xây nhà phần thô</span>
                     </a>
+                    <p><span>Miễn phí</span> thiết kế kiến trúc</p>
                 </div>
             </div>
         </div>

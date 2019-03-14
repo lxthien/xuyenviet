@@ -1,9 +1,13 @@
 {% if relatedNews|length > 0 %}
     <div class="related-news">
         <h3>{{ 'news.news_related'|trans }}</h3>
-        <div class="row">
+        
+        <div class="clearfix"></div>
+        
+        <div class="related-items">
+            <div class="relatedslider">
             {% for row in relatedNews %}
-                <div class="col-xs-12 col-sm-4 col-md-4">
+                <div class="related-item">
                     <div class="related-wrapper">
                         <a class="related-img" href="{{ path('news_show', {'slug': row.getUrl() }) }}" title="{{ row.getTitle() }}">
                             <img class="mr-3 img-thumbnail" src="{{ (vich_uploader_asset(row, 'imageFile') ? vich_uploader_asset(row, 'imageFile') : asset('assets/images/no-image.png')) | imagine_filter('news_thumb') }}" alt="{{row.getTitle()}}">
@@ -14,6 +18,7 @@
                     </div>
                 </div>
             {% endfor %}
+            </div>
         </div>
     </div>
     <div class="clearfix"></div>

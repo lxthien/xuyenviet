@@ -23,19 +23,22 @@
                 bottom: -3px;
                 left: 0;
                 content: "";
-                width: 90px;
+                width: 100px;
                 height: 3px;
-                background: $primaryColor;
+                background: $lightningYellow;
             }
         }
 
         .td-list-group-item {
+            margin: 0;
             height: 75px;
             color: $black;
+            border: 0;
+            border-bottom: 1px solid $lightningYellow;
+
 
             &:hover {
                 background: $gray94;
-                color: $primaryColor;
             }
 
             img {

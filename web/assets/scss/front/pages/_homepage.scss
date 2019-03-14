@@ -22,48 +22,33 @@
 }
 
 .marquee {
-    background-color: $primaryColor;
-    color: $white;
-    height: 35px;
+    color: $black;
+    height: 40px;
 
     marquee {
-        line-height: 35px;
+        line-height: 40px;
         display: flex;
 
         a {
-            color: $white;
+            color: $black;
             text-decoration: underline;
         }
     }
 }
 
 .bang-gia {
-    padding-top: 40px;
-    padding-bottom: 20px;
-    background: $gallery;
-
-    @media only screen and (min-width: 979.98px) {
-        border-bottom: 1px solid $geyser;
-    }
+    padding-top: 0;
+    padding-bottom: 40px;
+    background: $gray94;
 
     /* Small Devices, Tablets */
     @media only screen and (max-width : 768px) {
         padding: 20px 0;
     }
 
-    .one {
-        h3 {
-            @media only screen and (max-width : 768px) {
-                margin-bottom: 0;
-                text-align: center;
-            }
-        }
-    }
-
     .two, .three, .four {
         div {
-            background: $killarney;
-            margin-top: 30px;
+            background: #f3f3f3;
             padding: 10px 0;
             text-align: center;
             font-size: 18px;
@@ -74,12 +59,27 @@
                 padding: 10px;
             }
 
-            a {
+            i {
+                font-size: 40px;
                 color: $lightningYellow;
-                font-size: 16px;
+                display: block;
+            }
 
-                i {
-                    margin-right: 5px;
+            a {
+                font-size: 20px;
+                display: block;
+                padding: 10px 0;
+
+                &:hover {
+                    color: $black;
+                }
+            }
+
+            p {
+                font-size: 15px;
+
+                span {
+                    color: $red;
                 }
             }
         }

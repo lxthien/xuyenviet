@@ -50,6 +50,20 @@ function initProjectHotSlider() {
     });
 }
 
+function initRelatedSlider() {
+    $('.relatedslider').show().bxSlider({
+        auto: true,
+        autoControls: false,
+        stopAutoOnClick: true,
+        pager: false,
+        controls: true,
+        minSlides: 1,
+        maxSlides: 3,
+        moveSlides: 1,
+        slideMargin: 20
+    });
+}
+
 function initNewsSlider() {
     $('.post-sidebar-bxslider').bxSlider({
         mode: 'vertical',
@@ -156,6 +170,7 @@ function initFancybox() {
 exports.init = function () {
     initSearchBox();
     initProjectHotSlider();
+    initRelatedSlider();
     initNewsSlider();
     initProtectedContent();
     initGoToTop();

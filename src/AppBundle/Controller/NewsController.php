@@ -290,7 +290,7 @@ class NewsController extends Controller
             ->findBy(
                 array('postType' => 'post', 'enable' => 1),
                 array('createdAt' => 'DESC'),
-                10
+                5
             );
 
         return $this->render('news/recent.html.twig', [
