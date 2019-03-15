@@ -94,7 +94,7 @@
 
         blockquote {
             font-size: 16px;
-            border-left: 5px solid $primaryColor;
+            border-left: 5px solid $lightningYellow;
             font-style: italic;
         }
     }
@@ -167,6 +167,21 @@
     }
 
     .social-share {
+        .social-share-label {
+            line-height: 32px;
+            float: left;
+            margin-right: 15px;
+            vertical-align: middle;
+            font-weight: bold;
+            font-style: italic;
+            margin-top: 3px;
+            text-decoration: underline;
+        }
+
+        .at-share-tbx-element .at-share-btn {
+            margin: 0 5px 0px 0;
+        }
+
         .addthis_inline_share_toolbox_j0vv {
             display: inline-block;
         }

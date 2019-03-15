@@ -18,6 +18,10 @@ class Builder implements ContainerAwareInterface
             ),
         ));
 
+        $menu->addChild('Trang chủ', [
+            'route' => 'homepage'
+        ]);
+
         // About Us
         $menu->addChild('Giới thiệu', [
             'route' => 'news_show',
@@ -43,9 +47,9 @@ class Builder implements ContainerAwareInterface
             'routeParameters' => ['slug' => 'tuyen-dung']
         ]);
 
-        $menu->addChild('Xây nhà', [
+        $menu->addChild('Xây dựng', [
             'route' => 'news_category',
-            'routeParameters' => ['level1' => 'xay-nha']
+            'routeParameters' => ['level1' => 'xay-dung']
         ]);
 
         $menu->addChild('Sửa chữa nhà', [
