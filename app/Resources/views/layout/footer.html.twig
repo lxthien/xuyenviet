@@ -15,11 +15,11 @@
                     </li>
                     <li>
                         <i class="fa fa-phone"></i>
-                        <span>Hotline: 0981 983 379</span>
+                        <span>Hotline: {{ get_setting('hotLine1') }}</span>
                     </li>
                     <li>
                         <i class="fa fa-envelope-o"></i>
-                        <span>Email: xaydungxuyenviet123@gmail.com</span>
+                        <span>Email: {{ get_setting('emailContact') }}</span>
                     </li>
                     <li>
                         <i class="fa fa-internet-explorer"></i>
@@ -30,11 +30,6 @@
                     <span class="td-social-icon-wrap">
                         <a target="_blank" href="{{ get_setting('linkToFacebook') }}" title="Xây Dựng Xuyên Việt trên Facebook">
                             <i class="fa fa-facebook"></i>
-                        </a>
-                    </span>
-                    <span class="td-social-icon-wrap">
-                        <a target="_blank" href="{{ get_setting('linkToGooglePlus') }}" title="Xây Dựng Xuyên Việt trên Google plus">
-                            <i class="fa fa-google-plus"></i>
                         </a>
                     </span>
                     <span class="td-social-icon-wrap">

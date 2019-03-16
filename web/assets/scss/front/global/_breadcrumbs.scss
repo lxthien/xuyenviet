@@ -30,11 +30,32 @@
 
     h1.title {
         line-height: 1.1;
+        text-align: center;
+
+        &::before {
+            content: '';
+            display: inline-block;
+            width: 180px;
+            height: 1px;
+            background-color: rgba(255,0,0,0);
+            background-image: -webkit-gradient(linear,left top,right top,from(rgba(255,0,0,0)),color-stop(50%,#ccc),to(rgba(255,0,0,0)));
+            background-image: linear-gradient(to right,rgba(255,0,0,0),#ccc 50%,rgba(255,0,0,0));
+            vertical-align: middle;
+        }
+
+        &::after {
+            content: '';
+            display: inline-block;
+            width: 180px;
+            height: 1px;
+            background-color: rgba(255,0,0,0);
+            background-image: -webkit-gradient(linear,left top,right top,from(rgba(255,0,0,0)),color-stop(50%,#ccc),to(rgba(255,0,0,0)));
+            background-image: linear-gradient(to right,rgba(255,0,0,0),#ccc 50%,rgba(255,0,0,0));
+            vertical-align: middle;
+        }
     }
 
     .description {
-        width: 70%;
-
         @media only screen and (max-width: 768px) {
             width: 100%;
         }

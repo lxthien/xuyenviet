@@ -30,7 +30,7 @@ swiftmailer:
 
 # EWZRecaptchaBundle
 ewz_recaptcha:
-    public_key:  6LdpzHEUAAAAAKwRzhbaJgv12ZzJT1BesNEWc4t5
-    private_key: 6LdpzHEUAAAAABSCqH__OeunrVcMshQ2TfEN5oHe
+    public_key:  6LdkAZgUAAAAAO1zmvg1c7aFRciLRqNqDYM5XDEW
+    private_key: 6LdkAZgUAAAAAOOuTh3J6j6Y-QyYKj5o3ya58wKe
     locale_key:  %kernel.default_locale%
     locale_from_request: true

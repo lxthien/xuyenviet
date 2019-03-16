@@ -5,20 +5,17 @@
             <div class="col-12 col-sm-8 col-md-6 text-left">
                 <span>
                     <i class="fa fa-phone"></i>
-                    Hotline: <a href="tel:0981983379">0981 983 379</a>
+                    Hotline: <a href="tel:{{ get_setting('hotLine1') }}">{{ get_setting('hotLine1') }}</a>
                 </span>
                 <span>
                     <i class="fa fa-envelope-o"></i>
-                    Email: <a href="mailto:xaydungxuyenviet123@gmail.com">xaydungxuyenviet123@gmail.com</a>
+                    Email: <a href="mailto:{{ get_setting('emailContact') }}">{{ get_setting('emailContact') }}</a>
                 </span>
             </div>
             <div class="col-12 col-sm-4 col-md-6 text-right header-social hidden-xs">
                 <span>Follow us: </span>
                 <a target="_blank" href="{{ get_setting('linkToFacebook') }}" title="Xây Dựng Xuyên Việt trên Facebook">
                     <i class="fa fa-facebook"></i>
-                </a>
-                <a target="_blank" href="{{ get_setting('linkToGooglePlus') }}" title="Xây Dựng Xuyên Việt trên Google plus">
-                    <i class="fa fa-google-plus"></i>
                 </a>
                 <a target="_blank" href="{{ get_setting('linkToTwitter') }}" title="Xây Dựng Xuyên Việt trên Twitter">
                     <i class="fa fa-twitter"></i>
