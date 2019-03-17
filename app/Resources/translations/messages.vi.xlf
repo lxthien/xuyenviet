@@ -539,7 +539,7 @@
             </trans-unit>
             <trans-unit id="comment.leave_your_comment_below">
                 <source>comment.leave_your_comment_below</source>
-                <target>Hãy để lại ý kiến của bạn bên dưới</target>
+                <target>Bình luận</target>
             </trans-unit>
             <trans-unit id="comment.reply">
                 <source>comment.reply</source>
@@ -560,7 +560,7 @@
             </trans-unit>
             <trans-unit id="news.news_related">
                 <source>news.news_related</source>
-                <target>Tin liên quan</target>
+                <target>Bài viết liên quan</target>
             </trans-unit>
             <trans-unit id="view.details">
                 <source>view.details</source>

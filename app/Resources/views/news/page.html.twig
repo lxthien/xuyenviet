@@ -50,17 +50,21 @@
                     <div class="rating-share-container">
                         {{ include('news/components/share.html.twig') }}
                     </div>
-
-                    {# List comments #}
-                    {{ include('news/comments/list.html.twig') }}
-                    
-                    {# Render form comment #}
-                    {{ include('news/comments/form.html.twig') }}
                 </article>
+
+                {# List comments #}
+                {{ include('news/comments/list.html.twig') }}
+                
+                {# Render form comment #}
+                {{ include('news/comments/form.html.twig') }}
             </div>
 
             {# Side bar #}
             {{ include('layout/sidebar.html.twig') }}
         </div>
+
+        {{ render(controller(
+            'AppBundle:News:listNewsByCategory', { 'categoryId': 2 }
+        )) }}
     </div>
 {% endblock %}

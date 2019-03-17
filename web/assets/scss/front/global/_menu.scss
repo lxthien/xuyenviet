@@ -33,16 +33,16 @@
                         height: 90px;
     
                         @media only screen and (max-width : 768px) {
-                            width: 90px;
+                            height: 50px;
                         }
                     }
                 }
     
                 .navbar-toggle {
-                    border-color: $killarney;
+                    border-color: $lightningYellow;
     
                     .icon-bar {
-                        background-color: $killarney;
+                        background-color: $lightningYellow;
                     }
                 }
             }
@@ -229,6 +229,8 @@
 
                     @media only screen and (max-width: 767.98px) {
                         padding: 10px;
+                        font-size: 15px;
+                        font-weight: normal;
                     }
                 }
             }
