@@ -42,8 +42,10 @@
             </div>
         </div>
         
-        {{ render(controller(
-            'AppBundle:News:listNewsByCategory', { 'categoryId': 2 }
-        )) }}
+        {% if category.getUrl() != 'du-an' %}
+            {{ render(controller(
+                'AppBundle:News:listNewsByCategory', { 'categoryId': 2 }
+            )) }}
+        {% endif %}
     </div>
 {% endblock %}

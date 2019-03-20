@@ -1,4 +1,6 @@
 #sidebar {
+    border-left: 1px dotted $mercury;
+
     #form-search {
         input {
             border-width: 1px;
@@ -7,6 +9,28 @@
     }
 
     .list-group {
+        .support-online {
+            font-size: 20px;
+
+            span {
+                display: block;
+                
+                i {
+                    color: $lightningYellow;;
+                }
+
+                a {
+                    color: $red;
+
+                    &:hover {
+                        color: $red;
+                        text-decoration: none;
+                    }
+                }
+            }
+        }
+
+
         .list-group-item-action {
             background: none;
             font-weight: bold;

@@ -2,6 +2,21 @@
     <div class="row">
         <div class="col-md-12">
             {{ include('news/formSearch.html.twig') }}
+
+            <div class="list-group">
+                <h3 class="list-group-item list-group-item-action active text-uppercase">
+                    Hỗ trợ trực tuyến
+                </h3>
+                <div class="support-online">
+                    <span class="text-uppercase text-center">
+                        <i class="fa fa-hand-o-right"></i>Giám đốc: <a href="tel:{{ get_setting('hotLine1') }}">{{ get_setting('hotLine1') }}</a>
+                    </span>
+                    <span class="text-uppercase text-center">
+                        <i class="fa fa-hand-o-right"></i>Kĩ sư: <a href="tel:{{ get_setting('hotLine2') }}">{{ get_setting('hotLine2') }}</a>
+                    </span>
+                </div>
+            </div>
+
             {{ include('widgets/recentNews.html.twig') }}
 
             <div class="list-group">

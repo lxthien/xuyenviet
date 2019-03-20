@@ -48,10 +48,11 @@
 
     .two, .three, .four {
         div {
-            background: #f3f3f3;
+            background: #e0dede;
             padding: 20px 0 10px;
             text-align: center;
             font-size: 18px;
+            font-family: $arial;
 
             /* Small Devices, Tablets */
             @media only screen and (max-width : 768px) {
@@ -70,7 +71,7 @@
                 font-size: 20px;
                 font-weight: bold;
                 display: block;
-                padding: 10px 0;
+                padding: 5px 0;
 
                 &:hover {
                     color: $black;
@@ -79,6 +80,7 @@
 
             p {
                 font-size: 15px;
+                margin-bottom: 10px;
 
                 span {
                     color: $red;
@@ -209,10 +211,14 @@
             display: inline-block;
             width: 180px;
             height: 1px;
-            background-color: rgba(255,0,0,0);
-            background-image: -webkit-gradient(linear,left top,right top,from(rgba(255,0,0,0)),color-stop(50%,#ccc),to(rgba(255,0,0,0)));
-            background-image: linear-gradient(to right,rgba(255,0,0,0),#ccc 50%,rgba(255,0,0,0));
+            background-color: rgba(252,189,19,0);
+            background-image: -webkit-gradient(linear,left top,right top,from(rgba(252,189,19,0)),color-stop(50%,$lightningYellow),to(rgba(252,189,19,0)));
+            background-image: linear-gradient(to right,rgba(252,189,19,0),$lightningYellow 50%,rgba(252,189,19,0));
             vertical-align: middle;
+
+            @media only screen and (max-width : 768px) {
+                display: none;
+            }
         }
 
         &::after {
@@ -220,10 +226,14 @@
             display: inline-block;
             width: 180px;
             height: 1px;
-            background-color: rgba(255,0,0,0);
-            background-image: -webkit-gradient(linear,left top,right top,from(rgba(255,0,0,0)),color-stop(50%,#ccc),to(rgba(255,0,0,0)));
-            background-image: linear-gradient(to right,rgba(255,0,0,0),#ccc 50%,rgba(255,0,0,0));
+            background-color: rgba(252,189,19,0);
+            background-image: -webkit-gradient(linear,left top,right top,from(rgba(252,189,19,0)),color-stop(50%,$lightningYellow),to(rgba(252,189,19,0)));
+            background-image: linear-gradient(to right,rgba(252,189,19,0),$lightningYellow 50%,rgba(252,189,19,0));
             vertical-align: middle;
+
+            @media only screen and (max-width : 768px) {
+                display: none;
+            }
         }
     }
 }
