@@ -43,7 +43,7 @@
 
     /* Small Devices, Tablets */
     @media only screen and (max-width : 768px) {
-        padding: 20px 0;
+        padding: 0;
     }
 
     .two, .three, .four {
@@ -56,7 +56,8 @@
 
             /* Small Devices, Tablets */
             @media only screen and (max-width : 768px) {
-                margin-top: 15px;
+                margin-top: 0;
+                margin-bottom: 15px;
                 padding: 10px;
             }
 
@@ -205,6 +206,10 @@
         font-size: 30px;
         margin: 30px 0 20px;
         color: $black;
+        
+        @media only screen and (max-width : 768px) {
+            position: relative;
+        }
 
         &::before {
             content: '';
@@ -216,8 +221,20 @@
             background-image: linear-gradient(to right,rgba(252,189,19,0),$lightningYellow 50%,rgba(252,189,19,0));
             vertical-align: middle;
 
-            @media only screen and (max-width : 768px) {
-                display: none;
+            @media only screen and (max-width: 767.98px) {
+                position: absolute;
+                left: 35%;
+                bottom: -5px;
+                height: 2px;
+                width: 100px;
+            }
+
+            @media only screen and (min-width: 768px) and (max-width : 1024px) {
+                position: absolute;
+                left: 43%;
+                bottom: -5px;
+                height: 2px;
+                width: 100px;
             }
         }
 

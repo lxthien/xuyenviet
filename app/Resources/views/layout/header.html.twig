@@ -3,13 +3,13 @@
     <div class="container">
         <div class="row">
             <div class="col-12 col-sm-8 col-md-6 text-left">
-                <span>
+                <span class="header-phone">
                     <i class="fa fa-phone"></i>
-                    Hotline: <a href="tel:{{ get_setting('hotLine1') }}">{{ get_setting('hotLine1') }}</a>
+                    <span class="hidden-xs hidden-sm">Hotline: </span><a href="tel:{{ get_setting('hotLine1') }}">{{ get_setting('hotLine1') }}</a>
                 </span>
-                <span>
+                <span class="header-email">
                     <i class="fa fa-envelope-o"></i>
-                    Email: <a href="mailto:{{ get_setting('emailContact') }}">{{ get_setting('emailContact') }}</a>
+                    <span class="hidden-xs hidden-sm">Email: </span><a href="mailto:{{ get_setting('emailContact') }}">{{ get_setting('emailContact') }}</a>
                 </span>
             </div>
             <div class="col-12 col-sm-4 col-md-6 text-right header-social hidden-xs">

@@ -32,15 +32,35 @@
         line-height: 1.1;
         text-align: center;
 
+        @media only screen and (max-width : 768px) {
+            position: relative;
+        }
+
         &::before {
             content: '';
             display: inline-block;
             width: 180px;
             height: 1px;
-            background-color: rgba(255,0,0,0);
-            background-image: -webkit-gradient(linear,left top,right top,from(rgba(255,0,0,0)),color-stop(50%,#ccc),to(rgba(255,0,0,0)));
-            background-image: linear-gradient(to right,rgba(255,0,0,0),#ccc 50%,rgba(255,0,0,0));
+            background-color: rgba(252,189,19,0);
+            background-image: -webkit-gradient(linear,left top,right top,from(rgba(252,189,19,0)),color-stop(50%,$lightningYellow),to(rgba(252,189,19,0)));
+            background-image: linear-gradient(to right,rgba(252,189,19,0),$lightningYellow 50%,rgba(252,189,19,0));
             vertical-align: middle;
+
+            @media only screen and (max-width: 767.98px) {
+                position: absolute;
+                left: 35%;
+                bottom: -5px;
+                height: 2px;
+                width: 100px;
+            }
+
+            @media only screen and (min-width: 768px) and (max-width : 1024px) {
+                position: absolute;
+                left: 43%;
+                bottom: -5px;
+                height: 2px;
+                width: 100px;
+            }
         }
 
         &::after {
@@ -48,10 +68,14 @@
             display: inline-block;
             width: 180px;
             height: 1px;
-            background-color: rgba(255,0,0,0);
-            background-image: -webkit-gradient(linear,left top,right top,from(rgba(255,0,0,0)),color-stop(50%,#ccc),to(rgba(255,0,0,0)));
-            background-image: linear-gradient(to right,rgba(255,0,0,0),#ccc 50%,rgba(255,0,0,0));
+            background-color: rgba(252,189,19,0);
+            background-image: -webkit-gradient(linear,left top,right top,from(rgba(252,189,19,0)),color-stop(50%,$lightningYellow),to(rgba(252,189,19,0)));
+            background-image: linear-gradient(to right,rgba(252,189,19,0),$lightningYellow 50%,rgba(252,189,19,0));
             vertical-align: middle;
+
+            @media only screen and (max-width : 768px) {
+                display: none;
+            }
         }
     }
 

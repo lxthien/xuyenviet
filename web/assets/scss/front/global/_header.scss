@@ -11,7 +11,7 @@
             margin-right: 10px;
 
             @media only screen and (max-width: 767.98px) {
-                font-size: 14px;
+                font-size: 13px;
             }
         }
 
@@ -21,6 +21,12 @@
 
             &:hover {
                 text-decoration: none;
+            }
+        }
+
+        .header-email {
+            @media only screen and (max-width: 767.98px) {
+                float: right;
             }
         }
     }
