@@ -2,4 +2,4 @@ User-agent: *
 
 Disallow: /admin
 
-Sitemap: https://xaydungxuyenviet.com/sitemap.xml
+Sitemap: http://xaydungxuyenviet.com/sitemap.xml
