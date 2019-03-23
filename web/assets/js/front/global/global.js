@@ -46,7 +46,9 @@ function initProjectHotSlider() {
         minSlides: 1,
         maxSlides: 4,
         moveSlides: 1,
-        slideMargin: 30
+        slideMargin: 30,
+        touchEnabled: false,
+        autoHover: true
     });
 }
 
@@ -60,7 +62,9 @@ function initRelatedSlider() {
         minSlides: 1,
         maxSlides: 3,
         moveSlides: 1,
-        slideMargin: 20
+        slideMargin: 20,
+        touchEnabled: false,
+        autoHover: true
     });
 }
 
