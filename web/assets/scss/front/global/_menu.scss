@@ -1,5 +1,5 @@
 #nav {
-    background: $white;
+    background-color: $lightningYellow;
     z-index: 10000;
 
     .nav-container {
@@ -23,26 +23,43 @@
             padding-bottom: 0px;
             padding-top: 0px;
             justify-content: left;
+            min-height: auto;
     
             .navbar-header {
                 .navbar-brand {
-                    padding-top: 5px;
-                    padding-left: 0;
+                    padding: 5px 0;
+                    height: auto;
+
+                    @media only screen and (max-width : 768px) {
+                        padding-top: 5px;
+                        width: 85%;
+                        float: right;
+                        text-align: center;
+                    }
     
                     img {
-                        height: 90px;
+                        width: 100px;
     
                         @media only screen and (max-width : 768px) {
-                            height: 50px;
+                            width: 85px;
+                            margin: 0 auto;
+                            vertical-align: middle;
                         }
                     }
                 }
     
                 .navbar-toggle {
-                    border-color: $lightningYellow;
+                    border-color: $white;
+                    float: left;
+                    margin-right: 0px;
+                    padding: 8px 10px;
+
+                    &:focus {
+                        background-color: transparent !important;
+                    }
     
                     .icon-bar {
-                        background-color: $lightningYellow;
+                        background-color: $white;
                     }
                 }
             }
@@ -51,6 +68,7 @@
                 border-width: 0px;
                 box-shadow: none;
                 padding: 0;
+                position: relative;
     
                 @media only screen and (max-width: 767.98px) {
                     width: 100%;
@@ -75,7 +93,7 @@
                                 bottom: 0px;
                                 left: 0;
                                 height: 3px;
-                                background: $lightningYellow;
+                                background: $white;
                                 z-index: 10001;
                             }
                         }
@@ -88,38 +106,42 @@
                                 bottom: 0px;
                                 left: 0;
                                 height: 3px;
-                                background: $lightningYellow;
+                                background: $white;
                                 z-index: 10001;
                             }
                         }
                     }
     
                     a {
-                        padding: 40px 10px;
-                        color: $black;
+                        padding: 12px 15px;
+                        font-weight: 500;
                         font-size: 16px;
-                        font-family: 'Roboto Condensed', sans-serif;
                         text-transform: uppercase;
-                        font-weight: bold;
-                        letter-spacing: 0.5px;
+                        font-family: $robotoCondesed;
+                        color: $white;
+                        text-shadow: 0.2px 0.2px 0.2px $white;
 
                         &:focus, &:hover {
-                            background: $lightningYellow;
-                            color: $white;
+                            background: transparent;
                         }
     
                         @media only screen and (max-width: 768px) {
-                            padding: 10px 10px;
-                            font-size: 16px;
-                            color: $black;
+                            padding: 10px;
+                            font-size: 15px;
                             border-bottom: 1px dotted $geyser;
+                            color: $white;
+                            text-shadow: 0.2px 0.2px 0.2px $white;
+                        }
+
+                        i {
+                            margin-right: 0;
                         }
                     }
 
                     &.open {
                         a {
                             &:focus, &:hover {
-                                background: $lightningYellow;
+                                background: transparent;
                             }
                         }
                     }
@@ -135,8 +157,9 @@
 
                         ul.dropdown-menu {
                             border: none;
-                            padding: 0 10px;
+                            padding: 0 15px;
                             min-width: 200px;
+                            background: $white;
 
                             @media only screen and (max-width: 767.98px) {
                                 padding: 0 10px 0 30px;
@@ -158,15 +181,33 @@
     
                                 a {
                                     padding: 10px 0;
-                                    font-size: 15px;
-                                    font-weight: 500;
-    
-                                    &:focus, &:hover {
-                                        background: $white;
-                                        color: $black;
-                                    }
+                                    color: $black;
                                 }
                             }
+                        }
+                    }
+                }
+
+                .navbar-form {
+                    margin: 0;
+                    padding: 0;
+
+                    &.navbar-right {
+                        @media (min-width: 768px) and (max-width: 991.98px) {
+                            float: left !important;
+                        }
+                    }
+
+                    .form-control {
+                        height: 30px;
+                        border: none;
+                        margin: 7px 0;
+                        border-radius: 12px;
+                        width: 180px;
+                        font-size: 15px;
+
+                        @media only screen and (max-width: 768px) {
+                            width: 100%;
                         }
                     }
                 }
@@ -212,25 +253,29 @@
 
 #nav {
     &.navbar-fixed-top {
+        opacity: 0.9;
+
         .nav-container .navbar {
             min-height: auto;
         }
 
         .nav-container .navbar {
             .navbar-header .navbar-brand {
+                padding: 5px 0;
+
                 img {
-                    height: 50px;
+                    width: 85px;
+                    margin: 0 auto;
+                    vertical-align: middle;
                 }
             }
 
             .navbar-collapse {
                 ul li a {
-                    padding: 20px 10px;
+                    padding: 12px 15px;
 
                     @media only screen and (max-width: 767.98px) {
                         padding: 10px;
-                        font-size: 15px;
-                        font-weight: normal;
                     }
                 }
             }

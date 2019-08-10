@@ -1,4 +1,4 @@
-<div class="col-xs-12 col-sm-4 col-md-3 news-item">
+<div class="col-xs-12 col-sm-4 col-md-3 news-item {{ loop.index == 4 ? 'd-none' : '' }}">
     <div class="news-item-wrapper">
         <a class="media-thumb" title="{{ row.getTitle() }}" href="{{ path('news_show', {'slug': row.getUrl() }) }}">
             <img class="mr-3 img-thumbnail"

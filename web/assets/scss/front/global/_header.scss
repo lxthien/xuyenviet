@@ -1,8 +1,16 @@
 .header {
     padding: 0;
-    background: #353535;
+    background: $lightningYellow;
     color: $white;
     height: 38px;
+
+    @media only screen and (max-width: 767.98px) {
+        border-bottom: 1px solid $white;
+    }
+
+    @media (min-width: 768px) and (max-width: 991.98px) {
+        border-bottom: 1px solid $white;
+    }
 
     .col-md-6 {
         span {
@@ -35,6 +43,72 @@
     .header-social {
         a {
             padding: 0 5px;
+        }
+    }
+}
+
+.banner {
+    height: 150px;
+    font-family: $robotoCondesed;
+    background: $white;
+
+    #logo_top {
+        padding: 0;
+
+        #logo {
+            float: left;
+            padding: 0;
+
+            a {
+                img {
+                    padding: 5px 0;
+                    width: 152px;
+                }
+            }
+        }
+    }
+
+    .info-top {
+        margin-top: 39px;
+        overflow: hidden;
+
+        .wp10 {
+            width: 9%;
+            float: left;
+
+            .fa,
+            .fas {
+                font-size: 40px;
+                color: #2f2f2f;
+                padding-right: 10px;
+                border-right: 2px solid $primaryColor;
+            }
+        }
+
+        .wp90 {
+            width: 90%;
+            float: left;
+
+            .info-nd {
+                padding-left: 10px;
+
+                p {
+                    margin-bottom: 0;
+                    color: #2f2f2f;
+                    font-family: $robotoCondesed;
+                    font-size: 16px;
+                    font-weight: bold;
+                }
+
+                .tel {
+                    font-weight: bold;
+                    font-family: $robotoCondesed;
+                    font-size: 23px;
+                    line-height: 27px;
+                    color: #2f2f2f;
+                    margin-bottom: 3px;
+                }
+            }
         }
     }
 }

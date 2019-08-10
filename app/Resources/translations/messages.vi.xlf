@@ -100,23 +100,23 @@
             </trans-unit>
             <trans-unit id="action.edit">
                 <source>action.edit</source>
-                <target>Edit</target>
+                <target>Sửa</target>
             </trans-unit>
             <trans-unit id="action.edit_post">
                 <source>action.edit_post</source>
-                <target>Edit post</target>
+                <target>Sửa bài viết</target>
             </trans-unit>
             <trans-unit id="action.save">
                 <source>action.save</source>
-                <target>Save changes</target>
+                <target>Lưu thay đổi</target>
             </trans-unit>
             <trans-unit id="action.delete_post">
                 <source>action.delete_post</source>
-                <target>Delete post</target>
+                <target>Xóa bài viết</target>
             </trans-unit>
             <trans-unit id="delete_post_modal.title">
                 <source>delete_post_modal.title</source>
-                <target>Are you sure you want to delete this post?</target>
+                <target>Bạn có thực sự muốn xóa đối tượng này?</target>
             </trans-unit>
             <trans-unit id="delete_post_modal.body">
                 <source>delete_post_modal.body</source>
@@ -124,11 +124,11 @@
             </trans-unit>
             <trans-unit id="label.delete_post">
                 <source>label.delete_post</source>
-                <target>Delete post</target>
+                <target>Xóa bài viết</target>
             </trans-unit>
             <trans-unit id="label.cancel">
                 <source>label.cancel</source>
-                <target>Cancel</target>
+                <target>Bỏ qua</target>
             </trans-unit>
             <trans-unit id="action.create_post">
                 <source>action.create_post</source>
@@ -140,15 +140,15 @@
             </trans-unit>
             <trans-unit id="label.save_and_create_new">
                 <source>label.save_and_create_new</source>
-                <target>Save and create new</target>
+                <target>Lưu và tạo mới</target>
             </trans-unit>
             <trans-unit id="action.back_to_list">
                 <source>action.back_to_list</source>
-                <target>Back to the list</target>
+                <target>Quay về trang danh sách</target>
             </trans-unit>
             <trans-unit id="action.publish_comment">
                 <source>action.publish_comment</source>
-                <target>Publish comment</target>
+                <target>Hiển thị bình luận</target>
             </trans-unit>
             <trans-unit id="action.sign_in">
                 <source>action.sign_in</source>
@@ -164,15 +164,15 @@
             </trans-unit>
             <trans-unit id="action.created_successfully">
                 <source>action.created_successfully</source>
-                <target>Created successfully</target>
+                <target>Tạo mới thành công</target>
             </trans-unit>
             <trans-unit id="action.updated_successfully">
                 <source>action.updated_successfully</source>
-                <target>Updated successfully</target>
+                <target>Cập nhật thành công</target>
             </trans-unit>
             <trans-unit id="action.deleted_successfully">
                 <source>action.deleted_successfully</source>
-                <target>Deleted successfully</target>
+                <target>Xóa thành công</target>
             </trans-unit>
 
             <!-- Label -->
@@ -218,7 +218,7 @@
             </trans-unit>
             <trans-unit id="label.enable">
                 <source>label.enable</source>
-                <target>Enable</target>
+                <target>Hiển thị</target>
             </trans-unit>
             <trans-unit id="label.title">
                 <source>label.title</source>
@@ -270,7 +270,7 @@
             </trans-unit>
             <trans-unit id="label.status">
                 <source>label.status</source>
-                <target>Status</target>
+                <target>Tình trạng</target>
             </trans-unit>
 
             <!-- Categories -->
@@ -280,57 +280,57 @@
             </trans-unit>
             <trans-unit id="newscategory.created_successfully">
                 <source>newscategory.created_successfully</source>
-                <target>News Category created successfully!</target>
+                <target>Danh mục đã được tạo thành công!</target>
             </trans-unit>
             <trans-unit id="title.newscategory_new">
                 <source>title.newscategory_new</source>
-                <target>News Category New</target>
+                <target>Thêm danh mục</target>
             </trans-unit>
             <trans-unit id="action.create_newscategory">
                 <source>action.create_newscategory</source>
-                <target>Create News Category</target>
+                <target>Tạo danh mục</target>
             </trans-unit>
             <trans-unit id="label.create_newscategory">
                 <source>label.create_newscategory</source>
-                <target>Create News Category</target>
+                <target>Tạo danh mục</target>
             </trans-unit>
             <trans-unit id="title.edit_newscategory">
                 <source>title.edit_newscategory</source>
-                <target>Edit Category "%id%"</target>
+                <target>Sửa danh mục "%id%"</target>
             </trans-unit>
             <trans-unit id="newscategory.updated_successfully">
                 <source>newscategory.updated_successfully</source>
-                <target>News Category updated successfully!</target>
+                <target>Danh mục đã được cập nhật thành công!</target>
             </trans-unit>
             <trans-unit id="newscategory.deleted_successfully">
                 <source>newscategory.deleted_successfully</source>
-                <target>News Category deleted successfully!</target>
+                <target>Danh mục đã được xóa thành công!</target>
             </trans-unit>
 
             <!-- Posts -->
             <trans-unit id="title.news_list">
                 <source>title.news_list</source>
-                <target>News</target>
+                <target>Bài viết</target>
             </trans-unit>
             <trans-unit id="lable.news.title">
                 <source>lable.news.title</source>
-                <target>Title</target>
+                <target>Tiêu đề</target>
             </trans-unit>
             <trans-unit id="label.category">
                 <source>label.category</source>
-                <target>Category</target>
+                <target>Danh mục</target>
             </trans-unit>
             <trans-unit id="row.no_posts_found">
                 <source>row.no_posts_found</source>
-                <target>No posts found</target>
+                <target>Không tìm thấy bài viết</target>
             </trans-unit>
             <trans-unit id="title.news_new">
                 <source>title.news_new</source>
-                <target>News new</target>
+                <target>Thêm mới bài viết</target>
             </trans-unit>
             <trans-unit id="label.images">
                 <source>label.images</source>
-                <target>Images</target>
+                <target>Hình</target>
             </trans-unit>
             <trans-unit id="label.contents">
                 <source>label.contents</source>
@@ -338,39 +338,39 @@
             </trans-unit>
             <trans-unit id="label.create_news">
                 <source>label.create_news</source>
-                <target>Create news</target>
+                <target>Tạo mới</target>
             </trans-unit>
             <trans-unit id="title.edit_news">
                 <source>title.edit_news</source>
-                <target>Edit news #%id%</target>
+                <target>Sửa bài viết #%id%</target>
             </trans-unit>
 
             <!-- Comment -->
             <trans-unit id="title.comment_list">
                 <source>title.comment_list</source>
-                <target>Comment List</target>
+                <target>Danh sách bình luận</target>
             </trans-unit>
             <trans-unit id="label.response.on.post">
                 <source>label.response.on.post</source>
-                <target>Response to</target>
+                <target>Trả lời cho</target>
             </trans-unit>
             <trans-unit id="action.admin_new">
                 <source>action.admin_new</source>
-                <target>Create</target>
+                <target>Thêm mới</target>
             </trans-unit>
             <trans-unit id="title.comment_new">
                 <source>title.comment_new</source>
-                <target>Comment new</target>
+                <target>Thêm mới bình luận</target>
             </trans-unit>
             <trans-unit id="title.edit_comment">
                 <source>title.edit_comment</source>
-                <target>Edit Comment #%id%</target>
+                <target>Sửa bình luận #%id%</target>
             </trans-unit>
 
             <!-- Contact -->
             <trans-unit id="contact.title.list">
                 <source>contact.title.list</source>
-                <target>Contact List</target>
+                <target>Danh sách liên hệ</target>
             </trans-unit>
 
             <!-- Menu -->
@@ -380,23 +380,23 @@
             </trans-unit>
             <trans-unit id="menu.news">
                 <source>menu.news</source>
-                <target>Posts</target>
+                <target>Bài viết</target>
             </trans-unit>
             <trans-unit id="menu.pages">
                 <source>menu.pages</source>
-                <target>Pages</target>
+                <target>Trang</target>
             </trans-unit>
             <trans-unit id="menu.page_list">
                 <source>menu.page_list</source>
-                <target>All Pages</target>
+                <target>Danh sách trang</target>
             </trans-unit>
             <trans-unit id="menu.add_new">
                 <source>menu.add_new</source>
-                <target>Add New</target>
+                <target>Thêm mới</target>
             </trans-unit>
             <trans-unit id="menu.news_list">
                 <source>menu.news_list</source>
-                <target>All Posts</target>
+                <target>Danh sách bài viết</target>
             </trans-unit>
             <trans-unit id="menu.category_list">
                 <source>menu.category_list</source>
@@ -408,11 +408,11 @@
             </trans-unit>
             <trans-unit id="menu.comments">
                 <source>menu.comments</source>
-                <target>Comments</target>
+                <target>Bình luận</target>
             </trans-unit>
             <trans-unit id="menu.comment_list">
                 <source>menu.comment_list</source>
-                <target>Comment</target>
+                <target>Bình luận</target>
             </trans-unit>
             <trans-unit id="menu.banners">
                 <source>menu.banners</source>
@@ -428,27 +428,27 @@
             </trans-unit>
             <trans-unit id="menu.contact">
                 <source>menu.contact</source>
-                <target>Contacts</target>
+                <target>Liên hệ</target>
             </trans-unit>
             <trans-unit id="menu.users">
                 <source>menu.users</source>
-                <target>Users</target>
+                <target>Thành viên</target>
             </trans-unit>
             <trans-unit id="menu.users_list">
                 <source>menu.users_list</source>
-                <target>All Users</target>
+                <target>Danh sách thành viên</target>
             </trans-unit>
             <trans-unit id="title.users_list">
                 <source>title.users_list</source>
-                <target>Users</target>
+                <target>Thành viên</target>
             </trans-unit>
             <trans-unit id="menu.users_profile">
                 <source>menu.users_profile</source>
-                <target>Your profile</target>
+                <target>Thông tin của bạn</target>
             </trans-unit>
             <trans-unit id="menu.setting">
                 <source>menu.setting</source>
-                <target>Settings</target>
+                <target>Cài đặt</target>
             </trans-unit>
             <trans-unit id="menu.logout">
                 <source>menu.logout</source>

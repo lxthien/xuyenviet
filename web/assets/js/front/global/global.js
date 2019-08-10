@@ -80,7 +80,9 @@ function initNewsSlider() {
         minSlides: 5,
         maxSlides: 5,
         moveSlides: 1,
-        slideWidth: 375
+        slideWidth: 375,
+        touchEnabled: false,
+        autoHover: true
     });
 }
 
@@ -90,7 +92,7 @@ function initFixedMenu() {
         var $scrollUp = $('.td-scroll-up');
         var scroll = $(window).scrollTop();
     
-        if (scroll >= 42) {
+        if (scroll >= 190) {
             $nav.addClass("navbar-fixed-top");
             $scrollUp.removeClass("hidden");
         } else {
