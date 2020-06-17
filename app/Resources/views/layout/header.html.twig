@@ -30,17 +30,17 @@
         </div>
     </div>
 </div>
-<div class="banner d-none hidden-xs hidden-sm">
+<div class="banner hidden-xs hidden-sm">
     <div class="container">
         <div class="row">
-            <div class="col-md-3" id="logo_top">
+            <div class="col-sm-3 col-md-3" id="logo_top">
                 <div id="logo">								
                     <a href="{{ path('homepage') }}" title="{{ get_setting('siteName') }}">
                         <img alt="{{ get_setting('siteName') }}" src="{{ asset('assets/images/logo.jpg') }}">
                     </a>
                 </div>
             </div>
-            <div class="col-md-4">
+            <div class="col-sm-4 col-md-4">
                 <div class="info-top">
                     <div class="wp10">
                         <span><i class="fas fa-mobile-alt"></i></span>
@@ -54,8 +54,7 @@
                     </div>
                 </div>
             </div>
-
-            <div class="col-md-5">
+            <div class="col-sm-5 col-md-5">
                 <div class="info-top">
                     <div class="wp10">
                         <i class="fas fa-map-marker-alt"></i>
@@ -69,7 +68,17 @@
                     </div>
                 </div>
             </div>
-
+        </div>
+    </div>
+</div>
+<div class="logo-mobile hidden-sm hidden-md hidden-lg">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <a href="{{ path('homepage') }}" title="{{ get_setting('siteName') }}">
+                    <img src="{{ asset('assets/images/logo.jpg') }}" class="d-inline-block" alt="{{ get_setting('siteName') }}">
+                </a>
+            </div>
         </div>
     </div>
 </div>

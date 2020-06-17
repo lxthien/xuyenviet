@@ -32,6 +32,46 @@
     }
 }
 
+.slogin {
+    background-color: $lightningYellow;
+    padding: 15px 0;
+
+    @media only screen and (max-width: 768px) {
+        padding: 10px 0;
+    }
+
+    .slogin-title {
+        p {
+            margin-bottom: 0;
+            font-size: 19px;
+            font-family: $robotoCondesed;
+            text-transform: uppercase;
+            color: #ffffff;
+            text-shadow: 0.2px 0.2px 0.2px #ffffff;
+
+            @media only screen and (max-width: 768px) {
+                font-size: 16px;
+                text-align: center;
+            }
+        }
+
+        a {
+            font-size: 19px;
+            font-family: $robotoCondesed;
+            font-weight: bold;
+            text-transform: uppercase;
+            color: #ffffff;
+            text-shadow: 0.2px 0.2px 0.2px #ffffff;
+
+            @media only screen and (max-width: 768px) {
+                font-size: 16px;
+                text-align: center;
+                display: block;
+            }
+        }
+    }
+}
+
 .marquee {
     color: $black;
     height: 40px;
@@ -209,11 +249,12 @@
                         overflow: hidden;
                         text-overflow: ellipsis;
                         display: -webkit-box;
-                        line-height: 26px;
-                        max-height: 50px;
+                        line-height: 28px;
+                        max-height: 55px;
                         -webkit-line-clamp: 2;
                         -webkit-box-orient: vertical;
                         color: $black;
+                        text-align: center;
     
                         &:hover {
                             text-decoration: none;
@@ -225,7 +266,7 @@
                     font-size: 15px;
                     margin-bottom: 0;
                     line-height: 22px;
-                    text-align: justify;
+                    text-align: center;
                 }
             }
         }
