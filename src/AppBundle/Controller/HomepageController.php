@@ -8,6 +8,7 @@ use Symfony\Component\HttpFoundation\Request;
 
 use AppBundle\Entity\NewsCategory;
 use AppBundle\Entity\News;
+use AppBundle\Entity\Banner;
 
 class HomepageController extends Controller
 {
@@ -31,7 +32,7 @@ class HomepageController extends Controller
                             ->getRepository(News::class)
                             ->findBy(
                                 array('postType' => 'post', 'enable' => 1, 'category' => $category->getId()),
-                                array('viewCounts' => 'DESC'),
+                                array('createdAt' => 'DESC'),
                                 $listCategoriesOnHomepage[$i]["items"]
                             );
                     }
@@ -42,8 +43,16 @@ class HomepageController extends Controller
             }
         }
 
+        $banners = $this->getDoctrine()
+            ->getRepository(Banner::class)
+            ->findBy(
+                array('bannercategory' => 1),
+                array('createdAt' => 'DESC')
+            );
+
         return $this->render('homepage/index.html.twig', [
             'blocksOnHomepage' => $blocksOnHomepage,
+            'banners' => $banners,
             'showSlide' => true
         ]);
     }

@@ -2,28 +2,27 @@
     <div id="myCarousel" class="carousel slide" data-ride="carousel">
         <!-- Indicators -->
         <ol class="carousel-indicators">
-            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-            <li data-target="#myCarousel" data-slide-to="1" class=""></li>
+            {% for row in banners %}
+                <li data-target="#myCarousel" data-slide-to="{{ loop.index - 1 }}" class="{{ loop.first ? 'active' : '' }}"></li>
+            {% endfor %}
         </ol>
         <div class="carousel-inner" role="listbox">
-            <div class="item active">
-                <img src="{{ asset('assets/images/banner/sl-nha-2.jpg') }}" alt="Xây Dựng Xuyên Việt">
-                <div class="container">
-                    <div class="carousel-caption">
-                        <h2>Xây Dựng Xuyên Việt</h2>
-                        <p>Nâng tầm trải nghiệm ngôi nhà của bạn</p>
+            {% for row in banners %}
+                <div class="item {{ loop.first ? 'active' : '' }}">
+                    {% if (row.getUrl() != '') %}
+                        <a href="{{ row.getUrl() }}">
+                            <img src="{{ (vich_uploader_asset(row, 'imageFile') ? vich_uploader_asset(row, 'imageFile') : asset('assets/images/no-image.png')) }}" alt="{{ row.alt }}">
+                        </a>
+                    {% else %}
+                        <img src="{{ (vich_uploader_asset(row, 'imageFile') ? vich_uploader_asset(row, 'imageFile') : asset('assets/images/no-image.png')) }}" alt="{{ row.alt }}">
+                    {% endif %}
+                    <div class="container">
+                        <div class="carousel-caption">
+                            {{ row.caption|raw }}
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="item">
-                <img src="{{ asset('assets/images/banner/banner.jpg') }}" alt="Xây Dựng Xuyên Việt">
-                <div class="container">
-                    <div class="carousel-caption" style="color: #000000;">
-                        <h2>Xây Dựng Xuyên Việt</h2>
-                        <p>Sửa chữa nhà chung cư</p>
-                    </div>
-                </div>
-            </div>
+            {% endfor %}
         </div>
         <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
             <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>

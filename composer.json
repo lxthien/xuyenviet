@@ -18,6 +18,7 @@
         "php": ">=7.0",
         "ext-pdo_sqlite": "*",
         "blackknight467/star-rating-bundle": "^2.0",
+        "bugbuster/contao-visitors-bundle": "1.5.2.3",
         "dmishh/settings-bundle": "2.0.*@dev",
         "doctrine/doctrine-bundle": "^1.6",
         "doctrine/doctrine-cache-bundle": "^1.2",
