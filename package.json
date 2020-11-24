@@ -8,7 +8,7 @@
         "bxslider": "^4.2.14",
         "eonasdan-bootstrap-datetimepicker": "^4.17.47",
         "font-awesome": "^4.7.0",
-        "highlight.js": "^9.12.0",
+        "highlight.js": "^10.1.2",
         "imports-loader": "^0.7.1",
         "jquery": "^3.3.1",
         "jquery-validation": "^1.19.0",
