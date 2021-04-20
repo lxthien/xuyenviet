@@ -19,6 +19,7 @@
                                         <a class="nav-item nav-link" id="nav-seo-tab" data-toggle="tab" href="#nav-seo" role="tab" aria-controls="nav-seo" aria-selected="false">{% trans from 'settings' %}seo{% endtrans %}</a>
                                         <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">{% trans from 'settings' %}contact{% endtrans %}</a>
                                         <a class="nav-item nav-link" id="nav-social-networks-tab" data-toggle="tab" href="#nav-social-networks" role="tab" aria-controls="nav-social-networks" aria-selected="false">{% trans from 'settings' %}social_networks{% endtrans %}</a>
+                                        <a class="nav-item nav-link" id="nav-ads-tab" data-toggle="tab" href="#nav-ads" role="tab" aria-controls="nav-ads" aria-selected="false">Ads</a>
                                     </div>
                                 </nav>
                                 {{ form_start(settings_form) }}
@@ -110,7 +111,6 @@
                                             {{ form_widget(settings_form.hotLine2) }}
                                         </div>
                                     </div>
-
                                     <div class="tab-pane fade" id="nav-social-networks" role="tabpanel" aria-labelledby="nav-social-networks-tab">
                                         <div class="form-group">
                                             {{ form_label(settings_form.linkToFacebook) }}
@@ -133,7 +133,33 @@
                                             {{ form_widget(settings_form.linkToLinkedin) }}
                                         </div>
                                     </div>
-
+                                    <div class="tab-pane fade" id="nav-ads" role="tabpanel" aria-labelledby="nav-ads-tab">
+                                        <div class="form-group">
+                                            {{ form_label(settings_form.googleAds1) }}
+                                            {{ form_errors(settings_form.googleAds1) }}
+                                            {{ form_widget(settings_form.googleAds1) }}
+                                        </div>
+                                        <div class="form-group">
+                                            {{ form_label(settings_form.googleAds2) }}
+                                            {{ form_errors(settings_form.googleAds2) }}
+                                            {{ form_widget(settings_form.googleAds2) }}
+                                        </div>
+                                        <div class="form-group">
+                                            {{ form_label(settings_form.googleAds3) }}
+                                            {{ form_errors(settings_form.googleAds3) }}
+                                            {{ form_widget(settings_form.googleAds3) }}
+                                        </div>
+                                        <div class="form-group">
+                                            {{ form_label(settings_form.googleAds4) }}
+                                            {{ form_errors(settings_form.googleAds4) }}
+                                            {{ form_widget(settings_form.googleAds4) }}
+                                        </div>
+                                        <div class="form-group">
+                                            {{ form_label(settings_form.googleAds5) }}
+                                            {{ form_errors(settings_form.googleAds5) }}
+                                            {{ form_widget(settings_form.googleAds5) }}
+                                        </div>
+                                    </div>
                                     <input class="btn btn-primary" type="submit" value="{% trans from 'settings' %}save{% endtrans %}" />
                                 </div>
                                 {{ form_end(settings_form) }}
